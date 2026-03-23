@@ -1,0 +1,7 @@
+.nd-wh-full {
+  @apply w-full h-full;
+}
+
+.nd-fcc {
+  @apply flex items-center justify-center;
+}
