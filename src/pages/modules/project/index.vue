@@ -1,9 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="font-dtjt nd-wh-full">
-    <router-view />
-  </div>
+  <div>项目配置</div>
 </template>
 
 <style lang="scss" scoped></style>

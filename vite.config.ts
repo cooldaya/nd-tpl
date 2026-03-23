@@ -11,6 +11,7 @@ export default defineConfig({
   plugins: [
     VueRouter({
       // routesFolder, extensions, dts 等都可以在这里配
+      exclude: ['**/comps/**'],
     }),
     vue(),
     vueDevTools(),
@@ -19,6 +20,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@imgs': fileURLToPath(new URL('./src/assets/imgs', import.meta.url)),
     },
   },
 })

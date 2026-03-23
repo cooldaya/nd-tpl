@@ -41,6 +41,27 @@ declare module 'vue-router/auto-routes' {
       { path: ParamValue<false> },
       | never
     >,
+    'dashboard': RouteRecordInfo<
+      'dashboard',
+      '/modules/dashboard',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/modules/project/': RouteRecordInfo<
+      '/modules/project/',
+      '/modules/project',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/modules/system/': RouteRecordInfo<
+      '/modules/system/',
+      '/modules/system',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '404': RouteRecordInfo<
       '404',
       '/public/404',
@@ -77,6 +98,24 @@ declare module 'vue-router/auto-routes' {
     'src/pages/[...path].vue': {
       routes:
         | '/[...path]'
+      views:
+        | never
+    }
+    'src/pages/modules/dashboard/index.vue': {
+      routes:
+        | 'dashboard'
+      views:
+        | never
+    }
+    'src/pages/modules/project/index.vue': {
+      routes:
+        | '/modules/project/'
+      views:
+        | never
+    }
+    'src/pages/modules/system/index.vue': {
+      routes:
+        | '/modules/system/'
       views:
         | never
     }

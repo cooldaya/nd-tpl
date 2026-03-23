@@ -5,3 +5,23 @@
 .nd-fcc {
   @apply flex items-center justify-center;
 }
+
+.nd-bg-fill {
+  @apply bg-center bg-no-repeat bg-size-[100%_100%];
+}
+
+.nd-text-lg {
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+@theme {
+  --font-dtjt:
+    'DingTalkJinBuTi', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI',
+    Roboto, sans-serif;
+  --font-zygb:
+    'ZhenyanGB-Regular', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI',
+    Roboto, sans-serif;
+}

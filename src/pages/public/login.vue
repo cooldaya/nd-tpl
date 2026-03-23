@@ -2,7 +2,10 @@
 import { ref, reactive, useTemplateRef } from 'vue'
 import { defineFormColumns, defineFormMenuColumns, defineFormSubmit } from 'element-pro-components'
 import ArithmeticCaptcha from '@/components/public/ArithmeticCaptcha.vue'
+import { appApi } from '@/api/app-api'
+import { useAuthStore } from '@/stores/auth'
 import { ElMessage } from 'element-plus'
+import { useRouter } from 'vue-router'
 
 definePage({
   name: 'login',
@@ -91,12 +94,34 @@ const refData = reactive({
   }),
 })
 
+const authStore = useAuthStore()
+const router = useRouter()
+
 const handles = {
-  submit: defineFormSubmit((done, isValid) => {
-    if (!isValid) return done()
-    setTimeout(() => {
-      done()
-    }, 1200)
+  submit: defineFormSubmit(async (done, isValid) => {
+    const gcap = () => captchaElRef.value?.generateCaptcha()
+    if (!isValid) {
+      gcap()
+      return done()
+    }
+    // setTimeout(() => {
+    //   done()
+    // }, 1200)
+    //
+    const res = await appApi.auth.apiLogin({
+      username: refData.form.username,
+      password: refData.form.password,
+    })
+    if (!res.data) {
+      ElMessage.error('用户名或密码错误')
+      gcap()
+      return done()
+    }
+    await authStore.initLoginInfo(res.data)
+    done()
+    router.push({
+      name: 'dashboard',
+    })
   }),
 }
 </script>
