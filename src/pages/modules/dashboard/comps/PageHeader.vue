@@ -1,9 +1,47 @@
 <script setup lang="ts">
 import { useDateFormat, useNow } from '@vueuse/core'
-
+import { UserRound, UserRoundPen, Settings2, MonitorCog } from '@lucide/vue'
+import { useRouter } from 'vue-router'
+import { routes } from 'vue-router/auto-routes'
 const currentNow = useNow()
 const dateFormatted = useDateFormat(currentNow, 'YYYY-MM-DD dddd')
 const timeFormatted = useDateFormat(currentNow, 'HH:mm:ss')
+
+const router = useRouter()
+const popoverMenus = [
+  {
+    label: '个人中心',
+    icon: UserRoundPen,
+    cb: () => router.push('/user/profile'),
+  },
+  {
+    label: '项目配置',
+    icon: Settings2,
+    cb: () =>
+      router.push({
+        name: 'project-settings',
+      }),
+  },
+  {
+    label: '系统配置',
+    icon: MonitorCog,
+    cb: () =>
+      router.push({
+        name: 'system-settings',
+      }),
+  },
+]
+
+const handles = {
+  handleMenuClick: (menuItem: (typeof popoverMenus)[number]) => {
+    menuItem.cb()
+  },
+}
+
+const dashboardRoutes =
+  routes
+    .find((item) => item.path === '/modules')
+    ?.children?.find((item) => item.name === 'dashboard')?.children || []
 </script>
 
 <template>
@@ -19,9 +57,32 @@ const timeFormatted = useDateFormat(currentNow, 'HH:mm:ss')
           >石柱-小水电站生态流量监测系统</span
         >
       </div>
-      <div class="flex-1 flex items-center justify-end">1</div>
+      <div class="flex-1 flex items-center justify-end">
+        <el-popover placement="bottom-end" trigger="click" effect="dark" popper-class="!px-0 !py-1">
+          <template #reference>
+            <UserRound color="#e5e7eb" />
+          </template>
+          <div>
+            <div
+              v-for="menu in popoverMenus"
+              :key="menu.label"
+              class="flex items-center gap-2 nd-clickable hover:bg-gray-900 duration-200 px-3 py-1.5"
+              @click="handles.handleMenuClick(menu)"
+            >
+              <component :is="menu.icon" class="w-4 h-4" />
+              <span>{{ menu.label }}</span>
+            </div>
+          </div>
+        </el-popover>
+      </div>
     </div>
-    <div>1</div>
+    <div class="mx-auto w-fit mt-5.5 flex gap-x-">
+      <router-link v-for="routeItem in dashboardRoutes" :to="routeItem" v-slot="{ isActive }">
+        <el-button :type="isActive ? 'primary' : undefined">
+          {{ routeItem.meta?.title || routeItem.name }}
+        </el-button>
+      </router-link>
+    </div>
   </div>
 </template>
 

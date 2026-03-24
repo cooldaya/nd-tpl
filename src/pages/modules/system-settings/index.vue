@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+definePage({
+  name: 'system-settings',
+})
+</script>
 
 <template>
   <div>系统配置</div>

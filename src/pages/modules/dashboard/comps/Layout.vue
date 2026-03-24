@@ -3,7 +3,7 @@ import PageHeader from './PageHeader.vue'
 </script>
 
 <template>
-  <div class="nd-wh-full bg-[url('@imgs/dashboard/common/p1-2.png')] nd-bg-fill">
+  <div class="nd-wh-full bg-[url('@imgs/dashboard/common/p1-2.png')] nd-bg-fill flex flex-col">
     <PageHeader />
     <div class="min-h-0 flex-1">
       <slot></slot>

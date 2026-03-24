@@ -16,13 +16,14 @@
     "api": "pnpm ts-node --project tsconfig.node.json scripts/generate-api.ts"
   },
   "dependencies": {
-    "@element-plus/icons-vue": "^2.3.2",
+    "@lucide/vue": "^1.0.2",
     "@tailwindcss/vite": "^4.2.2",
     "@types/lodash-es": "^4.17.12",
     "@vueuse/core": "^14.2.1",
     "axios": "^1.13.6",
     "element-pro-components": "^1.4.1",
     "jsencrypt": "^3.5.4",
+    "localforage": "^1.10.0",
     "lodash-es": "^4.17.23",
     "pinia": "^3.0.4",
     "tailwindcss": "^4.2.2",

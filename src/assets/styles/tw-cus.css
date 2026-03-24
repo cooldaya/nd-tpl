@@ -17,6 +17,10 @@
   text-fill-color: transparent;
 }
 
+.nd-clickable {
+  @apply cursor-pointer pointer-events-auto;
+}
+
 @theme {
   --font-dtjt:
     'DingTalkJinBuTi', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI',

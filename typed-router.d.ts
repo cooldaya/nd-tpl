@@ -46,18 +46,65 @@ declare module 'vue-router/auto-routes' {
       '/modules/dashboard',
       Record<never, never>,
       Record<never, never>,
-      | never
+      | '/modules/dashboard/data-board'
+      | '/modules/dashboard/monitor-video'
     >,
-    '/modules/project/': RouteRecordInfo<
-      '/modules/project/',
-      '/modules/project',
+    '/modules/dashboard/data-board': RouteRecordInfo<
+      '/modules/dashboard/data-board',
+      '/modules/dashboard/data-board',
       Record<never, never>,
       Record<never, never>,
       | never
     >,
-    '/modules/system/': RouteRecordInfo<
-      '/modules/system/',
-      '/modules/system',
+    '/modules/dashboard/monitor-video': RouteRecordInfo<
+      '/modules/dashboard/monitor-video',
+      '/modules/dashboard/monitor-video',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'project-settings': RouteRecordInfo<
+      'project-settings',
+      '/modules/project-settings',
+      Record<never, never>,
+      Record<never, never>,
+      | '/modules/project-settings/base-infos'
+      | '/modules/project-settings/base-infos/hydropower-station'
+      | '/modules/project-settings/base-infos/information-public'
+      | '/modules/project-settings/monitoring-configuration'
+    >,
+    '/modules/project-settings/base-infos': RouteRecordInfo<
+      '/modules/project-settings/base-infos',
+      '/modules/project-settings/base-infos',
+      Record<never, never>,
+      Record<never, never>,
+      | '/modules/project-settings/base-infos/hydropower-station'
+      | '/modules/project-settings/base-infos/information-public'
+    >,
+    '/modules/project-settings/base-infos/hydropower-station': RouteRecordInfo<
+      '/modules/project-settings/base-infos/hydropower-station',
+      '/modules/project-settings/base-infos/hydropower-station',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/modules/project-settings/base-infos/information-public': RouteRecordInfo<
+      '/modules/project-settings/base-infos/information-public',
+      '/modules/project-settings/base-infos/information-public',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/modules/project-settings/monitoring-configuration': RouteRecordInfo<
+      '/modules/project-settings/monitoring-configuration',
+      '/modules/project-settings/monitoring-configuration',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'system-settings': RouteRecordInfo<
+      'system-settings',
+      '/modules/system-settings',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -101,21 +148,65 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/modules/dashboard/index.vue': {
+    'src/pages/modules/dashboard.vue': {
       routes:
+        | '/modules/dashboard/data-board'
+        | '/modules/dashboard/monitor-video'
         | 'dashboard'
       views:
-        | never
+        | 'default'
     }
-    'src/pages/modules/project/index.vue': {
+    'src/pages/modules/dashboard/data-board.vue': {
       routes:
-        | '/modules/project/'
+        | '/modules/dashboard/data-board'
       views:
         | never
     }
-    'src/pages/modules/system/index.vue': {
+    'src/pages/modules/dashboard/monitor-video.vue': {
       routes:
-        | '/modules/system/'
+        | '/modules/dashboard/monitor-video'
+      views:
+        | never
+    }
+    'src/pages/modules/project-settings.vue': {
+      routes:
+        | '/modules/project-settings/base-infos'
+        | '/modules/project-settings/base-infos/hydropower-station'
+        | '/modules/project-settings/base-infos/information-public'
+        | '/modules/project-settings/monitoring-configuration'
+        | 'project-settings'
+      views:
+        | 'default'
+    }
+    'src/pages/modules/project-settings/base-infos.vue': {
+      routes:
+        | '/modules/project-settings/base-infos'
+        | '/modules/project-settings/base-infos/hydropower-station'
+        | '/modules/project-settings/base-infos/information-public'
+      views:
+        | 'default'
+    }
+    'src/pages/modules/project-settings/base-infos/hydropower-station.vue': {
+      routes:
+        | '/modules/project-settings/base-infos/hydropower-station'
+      views:
+        | never
+    }
+    'src/pages/modules/project-settings/base-infos/information-public.vue': {
+      routes:
+        | '/modules/project-settings/base-infos/information-public'
+      views:
+        | never
+    }
+    'src/pages/modules/project-settings/monitoring-configuration.vue': {
+      routes:
+        | '/modules/project-settings/monitoring-configuration'
+      views:
+        | never
+    }
+    'src/pages/modules/system-settings/index.vue': {
+      routes:
+        | 'system-settings'
       views:
         | never
     }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DashboardLayout from './comps/Layout.vue'
+import DashboardLayout from './dashboard/comps/Layout.vue'
 definePage({
   name: 'dashboard',
 })
@@ -7,7 +7,9 @@ definePage({
 
 <template>
   <DashboardLayout>
-    <div class="nd-wh-full">业务模块主页</div>
+    <div class="nd-wh-full">
+      <router-view />
+    </div>
   </DashboardLayout>
 </template>
 
