@@ -1,22 +1,23 @@
-import { generateApi } from "swagger-typescript-api";
-import path from "path";
-import { fileURLToPath } from "url";
+import { generateApi } from 'swagger-typescript-api'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import { projectConfig } from '../project-config.ts'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 async function run() {
   await generateApi({
     // ========== 输入/输出 ==========
-    url: "http://113.249.105.12:9931/netcore/swagger/Default/swagger.json",
-    output: path.resolve(__dirname, "../src/api/generated"),
+    url: projectConfig.swaggerUrl,
+    output: path.resolve(__dirname, '../src/api/generated'),
 
     // ========== 文件分割配置 ==========
     modular: true, // 启用模块化（按Tag分文件）
-    fileName: "Api", // 主文件名（如禁用modular会生成单一文件）
+    fileName: 'Api', // 主文件名（如禁用modular会生成单一文件）
 
     // ========== HTTP客户端配置 ==========
-    httpClientType: "axios",
+    httpClientType: 'axios',
     singleHttpClient: true, // 所有模块共享一个HTTP客户端实例
 
     // ========== 类型抽取配置（拆分Api.ts的关键）==========
@@ -27,7 +28,7 @@ async function run() {
     extractEnums: true, // 提取枚举为单独文件
 
     // ========== API类名相关 ==========
-    apiClassName: "ApiClient", // 自定义API类名
+    apiClassName: 'ApiClient', // 自定义API类名
 
     // ========== 代码优化 ==========
     sortTypes: true, // 按字母排序类型
@@ -35,8 +36,8 @@ async function run() {
     addReadonly: true, // 给类属性添加readonly
 
     // ========== 类型前后缀 ==========
-    typePrefix: "", // 类型前缀（如 "I"）
-    typeSuffix: "", // 类型后缀（如 "DTO"）
+    typePrefix: '', // 类型前缀（如 "I"）
+    typeSuffix: '', // 类型后缀（如 "DTO"）
 
     // ========== 响应处理 ==========
     unwrapResponseData: true, // 自动解包响应数据
@@ -50,7 +51,7 @@ async function run() {
     // ========== 调试 ==========
     silent: false, // 显示详细日志
     debug: false, // 调试模式
-  });
+  })
 }
 
-run();
+run()

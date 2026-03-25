@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { ref, reactive, useTemplateRef } from 'vue'
+import { reactive, useTemplateRef } from 'vue'
 import { defineFormColumns, defineFormMenuColumns, defineFormSubmit } from 'element-pro-components'
 import ArithmeticCaptcha from '@/components/public/ArithmeticCaptcha.vue'
 import { appApi } from '@/api/app-api'
 import { useAuthStore } from '@/stores/auth'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
+import { projectConfig } from '~/project-config'
 
 definePage({
   name: 'login',
@@ -132,18 +133,20 @@ const handles = {
       <div class="w-60 relative">
         <img src="@/assets/imgs/public/p1.png" class="w-full h-full object-cover" />
         <div class="font-bold text-xl absolute left-0.5 top-6 text-[26px] leading-[1.6] p-4">
-          <span class="text-[#1e4c40]"> 石柱<br />小水电站生态流量监测系统 </span>
+          <span class="text-[#1e4c40]">
+            {{ projectConfig.title }}<br />{{ projectConfig.subTitle }}
+          </span>
         </div>
       </div>
       <div class="w-140 pl-14 text-2xl font-medium pr-20">
-        <div class="pt-24">Welcome</div>
+        <div class="pt-24 text-black">Welcome</div>
         <div class="mt-6">
           <pro-form
             v-model="refData.form"
             :columns="refData.columns"
             label-width="0"
             @submit="handles.submit"
-            label-position="left"
+            label-position="top"
             :menu="refData.menu"
           >
             <template #form-valicode="{ value, setValue }">

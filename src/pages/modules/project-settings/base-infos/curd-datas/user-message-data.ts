@@ -34,24 +34,6 @@ const createCurdData = () => {
   const curdStaticData = {
     columns: defineCrudColumns([
       {
-        label: 'userId',
-        prop: 'userId',
-        component: 'el-input',
-        add: true,
-        edit: true,
-        search: true,
-        detail: true,
-      },
-      {
-        label: 'messageId',
-        prop: 'messageId',
-        component: 'el-input',
-        add: true,
-        edit: true,
-        search: true,
-        detail: true,
-      },
-      {
         label: '是否已读',
         prop: 'isRead',
         component: 'el-input',
@@ -108,15 +90,6 @@ const createCurdData = () => {
       {
         label: '类型',
         prop: 'type',
-        component: 'el-input',
-        add: true,
-        edit: true,
-        search: true,
-        detail: true,
-      },
-      {
-        label: '实体id',
-        prop: 'recordId',
         component: 'el-input',
         add: true,
         edit: true,

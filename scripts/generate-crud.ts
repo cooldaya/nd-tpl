@@ -4,11 +4,12 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import ejs from 'ejs'
 import { kebabCase, camelCase, upperFirst } from 'lodash-es'
+import { projectConfig } from '../project-config.ts'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const SWAGGER_URL = 'http://113.249.105.12:9931/netcore/swagger/Default/swagger.json'
+const SWAGGER_URL = projectConfig.swaggerUrl
 
 function toPascalCase(str: string) {
   return upperFirst(camelCase(str))
@@ -53,19 +54,18 @@ async function generate() {
     const columns = Object.entries(properties)
       .map(([key, value]) => {
         // Skip common technical fields if needed, but for now we include all
-        if (
-          [
-            'id',
-            'createTime',
-            'updateTime',
-            'isDeleted',
-            'createdPerson',
-            'updatedPerson',
-            'createdAt',
-            'updatedAt',
-          ].includes(key)
-        )
-          return null
+        const condition1 = [
+          'id',
+          'createTime',
+          'updateTime',
+          'isDeleted',
+          'createdPerson',
+          'updatedPerson',
+          'createdAt',
+          'updatedAt',
+        ].includes(key)
+        const condition2 = (key + '').toLowerCase().endsWith('id')
+        if (condition1 || condition2) return null
 
         return {
           label: value.description || key,

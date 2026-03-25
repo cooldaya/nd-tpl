@@ -25,8 +25,8 @@ const { curdRefData, curdStaticData, curdHandles, paginationRefData } = createCu
         @delete="curdHandles.deleteRow"
         :search-props="curdStaticData.searchProps"
         show-overflow-tooltip
+        height="calc(100% - 100px)"
       />
-
       <el-pagination
         size="small"
         background

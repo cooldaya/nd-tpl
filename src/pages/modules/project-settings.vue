@@ -2,6 +2,7 @@
 import { routes } from 'vue-router/auto-routes'
 import type { RouteRecordRaw } from 'vue-router'
 import { formatRoutes } from '@/utils/route-tool'
+import { projectConfig } from '~/project-config'
 
 definePage({
   name: 'project-settings',
@@ -18,7 +19,19 @@ const projectSettingsRoutes = formatRoutes(rawRoutes, '/modules/project-settings
 </script>
 
 <template>
-  <pro-layout class="docs-layout" :routes="projectSettingsRoutes" />
+  <div class="nd-wh-full flex flex-col">
+    <div class="h-20 flex items-center justify-between px-5 border-b border-[#a0a2a4]">
+      <div class="font-zygb text-2xl">
+        <span class="text-[#4b86eb]">{{ projectConfig.title }} </span>
+        <span class="text-[#606266]">- {{ projectConfig.subTitle }}</span>
+      </div>
+    </div>
+    <pro-layout :routes="projectSettingsRoutes" class="min-h-0 flex-1">
+      <template #header-left>
+        <span>header-left</span>
+      </template>
+    </pro-layout>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

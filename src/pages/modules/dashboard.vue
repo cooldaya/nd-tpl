@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import DashboardLayout from './dashboard/comps/Layout.vue'
 definePage({
   name: 'dashboard',
 })
