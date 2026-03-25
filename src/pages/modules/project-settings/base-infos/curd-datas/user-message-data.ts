@@ -11,22 +11,22 @@ import {
 import { get } from 'lodash-es'
 import { gApi } from '@/api/gapi'
 import type {
-  ReservoirProjectVO,
-  ReservoirProjectFO,
-  FurionResultReservoirProject,
-  FurionResultReservoirProjectVO,
+  UserMessageVO,
+  UserMessageFO,
+  FurionResultUserMessage,
+  FurionResultUserMessageVO,
 } from '@/api/generated/data-contracts'
 
-const createCurdData1 = () => {
+const createCurdData = () => {
   const curdRefData = reactive({
     form: {},
     searchForm: {},
     detail: {},
-    tableData: [] as ReservoirProjectVO[],
+    tableData: [] as UserMessageVO[],
   })
 
   const paginationRefData = reactive({
-    total: 50,
+    total: 0,
     pageSize: 10,
     current: 1,
   })
@@ -34,8 +34,8 @@ const createCurdData1 = () => {
   const curdStaticData = {
     columns: defineCrudColumns([
       {
-        label: '水电站名称',
-        prop: 'technicsName',
+        label: 'userId',
+        prop: 'userId',
         component: 'el-input',
         add: true,
         edit: true,
@@ -43,20 +43,84 @@ const createCurdData1 = () => {
         detail: true,
       },
       {
-        label: '编码',
-        prop: 'stationCode',
+        label: 'messageId',
+        prop: 'messageId',
         component: 'el-input',
         add: true,
+        edit: true,
         search: true,
         detail: true,
       },
       {
-        label: '建设地点',
-        prop: 'constructionSite',
+        label: '是否已读',
+        prop: 'isRead',
         component: 'el-input',
         add: true,
-        search: true,
         edit: true,
+        search: true,
+        detail: true,
+      },
+      {
+        label: '是否已删除',
+        prop: 'isDelete',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+      },
+      {
+        label: '读取时间',
+        prop: 'readTime',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+      },
+      {
+        label: '删除时间',
+        prop: 'deleteTime',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+      },
+      {
+        label: '标题',
+        prop: 'title',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+      },
+      {
+        label: '内容',
+        prop: 'content',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+      },
+      {
+        label: '类型',
+        prop: 'type',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+      },
+      {
+        label: '实体id',
+        prop: 'recordId',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
         detail: true,
       },
     ]),
@@ -70,17 +134,12 @@ const createCurdData1 = () => {
       searchResetText: '重置',
       submitText: '添加',
       resetText: '重置',
-      detail: (row) => row.date !== '2016-05-02',
-      edit: (row) => row.date !== '2016-05-03',
-      del: (row) => row.date !== '2016-05-04',
-      // searchReset: false,
-      // detailProps: { type: 'success', plain: true },
-      // editProps: { type: 'default', plain: true },
-      // delProps: { type: 'info', plain: true },
+      detail: (row) => true,
+      edit: (row) => true,
+      del: (row) => true,
     }),
     searchProps: {
       gutter: 20,
-      // inline: true,
     },
   }
 
@@ -108,11 +167,11 @@ const createCurdData1 = () => {
       const reqFuncMap: Record<
         string,
         (
-          data: ReservoirProjectFO,
-        ) => Promise<FurionResultReservoirProjectVO | FurionResultReservoirProject>
+          data: UserMessageFO,
+        ) => Promise<FurionResultUserMessageVO | FurionResultUserMessage>
       > = {
-        add: gApi.apiReservoirProjectAddPost,
-        edit: gApi.apiReservoirProjectEditPost,
+        add: gApi.apiUserMessageAddPost,
+        edit: gApi.apiUserMessageEditPost,
       }
       const reqFunc = reqFuncMap[type]
 
@@ -132,7 +191,7 @@ const createCurdData1 = () => {
       }
     }),
 
-    async deleteRow(row: ReservoirProjectVO) {
+    async deleteRow(row: UserMessageVO) {
       try {
         await ElMessageBox.confirm('确认要删除该条数据吗？', '警告', {
           confirmButtonText: '确定',
@@ -143,7 +202,7 @@ const createCurdData1 = () => {
         return ElMessage.info('已取消删除')
       }
       try {
-        const res = await gApi.apiReservoirProjectRemovePost({
+        const res = await gApi.apiUserMessageRemovePost({
           id: row.id,
         })
         ElMessage.success('删除成功')
@@ -153,13 +212,13 @@ const createCurdData1 = () => {
       }
     },
     async paginationChange(currentPage: number, pageSize: number) {
-      const res = await gApi.apiReservoirProjectPagedListPost({
+      const res = await gApi.apiUserMessagePagedListPost({
         pageIndex: currentPage,
         pageSize: pageSize,
         ...curdRefData.searchForm,
       })
       paginationRefData.total = get(res, 'data.total', 0)
-      curdRefData.tableData = markRaw(get(res, 'data.items', []) as ReservoirProjectVO[])
+      curdRefData.tableData = markRaw(get(res, 'data.items', []) as UserMessageVO[])
     },
   }
 
@@ -186,4 +245,4 @@ const createCurdData1 = () => {
   }
 }
 
-export { createCurdData1 }
+export { createCurdData }

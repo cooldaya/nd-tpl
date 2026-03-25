@@ -70,7 +70,7 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | '/modules/project-settings/base-infos'
       | '/modules/project-settings/base-infos/hydropower-station'
-      | '/modules/project-settings/base-infos/information-public'
+      | '/modules/project-settings/base-infos/user-message'
       | '/modules/project-settings/monitoring-configuration'
     >,
     '/modules/project-settings/base-infos': RouteRecordInfo<
@@ -79,7 +79,7 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       Record<never, never>,
       | '/modules/project-settings/base-infos/hydropower-station'
-      | '/modules/project-settings/base-infos/information-public'
+      | '/modules/project-settings/base-infos/user-message'
     >,
     '/modules/project-settings/base-infos/hydropower-station': RouteRecordInfo<
       '/modules/project-settings/base-infos/hydropower-station',
@@ -88,9 +88,9 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/modules/project-settings/base-infos/information-public': RouteRecordInfo<
-      '/modules/project-settings/base-infos/information-public',
-      '/modules/project-settings/base-infos/information-public',
+    '/modules/project-settings/base-infos/user-message': RouteRecordInfo<
+      '/modules/project-settings/base-infos/user-message',
+      '/modules/project-settings/base-infos/user-message',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -172,7 +172,7 @@ declare module 'vue-router/auto-routes' {
       routes:
         | '/modules/project-settings/base-infos'
         | '/modules/project-settings/base-infos/hydropower-station'
-        | '/modules/project-settings/base-infos/information-public'
+        | '/modules/project-settings/base-infos/user-message'
         | '/modules/project-settings/monitoring-configuration'
         | 'project-settings'
       views:
@@ -182,7 +182,7 @@ declare module 'vue-router/auto-routes' {
       routes:
         | '/modules/project-settings/base-infos'
         | '/modules/project-settings/base-infos/hydropower-station'
-        | '/modules/project-settings/base-infos/information-public'
+        | '/modules/project-settings/base-infos/user-message'
       views:
         | 'default'
     }
@@ -192,9 +192,9 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/modules/project-settings/base-infos/information-public.vue': {
+    'src/pages/modules/project-settings/base-infos/user-message.vue': {
       routes:
-        | '/modules/project-settings/base-infos/information-public'
+        | '/modules/project-settings/base-infos/user-message'
       views:
         | never
     }

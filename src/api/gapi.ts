@@ -2,6 +2,7 @@ import { HttpClient } from './generated/http-client'
 import { Api } from './generated/Api'
 import { tokenManager } from '@/utils/token-manager'
 import router from '@/router'
+import { ElMessage } from 'element-plus'
 
 interface SecurityDataType {
   accessToken: string
@@ -59,7 +60,10 @@ gApi.http.instance.interceptors.request.use(
 gApi.http.instance.interceptors.response.use(
   (response) => {
     // 响应拦截器
-    console.log('Response:', response)
+    if (response.data.statusCode !== 200) {
+      ElMessage.error(response.data.message)
+      throw new Error(response.data.message)
+    }
     return response
   },
   (error) => Promise.reject(error),

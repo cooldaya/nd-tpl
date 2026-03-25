@@ -11,54 +11,39 @@ import {
 import { get } from 'lodash-es'
 import { gApi } from '@/api/gapi'
 import type {
-  ReservoirProjectVO,
-  ReservoirProjectFO,
-  FurionResultReservoirProject,
-  FurionResultReservoirProjectVO,
+  <%= entityName %>VO,
+  <%= entityName %>FO,
+  FurionResult<%= entityName %>,
+  FurionResult<%= entityName %>VO,
 } from '@/api/generated/data-contracts'
 
-const createCurdData1 = () => {
+const createCurdData = () => {
   const curdRefData = reactive({
     form: {},
     searchForm: {},
     detail: {},
-    tableData: [] as ReservoirProjectVO[],
+    tableData: [] as <%= entityName %>VO[],
   })
 
   const paginationRefData = reactive({
-    total: 50,
+    total: 0,
     pageSize: 10,
     current: 1,
   })
 
   const curdStaticData = {
     columns: defineCrudColumns([
+<% columns.forEach(col => { -%>
       {
-        label: '水电站名称',
-        prop: 'technicsName',
-        component: 'el-input',
-        add: true,
-        edit: true,
-        search: true,
-        detail: true,
+        label: '<%= col.label %>',
+        prop: '<%= col.prop %>',
+        component: '<%= col.component %>',
+        add: <%= col.add %>,
+        edit: <%= col.edit %>,
+        search: <%= col.search %>,
+        detail: <%= col.detail %>,
       },
-      {
-        label: '编码',
-        prop: 'stationCode',
-        component: 'el-input',
-        add: true,
-        search: true,
-        detail: true,
-      },
-      {
-        label: '建设地点',
-        prop: 'constructionSite',
-        component: 'el-input',
-        add: true,
-        search: true,
-        edit: true,
-        detail: true,
-      },
+<% }) -%>
     ]),
     menu: defineCrudMenuColumns({
       label: '操作',
@@ -70,17 +55,12 @@ const createCurdData1 = () => {
       searchResetText: '重置',
       submitText: '添加',
       resetText: '重置',
-      detail: (row) => row.date !== '2016-05-02',
-      edit: (row) => row.date !== '2016-05-03',
-      del: (row) => row.date !== '2016-05-04',
-      // searchReset: false,
-      // detailProps: { type: 'success', plain: true },
-      // editProps: { type: 'default', plain: true },
-      // delProps: { type: 'info', plain: true },
+      detail: (row) => true,
+      edit: (row) => true,
+      del: (row) => true,
     }),
     searchProps: {
       gutter: 20,
-      // inline: true,
     },
   }
 
@@ -108,11 +88,11 @@ const createCurdData1 = () => {
       const reqFuncMap: Record<
         string,
         (
-          data: ReservoirProjectFO,
-        ) => Promise<FurionResultReservoirProjectVO | FurionResultReservoirProject>
+          data: <%= entityName %>FO,
+        ) => Promise<FurionResult<%= entityName %>VO | FurionResult<%= entityName %>>
       > = {
-        add: gApi.apiReservoirProjectAddPost,
-        edit: gApi.apiReservoirProjectEditPost,
+        add: gApi.api<%= entityName %>AddPost,
+        edit: gApi.api<%= entityName %>EditPost,
       }
       const reqFunc = reqFuncMap[type]
 
@@ -132,7 +112,7 @@ const createCurdData1 = () => {
       }
     }),
 
-    async deleteRow(row: ReservoirProjectVO) {
+    async deleteRow(row: <%= entityName %>VO) {
       try {
         await ElMessageBox.confirm('确认要删除该条数据吗？', '警告', {
           confirmButtonText: '确定',
@@ -143,7 +123,7 @@ const createCurdData1 = () => {
         return ElMessage.info('已取消删除')
       }
       try {
-        const res = await gApi.apiReservoirProjectRemovePost({
+        const res = await gApi.api<%= entityName %>RemovePost({
           id: row.id,
         })
         ElMessage.success('删除成功')
@@ -153,13 +133,13 @@ const createCurdData1 = () => {
       }
     },
     async paginationChange(currentPage: number, pageSize: number) {
-      const res = await gApi.apiReservoirProjectPagedListPost({
+      const res = await gApi.api<%= entityName %>PagedListPost({
         pageIndex: currentPage,
         pageSize: pageSize,
         ...curdRefData.searchForm,
       })
       paginationRefData.total = get(res, 'data.total', 0)
-      curdRefData.tableData = markRaw(get(res, 'data.items', []) as ReservoirProjectVO[])
+      curdRefData.tableData = markRaw(get(res, 'data.items', []) as <%= entityName %>VO[])
     },
   }
 
@@ -186,4 +166,4 @@ const createCurdData1 = () => {
   }
 }
 
-export { createCurdData1 }
+export { createCurdData }
