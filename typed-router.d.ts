@@ -72,6 +72,7 @@ declare module 'vue-router/auto-routes' {
       | '/modules/project-settings/base-infos/hydropower-station'
       | '/modules/project-settings/base-infos/user-message'
       | '/modules/project-settings/monitoring-configuration'
+      | 'workbench'
     >,
     '/modules/project-settings/base-infos': RouteRecordInfo<
       '/modules/project-settings/base-infos',
@@ -98,6 +99,13 @@ declare module 'vue-router/auto-routes' {
     '/modules/project-settings/monitoring-configuration': RouteRecordInfo<
       '/modules/project-settings/monitoring-configuration',
       '/modules/project-settings/monitoring-configuration',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'workbench': RouteRecordInfo<
+      'workbench',
+      '/modules/project-settings/workbench',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -175,6 +183,7 @@ declare module 'vue-router/auto-routes' {
         | '/modules/project-settings/base-infos/user-message'
         | '/modules/project-settings/monitoring-configuration'
         | 'project-settings'
+        | 'workbench'
       views:
         | 'default'
     }
@@ -201,6 +210,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/modules/project-settings/monitoring-configuration.vue': {
       routes:
         | '/modules/project-settings/monitoring-configuration'
+      views:
+        | never
+    }
+    'src/pages/modules/project-settings/workbench.vue': {
+      routes:
+        | 'workbench'
       views:
         | never
     }
