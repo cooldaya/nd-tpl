@@ -12,19 +12,21 @@ interface TabItem {
   closable: boolean
 }
 
+const workStationName = 'work-station'
+
 export const useNavTabsStore = defineStore('tabs', () => {
   // 1. 初始化页签 (通常包含一个不关闭的工作台)
   const tabsList = ref<TabItem[]>([
     {
       title: '工作台',
-      path: '/modules/project-settings/workbench',
-      name: 'workbench',
+      path: `/modules/project-settings/${workStationName}`,
+      name: workStationName,
       closable: false,
     },
   ])
 
   // 2. 缓存的组件名称列表 (用于 keep-alive)
-  const keepAliveIncludes = ref<string[]>(['workbench'])
+  const keepAliveIncludes = ref<string[]>([workStationName])
 
   // 辅助函数：根据路径获取页签索引
   const getTabIndex = (path: string) => tabsList.value.findIndex((item) => item.path === path)
@@ -68,7 +70,7 @@ export const useNavTabsStore = defineStore('tabs', () => {
     // 3. 如果关闭的是当前激活的页签，则跳转到最后一个页签
     if (isActive) {
       const lastTab = tabsList.value[tabsList.value.length - 1]
-      router.push(lastTab?.path || { name: 'workbench' })
+      router.push(lastTab?.path || { name: workStationName })
     }
   }
 
@@ -94,7 +96,7 @@ export const useNavTabsStore = defineStore('tabs', () => {
       const isCurrentExist = reservedTabs.some((t) => t.path === router.currentRoute.value.path)
       if (!isCurrentExist) {
         const lastTab = reservedTabs[reservedTabs.length - 1]
-        router.push(lastTab?.path || { name: 'workbench' })
+        router.push(lastTab?.path || { name: workStationName })
       }
     }
 

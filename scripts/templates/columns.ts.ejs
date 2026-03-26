@@ -1,0 +1,19 @@
+import { defineCrudColumns } from 'element-pro-components'
+
+<% entities.forEach(function(entity) { -%>
+/** <%= entity.entityName %> 的列定义 */
+export const <%= entity.varName %> = defineCrudColumns([
+<% entity.columns.forEach(function(col, index) { -%>
+  {
+    label: '<%= col.label %>',
+    prop: '<%= col.prop %>',
+    component: '<%= col.component %>',
+    add: <%= col.add %>,
+    edit: <%= col.edit %>,
+    search: <%= col.search %>,
+    detail: <%= col.detail %>,
+  }<%= index < entity.columns.length - 1 ? ',' : '' %>
+<% }) -%>
+])
+
+<% }) -%>

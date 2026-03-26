@@ -12,6 +12,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AeProFom: typeof import('./src/components/modules/AeProFom.vue')['default']
+    AeProForm: typeof import('./src/components/modules/AeProForm.vue')['default']
     ArithmeticCaptcha: typeof import('./src/components/public/ArithmeticCaptcha.vue')['default']
     DashboardHeader: typeof import('./src/components/modules/dashboard/DashboardHeader.vue')['default']
     DashboardLayout: typeof import('./src/components/modules/dashboard/DashboardLayout.vue')['default']

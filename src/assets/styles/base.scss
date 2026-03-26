@@ -1,0 +1,25 @@
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --pro-layout-height: 100%;
+}
+
+$menu-alignments: (
+  '': flex-end,
+  '.menu-center': center,
+  '.menu-left': flex-start,
+  '.menu-between': space-between,
+);
+
+@each $modifier, $justify in $menu-alignments {
+  .pro-form#{$modifier} {
+    .pro-form-menu .el-form-item__content {
+      display: flex;
+      justify-content: $justify;
+    }
+  }
+}

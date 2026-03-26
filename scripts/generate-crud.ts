@@ -48,7 +48,6 @@ async function generate() {
       console.error(`Error: Schema ${entityName}VO not found in swagger.`)
       process.exit(1)
     }
-    debugger
 
     const properties = (voSchema.properties || {}) as Record<string, SwaggerProperty>
     const columns = Object.entries(properties)

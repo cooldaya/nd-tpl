@@ -14,7 +14,8 @@
     "lint:eslint": "eslint . --fix --cache",
     "format": "prettier --write --experimental-cli src/",
     "api": "pnpm ts-node --project tsconfig.node.json scripts/generate-api.ts",
-    "crud": "pnpm ts-node --project tsconfig.node.json scripts/generate-crud.ts"
+    "crud": "pnpm ts-node --project tsconfig.node.json scripts/generate-crud.ts",
+    "columns": "pnpm ts-node --project tsconfig.node.json scripts/generate-columns.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",

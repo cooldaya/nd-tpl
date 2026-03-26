@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { reactive, useTemplateRef } from 'vue'
-import { defineFormColumns, defineFormMenuColumns, defineFormSubmit } from 'element-pro-components'
+import { defineFormColumns, defineFormSubmit } from 'element-pro-components'
 import ArithmeticCaptcha from '@/components/public/ArithmeticCaptcha.vue'
 import { appApi } from '@/api/app-api'
 import { useAuthStore } from '@/stores/auth'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { projectConfig } from '~/project-config'
+import type { IFormMenuColumns } from 'element-pro-components'
 
 definePage({
   name: 'login',
@@ -76,7 +77,7 @@ const refData = reactive({
       },
     },
   ]),
-  menu: defineFormMenuColumns({
+  menu: {
     submitText: '登录',
     submitProps: {
       size: 'large',
@@ -92,7 +93,7 @@ const refData = reactive({
         width: '200px',
       },
     },
-  }),
+  } as IFormMenuColumns,
 })
 
 const authStore = useAuthStore()
@@ -148,6 +149,7 @@ const handles = {
             @submit="handles.submit"
             label-position="top"
             :menu="refData.menu"
+            class="menu-between"
           >
             <template #form-valicode="{ value, setValue }">
               <div class="flex items-center w-full">

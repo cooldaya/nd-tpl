@@ -1,8 +1,6 @@
-import { useLibs } from './use-libs'
-import './assets/styles/main.css'
-import './assets/styles/element.scss'
 import { createApp } from 'vue'
 import App from './App.vue'
+import { useLibs } from './use-libs'
 
 const app = createApp(App)
 useLibs(app)

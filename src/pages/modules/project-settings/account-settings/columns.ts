@@ -1,0 +1,98 @@
+import { defineCrudColumns } from 'element-pro-components'
+
+/** User 的列定义 */
+export const userColumns = defineCrudColumns([
+  {
+    label: '姓名',
+    prop: 'name',
+    component: 'el-input',
+    add: true,
+    edit: true,
+    search: true,
+    detail: true,
+  },
+  {
+    label: '邮箱',
+    prop: 'email',
+    component: 'el-input',
+    add: true,
+    edit: true,
+    search: true,
+    detail: true,
+  },
+  {
+    label: '身份证号码',
+    prop: 'idcode',
+    component: 'el-input',
+    add: true,
+    edit: true,
+    search: true,
+    detail: true,
+  },
+  {
+    label: '性别',
+    prop: 'sex',
+    component: 'pro-radio',
+    add: true,
+    edit: true,
+    search: true,
+    detail: true,
+    props: {
+      data: [
+        {
+          label: '男',
+          value: '1',
+        },
+        {
+          label: '女',
+          value: '2',
+        },
+      ],
+    },
+  },
+  {
+    label: '民族',
+    prop: 'nation',
+    component: 'el-input',
+    add: true,
+    edit: true,
+    search: true,
+    detail: true,
+  },
+  {
+    label: '出生日期',
+    prop: 'birthday',
+    component: 'el-input',
+    add: true,
+    edit: true,
+    search: true,
+    detail: true,
+  },
+  {
+    label: '手机号',
+    prop: 'mobile',
+    component: 'el-input',
+    add: true,
+    edit: true,
+    search: true,
+    detail: true,
+  },
+  {
+    label: '地址',
+    prop: 'address',
+    component: 'el-input',
+    add: true,
+    edit: true,
+    search: true,
+    detail: true,
+  },
+  {
+    label: '组织机构名称',
+    prop: 'organizationName',
+    component: 'el-input',
+    add: true,
+    edit: true,
+    search: true,
+    detail: true,
+  },
+])

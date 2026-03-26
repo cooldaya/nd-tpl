@@ -26,6 +26,7 @@ const { curdRefData, curdStaticData, curdHandles, paginationRefData } = createCu
         :search-props="curdStaticData.searchProps"
         show-overflow-tooltip
         height="calc(100% - 100px)"
+        stripe
       />
       <el-pagination
         size="small"

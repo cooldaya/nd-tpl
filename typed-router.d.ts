@@ -74,7 +74,7 @@ declare module 'vue-router/auto-routes' {
       | '/modules/project-settings/monitoring-configuration'
       | 'account-info'
       | 'account-settings'
-      | 'workbench'
+      | 'work-station'
     >,
     'account-settings': RouteRecordInfo<
       'account-settings',
@@ -119,9 +119,9 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    'workbench': RouteRecordInfo<
-      'workbench',
-      '/modules/project-settings/workbench',
+    'work-station': RouteRecordInfo<
+      'work-station',
+      '/modules/project-settings/work-station',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -208,7 +208,7 @@ declare module 'vue-router/auto-routes' {
         | 'account-info'
         | 'account-settings'
         | 'project-settings'
-        | 'workbench'
+        | 'work-station'
       views:
         | 'default'
     }
@@ -251,9 +251,9 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/modules/project-settings/workbench.vue': {
+    'src/pages/modules/project-settings/work-station.vue': {
       routes:
-        | 'workbench'
+        | 'work-station'
       views:
         | never
     }

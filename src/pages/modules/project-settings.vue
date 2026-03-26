@@ -10,11 +10,11 @@ definePage({
     title: '项目管理',
   },
   redirect: {
-    name: 'workbench',
+    name: 'work-station',
   },
 })
 
-const hiddenRouteNames = ['workbench', 'account-settings']
+const hiddenRouteNames = ['work-station', 'account-settings']
 
 const rawRoutes = (routes
   .find((item) => item.path === '/modules')
@@ -31,11 +31,11 @@ const projectSettingsRoutes = formatRoutes(rawRoutes, '/modules/project-settings
   <div class="nd-wh-full flex flex-col">
     <div class="h-20 flex items-center justify-between px-5 border-b border-[#a0a2a4]">
       <div class="font-zygb text-2xl">
-        <span class="text-[#4b86eb]">{{ projectConfig.title }} </span>
+        <span class="text-[var(--el-color-primary)]">{{ projectConfig.title }} </span>
         <span class="text-[#606266]">- {{ projectConfig.subTitle }}</span>
       </div>
       <div>
-        <UserPopperAvatar color="#4b86eb" />
+        <UserPopperAvatar color="var(--el-color-primary)" />
       </div>
     </div>
     <pro-layout :routes="projectSettingsRoutes" class="min-h-0 flex-1">
