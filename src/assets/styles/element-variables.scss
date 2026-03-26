@@ -1,0 +1,16 @@
+// 1. 覆盖变量
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #42b983,
+      // 绿色主题种子色
+    ),
+    'success': (
+      'base': #21ba45,
+    ),
+  ),
+  // 也可以改圆角
+  $border-radius: (
+      'base': 4px,
+    )
+);

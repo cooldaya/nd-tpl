@@ -72,7 +72,23 @@ declare module 'vue-router/auto-routes' {
       | '/modules/project-settings/base-infos/hydropower-station'
       | '/modules/project-settings/base-infos/user-message'
       | '/modules/project-settings/monitoring-configuration'
+      | 'account-info'
+      | 'account-settings'
       | 'workbench'
+    >,
+    'account-settings': RouteRecordInfo<
+      'account-settings',
+      '/modules/project-settings/account-settings',
+      Record<never, never>,
+      Record<never, never>,
+      | 'account-info'
+    >,
+    'account-info': RouteRecordInfo<
+      'account-info',
+      '/modules/project-settings/account-settings/account-info',
+      Record<never, never>,
+      Record<never, never>,
+      | never
     >,
     '/modules/project-settings/base-infos': RouteRecordInfo<
       '/modules/project-settings/base-infos',
@@ -131,6 +147,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/test-page': RouteRecordInfo<
+      '/test-page',
+      '/test-page',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
   }
 
   /**
@@ -182,10 +205,25 @@ declare module 'vue-router/auto-routes' {
         | '/modules/project-settings/base-infos/hydropower-station'
         | '/modules/project-settings/base-infos/user-message'
         | '/modules/project-settings/monitoring-configuration'
+        | 'account-info'
+        | 'account-settings'
         | 'project-settings'
         | 'workbench'
       views:
         | 'default'
+    }
+    'src/pages/modules/project-settings/account-settings.vue': {
+      routes:
+        | 'account-info'
+        | 'account-settings'
+      views:
+        | 'default'
+    }
+    'src/pages/modules/project-settings/account-settings/account-info.vue': {
+      routes:
+        | 'account-info'
+      views:
+        | never
     }
     'src/pages/modules/project-settings/base-infos.vue': {
       routes:
@@ -234,6 +272,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/public/login-page.vue': {
       routes:
         | 'login'
+      views:
+        | never
+    }
+    'src/pages/test-page.vue': {
+      routes:
+        | '/test-page'
       views:
         | never
     }

@@ -1,55 +1,11 @@
 <script setup lang="ts">
 import { useDateFormat, useNow } from '@vueuse/core'
-import EpUserFilled from '~icons/ep/user-filled'
-import EpUser from '~icons/ep/user'
-import EpSetUp from '~icons/ep/set-up'
-import EpSetting from '~icons/ep/setting'
-import EpSwitchButton from '~icons/ep/switch-button'
-import { useRouter } from 'vue-router'
+
 import { routes } from 'vue-router/auto-routes'
-import { securityDataManager } from '@/utils/security-data-manager'
+
 const currentNow = useNow()
 const dateFormatted = useDateFormat(currentNow, 'YYYY-MM-DD dddd')
 const timeFormatted = useDateFormat(currentNow, 'HH:mm:ss')
-
-const router = useRouter()
-const popoverMenus = [
-  {
-    label: '个人中心',
-    icon: EpUser,
-    cb: () => router.push('/user/profile'),
-  },
-  {
-    label: '项目配置',
-    icon: EpSetUp,
-    cb: () =>
-      router.push({
-        name: 'project-settings',
-      }),
-  },
-  {
-    label: '系统配置',
-    icon: EpSetting,
-    cb: () =>
-      router.push({
-        name: 'system-settings',
-      }),
-  },
-  {
-    label: '退出登录',
-    icon: EpSwitchButton,
-    cb: () => {
-      securityDataManager.clear()
-      router.push({ name: 'login' })
-    },
-  },
-]
-
-const handles = {
-  handleMenuClick: (menuItem: (typeof popoverMenus)[number]) => {
-    menuItem.cb()
-  },
-}
 
 const dashboardRoutes =
   routes
@@ -71,22 +27,7 @@ const dashboardRoutes =
         >
       </div>
       <div class="flex-1 flex items-center justify-end">
-        <el-popover placement="bottom-end" trigger="click" effect="dark" popper-class="!px-0 !py-1">
-          <template #reference>
-            <EpUserFilled />
-          </template>
-          <div>
-            <div
-              v-for="menu in popoverMenus"
-              :key="menu.label"
-              class="flex items-center gap-2 nd-clickable hover:bg-gray-900 duration-200 px-3 py-1.5"
-              @click="handles.handleMenuClick(menu)"
-            >
-              <component :is="menu.icon" class="w-4 h-4" />
-              <span>{{ menu.label }}</span>
-            </div>
-          </div>
-        </el-popover>
+        <UserPopperAvatar />
       </div>
     </div>
     <div class="mx-auto w-fit mt-5.5 flex gap-x-">

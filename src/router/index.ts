@@ -46,4 +46,5 @@ router.afterEach(() => {
   NProgress.done() // 结束
 })
 
+console.log(routes)
 export default router

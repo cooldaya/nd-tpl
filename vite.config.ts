@@ -45,4 +45,11 @@ export default defineConfig({
       '@imgs': fileURLToPath(new URL('./src/assets/imgs', import.meta.url)),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/assets/styles/element-variables.scss" as *;`,
+      },
+    },
+  },
 })

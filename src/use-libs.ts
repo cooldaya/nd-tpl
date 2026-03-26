@@ -1,6 +1,5 @@
 import { createPinia } from 'pinia'
 import 'nprogress/nprogress.css'
-import 'element-plus/dist/index.css'
 import 'element-pro-components/lib/styles/index'
 import ElementPlus from 'element-plus'
 import ElementPro from 'element-pro-components'

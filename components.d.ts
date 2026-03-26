@@ -11,24 +11,16 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AeProFom: typeof import('./src/components/modules/AeProFom.vue')['default']
     ArithmeticCaptcha: typeof import('./src/components/public/ArithmeticCaptcha.vue')['default']
     DashboardHeader: typeof import('./src/components/modules/dashboard/DashboardHeader.vue')['default']
     DashboardLayout: typeof import('./src/components/modules/dashboard/DashboardLayout.vue')['default']
-    ElInput: typeof import('element-plus/es')['ElInput']
-    ElPagination: typeof import('element-plus/es')['ElPagination']
-    IAntDesignTableOutlined: typeof import('~icons/ant-design/table-outlined')['default']
     IEpClose: typeof import('~icons/ep/close')['default']
-    IEpLeft: typeof import('~icons/ep/left')['default']
     IEpRight: typeof import('~icons/ep/right')['default']
     IEpSwitch: typeof import('~icons/ep/switch')['default']
-    Layout: typeof import('./src/components/modules/dashboard/Layout.vue')['default']
     NavMultiTabs: typeof import('./src/components/modules/NavMultiTabs.vue')['default']
-    PageHeader: typeof import('./src/components/modules/dashboard/PageHeader.vue')['default']
-    ProCard: typeof import('element-pro-components')['ProCard']
-    ProCrud: typeof import('element-pro-components')['ProCrud']
-    ProForm: typeof import('element-pro-components')['ProForm']
-    ProLayout: typeof import('element-pro-components')['ProLayout']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UserPopperAvatar: typeof import('./src/components/modules/dashboard/UserPopperAvatar.vue')['default']
   }
 }
