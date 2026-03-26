@@ -4,8 +4,10 @@ import EpUserFilled from '~icons/ep/user-filled'
 import EpUser from '~icons/ep/user'
 import EpSetUp from '~icons/ep/set-up'
 import EpSetting from '~icons/ep/setting'
+import EpSwitchButton from '~icons/ep/switch-button'
 import { useRouter } from 'vue-router'
 import { routes } from 'vue-router/auto-routes'
+import { securityDataManager } from '@/utils/security-data-manager'
 const currentNow = useNow()
 const dateFormatted = useDateFormat(currentNow, 'YYYY-MM-DD dddd')
 const timeFormatted = useDateFormat(currentNow, 'HH:mm:ss')
@@ -33,6 +35,14 @@ const popoverMenus = [
         name: 'system-settings',
       }),
   },
+  {
+    label: '退出登录',
+    icon: EpSwitchButton,
+    cb: () => {
+      securityDataManager.clear()
+      router.push({ name: 'login' })
+    },
+  },
 ]
 
 const handles = {
@@ -44,7 +54,7 @@ const handles = {
 const dashboardRoutes =
   routes
     .find((item) => item.path === '/modules')
-    ?.children?.find((item) => item.name === 'dashboard')?.children || []
+    ?.children?.find((item) => item.name === 'dashboard-main')?.children || []
 </script>
 
 <template>

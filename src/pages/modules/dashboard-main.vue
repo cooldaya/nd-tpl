@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePage({
-  name: 'dashboard',
+  name: 'dashboard-main',
 })
 </script>
 

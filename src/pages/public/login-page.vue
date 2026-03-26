@@ -121,7 +121,7 @@ const handles = {
     await authStore.initLoginInfo(res.data)
     done()
     router.push({
-      name: 'dashboard',
+      name: 'dashboard-main',
     })
   }),
 }

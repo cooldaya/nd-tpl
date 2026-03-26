@@ -1,13 +1,9 @@
 import { HttpClient } from './generated/http-client'
 import { Api } from './generated/Api'
-import { tokenManager } from '@/utils/token-manager'
 import router from '@/router'
 import { ElMessage } from 'element-plus'
-
-interface SecurityDataType {
-  accessToken: string
-  refreshToken: string
-}
+import type { SecurityDataType } from './types'
+import { securityDataManager } from '@/utils/security-data-manager'
 
 const customHttpClient = new HttpClient<SecurityDataType>({
   baseURL: 'http://113.249.105.12:9931/netcore',
@@ -17,31 +13,11 @@ const customHttpClient = new HttpClient<SecurityDataType>({
   },
   securityWorker: async (securityData) => {
     // 自定义认证逻辑
-    const headers: Record<string, string> = {}
-    const currenttokenIsExpired = await tokenManager.currenttokenIsExpired()
-    if (currenttokenIsExpired) {
-      const refreshToken = await tokenManager.getRefreshToken()
-      if (refreshToken) {
-        headers['X-Authorization'] = `Bearer ${refreshToken}`
-      } else {
-        router.push({
-          name: 'login',
-        })
-      }
-    } else {
-      const accessToken = await tokenManager.getAccessToken()
-      headers['Authorization'] = `Bearer ${accessToken}`
-    }
-
+    const headers = await securityDataManager.getSecurityHeaders()
     return {
       headers,
     }
   },
-})
-// 设置认证数据
-customHttpClient.setSecurityData({
-  accessToken: 'your-token',
-  refreshToken: 'refresh-token',
 })
 
 // 使用单客户端模式创建 API 实例

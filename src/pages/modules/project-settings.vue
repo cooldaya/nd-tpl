@@ -30,7 +30,7 @@ const projectSettingsRoutes = formatRoutes(rawRoutes, '/modules/project-settings
 <template>
   <div class="nd-wh-full flex flex-col">
     <div class="h-20 flex items-center justify-between px-5 border-b border-[#a0a2a4]">
-      <div class="font-zygb text-2xl" @click="$router.push({ name: 'dashboard' })">
+      <div class="font-zygb text-2xl" @click="$router.push({ name: 'dashboard-main' })">
         <span class="text-[#4b86eb]">{{ projectConfig.title }} </span>
         <span class="text-[#606266]">- {{ projectConfig.subTitle }}</span>
       </div>

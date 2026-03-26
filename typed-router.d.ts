@@ -41,24 +41,24 @@ declare module 'vue-router/auto-routes' {
       { path: ParamValue<false> },
       | never
     >,
-    'dashboard': RouteRecordInfo<
-      'dashboard',
-      '/modules/dashboard',
+    'dashboard-main': RouteRecordInfo<
+      'dashboard-main',
+      '/modules/dashboard-main',
       Record<never, never>,
       Record<never, never>,
-      | '/modules/dashboard/data-board'
-      | '/modules/dashboard/monitor-video'
+      | '/modules/dashboard-main/data-board'
+      | '/modules/dashboard-main/monitor-video'
     >,
-    '/modules/dashboard/data-board': RouteRecordInfo<
-      '/modules/dashboard/data-board',
-      '/modules/dashboard/data-board',
+    '/modules/dashboard-main/data-board': RouteRecordInfo<
+      '/modules/dashboard-main/data-board',
+      '/modules/dashboard-main/data-board',
       Record<never, never>,
       Record<never, never>,
       | never
     >,
-    '/modules/dashboard/monitor-video': RouteRecordInfo<
-      '/modules/dashboard/monitor-video',
-      '/modules/dashboard/monitor-video',
+    '/modules/dashboard-main/monitor-video': RouteRecordInfo<
+      '/modules/dashboard-main/monitor-video',
+      '/modules/dashboard-main/monitor-video',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -126,7 +126,7 @@ declare module 'vue-router/auto-routes' {
     >,
     'login': RouteRecordInfo<
       'login',
-      '/public/login',
+      '/public/login-page',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -156,23 +156,23 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/modules/dashboard.vue': {
+    'src/pages/modules/dashboard-main.vue': {
       routes:
-        | '/modules/dashboard/data-board'
-        | '/modules/dashboard/monitor-video'
-        | 'dashboard'
+        | '/modules/dashboard-main/data-board'
+        | '/modules/dashboard-main/monitor-video'
+        | 'dashboard-main'
       views:
         | 'default'
     }
-    'src/pages/modules/dashboard/data-board.vue': {
+    'src/pages/modules/dashboard-main/data-board.vue': {
       routes:
-        | '/modules/dashboard/data-board'
+        | '/modules/dashboard-main/data-board'
       views:
         | never
     }
-    'src/pages/modules/dashboard/monitor-video.vue': {
+    'src/pages/modules/dashboard-main/monitor-video.vue': {
       routes:
-        | '/modules/dashboard/monitor-video'
+        | '/modules/dashboard-main/monitor-video'
       views:
         | never
     }
@@ -231,7 +231,7 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/public/login.vue': {
+    'src/pages/public/login-page.vue': {
       routes:
         | 'login'
       views:

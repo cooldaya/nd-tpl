@@ -11,6 +11,9 @@ import Components from 'unplugin-vue-components/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    port: 9846,
+  },
   plugins: [
     VueRouter({
       // routesFolder, extensions, dts 等都可以在这里配
