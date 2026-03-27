@@ -1,4 +1,4 @@
-import { reactive, markRaw, computed } from 'vue'
+import { reactive, markRaw, computed, ref } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import {
   defineCrudColumns,
@@ -6,8 +6,9 @@ import {
   defineCrudSearch,
   defineCrudBeforeOpen,
   defineCrudMenuColumns,
-  type ICrudProps,
 } from 'element-pro-components'
+
+import type { CrudColumn, ICrudProps, ICrudMenuColumns } from 'element-pro-components'
 import { get } from 'lodash-es'
 import { gApi } from '@/api/gapi'
 import type {
@@ -25,6 +26,10 @@ const createCurdData = () => {
     tableData: [] as <%= entityName %>VO[],
   })
 
+  const menuRefData = reactive({
+    searchFormExpand: false,
+  })
+
   const paginationRefData = reactive({
     total: 0,
     pageSize: 10,
@@ -32,38 +37,48 @@ const createCurdData = () => {
   })
 
   const curdStaticData = {
-    columns: defineCrudColumns([
-<% columns.forEach(col => { -%>
-      {
-        label: '<%= col.label %>',
-        prop: '<%= col.prop %>',
-        component: '<%= col.component %>',
-        add: <%= col.add %>,
-        edit: <%= col.edit %>,
-        search: <%= col.search %>,
-        detail: <%= col.detail %>,
-        span: 12,
-      },
-<% }) -%>
-    ]),
-    menu: defineCrudMenuColumns({
-      label: '操作',
-      addText: '新增',
-      detailText: '详情',
-      editText: '编辑',
-      delText: '删除',
-      searchText: '搜索',
-      searchResetText: '重置',
-      submitText: '添加',
-      resetText: '重置',
-      detail: (row) => true,
-      edit: (row) => true,
-      del: (row) => true,
-    }),
     searchProps: {
       gutter: 20,
     },
   }
+  const refColumns = ref<CrudColumn[]>([
+<% columns.forEach(col => { -%>
+    {
+      label: '<%= col.label %>',
+      prop: '<%= col.prop %>',
+      component: '<%= col.component %>',
+      add: <%= col.add %>,
+      edit: <%= col.edit %>,
+      search: <%= col.search %>,
+      detail: <%= col.detail %>,
+      span: 12,
+    },
+<% }) -%>
+  ])
+
+  const refSearchColumns = computed(() => {
+    return refColumns.value
+      .filter((item: CrudColumn) => item.search)
+      .map((item) => ({
+        ...item,
+        required: false,
+      }))
+  })
+
+  const refMenu = ref<ICrudMenuColumns>({
+    label: '操作',
+    addText: '新增',
+    detailText: '详情',
+    editText: '编辑',
+    delText: '删除',
+    searchText: '搜索',
+    searchResetText: '重置',
+    submitText: '添加',
+    resetText: '重置',
+    detail: (row) => true,
+    edit: (row) => true,
+    del: (row) => true,
+  })
 
   const curdHandles = {
     beforeOpen: defineCrudBeforeOpen((done, type, row) => {
@@ -75,7 +90,7 @@ const createCurdData = () => {
       done()
     }),
 
-    search: defineCrudSearch(async (done, isValid, invalidFields) => {
+    search: defineCrudSearch(async (done, _isValid, _invalidFields) => {
       try {
         await curdHandles.paginationChange(
           paginationRefData.currentPage,
@@ -88,12 +103,10 @@ const createCurdData = () => {
       }
     }),
 
-    submit: defineCrudSubmit(async (close, done, type, isValid, invalidFields) => {
+    submit: defineCrudSubmit(async (close, done, type, _isValid, _invalidFields) => {
       const reqFuncMap: Record<
         string,
-        (
-          data: <%= entityName %>FO,
-        ) => Promise<FurionResult<%= entityName %>VO | FurionResult<%= entityName %>>
+        (data: <%= entityName %>FO) => Promise<FurionResult<%= entityName %>VO | FurionResult<%= entityName %>>
       > = {
         add: gApi.api<%= entityName %>AddPost,
         edit: gApi.api<%= entityName %>EditPost,
@@ -105,7 +118,7 @@ const createCurdData = () => {
         return
       }
       try {
-        const res = await reqFunc(curdRefData.form)
+        await reqFunc(curdRefData.form)
         ElMessage.success('操作成功')
         close()
         await curdHandles.paginationChange(
@@ -127,10 +140,11 @@ const createCurdData = () => {
           type: 'warning',
         })
       } catch (e) {
+        console.log(e)
         return ElMessage.info('已取消删除')
       }
       try {
-        const res = await gApi.api<%= entityName %>RemovePost({
+        await gApi.api<%= entityName %>RemovePost({
           id: row.id,
         })
         ElMessage.success('删除成功')
@@ -157,9 +171,19 @@ const createCurdData = () => {
 
   // 配置文档请看 https://tolking.github.io/element-pro-components/zh-CN/components/crud
 
+  const filterdColumns = computed(() =>
+    refColumns.value.map((item, index) => {
+      return {
+        ...item,
+        search: item.search === false ? false : menuRefData.searchFormExpand ? true : index < 3,
+      }
+    }),
+  )
+
   const crudProps = computed<Partial<ICrudProps>>(() => ({
-    columns: curdStaticData.columns,
-    menu: curdStaticData.menu,
+    columns: filterdColumns.value,
+    searchColumns: refSearchColumns.value,
+    menu: refMenu.value,
     data: curdRefData.tableData,
     detail: curdRefData.detail,
     beforeOpen: curdHandles.beforeOpen,
@@ -176,6 +200,7 @@ const createCurdData = () => {
     height: 460,
     showOverflowTooltip: true,
     stripe: true,
+    inline: true,
   }))
 
   return {
@@ -184,6 +209,7 @@ const createCurdData = () => {
     curdHandles,
     crudProps,
     paginationRefData,
+    menuRefData,
   }
 }
 

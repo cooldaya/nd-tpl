@@ -6,8 +6,9 @@ import {
   defineCrudSearch,
   defineCrudBeforeOpen,
   defineCrudMenuColumns,
-  type ICrudProps,
 } from 'element-pro-components'
+
+import type { CrudColumn, ICrudProps, ICrudMenuColumns } from 'element-pro-components'
 import { get } from 'lodash-es'
 import { gApi } from '@/api/gapi'
 import type {
@@ -16,6 +17,7 @@ import type {
   FurionResultUserMessage,
   FurionResultUserMessageVO,
 } from '@/api/generated/data-contracts'
+import { ref } from 'vue'
 
 const createCurdData = () => {
   const curdRefData = reactive({
@@ -36,96 +38,106 @@ const createCurdData = () => {
   })
 
   const curdStaticData = {
-    columns: defineCrudColumns([
-      {
-        label: '是否已读',
-        prop: 'isRead',
-        component: 'el-input',
-        add: true,
-        edit: true,
-        search: true,
-        detail: true,
-        span: 12,
-      },
-      {
-        label: '是否已删除',
-        prop: 'isDelete',
-        component: 'el-input',
-        add: true,
-        edit: true,
-        search: true,
-        detail: true,
-        span: 12,
-      },
-      {
-        label: '读取时间',
-        prop: 'readTime',
-        component: 'el-input',
-        add: true,
-        edit: true,
-        search: true,
-        detail: true,
-        span: 12,
-      },
-      {
-        label: '删除时间',
-        prop: 'deleteTime',
-        component: 'el-input',
-        add: true,
-        edit: true,
-        search: true,
-        detail: true,
-        span: 12,
-      },
-      {
-        label: '标题',
-        prop: 'title',
-        component: 'el-input',
-        add: true,
-        edit: true,
-        search: true,
-        detail: true,
-        span: 12,
-      },
-      {
-        label: '内容',
-        prop: 'content',
-        component: 'el-input',
-        add: true,
-        edit: true,
-        search: true,
-        detail: true,
-        span: 12,
-      },
-      {
-        label: '类型',
-        prop: 'type',
-        component: 'el-input',
-        add: true,
-        edit: true,
-        search: true,
-        detail: true,
-        span: 12,
-      },
-    ]),
-    menu: defineCrudMenuColumns({
-      label: '操作',
-      addText: '新增',
-      detailText: '详情',
-      editText: '编辑',
-      delText: '删除',
-      searchText: '搜索',
-      searchResetText: '重置',
-      submitText: '添加',
-      resetText: '重置',
-      detail: (row) => true,
-      edit: (row) => true,
-      del: (row) => true,
-    }),
     searchProps: {
       gutter: 20,
     },
   }
+  const refColumns = ref<CrudColumn[]>([
+    {
+      label: '是否已读',
+      prop: 'isRead',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '是否已删除',
+      prop: 'isDelete',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '读取时间',
+      prop: 'readTime',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '删除时间',
+      prop: 'deleteTime',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '标题',
+      prop: 'title',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '内容',
+      prop: 'content',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '类型',
+      prop: 'type',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+  ])
+
+  const refSearchColumns = computed(() => {
+    return refColumns.value
+      .filter((item: CrudColumn) => item.search)
+      .map((item) => ({
+        ...item,
+        required: false,
+      }))
+  })
+
+  const refMenu = ref<ICrudMenuColumns>({
+    label: '操作',
+    addText: '新增',
+    detailText: '详情',
+    editText: '编辑',
+    delText: '删除',
+    searchText: '搜索',
+    searchResetText: '重置',
+    submitText: '添加',
+    resetText: '重置',
+    detail: (row) => true,
+    edit: (row) => true,
+    del: (row) => true,
+  })
 
   const curdHandles = {
     beforeOpen: defineCrudBeforeOpen((done, type, row) => {
@@ -137,7 +149,7 @@ const createCurdData = () => {
       done()
     }),
 
-    search: defineCrudSearch(async (done, isValid, invalidFields) => {
+    search: defineCrudSearch(async (done, _isValid, _invalidFields) => {
       try {
         await curdHandles.paginationChange(
           paginationRefData.currentPage,
@@ -150,7 +162,7 @@ const createCurdData = () => {
       }
     }),
 
-    submit: defineCrudSubmit(async (close, done, type, isValid, invalidFields) => {
+    submit: defineCrudSubmit(async (close, done, type, _isValid, _invalidFields) => {
       const reqFuncMap: Record<
         string,
         (data: UserMessageFO) => Promise<FurionResultUserMessageVO | FurionResultUserMessage>
@@ -165,7 +177,7 @@ const createCurdData = () => {
         return
       }
       try {
-        const res = await reqFunc(curdRefData.form)
+        await reqFunc(curdRefData.form)
         ElMessage.success('操作成功')
         close()
         await curdHandles.paginationChange(
@@ -187,10 +199,11 @@ const createCurdData = () => {
           type: 'warning',
         })
       } catch (e) {
+        console.log(e)
         return ElMessage.info('已取消删除')
       }
       try {
-        const res = await gApi.apiUserMessageRemovePost({
+        await gApi.apiUserMessageRemovePost({
           id: row.id,
         })
         ElMessage.success('删除成功')
@@ -218,7 +231,7 @@ const createCurdData = () => {
   // 配置文档请看 https://tolking.github.io/element-pro-components/zh-CN/components/crud
 
   const filterdColumns = computed(() =>
-    curdStaticData.columns.map((item, index) => {
+    refColumns.value.map((item, index) => {
       return {
         ...item,
         search: item.search === false ? false : menuRefData.searchFormExpand ? true : index < 3,
@@ -228,7 +241,8 @@ const createCurdData = () => {
 
   const crudProps = computed<Partial<ICrudProps>>(() => ({
     columns: filterdColumns.value,
-    menu: curdStaticData.menu,
+    searchColumns: refSearchColumns.value,
+    menu: refMenu.value,
     data: curdRefData.tableData,
     detail: curdRefData.detail,
     beforeOpen: curdHandles.beforeOpen,

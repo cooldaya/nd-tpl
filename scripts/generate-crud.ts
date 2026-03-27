@@ -64,8 +64,7 @@ async function generate() {
           'createdAt',
           'updatedAt',
         ].includes(key)
-        const condition2 = (key + '').toLowerCase().endsWith('id')
-        if (condition1 || condition2) return null
+        if (condition1) return null
 
         return {
           label: value.description || key,
