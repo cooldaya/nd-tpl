@@ -42,11 +42,15 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useNavTabsStore } from '@/stores/use-nav-tabs'
+import { useNavTabsStore, type TabItem } from '@/stores/use-nav-tabs'
 import type { TabsPaneContext } from 'element-plus'
 
+const props = defineProps<{
+  initTabs?: TabItem[]
+}>()
+
 // 初始化 Store
-const tabsStore = useNavTabsStore()
+const tabsStore = useNavTabsStore(props.initTabs)
 const route = useRoute()
 const router = useRouter()
 

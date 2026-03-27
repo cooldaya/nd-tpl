@@ -131,6 +131,30 @@ declare module 'vue-router/auto-routes' {
       '/modules/system-settings',
       Record<never, never>,
       Record<never, never>,
+      | '/modules/system-settings/access-control'
+      | '/modules/system-settings/access-control/dept-manage'
+      | '/modules/system-settings/access-control/role-manage'
+    >,
+    '/modules/system-settings/access-control': RouteRecordInfo<
+      '/modules/system-settings/access-control',
+      '/modules/system-settings/access-control',
+      Record<never, never>,
+      Record<never, never>,
+      | '/modules/system-settings/access-control/dept-manage'
+      | '/modules/system-settings/access-control/role-manage'
+    >,
+    '/modules/system-settings/access-control/dept-manage': RouteRecordInfo<
+      '/modules/system-settings/access-control/dept-manage',
+      '/modules/system-settings/access-control/dept-manage',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/modules/system-settings/access-control/role-manage': RouteRecordInfo<
+      '/modules/system-settings/access-control/role-manage',
+      '/modules/system-settings/access-control/role-manage',
+      Record<never, never>,
+      Record<never, never>,
       | never
     >,
     '404': RouteRecordInfo<
@@ -257,9 +281,32 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/modules/system-settings/index.vue': {
+    'src/pages/modules/system-settings.vue': {
       routes:
+        | '/modules/system-settings/access-control'
+        | '/modules/system-settings/access-control/dept-manage'
+        | '/modules/system-settings/access-control/role-manage'
         | 'system-settings'
+      views:
+        | 'default'
+    }
+    'src/pages/modules/system-settings/access-control.vue': {
+      routes:
+        | '/modules/system-settings/access-control'
+        | '/modules/system-settings/access-control/dept-manage'
+        | '/modules/system-settings/access-control/role-manage'
+      views:
+        | 'default'
+    }
+    'src/pages/modules/system-settings/access-control/dept-manage.vue': {
+      routes:
+        | '/modules/system-settings/access-control/dept-manage'
+      views:
+        | never
+    }
+    'src/pages/modules/system-settings/access-control/role-manage.vue': {
+      routes:
+        | '/modules/system-settings/access-control/role-manage'
       views:
         | never
     }

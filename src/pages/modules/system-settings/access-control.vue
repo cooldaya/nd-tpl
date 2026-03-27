@@ -1,11 +1,13 @@
 <script setup lang="ts">
 definePage({
-  name: 'system-settings',
+  meta: {
+    title: '权限管理',
+  },
 })
 </script>
 
 <template>
-  <div>系统配置</div>
+  <router-view />
 </template>
 
 <style lang="scss" scoped></style>

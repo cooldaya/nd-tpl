@@ -25,15 +25,16 @@ async function generate() {
   const args = process.argv.slice(2)
   if (args.length < 1) {
     console.error(
-      'Usage: pnpm ts-node ... scripts/generate-crud.ts <EntityName> [PageTitle] [OutputPath]',
+      'Usage: pnpm ts-node ... scripts/generate-crud.ts <EntityName> [OutputFileName] [PageTitle] [OutputPath]',
     )
     process.exit(1)
   }
 
   const entityName = toPascalCase(args[0])
-  const pageTitle = args[1] || entityName
-  const outputPathBase = args[2]
-    ? path.resolve(__dirname, '../src/pages/modules', args[2])
+  const outputFileName = args[1] || args[0]
+  const pageTitle = args[2] || args[0]
+  const outputPathBase = args[3]
+    ? path.resolve(__dirname, '../src/pages/modules', args[3])
     : process.env.INIT_CWD || process.cwd()
 
   try {
@@ -88,7 +89,7 @@ async function generate() {
     }
 
     const templatesDir = path.join(__dirname, 'templates')
-    const dataName = kebabCase(entityName)
+    const dataName = kebabCase(outputFileName)
 
     const dataTsContent = await ejs.renderFile(path.join(templatesDir, 'data.ts.ejs'), {
       entityName,
@@ -102,7 +103,7 @@ async function generate() {
     })
 
     const dataTsPath = path.join(dataDir, `${dataName}-data.ts`)
-    const vuePath = path.join(outputPathBase, `${kebabCase(entityName)}.vue`)
+    const vuePath = path.join(outputPathBase, `${dataName}.vue`)
 
     fs.writeFileSync(dataTsPath, dataTsContent)
     fs.writeFileSync(vuePath, vueContent)

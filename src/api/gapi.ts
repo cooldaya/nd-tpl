@@ -1,9 +1,8 @@
 import { HttpClient } from './generated/http-client'
 import { Api } from './generated/Api'
-import router from '@/router'
 import { ElMessage } from 'element-plus'
 import type { SecurityDataType } from './types'
-import { securityDataManager, HeaderTokenKeyType } from '@/utils/security-data-manager'
+import { securityDataManager } from '@/utils/security-data-manager'
 
 const customHttpClient = new HttpClient<SecurityDataType>({
   baseURL: 'http://113.249.105.12:9931/netcore',
@@ -11,7 +10,7 @@ const customHttpClient = new HttpClient<SecurityDataType>({
   headers: {
     'X-Custom-Header': 'value',
   },
-  securityWorker: async (securityData) => {
+  securityWorker: async () => {
     // 自定义认证逻辑
     const headers = await securityDataManager.getSecurityHeaders()
     return {
@@ -37,13 +36,6 @@ gApi.http.instance.interceptors.response.use(
   (response) => {
     // 如果请求头带有刷新token
     securityDataManager.checkAndSaveNewSecurityData(response)
-    // if (response.data.statusCode === 401) {
-    //   ElMessage.error(response.data.message)
-    //   securityDataManager.clear()
-    //   router.push({
-    //     name: 'login',
-    //   })
-    // }
     // 响应拦截器
     if (response.data.statusCode !== 200) {
       ElMessage.error(response.data.message)

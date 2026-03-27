@@ -11,10 +11,10 @@ import {
 import { get } from 'lodash-es'
 import { gApi } from '@/api/gapi'
 import type {
-  UserMessageVO,
-  UserMessageFO,
-  FurionResultUserMessage,
-  FurionResultUserMessageVO,
+  OrganizationVO,
+  OrganizationFO,
+  FurionResultOrganization,
+  FurionResultOrganizationVO,
 } from '@/api/generated/data-contracts'
 
 const createCurdData = () => {
@@ -22,11 +22,7 @@ const createCurdData = () => {
     form: {},
     searchForm: {},
     detail: {},
-    tableData: [] as UserMessageVO[],
-  })
-
-  const menuRefData = reactive({
-    searchFormExpand: false,
+    tableData: [] as OrganizationVO[],
   })
 
   const paginationRefData = reactive({
@@ -38,8 +34,8 @@ const createCurdData = () => {
   const curdStaticData = {
     columns: defineCrudColumns([
       {
-        label: '是否已读',
-        prop: 'isRead',
+        label: '编号',
+        prop: 'code',
         component: 'el-input',
         add: true,
         edit: true,
@@ -48,8 +44,8 @@ const createCurdData = () => {
         span: 12,
       },
       {
-        label: '是否已删除',
-        prop: 'isDelete',
+        label: '名称',
+        prop: 'name',
         component: 'el-input',
         add: true,
         edit: true,
@@ -58,8 +54,8 @@ const createCurdData = () => {
         span: 12,
       },
       {
-        label: '读取时间',
-        prop: 'readTime',
+        label: '联系人',
+        prop: 'contactPerson',
         component: 'el-input',
         add: true,
         edit: true,
@@ -68,8 +64,8 @@ const createCurdData = () => {
         span: 12,
       },
       {
-        label: '删除时间',
-        prop: 'deleteTime',
+        label: '联系人联系方式',
+        prop: 'contactWay',
         component: 'el-input',
         add: true,
         edit: true,
@@ -78,8 +74,8 @@ const createCurdData = () => {
         span: 12,
       },
       {
-        label: '标题',
-        prop: 'title',
+        label: '是否在地图中显示',
+        prop: 'isDisplayInmap',
         component: 'el-input',
         add: true,
         edit: true,
@@ -88,8 +84,8 @@ const createCurdData = () => {
         span: 12,
       },
       {
-        label: '内容',
-        prop: 'content',
+        label: '经度',
+        prop: 'longitude',
         component: 'el-input',
         add: true,
         edit: true,
@@ -98,8 +94,88 @@ const createCurdData = () => {
         span: 12,
       },
       {
-        label: '类型',
-        prop: 'type',
+        label: '纬度',
+        prop: 'latitude',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+        span: 12,
+      },
+      {
+        label: '地址',
+        prop: 'address',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+        span: 12,
+      },
+      {
+        label: '是否包含视频',
+        prop: 'isVideo',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+        span: 12,
+      },
+      {
+        label: '是否启用',
+        prop: 'isEnable',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+        span: 12,
+      },
+      {
+        label: '级别',
+        prop: 'level',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+        span: 12,
+      },
+      {
+        label: '路径key',
+        prop: 'pathkey',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+        span: 12,
+      },
+      {
+        label: '路径',
+        prop: 'nestedpath',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+        span: 12,
+      },
+      {
+        label: '备注',
+        prop: 'remark',
+        component: 'el-input',
+        add: true,
+        edit: true,
+        search: true,
+        detail: true,
+        span: 12,
+      },
+      {
+        label: '上级组织机构',
+        prop: 'parentName',
         component: 'el-input',
         add: true,
         edit: true,
@@ -153,10 +229,12 @@ const createCurdData = () => {
     submit: defineCrudSubmit(async (close, done, type, isValid, invalidFields) => {
       const reqFuncMap: Record<
         string,
-        (data: UserMessageFO) => Promise<FurionResultUserMessageVO | FurionResultUserMessage>
+        (
+          data: OrganizationFO,
+        ) => Promise<FurionResultOrganizationVO | FurionResultOrganization>
       > = {
-        add: gApi.apiUserMessageAddPost,
-        edit: gApi.apiUserMessageEditPost,
+        add: gApi.apiOrganizationAddPost,
+        edit: gApi.apiOrganizationEditPost,
       }
       const reqFunc = reqFuncMap[type]
 
@@ -179,7 +257,7 @@ const createCurdData = () => {
       }
     }),
 
-    async deleteRow(row: UserMessageVO) {
+    async deleteRow(row: OrganizationVO) {
       try {
         await ElMessageBox.confirm('确认要删除该条数据吗？', '警告', {
           confirmButtonText: '确定',
@@ -190,7 +268,7 @@ const createCurdData = () => {
         return ElMessage.info('已取消删除')
       }
       try {
-        const res = await gApi.apiUserMessageRemovePost({
+        const res = await gApi.apiOrganizationRemovePost({
           id: row.id,
         })
         ElMessage.success('删除成功')
@@ -203,13 +281,13 @@ const createCurdData = () => {
       }
     },
     async paginationChange(currentPage: number, pageSize: number) {
-      const res = await gApi.apiUserMessagePagedListPost({
+      const res = await gApi.apiOrganizationPagedListPost({
         pageIndex: currentPage,
         pageSize: pageSize,
         ...curdRefData.searchForm,
       })
       paginationRefData.total = get(res, 'data.total', 0)
-      curdRefData.tableData = markRaw(get(res, 'data.items', []) as UserMessageVO[])
+      curdRefData.tableData = markRaw(get(res, 'data.items', []) as OrganizationVO[])
     },
   }
 
@@ -217,17 +295,8 @@ const createCurdData = () => {
 
   // 配置文档请看 https://tolking.github.io/element-pro-components/zh-CN/components/crud
 
-  const filterdColumns = computed(() =>
-    curdStaticData.columns.map((item, index) => {
-      return {
-        ...item,
-        search: item.search === false ? false : menuRefData.searchFormExpand ? true : index < 3,
-      }
-    }),
-  )
-
   const crudProps = computed<Partial<ICrudProps>>(() => ({
-    columns: filterdColumns.value,
+    columns: curdStaticData.columns,
     menu: curdStaticData.menu,
     data: curdRefData.tableData,
     detail: curdRefData.detail,
@@ -245,7 +314,6 @@ const createCurdData = () => {
     height: 460,
     showOverflowTooltip: true,
     stripe: true,
-    inline: true,
   }))
 
   return {
@@ -254,7 +322,6 @@ const createCurdData = () => {
     curdHandles,
     crudProps,
     paginationRefData,
-    menuRefData,
   }
 }
 

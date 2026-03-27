@@ -47,7 +47,7 @@ const createCurdData1 = () => {
         prop: 'stationCode',
         component: 'el-input',
         add: true,
-        search: true,
+        search: false,
         detail: true,
       },
       {
@@ -184,6 +184,7 @@ const createCurdData1 = () => {
     showOverflowTooltip: true,
     stripe: true,
     background: true,
+    inline: true,
   }))
 
   curdHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)

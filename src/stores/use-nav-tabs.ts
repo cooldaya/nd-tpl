@@ -1,6 +1,6 @@
 // store/useTabsStore.ts
 import { defineStore } from 'pinia'
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import type { RouteLocationNormalized } from 'vue-router'
 import router from '@/router' // 引入你的路由实例
 
@@ -14,7 +14,7 @@ interface TabItem {
 
 const workStationName = 'work-station'
 
-export const useNavTabsStore = defineStore('tabs', () => {
+const _useNavTabsStore = defineStore('tabs', () => {
   // 1. 初始化页签 (通常包含一个不关闭的工作台)
   const tabsList = ref<TabItem[]>([
     {
@@ -79,8 +79,6 @@ export const useNavTabsStore = defineStore('tabs', () => {
     const index = getTabIndex(currentPath)
     if (index === -1) return
 
-    const nextPath = currentPath
-
     // 定义核心逻辑
     const filterTabs = (shouldKeep: (t: TabItem, i: number) => boolean) => {
       // 需要保留的页签
@@ -106,5 +104,23 @@ export const useNavTabsStore = defineStore('tabs', () => {
     if (type === 'right') filterTabs((t, i) => i <= index) // 关闭右侧 (保留自己和左侧)
   }
 
-  return { tabsList, keepAliveIncludes, addTab, closeSingleTab, closeTabsByContext }
+  const initTabs = (tabs: TabItem[]) => {
+    if (tabs && tabs.length > 0) {
+      tabsList.value = tabs
+      keepAliveIncludes.value = tabs.map((t) => t.name)
+    }
+  }
+
+  return { tabsList, keepAliveIncludes, initTabs, addTab, closeSingleTab, closeTabsByContext }
 })
+
+const useNavTabsStore = (initTabs?: TabItem[]) => {
+  const store = _useNavTabsStore()
+  if (initTabs && initTabs.length > 0) {
+    store.initTabs(initTabs)
+  }
+  return store
+}
+
+export { useNavTabsStore }
+export type { TabItem }

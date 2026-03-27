@@ -5,30 +5,21 @@ import { formatRoutes } from '@/utils/route-tool'
 import SettingsPageLayout from '@/layouts/SettingsPageLayout.vue'
 
 definePage({
-  name: 'project-settings',
+  name: 'system-settings',
   meta: {
-    title: '项目管理',
-  },
-  redirect: {
-    name: 'work-station',
+    title: '系统设置',
   },
 })
 
-const hiddenRouteNames = ['work-station', 'account-settings']
-
 const rawRoutes = (routes
   .find((item) => item.path === '/modules')
-  ?.children?.find((item) => item.name === 'project-settings')?.children || []) as RouteRecordRaw[]
+  ?.children?.find((item) => item.name === 'system-settings')?.children || []) as RouteRecordRaw[]
 
-const projectSettingsRoutes = formatRoutes(rawRoutes, '/modules/project-settings').filter(
-  (item) => {
-    return !hiddenRouteNames.includes(item.name as string)
-  },
-)
+const systemSettingsRoutes = formatRoutes(rawRoutes, '/modules/system-settings')
 </script>
 
 <template>
-  <SettingsPageLayout :routes="projectSettingsRoutes">
+  <SettingsPageLayout :routes="systemSettingsRoutes">
     <template #header-left>
       <NavMultiTabs />
     </template>
