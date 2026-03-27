@@ -25,10 +25,14 @@ const createCurdData = () => {
     tableData: [] as UserMessageVO[],
   })
 
+  const menuRefData = reactive({
+    searchFormExpand: false,
+  })
+
   const paginationRefData = reactive({
     total: 0,
     pageSize: 10,
-    current: 1,
+    currentPage: 1,
   })
 
   const curdStaticData = {
@@ -41,6 +45,7 @@ const createCurdData = () => {
         edit: true,
         search: true,
         detail: true,
+        span: 12,
       },
       {
         label: '是否已删除',
@@ -50,6 +55,7 @@ const createCurdData = () => {
         edit: true,
         search: true,
         detail: true,
+        span: 12,
       },
       {
         label: '读取时间',
@@ -59,6 +65,7 @@ const createCurdData = () => {
         edit: true,
         search: true,
         detail: true,
+        span: 12,
       },
       {
         label: '删除时间',
@@ -68,6 +75,7 @@ const createCurdData = () => {
         edit: true,
         search: true,
         detail: true,
+        span: 12,
       },
       {
         label: '标题',
@@ -77,6 +85,7 @@ const createCurdData = () => {
         edit: true,
         search: true,
         detail: true,
+        span: 12,
       },
       {
         label: '内容',
@@ -86,6 +95,7 @@ const createCurdData = () => {
         edit: true,
         search: true,
         detail: true,
+        span: 12,
       },
       {
         label: '类型',
@@ -95,6 +105,7 @@ const createCurdData = () => {
         edit: true,
         search: true,
         detail: true,
+        span: 12,
       },
     ]),
     menu: defineCrudMenuColumns({
@@ -128,7 +139,10 @@ const createCurdData = () => {
 
     search: defineCrudSearch(async (done, isValid, invalidFields) => {
       try {
-        await curdHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
+        await curdHandles.paginationChange(
+          paginationRefData.currentPage,
+          paginationRefData.pageSize,
+        )
       } catch (e) {
         console.error(e)
       } finally {
@@ -139,9 +153,7 @@ const createCurdData = () => {
     submit: defineCrudSubmit(async (close, done, type, isValid, invalidFields) => {
       const reqFuncMap: Record<
         string,
-        (
-          data: UserMessageFO,
-        ) => Promise<FurionResultUserMessageVO | FurionResultUserMessage>
+        (data: UserMessageFO) => Promise<FurionResultUserMessageVO | FurionResultUserMessage>
       > = {
         add: gApi.apiUserMessageAddPost,
         edit: gApi.apiUserMessageEditPost,
@@ -156,7 +168,10 @@ const createCurdData = () => {
         const res = await reqFunc(curdRefData.form)
         ElMessage.success('操作成功')
         close()
-        await curdHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
+        await curdHandles.paginationChange(
+          paginationRefData.currentPage,
+          paginationRefData.pageSize,
+        )
       } catch (e) {
         console.error(e)
       } finally {
@@ -179,7 +194,10 @@ const createCurdData = () => {
           id: row.id,
         })
         ElMessage.success('删除成功')
-        await curdHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
+        await curdHandles.paginationChange(
+          paginationRefData.currentPage,
+          paginationRefData.pageSize,
+        )
       } catch (e) {
         console.error(e)
       }
@@ -195,8 +213,21 @@ const createCurdData = () => {
     },
   }
 
-  const curdProps = computed<Partial<ICrudProps>>(() => ({
-    columns: curdStaticData.columns,
+  curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
+
+  // 配置文档请看 https://tolking.github.io/element-pro-components/zh-CN/components/crud
+
+  const filterdColumns = computed(() =>
+    curdStaticData.columns.map((item, index) => {
+      return {
+        ...item,
+        search: item.search === false ? false : menuRefData.searchFormExpand ? true : index < 3,
+      }
+    }),
+  )
+
+  const crudProps = computed<Partial<ICrudProps>>(() => ({
+    columns: filterdColumns.value,
     menu: curdStaticData.menu,
     data: curdRefData.tableData,
     detail: curdRefData.detail,
@@ -205,16 +236,24 @@ const createCurdData = () => {
     onSearch: curdHandles.search,
     onSubmit: curdHandles.submit,
     onDelete: curdHandles.deleteRow,
+    total: paginationRefData.total,
+    onLoad: () =>
+      curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize),
+    layout: '->, prev, pager, next, sizes, total',
+    background: true,
+    gutter: 20,
+    height: 460,
+    showOverflowTooltip: true,
+    stripe: true,
   }))
-
-  curdHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
 
   return {
     curdRefData,
     curdStaticData,
     curdHandles,
-    curdProps,
+    crudProps,
     paginationRefData,
+    menuRefData,
   }
 }
 

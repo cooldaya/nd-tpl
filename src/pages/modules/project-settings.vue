@@ -31,7 +31,7 @@ const projectSettingsRoutes = formatRoutes(rawRoutes, '/modules/project-settings
   <div class="nd-wh-full flex flex-col">
     <div class="h-20 flex items-center justify-between px-5 border-b border-[#a0a2a4]">
       <div class="font-zygb text-2xl">
-        <span class="text-[var(--el-color-primary)]">{{ projectConfig.title }} </span>
+        <span class="text-(--el-color-primary)">{{ projectConfig.title }} </span>
         <span class="text-[#606266]">- {{ projectConfig.subTitle }}</span>
       </div>
       <div>

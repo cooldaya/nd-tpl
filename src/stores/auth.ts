@@ -9,17 +9,16 @@ export const useAuthStore = defineStore('auth', () => {
     resources: string[]
     roles: LoginResultUserAO['roles']
     userInfo: Omit<LoginResultUserAO, 'resources' | 'roles'> | null
+    isLogIn: boolean
   }>({
     resources: [],
     roles: [],
     userInfo: null,
+    isLogIn: false,
   })
 
   const handles = {
     async initLoginInfo(loginInfo: LoginResultVO) {
-      console.log({
-        loginInfo,
-      })
       securityDataManager.setSecurityData({
         accessToken: loginInfo.accessToken as string,
         refreshToken: loginInfo.refreshToken as string,
@@ -28,6 +27,7 @@ export const useAuthStore = defineStore('auth', () => {
       authRefData.resources = markRaw(loginInfo.user?.resources || [])
       authRefData.roles = markRaw(loginInfo.user?.roles || [])
       authRefData.userInfo = omit(loginInfo.user, ['resources', 'roles'])
+      authRefData.isLogIn = true
     },
   }
 

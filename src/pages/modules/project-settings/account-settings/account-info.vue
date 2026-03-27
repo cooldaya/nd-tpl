@@ -27,12 +27,10 @@ const aeProFormProps = reactive<AeProFormProps<UserForm>>({
   apiConfig: {
     detail: async () => {
       const res = await gApi.apiUserShowSelfPost()
-      console.log({ res })
       return res.data as UserForm
     },
     edit: async (data) => {
       const res = await gApi.apiUserEditPost(data)
-      console.log({ res })
       return res
     },
   },

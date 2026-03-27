@@ -95,6 +95,7 @@ const createCurdData1 = () => {
     }),
 
     search: defineCrudSearch(async (done, isValid, invalidFields) => {
+      console.log('search')
       try {
         await curdHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
       } catch (e) {
@@ -163,7 +164,7 @@ const createCurdData1 = () => {
     },
   }
 
-  const curdProps = computed<Partial<ICrudProps>>(() => ({
+  const crudProps = computed<Partial<ICrudProps>>(() => ({
     columns: curdStaticData.columns,
     menu: curdStaticData.menu,
     data: curdRefData.tableData,
@@ -173,6 +174,16 @@ const createCurdData1 = () => {
     onSearch: curdHandles.search,
     onSubmit: curdHandles.submit,
     onDelete: curdHandles.deleteRow,
+    vModel: curdRefData.form,
+    search: curdRefData.searchForm,
+    currentPage: paginationRefData.current,
+    pageSize: paginationRefData.pageSize,
+    total: paginationRefData.total,
+    height: 460,
+    layout: '->, prev, pager, next, sizes, total',
+    showOverflowTooltip: true,
+    stripe: true,
+    background: true,
   }))
 
   curdHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
@@ -181,7 +192,7 @@ const createCurdData1 = () => {
     curdRefData,
     curdStaticData,
     curdHandles,
-    curdProps,
+    crudProps,
     paginationRefData,
   }
 }

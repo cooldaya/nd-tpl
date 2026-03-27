@@ -14,11 +14,13 @@ if (import.meta.hot) {
   handleHotUpdate(router)
 }
 
-router.beforeEach(async (to, from) => {
+router.beforeEach(async (to) => {
   NProgress.start() // 开始
   const toLoingPage = () => ({ name: 'login' })
 
   if (to.fullPath.startsWith('/public')) return
+  const authStore = useAuthStore()
+  if (authStore.authRefData.isLogIn) return
   const securityData = await securityDataManager.initSecurityData()
   // 检查以前是否登录过，就会有token，初始化
   if (!securityData) {
@@ -28,7 +30,7 @@ router.beforeEach(async (to, from) => {
   try {
     const res = await gApi.apiAuthCheckloginPost()
     if (!res.data) return toLoingPage()
-    const authStore = useAuthStore()
+
     // 初始化登录信息
     await authStore.initLoginInfo({
       user: res.data,
@@ -37,6 +39,7 @@ router.beforeEach(async (to, from) => {
     return true
   } catch (error) {
     // 获取用户信息失败，清除token信息
+    console.log(error)
     securityDataManager.clear()
     return toLoingPage()
   }
@@ -46,5 +49,4 @@ router.afterEach(() => {
   NProgress.done() // 结束
 })
 
-console.log(routes)
 export default router
