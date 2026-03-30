@@ -13,6 +13,7 @@ import Components from 'unplugin-vue-components/vite'
 export default defineConfig({
   server: {
     port: 9846,
+    hmr: true,
   },
   plugins: [
     VueRouter({

@@ -1,11 +1,9 @@
-import { reactive, markRaw, computed } from 'vue'
+import { reactive, markRaw, computed, ref, useTemplateRef } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import {
-  defineCrudColumns,
   defineCrudSubmit,
   defineCrudSearch,
   defineCrudBeforeOpen,
-  defineCrudMenuColumns,
 } from 'element-pro-components'
 
 import type { CrudColumn, ICrudProps, ICrudMenuColumns } from 'element-pro-components'
@@ -13,16 +11,22 @@ import { get } from 'lodash-es'
 import { gApi } from '@/api/gapi'
 import type {
   <%= entityName %>VO,
-  <%= entityName %>FO,
-  FurionResult<%= entityName %>,
-  FurionResult<%= entityName %>VO,
+  <%= entityName %>Form,
+  Api<%= entityName %>AddPostData,
+  Api<%= entityName %>EditPostData,
 } from '@/api/generated/data-contracts'
-import { ref } from 'vue'
 import EpSearch from '~icons/ep/search'
 import EpRefreshLeft from '~icons/ep/refresh-left'
 import { exportProTable } from '@/utils/funcs-tool'
 
-const createCurdData = (curdOption: Record<string, any> = {}) => {
+
+
+type CurdOption = {
+  exportFileName?: string
+  defaultForm?: Partial<%= entityName %>Form>
+}
+const createCurdData = (curdOption: CurdOption | undefined = {}) => {
+  const crudInstanceRef = useTemplateRef('crudInstanceRef')
   const curdRefData = reactive({
     form: {},
     searchForm: {},
@@ -32,6 +36,7 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
 
   const searchMenuRightProps = reactive({
     searchFormExpand: false,
+    showSearchFormExpandBtn:false,
     toggleSearchFormExpand() {
       searchMenuRightProps.searchFormExpand = !searchMenuRightProps.searchFormExpand
     },
@@ -79,7 +84,7 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
   ])
 
   const refSearchColumns = computed(() => {
-    return refColumns.value
+    const arr = refColumns.value
       .filter(
         (item: CrudColumn, idx) =>
           item.search && (searchMenuRightProps.searchFormExpand ? true : idx < 3),
@@ -88,6 +93,8 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
         ...item,
         required: false,
       }))
+    searchMenuRightProps.showSearchFormExpandBtn = arr.length > 2
+    return arr
   })
 
   const refMenu = ref<ICrudMenuColumns>({
@@ -109,18 +116,21 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
     },
     submitText: '添加',
     resetText: '重置',
-    detail: (row) => true,
-    edit: (row) => true,
-    del: (row) => true,
+    detail: (_row) => true,
+    edit: (_row) => true,
+    del: (_row) => true,
+    fixed: 'right',
+    width: '180px',
   })
 
   const curdHandles = {
     beforeOpen: defineCrudBeforeOpen((done, type, row) => {
-      if (type === 'edit') {
-        curdRefData.form = row || {}
-      } else if (type === 'detail') {
-        curdRefData.detail = row || {}
+      const actions = {
+        edit: () => (curdRefData.form = row || {}),
+        detail: () => (curdRefData.detail = row || {}),
+        add: () => Object.assign(curdRefData.form, curdOption.defaultForm),
       }
+      actions[type]?.()
       done()
     }),
 
@@ -140,7 +150,7 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
     submit: defineCrudSubmit(async (close, done, type, _isValid, _invalidFields) => {
       const reqFuncMap: Record<
         string,
-        (data: <%= entityName %>FO) => Promise<FurionResult<%= entityName %>VO | FurionResult<%= entityName %>>
+        (data: <%= entityName %>Form) => Promise<Api<%= entityName %>AddPostData | Api<%= entityName %>EditPostData>
       > = {
         add: gApi.api<%= entityName %>AddPost,
         edit: gApi.api<%= entityName %>EditPost,
@@ -239,6 +249,7 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
     crudProps,
     paginationRefData,
     searchMenuRightProps,
+    crudInstanceRef
   }
 }
 

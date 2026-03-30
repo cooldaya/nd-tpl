@@ -56,7 +56,7 @@ const getSheetValueWidth = (value: any): number => {
  * element-pro-components 导出工具函数 (优化版)
  */
 export const exportProTable = (
-  data: any[],
+  data: Record<string, any>[],
   searchForm: Record<string, any> = {},
   columns: any[],
   fileName: string = 'export-data',

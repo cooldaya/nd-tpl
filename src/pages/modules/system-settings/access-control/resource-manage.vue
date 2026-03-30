@@ -1,32 +1,23 @@
 <script setup lang="ts">
-import { createCurdData } from './curd-datas/dept-manage-data.ts'
+import { createCurdData } from './curd-datas/resource-manage-data.ts'
 
 definePage({
   meta: {
-    title: '部门管理',
+    title: '菜单管理',
   },
 })
 
-const { curdRefData, crudProps, paginationRefData, searchMenuRightProps, crudInstanceRef } =
-  createCurdData({
-    defaultForm: {
-      isEnable: true,
-    },
-  })
-
-const handles = {
-  handleAddChild(row: any) {
-    crudInstanceRef.value?.openDialog('add', row)
-    Object.assign(curdRefData.form, {
-      parentId: row.id,
-    })
+const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData({
+  defaultForm: {
+    isEnable: true,
+    routeNames: [],
   },
-}
+})
 </script>
 
 <template>
   <div class="nd-wh-full">
-    <pro-card header="部门管理" class="h-[calc(100%-24px)]">
+    <pro-card header="菜单管理" class="h-[calc(100%-24px)]">
       <pro-crud
         v-bind="crudProps"
         v-model="curdRefData.form"
@@ -40,12 +31,6 @@ const handles = {
         </template>
         <template #search-menu-right>
           <SearchMenuRight v-bind="searchMenuRightProps" />
-        </template>
-
-        <template #table-cus-opts="{ row }">
-          <div>
-            <el-button @click="handles.handleAddChild(row)">添加子级</el-button>
-          </div>
         </template>
       </pro-crud>
     </pro-card>

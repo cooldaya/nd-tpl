@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { createCurdData } from './curd-datas/<%= dataName %>-data.ts'
+  import { createCurdData } from './curd-datas/<%= dataName %>-data.ts'
 
-definePage({
-  meta: {
-    title: '<%= pageTitle %>',
-  },
-})
+  definePage({
+    meta: {
+      title: '<%= pageTitle %>',
+    },
+  })
 
-const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData()
+  const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData()
 </script>
 
 <template>
@@ -19,6 +19,7 @@ const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = crea
         v-model:search="curdRefData.searchForm"
         v-model:current-page="paginationRefData.currentPage"
         v-model:page-size="paginationRefData.pageSize"
+        ref="crudInstanceRef"
       >
         <template #action>
           <pro-column-setting v-model="crudProps.columns" />
