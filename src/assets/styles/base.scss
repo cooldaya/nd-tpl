@@ -8,6 +8,7 @@ body,
   --pro-layout-height: 100%;
 }
 
+// 设置curd弹窗的 提交按钮放置位置
 $menu-alignments: (
   '': flex-end,
   '.menu-center': center,
@@ -22,4 +23,10 @@ $menu-alignments: (
       justify-content: $justify;
     }
   }
+}
+
+// 去掉没有内容按钮内部文本元素的margin
+.el-button > span:empty {
+  // margin-left: 0 !important;
+  display: none; /* 彻底移除空标签占位 */
 }

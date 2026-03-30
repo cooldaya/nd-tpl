@@ -22,6 +22,7 @@ declare module 'vue' {
     NavMultiTabs: typeof import('./src/components/modules/NavMultiTabs.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SearchMenuRight: typeof import('./src/components/pro-crud/SearchMenuRight.vue')['default']
     UserPopperAvatar: typeof import('./src/components/modules/dashboard/UserPopperAvatar.vue')['default']
   }
 }

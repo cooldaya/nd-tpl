@@ -18,8 +18,12 @@ import type {
   FurionResultUserMessageVO,
 } from '@/api/generated/data-contracts'
 import { ref } from 'vue'
+import EpSearch from '~icons/ep/search'
+import EpRefreshLeft from '~icons/ep/refresh-left'
+import { exportProTable } from '@/utils/funcs-tool'
 
-const createCurdData = () => {
+const createCurdData = (curdOption: Record<string, any> = {}) => {
+  // 表单表格数据
   const curdRefData = reactive({
     form: {},
     searchForm: {},
@@ -27,10 +31,28 @@ const createCurdData = () => {
     tableData: [] as UserMessageVO[],
   })
 
-  const menuRefData = reactive({
+  const searchMenuRightProps = reactive({
     searchFormExpand: false,
+    toggleSearchFormExpand() {
+      searchMenuRightProps.searchFormExpand = !searchMenuRightProps.searchFormExpand
+    },
+    async exportTableData() {
+      const option = {
+        searchForm: curdRefData.searchForm,
+        columns: refColumns.value,
+      }
+      const res = await gApi.apiUserMessagePagedListPost({
+        pageIndex: 1,
+        pageSize: 99,
+        ...curdRefData.searchForm,
+      })
+      const arrData = get(res, 'data.items', [])
+      const fileName = curdOption.exportFileName || '用户消息管理'
+      exportProTable(arrData, option.searchForm, option.columns, fileName)
+    },
   })
 
+  // 分页数据
   const paginationRefData = reactive({
     total: 0,
     pageSize: 10,
@@ -42,6 +64,8 @@ const createCurdData = () => {
       gutter: 20,
     },
   }
+
+  // 表单，搜索属性数据
   const refColumns = ref<CrudColumn[]>([
     {
       label: '是否已读',
@@ -115,15 +139,20 @@ const createCurdData = () => {
     },
   ])
 
+  // 搜索框字段
   const refSearchColumns = computed(() => {
     return refColumns.value
-      .filter((item: CrudColumn) => item.search)
+      .filter(
+        (item: CrudColumn, idx) =>
+          item.search && (searchMenuRightProps.searchFormExpand ? true : idx < 3),
+      )
       .map((item) => ({
         ...item,
         required: false,
       }))
   })
 
+  // 按钮配置
   const refMenu = ref<ICrudMenuColumns>({
     label: '操作',
     addText: '新增',
@@ -131,7 +160,16 @@ const createCurdData = () => {
     editText: '编辑',
     delText: '删除',
     searchText: '搜索',
+    searchProps: {
+      icon: EpSearch,
+      type: 'primary',
+      plain: true,
+    },
     searchResetText: '重置',
+    searchResetProps: {
+      icon: EpRefreshLeft,
+      type: 'info',
+    },
     submitText: '添加',
     resetText: '重置',
     detail: (row) => true,
@@ -139,6 +177,7 @@ const createCurdData = () => {
     del: (row) => true,
   })
 
+  // 事件回调操作
   const curdHandles = {
     beforeOpen: defineCrudBeforeOpen((done, type, row) => {
       if (type === 'edit') {
@@ -224,23 +263,20 @@ const createCurdData = () => {
       paginationRefData.total = get(res, 'data.total', 0)
       curdRefData.tableData = markRaw(get(res, 'data.items', []) as UserMessageVO[])
     },
+    searchReset() {
+      paginationRefData.currentPage = 1
+      curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
+    },
   }
 
+  // 初始化请求数据
   curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
 
   // 配置文档请看 https://tolking.github.io/element-pro-components/zh-CN/components/crud
 
-  const filterdColumns = computed(() =>
-    refColumns.value.map((item, index) => {
-      return {
-        ...item,
-        search: item.search === false ? false : menuRefData.searchFormExpand ? true : index < 3,
-      }
-    }),
-  )
-
+  // crud组件属性
   const crudProps = computed<Partial<ICrudProps>>(() => ({
-    columns: filterdColumns.value,
+    columns: refColumns.value,
     searchColumns: refSearchColumns.value,
     menu: refMenu.value,
     data: curdRefData.tableData,
@@ -250,6 +286,7 @@ const createCurdData = () => {
     onSearch: curdHandles.search,
     onSubmit: curdHandles.submit,
     onDelete: curdHandles.deleteRow,
+    onSearchReset: curdHandles.searchReset,
     total: paginationRefData.total,
     onLoad: () =>
       curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize),
@@ -259,7 +296,6 @@ const createCurdData = () => {
     height: 460,
     showOverflowTooltip: true,
     stripe: true,
-    inline: true,
   }))
 
   return {
@@ -268,7 +304,7 @@ const createCurdData = () => {
     curdHandles,
     crudProps,
     paginationRefData,
-    menuRefData,
+    searchMenuRightProps,
   }
 }
 

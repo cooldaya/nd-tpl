@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { createCurdData } from './curd-datas/user-message-data.ts'
-import EpArrowUp from '~icons/ep/arrow-up'
+
 definePage({
   meta: {
     title: '用户消息管理',
   },
 })
 
-const { curdRefData, crudProps, paginationRefData, menuRefData } = createCurdData()
+const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData()
 </script>
 
 <template>
@@ -20,13 +20,11 @@ const { curdRefData, crudProps, paginationRefData, menuRefData } = createCurdDat
         v-model:current-page="paginationRefData.currentPage"
         v-model:page-size="paginationRefData.pageSize"
       >
+        <template #action>
+          <pro-column-setting v-model="crudProps.columns" />
+        </template>
         <template #search-menu-right>
-          <el-button @click="menuRefData.searchFormExpand = !menuRefData.searchFormExpand">
-            <EpArrowUp
-              class="duration-300"
-              :class="[menuRefData.searchFormExpand ? '' : '-rotate-180']"
-            />
-          </el-button>
+          <SearchMenuRight v-bind="searchMenuRightProps" />
         </template>
       </pro-crud>
     </pro-card>

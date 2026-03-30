@@ -1,4 +1,4 @@
-import { reactive, markRaw, computed, ref } from 'vue'
+import { reactive, markRaw, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import {
   defineCrudColumns,
@@ -17,8 +17,12 @@ import type {
   FurionResult<%= entityName %>,
   FurionResult<%= entityName %>VO,
 } from '@/api/generated/data-contracts'
+import { ref } from 'vue'
+import EpSearch from '~icons/ep/search'
+import EpRefreshLeft from '~icons/ep/refresh-left'
+import { exportProTable } from '@/utils/funcs-tool'
 
-const createCurdData = () => {
+const createCurdData = (curdOption: Record<string, any> = {}) => {
   const curdRefData = reactive({
     form: {},
     searchForm: {},
@@ -26,8 +30,25 @@ const createCurdData = () => {
     tableData: [] as <%= entityName %>VO[],
   })
 
-  const menuRefData = reactive({
+  const searchMenuRightProps = reactive({
     searchFormExpand: false,
+    toggleSearchFormExpand() {
+      searchMenuRightProps.searchFormExpand = !searchMenuRightProps.searchFormExpand
+    },
+    async exportTableData() {
+      const option = {
+        searchForm: curdRefData.searchForm,
+        columns: refColumns.value,
+      }
+      const res = await gApi.api<%= entityName %>PagedListPost({
+        pageIndex: 1,
+        pageSize: 99,
+        ...curdRefData.searchForm,
+      })
+      const arrData = get(res, 'data.items', [])
+      const fileName = curdOption.exportFileName || '<%= pageTitle %>'
+      exportProTable(arrData, option.searchForm, option.columns, fileName)
+    },
   })
 
   const paginationRefData = reactive({
@@ -41,6 +62,7 @@ const createCurdData = () => {
       gutter: 20,
     },
   }
+
   const refColumns = ref<CrudColumn[]>([
 <% columns.forEach(col => { -%>
     {
@@ -58,7 +80,10 @@ const createCurdData = () => {
 
   const refSearchColumns = computed(() => {
     return refColumns.value
-      .filter((item: CrudColumn) => item.search)
+      .filter(
+        (item: CrudColumn, idx) =>
+          item.search && (searchMenuRightProps.searchFormExpand ? true : idx < 3),
+      )
       .map((item) => ({
         ...item,
         required: false,
@@ -72,7 +97,16 @@ const createCurdData = () => {
     editText: '编辑',
     delText: '删除',
     searchText: '搜索',
+    searchProps: {
+      icon: EpSearch,
+      type: 'primary',
+      plain: true,
+    },
     searchResetText: '重置',
+    searchResetProps: {
+      icon: EpRefreshLeft,
+      type: 'info',
+    },
     submitText: '添加',
     resetText: '重置',
     detail: (row) => true,
@@ -165,23 +199,18 @@ const createCurdData = () => {
       paginationRefData.total = get(res, 'data.total', 0)
       curdRefData.tableData = markRaw(get(res, 'data.items', []) as <%= entityName %>VO[])
     },
+    searchReset() {
+      paginationRefData.currentPage = 1
+      curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
+    },
   }
 
   curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
 
   // 配置文档请看 https://tolking.github.io/element-pro-components/zh-CN/components/crud
 
-  const filterdColumns = computed(() =>
-    refColumns.value.map((item, index) => {
-      return {
-        ...item,
-        search: item.search === false ? false : menuRefData.searchFormExpand ? true : index < 3,
-      }
-    }),
-  )
-
   const crudProps = computed<Partial<ICrudProps>>(() => ({
-    columns: filterdColumns.value,
+    columns: refColumns.value,
     searchColumns: refSearchColumns.value,
     menu: refMenu.value,
     data: curdRefData.tableData,
@@ -191,6 +220,7 @@ const createCurdData = () => {
     onSearch: curdHandles.search,
     onSubmit: curdHandles.submit,
     onDelete: curdHandles.deleteRow,
+    onSearchReset: curdHandles.searchReset,
     total: paginationRefData.total,
     onLoad: () =>
       curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize),
@@ -200,7 +230,6 @@ const createCurdData = () => {
     height: 460,
     showOverflowTooltip: true,
     stripe: true,
-    inline: true,
   }))
 
   return {
@@ -209,7 +238,7 @@ const createCurdData = () => {
     curdHandles,
     crudProps,
     paginationRefData,
-    menuRefData,
+    searchMenuRightProps,
   }
 }
 
