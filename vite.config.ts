@@ -8,6 +8,7 @@ import tailwindcss from '@tailwindcss/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
+import vitePluginCustomOutDir from './plugins/vite-plugin-custom-outdir' // 引入插件
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -39,6 +40,7 @@ export default defineConfig({
       autoInstall: true, // 自动安装缺少的图标集,import EpUserFilled from '~icons/ep/user-filled' 这种方式导入时
     }),
     tailwindcss(),
+    vitePluginCustomOutDir(),
   ],
   resolve: {
     alias: {

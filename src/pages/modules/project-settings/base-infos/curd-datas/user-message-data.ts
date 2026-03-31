@@ -13,8 +13,7 @@ import { get } from 'lodash-es'
 import { gApi } from '@/api/gapi'
 import type {
   UserMessageVO,
-  UserMessageFO,
-  FurionResultUserMessage,
+  UserMessageQO,
   FurionResultUserMessageVO,
 } from '@/api/generated/data-contracts'
 import { ref } from 'vue'
@@ -204,10 +203,10 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
     submit: defineCrudSubmit(async (close, done, type, _isValid, _invalidFields) => {
       const reqFuncMap: Record<
         string,
-        (data: UserMessageFO) => Promise<FurionResultUserMessageVO | FurionResultUserMessage>
+        undefined | ((data: UserMessageVO) => Promise<FurionResultUserMessageVO>)
       > = {
-        add: gApi.apiUserMessageAddPost,
-        edit: gApi.apiUserMessageEditPost,
+        add: undefined, //gApi.apiUserMessageAddPost,
+        edit: undefined, //gApi.apiUserMessageEditPost,
       }
       const reqFunc = reqFuncMap[type]
 
@@ -242,9 +241,9 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
         return ElMessage.info('已取消删除')
       }
       try {
-        await gApi.apiUserMessageRemovePost({
-          id: row.id,
-        })
+        // await gApi.apiUserMessageRemovePost({
+        //   id: row.id,
+        // })
         ElMessage.success('删除成功')
         await curdHandles.paginationChange(
           paginationRefData.currentPage,

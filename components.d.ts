@@ -11,7 +11,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    AeProFom: typeof import('./src/components/modules/AeProFom.vue')['default']
     AeProForm: typeof import('./src/components/modules/AeProForm.vue')['default']
     ArithmeticCaptcha: typeof import('./src/components/public/ArithmeticCaptcha.vue')['default']
     AutocompleteArray: typeof import('./src/components/pro-crud/AutocompleteArray.vue')['default']

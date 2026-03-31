@@ -125,7 +125,7 @@ export const exportProTable = (
 
       // 实时更新该列最大宽度
       const currentWidth = getSheetValueWidth(displayValue)
-      if (currentWidth > colWidths[colIndex]) {
+      if (currentWidth > (colWidths[colIndex] ?? 0)) {
         colWidths[colIndex] = currentWidth
       }
 
