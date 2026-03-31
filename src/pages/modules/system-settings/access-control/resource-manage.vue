@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { gApi } from '@/api/gapi.ts'
 import { createCurdData } from './curd-datas/resource-manage-data.ts'
 
 definePage({
@@ -7,12 +8,37 @@ definePage({
   },
 })
 
-const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData({
+const {
+  curdRefData,
+  crudProps,
+  paginationRefData,
+  searchMenuRightProps,
+  curdHandles,
+  crudInstanceRef,
+} = createCurdData({
   defaultForm: {
     isEnable: true,
     routeNames: [],
   },
 })
+
+const handles = {
+  async changeField(row: Record<string, any>, column: any, val: any) {
+    const data = {
+      ...row,
+      [column.property]: val,
+    }
+    await gApi.apiResourceEditPost(data)
+    curdHandles.refreshTable()
+  },
+
+  handleAddChild(row: any) {
+    crudInstanceRef.value?.openDialog('add', row)
+    Object.assign(curdRefData.form, {
+      parentId: row.id,
+    })
+  },
+}
 </script>
 
 <template>
@@ -25,12 +51,31 @@ const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = crea
         v-model:current-page="paginationRefData.currentPage"
         v-model:page-size="paginationRefData.pageSize"
         ref="crudInstanceRef"
+        v-loading="curdRefData.loading"
       >
         <template #action>
           <pro-column-setting v-model="crudProps.columns" />
         </template>
         <template #search-menu-right>
           <SearchMenuRight v-bind="searchMenuRightProps" />
+        </template>
+
+        <template #table-isEnable="{ row, column }">
+          <el-switch
+            :modelValue="row.isEnable"
+            @update:modelValue="(val: any) => handles.changeField(row, column, val)"
+          />
+        </template>
+        <template #table-isAdmin="{ row, column }">
+          <el-switch
+            :modelValue="row[column.property]"
+            @update:modelValue="(val: any) => handles.changeField(row, column, val)"
+          />
+        </template>
+        <template #table-cus-opts="{ row }">
+          <div>
+            <el-button @click="handles.handleAddChild(row)">添加子级</el-button>
+          </div>
         </template>
       </pro-crud>
     </pro-card>

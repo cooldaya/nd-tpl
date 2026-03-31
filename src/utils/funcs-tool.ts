@@ -1,5 +1,6 @@
 import { cloneDeep } from 'lodash-es'
 import * as XLSX from 'xlsx'
+import { orderBy, get } from 'lodash-es'
 
 interface TreeConfig {
   parentIdKey?: string
@@ -148,4 +149,88 @@ export const exportProTable = (
   const wb = XLSX.utils.book_new()
   XLSX.utils.book_append_sheet(wb, ws, 'Sheet1')
   XLSX.writeFile(wb, `${fileName}_${new Date().getTime()}.xlsx`)
+}
+
+/**
+ * 逻辑：
+ * 1. 有 order 值的项排在前面，按 order 值升序。
+ * 2. 没有 order 值的项排在后面，且保留它们在原数组中的相对顺序。
+ *
+ * @param list - 需要排序的数组
+ * @param sortKey - 排序字段名，支持点语法（如 'order' 或 'meta.rank'）
+ * @returns 排序后的新数组
+ */
+export function sortByWeight<T>(list: T[], sortKey: string = 'order'): T[] {
+  if (!Array.isArray(list) || list.length === 0) return []
+
+  // 定义偏移量：安全整数的一半
+  const OFFSET = Number.MAX_SAFE_INTEGER / 2
+
+  /**
+   * 使用“包装模式”处理排序：
+   * 这样可以避免直接在对象 T 上添加临时属性导致的类型错误。
+   */
+  const wrappedList = list.map((item, index) => {
+    // 获取排序值
+    const orderValue = get(item, sortKey)
+
+    // 判断是否有有效的排序值 (排除 null 和 undefined)
+    const hasOrder = orderValue !== undefined && orderValue !== null
+
+    let weight: number
+    if (hasOrder) {
+      // 第一梯队：有 order 的项。
+      // 强制转换为数字，防止后端返回字符串数字
+      weight = Number(orderValue)
+    } else {
+      // 第二梯队：没 order 的项。权重 = 巨大偏移量 + 原始索引
+      weight = OFFSET + index
+    }
+
+    return {
+      source: item, // 原始对象
+      weight: weight, // 计算出的排序权重
+    }
+  })
+
+  // 使用 lodash 的 orderBy 进行排序
+  const sortedWrapped = orderBy(wrappedList, ['weight'], ['asc'])
+
+  // 最后一步：解封，只返回原始对象数组
+  return sortedWrapped.map((wrapper) => wrapper.source)
+}
+
+/**
+ * 进阶工具：按指定的值序列排序
+ *
+ * @param list - 原始对象数组
+ * @param field - 对象的属性名 (例如 'prop')
+ * @param sequence - 期望的排序值数组 (例如 ['value2', 'value7', 'value4'])
+ * @returns 排序后的数组
+ */
+export function sortBySequence<T>(list: T[], field: string, sequence: any[]): T[] {
+  if (!Array.isArray(list)) return []
+
+  // 1. 构造一个临时的“带权重”数组
+  // 我们不需要修改原始对象，只需要给 sortByWeight 制造一个临时的排序字段
+  const tempList = list.map((item) => {
+    const value = get(item, field) // 获取对象中指定字段的值
+    const seqIndex = sequence.indexOf(value) // 寻找在序列中的位置
+
+    return {
+      ...item,
+      // 如果在序列中找到了，权重就是索引 (0, 1, 2...)
+      // 如果没找到，indexOf 返回 -1，我们设为 undefined 让 sortByWeight 接手
+      _virtualOrder: seqIndex === -1 ? undefined : seqIndex,
+    }
+  })
+
+  // 2. 调用 sortByWeight 按照生成的虚拟权重排序
+  const sortedList = sortByWeight(tempList, '_virtualOrder')
+
+  // 3. 移除临时字段 _virtualOrder 并还原类型
+  return sortedList.map((item: any) => {
+    const { _virtualOrder, ...rest } = item
+    return rest as T
+  })
 }

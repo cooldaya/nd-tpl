@@ -14,6 +14,7 @@ export default defineConfig({
   server: {
     port: 9846,
     hmr: true,
+    host: '0.0.0.0',
   },
   plugins: [
     VueRouter({

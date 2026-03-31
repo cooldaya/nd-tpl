@@ -1,4 +1,5 @@
 import { reactive, markRaw, computed, ref, useTemplateRef } from 'vue'
+import type {ComponentPublicInstance} from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import {
   defineCrudSubmit,
@@ -7,6 +8,7 @@ import {
 } from 'element-pro-components'
 
 import type { CrudColumn, ICrudProps, ICrudMenuColumns } from 'element-pro-components'
+import type { ProCrud } from 'element-pro-components'
 import { get } from 'lodash-es'
 import { gApi } from '@/api/gapi'
 import type {
@@ -17,7 +19,7 @@ import type {
 } from '@/api/generated/data-contracts'
 import EpSearch from '~icons/ep/search'
 import EpRefreshLeft from '~icons/ep/refresh-left'
-import { exportProTable } from '@/utils/funcs-tool'
+import { exportProTable, sortBySequence } from '@/utils/funcs-tool'
 
 
 
@@ -26,7 +28,7 @@ type CurdOption = {
   defaultForm?: Partial<%= entityName %>Form>
 }
 const createCurdData = (curdOption: CurdOption | undefined = {}) => {
-  const crudInstanceRef = useTemplateRef('crudInstanceRef')
+  const crudInstanceRef = useTemplateRef<ComponentPublicInstance<typeof ProCrud>>('crudInstanceRef')
   const curdRefData = reactive({
     form: {},
     searchForm: {},
@@ -83,16 +85,28 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
 <% }) -%>
   ])
 
+  // 修改表单的排序
+  const formColumns = computed(() =>
+    sortBySequence(
+      refColumns.value.filter((item) => item.add),
+      'prop',
+      ['parentId', 'type'],
+    ),
+  )
+
+
   const refSearchColumns = computed(() => {
-    const arr = refColumns.value
-      .filter(
-        (item: CrudColumn, idx) =>
-          item.search && (searchMenuRightProps.searchFormExpand ? true : idx < 3),
-      )
+    // 所有可搜索columns,修改required为false
+    const arr1 = refColumns.value
+      .filter((item: CrudColumn, idx) => item.search)
       .map((item) => ({
         ...item,
         required: false,
       }))
+    // 按属性字段排序，折叠筛选部分字段
+    const arr = sortBySequence(arr1, 'prop', []).filter((item, idx) =>
+      searchMenuRightProps.searchFormExpand ? true : idx < 3,
+    )
     searchMenuRightProps.showSearchFormExpandBtn = arr.length > 2
     return arr
   })
@@ -222,6 +236,8 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   const crudProps = computed<Partial<ICrudProps>>(() => ({
     columns: refColumns.value,
     searchColumns: refSearchColumns.value,
+    addColumns: formColumns.value,
+    editColumns: formColumns.value,
     menu: refMenu.value,
     data: curdRefData.tableData,
     detail: curdRefData.detail,

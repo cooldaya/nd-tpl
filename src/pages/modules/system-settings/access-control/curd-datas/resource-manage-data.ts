@@ -1,8 +1,9 @@
 import { reactive, markRaw, computed, ref, useTemplateRef } from 'vue'
+import type { ComponentPublicInstance } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { defineCrudSubmit, defineCrudSearch, defineCrudBeforeOpen } from 'element-pro-components'
-
 import type { CrudColumn, ICrudProps, ICrudMenuColumns } from 'element-pro-components'
+import type { ProCrud } from 'element-pro-components'
 import { get } from 'lodash-es'
 import { gApi } from '@/api/gapi'
 import type {
@@ -13,19 +14,21 @@ import type {
 } from '@/api/generated/data-contracts'
 import EpSearch from '~icons/ep/search'
 import EpRefreshLeft from '~icons/ep/refresh-left'
-import { exportProTable, listToTree } from '@/utils/funcs-tool'
+import { exportProTable, listToTree, sortBySequence } from '@/utils/funcs-tool'
+import AutocompleteArray from '@/components/pro-crud/AutocompleteArray.vue'
 
 type CurdOption = {
   exportFileName?: string
   defaultForm?: Partial<ResourceForm>
 }
 const createCurdData = (curdOption: CurdOption | undefined = {}) => {
-  const crudInstanceRef = useTemplateRef('crudInstanceRef')
+  const crudInstanceRef = useTemplateRef<ComponentPublicInstance<typeof ProCrud>>('crudInstanceRef')
   const curdRefData = reactive({
     form: {},
     searchForm: {},
     detail: {},
     tableData: [] as ResourceVO[],
+    loading: false,
   })
 
   const searchMenuRightProps = reactive({
@@ -64,6 +67,46 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
 
   const refColumns = ref<CrudColumn[]>([
     {
+      label: '名称',
+      prop: 'name',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+      required: true,
+    },
+
+    {
+      label: '权限标识',
+      prop: 'code',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+      required: true,
+    },
+    {
+      label: '类型',
+      prop: 'type',
+      component: 'pro-radio',
+      add: true,
+      edit: true,
+      // search: true,
+      detail: true,
+      required: true,
+      props: {
+        data: [
+          { value: 'directory ', label: '目录' },
+          { value: 'menu', label: '菜单' },
+          { value: 'button ', label: '按钮' },
+        ],
+      },
+    },
+    {
       label: '父级',
       prop: 'parentId',
       component: 'el-tree-select',
@@ -81,47 +124,8 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       edit: true,
       // search: true,
       detail: true,
+      hide: true,
     },
-    {
-      label: '类型',
-      prop: 'type',
-      component: 'pro-radio',
-      add: true,
-      edit: true,
-      search: true,
-      detail: true,
-      required: true,
-      props: {
-        data: [
-          { value: 'directory ', label: '目录' },
-          { value: 'menu', label: '菜单' },
-          { value: 'button ', label: '按钮' },
-        ],
-      },
-    },
-    {
-      label: '名称',
-      prop: 'name',
-      component: 'el-input',
-      add: true,
-      edit: true,
-      search: true,
-      detail: true,
-      span: 12,
-      required: true,
-    },
-    {
-      label: '权限标识',
-      prop: 'code',
-      component: 'el-input',
-      add: true,
-      edit: true,
-      search: true,
-      detail: true,
-      span: 12,
-      required: true,
-    },
-
     {
       label: '是否启用',
       prop: 'isEnable',
@@ -137,7 +141,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       component: 'el-switch',
       add: true,
       edit: true,
-      search: true,
+      // search: true,
       detail: true,
       span: 12,
     },
@@ -147,45 +151,67 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
+      // search: true,
       detail: true,
       props: {
         type: 'textarea',
       },
     },
-
     {
       label: '路由名称列表',
       prop: 'routeNames',
       add: true,
       edit: true,
-
-      children: [
-        {
-          label: 'api',
-          prop: 'routeName',
-          component: 'el-input',
-        },
-      ],
-      max: 5,
+      component: markRaw(AutocompleteArray),
+      props: {
+        // apiResourceRoutePathsPost
+        fetchSuggestions: (() => {
+          let list: { value: string }[] = []
+          gApi.apiResourceRoutePathsPost().then((res) => {
+            list = (res.data || []).map((item) => ({ value: item }))
+          })
+          return (queryString: string, cb: any) => {
+            cb(list.filter((item) => item.value.includes(queryString)))
+          }
+        })(),
+      },
     },
     {
-      label: 'resourceRoutes',
-      prop: 'resourceRoutes',
-      detail: true,
+      label: '部门操作',
+      prop: 'cus-opts',
+      component: 'el-input',
+      span: 12,
     },
+    // {
+    //   label: 'resourceRoutes',
+    //   prop: 'resourceRoutes',
+    //   detail: true,
+    //   add: false,
+    //   edit: false,
+    // },
   ])
 
+  // 修改表单的排序
+  const formColumns = computed(() =>
+    sortBySequence(
+      refColumns.value.filter((item) => item.add),
+      'prop',
+      ['parentId', 'type'],
+    ),
+  )
+
   const refSearchColumns = computed(() => {
-    const arr = refColumns.value
-      .filter(
-        (item: CrudColumn, idx) =>
-          item.search && (searchMenuRightProps.searchFormExpand ? true : idx < 3),
-      )
+    // 所有可搜索columns,修改required为false
+    const arr1 = refColumns.value
+      .filter((item: CrudColumn, idx) => item.search)
       .map((item) => ({
         ...item,
         required: false,
       }))
+    // 按属性字段排序，折叠筛选部分字段
+    const arr = sortBySequence(arr1, 'prop', []).filter((item, idx) =>
+      searchMenuRightProps.searchFormExpand ? true : idx < 3,
+    )
     searchMenuRightProps.showSearchFormExpandBtn = arr.length > 2
     return arr
   })
@@ -299,19 +325,29 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       }
     },
     async paginationChange(_currentPage: number, _pageSize: number) {
-      const res = await gApi.apiResourceListPost({
-        // pageIndex: currentPage,
-        // pageSize: pageSize,
-        ...curdRefData.searchForm,
-      })
-      const arrData = markRaw(get(res, 'data', []) as ResourceVO[])
-      paginationRefData.total = arrData.length
+      curdRefData.loading = true
+      try {
+        const res = await gApi.apiResourceListPost({
+          // pageIndex: currentPage,
+          // pageSize: pageSize,
+          ...curdRefData.searchForm,
+        })
+        const arrData = markRaw(get(res, 'data', []) as ResourceVO[])
+        paginationRefData.total = arrData.length
 
-      const treeData = listToTree(arrData)
-      curdRefData.tableData = treeData
+        const treeData = listToTree(arrData)
+        curdRefData.tableData = treeData
+      } catch (e) {
+        console.log(e)
+      } finally {
+        curdRefData.loading = false
+      }
     },
     searchReset() {
       paginationRefData.currentPage = 1
+      curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
+    },
+    refreshTable() {
       curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
     },
   }
@@ -323,6 +359,8 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   const crudProps = computed<Partial<ICrudProps>>(() => ({
     columns: refColumns.value,
     searchColumns: refSearchColumns.value,
+    addColumns: formColumns.value,
+    editColumns: formColumns.value,
     menu: refMenu.value,
     data: curdRefData.tableData,
     detail: curdRefData.detail,
