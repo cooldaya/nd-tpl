@@ -74,7 +74,7 @@ const handles = {
         </template>
         <template #table-cus-opts="{ row }">
           <div>
-            <el-button @click="handles.handleAddChild(row)">添加子级</el-button>
+            <el-button @click="handles.handleAddChild(row)" size="small">添加子级</el-button>
           </div>
         </template>
       </pro-crud>

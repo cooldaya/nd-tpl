@@ -1,23 +1,18 @@
 <script setup lang="ts">
-import { createCurdData } from './curd-datas/dept-manage-data.ts'
+  import { createCurdData } from './curd-datas/user-manage-data.ts'
 
-definePage({
-  meta: {
-    title: '部门管理',
-  },
-})
-
-const { curdRefData, crudProps, paginationRefData, searchMenuRightProps, crudInstanceRef } =
-  createCurdData({
-    defaultForm: {
-      isEnable: true,
+  definePage({
+    meta: {
+      title: '用户管理',
     },
   })
+
+  const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData()
 </script>
 
 <template>
   <div class="nd-wh-full">
-    <pro-card header="部门管理" class="h-[calc(100%-24px)]">
+    <pro-card header="用户管理" class="h-[calc(100%-24px)]">
       <pro-crud
         v-bind="crudProps"
         v-model="curdRefData.form"

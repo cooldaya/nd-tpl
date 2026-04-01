@@ -135,6 +135,7 @@ declare module 'vue-router/auto-routes' {
       | '/modules/system-settings/access-control/dept-manage'
       | '/modules/system-settings/access-control/resource-manage'
       | '/modules/system-settings/access-control/role-manage'
+      | '/modules/system-settings/access-control/user-manage'
     >,
     '/modules/system-settings/access-control': RouteRecordInfo<
       '/modules/system-settings/access-control',
@@ -144,6 +145,7 @@ declare module 'vue-router/auto-routes' {
       | '/modules/system-settings/access-control/dept-manage'
       | '/modules/system-settings/access-control/resource-manage'
       | '/modules/system-settings/access-control/role-manage'
+      | '/modules/system-settings/access-control/user-manage'
     >,
     '/modules/system-settings/access-control/dept-manage': RouteRecordInfo<
       '/modules/system-settings/access-control/dept-manage',
@@ -162,6 +164,13 @@ declare module 'vue-router/auto-routes' {
     '/modules/system-settings/access-control/role-manage': RouteRecordInfo<
       '/modules/system-settings/access-control/role-manage',
       '/modules/system-settings/access-control/role-manage',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/modules/system-settings/access-control/user-manage': RouteRecordInfo<
+      '/modules/system-settings/access-control/user-manage',
+      '/modules/system-settings/access-control/user-manage',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -296,6 +305,7 @@ declare module 'vue-router/auto-routes' {
         | '/modules/system-settings/access-control/dept-manage'
         | '/modules/system-settings/access-control/resource-manage'
         | '/modules/system-settings/access-control/role-manage'
+        | '/modules/system-settings/access-control/user-manage'
         | 'system-settings'
       views:
         | 'default'
@@ -306,6 +316,7 @@ declare module 'vue-router/auto-routes' {
         | '/modules/system-settings/access-control/dept-manage'
         | '/modules/system-settings/access-control/resource-manage'
         | '/modules/system-settings/access-control/role-manage'
+        | '/modules/system-settings/access-control/user-manage'
       views:
         | 'default'
     }
@@ -324,6 +335,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/modules/system-settings/access-control/role-manage.vue': {
       routes:
         | '/modules/system-settings/access-control/role-manage'
+      views:
+        | never
+    }
+    'src/pages/modules/system-settings/access-control/user-manage.vue': {
+      routes:
+        | '/modules/system-settings/access-control/user-manage'
       views:
         | never
     }

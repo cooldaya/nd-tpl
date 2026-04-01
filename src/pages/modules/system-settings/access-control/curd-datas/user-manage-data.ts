@@ -1,24 +1,24 @@
-import { reactive, markRaw, computed, ref, useTemplateRef, h } from 'vue'
-import type { ComponentPublicInstance } from 'vue'
+import { reactive, markRaw, computed, ref, useTemplateRef } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { defineCrudSubmit, defineCrudSearch, defineCrudBeforeOpen } from 'element-pro-components'
-
-import type { CrudColumn, ICrudProps, ICrudMenuColumns } from 'element-pro-components'
-import type { ProCrud } from 'element-pro-components'
 import { get } from 'lodash-es'
 import { gApi } from '@/api/gapi'
-import type {
-  OrganizationVO,
-  OrganizationForm,
-  FurionResultOrganizationVO,
-} from '@/api/generated/data-contracts'
+import { defineCrudSubmit, defineCrudSearch, defineCrudBeforeOpen } from 'element-pro-components'
 import EpSearch from '~icons/ep/search'
 import EpRefreshLeft from '~icons/ep/refresh-left'
-import { exportProTable, listToTree } from '@/utils/funcs-tool'
-import { ElButton } from 'element-plus'
+import { exportProTable, sortBySequence } from '@/utils/funcs-tool'
+
+import type { ComponentPublicInstance } from 'vue'
+import type { CrudColumn, ICrudProps, ICrudMenuColumns, ProCrud } from 'element-pro-components'
+import type {
+  UserVO,
+  UserForm,
+  ApiUserAddPostData,
+  ApiUserEditPostData,
+} from '@/api/generated/data-contracts'
+
 type CurdOption = {
   exportFileName?: string
-  defaultForm?: Partial<OrganizationForm>
+  defaultForm?: Partial<UserForm>
 }
 const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   const crudInstanceRef = useTemplateRef<ComponentPublicInstance<typeof ProCrud>>('crudInstanceRef')
@@ -26,7 +26,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     form: {},
     searchForm: {},
     detail: {},
-    tableData: [] as OrganizationVO[],
+    tableData: [] as UserVO[],
   })
 
   const searchMenuRightProps = reactive({
@@ -40,13 +40,13 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
         searchForm: curdRefData.searchForm,
         columns: refColumns.value,
       }
-      const res = await gApi.apiOrganizationPagedListPost({
+      const res = await gApi.apiUserPagedListPost({
         pageIndex: 1,
         pageSize: 99,
         ...curdRefData.searchForm,
       })
       const arrData = get(res, 'data.items', [])
-      const fileName = curdOption.exportFileName || '部门管理'
+      const fileName = curdOption.exportFileName || '用户管理'
       exportProTable(arrData, option.searchForm, option.columns, fileName)
     },
   })
@@ -65,17 +65,37 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
 
   const refColumns = ref<CrudColumn[]>([
     {
+      label: '登录名',
+      prop: 'loginname',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '密码',
+      prop: 'password',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
       label: '编号',
       prop: 'code',
       component: 'el-input',
       add: true,
+      edit: true,
       search: true,
       detail: true,
       span: 12,
-      required: true,
     },
     {
-      label: '名称',
+      label: '姓名',
       prop: 'name',
       component: 'el-input',
       add: true,
@@ -83,33 +103,86 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       search: true,
       detail: true,
       span: 12,
-      required: true,
     },
     {
-      label: '联系人',
-      prop: 'contactPerson',
+      label: '邮箱',
+      prop: 'email',
       component: 'el-input',
       add: true,
       edit: true,
+      search: true,
       detail: true,
       span: 12,
     },
     {
-      label: '联系人联系方式',
-      prop: 'contactWay',
-      component: 'el-input',
-      detail: true,
-      span: 12,
-    },
-    {
-      label: '是否在地图中显示',
-      prop: 'isDisplayInmap',
+      label: '身份证号码',
+      prop: 'idcode',
       component: 'el-input',
       add: true,
       edit: true,
+      search: true,
       detail: true,
       span: 12,
-      hide: true,
+    },
+    {
+      label: '性别',
+      prop: 'sex',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '民族',
+      prop: 'nation',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '出生日期',
+      prop: 'birthday',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '手机号',
+      prop: 'mobile',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '微信openid',
+      prop: 'wxopenid',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '微信unionid',
+      prop: 'wxunionid',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
     },
     {
       label: '地址',
@@ -117,117 +190,128 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
+      search: true,
       detail: true,
       span: 12,
     },
     {
-      label: '是否包含视频',
-      prop: 'isVideo',
+      label: '是否可以登录',
+      prop: 'canLogin',
       component: 'el-input',
       add: true,
+      edit: true,
+      search: true,
+      detail: true,
       span: 12,
-      hide: true,
     },
     {
       label: '是否启用',
       prop: 'isEnable',
-      component: 'el-switch',
-      add: true,
-      detail: true,
-      span: 12,
-      required: true,
-    },
-    // {
-    //   label: '级别',
-    //   prop: 'level',
-    //   component: 'el-input',
-    //   add: true,
-    //   detail: true,
-    //   span: 12,
-    // },
-    {
-      label: '路径key',
-      prop: 'pathkey',
       component: 'el-input',
       add: true,
+      edit: true,
+      search: true,
       detail: true,
       span: 12,
-      hide: true,
     },
     {
-      label: '路径',
-      prop: 'nestedpath',
+      label: 'maxNos',
+      prop: 'maxNos',
       component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
       detail: true,
       span: 12,
-      hide: true,
     },
     {
-      label: '备注',
+      label: 'remark',
       prop: 'remark',
       component: 'el-input',
       add: true,
+      edit: true,
+      search: true,
       detail: true,
       span: 12,
     },
     {
-      label: '上级组织机构',
-      prop: 'parentName',
+      label: 'organizationId',
+      prop: 'organizationId',
       component: 'el-input',
-      detail: true,
-      span: 12,
-    },
-    {
-      label: '上级组织机构',
-      prop: 'parentId',
-      component: 'el-tree-select',
       add: true,
       edit: true,
+      search: true,
+      detail: true,
       span: 12,
-      props: {
-        filterable: true,
-        data: [], // 初始为空，由逻辑填充
-        nodeKey: 'id',
-        checkStrictly: true, // 允许选择父节点
-        props: {
-          children: 'children',
-          label: 'name',
-        },
-      },
     },
     {
-      label: '部门操作',
+      label: 'ssoid',
+      prop: 'ssoId',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: 'typeCode',
+      prop: 'typeCode',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '上次登录时间',
+      prop: 'lastLoginTime',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '组织机构名称',
+      prop: 'organizationName',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '权限操作',
       prop: 'cus-opts',
-      render: (row: OrganizationVO) =>
-        h(
-          ElButton,
-          {
-            onClick: () => handles.handleAddChild(row),
-          },
-          '添加子级',
-        ),
+      fixed: 'right',
     },
   ])
 
-  const handles = {
-    handleAddChild(row: any) {
-      crudInstanceRef.value?.openDialog('add', row)
-      Object.assign(curdRefData.form, {
-        parentId: row.id,
-      })
-    },
-  }
+  // 修改表单的排序
+  const formColumns = computed(() =>
+    sortBySequence(
+      refColumns.value.filter((item) => item.add),
+      'prop',
+      ['parentId', 'type'],
+    ),
+  )
 
   const refSearchColumns = computed(() => {
-    const arr = refColumns.value
-      .filter(
-        (item: CrudColumn, idx) =>
-          item.search && (searchMenuRightProps.searchFormExpand ? true : idx < 3),
-      )
+    // 所有可搜索columns,修改required为false
+    const arr1 = refColumns.value
+      .filter((item: CrudColumn) => item.search)
       .map((item) => ({
         ...item,
         required: false,
       }))
+    // 按属性字段排序，折叠筛选部分字段
+    const arr = sortBySequence(arr1, 'prop', []).filter((item, idx) =>
+      searchMenuRightProps.searchFormExpand ? true : idx < 3,
+    )
     searchMenuRightProps.showSearchFormExpandBtn = arr.length > 2
     return arr
   })
@@ -260,12 +344,6 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
 
   const curdHandles = {
     beforeOpen: defineCrudBeforeOpen((done, type, row) => {
-      // 在打开弹窗（新增或编辑）时，预填充下拉框树形数据
-      const parentIdColumn = refColumns.value.find((item: CrudColumn) => item.prop === 'parentId')
-      if (parentIdColumn && parentIdColumn.props) {
-        parentIdColumn.props.data = curdRefData.tableData
-      }
-
       const actions = {
         edit: () => (curdRefData.form = row || {}),
         detail: () => (curdRefData.detail = row || {}),
@@ -291,10 +369,10 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     submit: defineCrudSubmit(async (close, done, type, _isValid, _invalidFields) => {
       const reqFuncMap: Record<
         string,
-        (data: OrganizationForm) => Promise<FurionResultOrganizationVO>
+        (data: UserForm) => Promise<ApiUserAddPostData | ApiUserEditPostData>
       > = {
-        add: gApi.apiOrganizationAddPost,
-        edit: gApi.apiOrganizationEditPost,
+        add: gApi.apiUserAddPost,
+        edit: gApi.apiUserEditPost,
       }
       const reqFunc = reqFuncMap[type]
 
@@ -317,7 +395,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       }
     }),
 
-    async deleteRow(row: OrganizationVO) {
+    async deleteRow(row: UserVO) {
       try {
         await ElMessageBox.confirm('确认要删除该条数据吗？', '警告', {
           confirmButtonText: '确定',
@@ -329,7 +407,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
         return ElMessage.info('已取消删除')
       }
       try {
-        await gApi.apiOrganizationRemovePost({
+        await gApi.apiUserRemovePost({
           id: row.id,
         })
         ElMessage.success('删除成功')
@@ -341,17 +419,14 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
         console.error(e)
       }
     },
-    async paginationChange(_currentPage: number, _pageSize: number) {
-      const res = await gApi.apiOrganizationListPost({
-        // pageIndex: currentPage,
-        // pageSize: pageSize,
+    async paginationChange(currentPage: number, pageSize: number) {
+      const res = await gApi.apiUserPagedListPost({
+        pageIndex: currentPage,
+        pageSize: pageSize,
         ...curdRefData.searchForm,
       })
-
-      const arrData = markRaw(get(res, 'data', []) as OrganizationVO[])
-      paginationRefData.total = arrData.length
-      const treeData = listToTree(arrData)
-      curdRefData.tableData = treeData
+      paginationRefData.total = get(res, 'data.total', 0)
+      curdRefData.tableData = markRaw(get(res, 'data.items', []) as UserVO[])
     },
     searchReset() {
       paginationRefData.currentPage = 1
@@ -366,6 +441,8 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   const crudProps = computed<Partial<ICrudProps>>(() => ({
     columns: refColumns.value,
     searchColumns: refSearchColumns.value,
+    addColumns: formColumns.value,
+    editColumns: formColumns.value,
     menu: refMenu.value,
     data: curdRefData.tableData,
     detail: curdRefData.detail,
@@ -375,7 +452,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     onSubmit: curdHandles.submit,
     onDelete: curdHandles.deleteRow,
     onSearchReset: curdHandles.searchReset,
-    // total: paginationRefData.total,
+    total: paginationRefData.total,
     onLoad: () =>
       curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize),
     layout: '->, prev, pager, next, sizes, total',
@@ -384,20 +461,16 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     height: 460,
     showOverflowTooltip: true,
     stripe: true,
-    rowKey: 'id',
-    expand: true,
-    highlightCurrentRow: true,
-    tableLayout: 'auto',
   }))
 
   return {
-    crudInstanceRef,
     curdRefData,
     curdStaticData,
     curdHandles,
     crudProps,
     paginationRefData,
     searchMenuRightProps,
+    crudInstanceRef,
   }
 }
 
