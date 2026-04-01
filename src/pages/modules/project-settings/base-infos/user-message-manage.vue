@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { createCurdData } from './curd-datas/user-message-data.ts'
+  import { createCurdData } from './curd-datas/user-message-manage-data.ts'
 
-definePage({
-  meta: {
-    title: '用户消息管理',
-  },
+  definePage({
+    meta: {
+      title: '用户消息管理',
+    },
+  })
+
+  const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData({
+  defaultForm: {},
 })
-
-const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData()
 </script>
 
 <template>
@@ -19,6 +21,7 @@ const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = crea
         v-model:search="curdRefData.searchForm"
         v-model:current-page="paginationRefData.currentPage"
         v-model:page-size="paginationRefData.pageSize"
+        ref="crudInstanceRef"
       >
         <template #action>
           <pro-column-setting v-model="crudProps.columns" />

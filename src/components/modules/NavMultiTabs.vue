@@ -136,78 +136,90 @@ onBeforeUnmount(() => {
   document.body.removeEventListener('click', closeMenu)
 })
 </script>
-
-<style lang="css">
-/* components/MultiTabs.css */
+<style lang="scss" scoped>
+/* components/MultiTabs.scss */
 .multi-tabs-container {
   width: 100%;
   position: relative;
-  background-color: #fff;
-  border-bottom: 1px solid #dcdfe6;
-  padding: 0 10px; /* 给左右两边留点呼吸空间 */
+  background-color: var(--el-bg-color); // 使用背景色变量
+  border-bottom: 1px solid var(--el-border-color-light);
+  padding: 0 10px;
+
+  /* 核心 Tabs 样式调整 */
+  .tabs-view {
+    margin-bottom: -1px;
+
+    :deep(.el-tabs__header) {
+      border-bottom: none;
+      margin: 0;
+    }
+
+    :deep(.el-tabs__nav) {
+      border-radius: 4px 4px 0 0;
+      border: none;
+    }
+
+    :deep(.el-tabs__item) {
+      height: 40px;
+      line-height: 40px;
+      border-left: none;
+      transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+      user-select: none;
+      color: var(--el-text-color-regular);
+      border-bottom: 1px solid transparent;
+      border: solid 1px var(--el-color-primary-light-9);
+
+      &:hover {
+        color: var(--el-color-primary);
+        background-color: var(--el-color-primary-light-9);
+      }
+
+      &.is-active {
+        background-color: var(--el-color-primary-light-9);
+        color: var(--el-color-primary);
+        border-bottom-color: var(--el-color-primary); // 给激活态一个明显的底部横线感
+      }
+    }
+  }
+
+  /* 右键上下文菜单 (Context Menu) */
+  .tabs-context-menu {
+    position: fixed;
+    z-index: 3000;
+    background-color: var(--el-bg-color-overlay); // 使用弹出层背景变量
+    border: 1px solid var(--el-border-color-light);
+    box-shadow: var(--el-box-shadow-light);
+    border-radius: var(--el-border-radius-base);
+    min-width: 120px;
+    padding: 5px 0;
+    margin: 0;
+    list-style: none;
+
+    li {
+      padding: 0 15px;
+      height: 32px;
+      line-height: 32px;
+      font-size: 14px;
+      color: var(--el-text-color-regular);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: all 0.2s;
+
+      .el-icon {
+        margin-right: 8px;
+        font-size: 16px;
+      }
+
+      &:hover {
+        background-color: var(--el-color-primary-light-9);
+        color: var(--el-color-primary);
+      }
+    }
+  }
 }
 
-/* 核心 Tabs 样式调整 (使其符合 card 类型的专业后台感) */
-.tabs-view {
-  margin-bottom: -1px; /* 让 card 底边与容器边框对齐 */
-}
-
-.tabs-view :deep(.el-tabs__header) {
-  border-bottom: none; /* 移除自带底边 */
-  margin: 0;
-}
-
-.tabs-view :deep(.el-tabs__item) {
-  height: 40px;
-  line-height: 40px;
-  border-left: none; /* 移除左侧边框 */
-  transition: background-color 0.2s;
-  user-select: none; /* 防止频繁右键导致文字被选中 */
-}
-
-.tabs-view :deep(.el-tabs__item.is-active) {
-  background-color: #ecf5ff; /* 激活时给个淡蓝色背景 */
-  border-bottom-color: #fff;
-}
-
-/* 终极难点：右键上下文菜单 (Context Menu) 样式 */
-.tabs-context-menu {
-  position: fixed; /* 必须用 fixed 定位，它参考的是浏览器窗口 */
-  z-index: 3000; /* 确保它高于 Element Plus 的 Dialog 和 Popover */
-  background-color: #fff;
-  border: 1px solid #dcdfe6;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  min-width: 120px;
-  padding: 5px 0;
-  margin: 0;
-  list-style: none;
-}
-
-.tabs-context-menu li {
-  padding: 0 15px;
-  height: 32px;
-  line-height: 32px;
-  font-size: 14px;
-  color: #606266;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: all 0.2s;
-}
-
-/* 图标与文字对齐调整 */
-.tabs-context-menu li .el-icon {
-  margin-right: 8px;
-  font-size: 16px;
-}
-
-.tabs-context-menu li:hover {
-  background-color: #ecf5ff;
-  color: #409eff;
-}
-
-/* 菜单出现时的过渡动画 */
+/* 动画部分 */
 .fade-enter-active,
 .fade-leave-active {
   transition:
@@ -218,6 +230,6 @@ onBeforeUnmount(() => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
-  transform: translateY(-10px); /* 增加一点点上浮效果 */
+  transform: translateY(-10px);
 }
 </style>

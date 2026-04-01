@@ -9,6 +9,9 @@ definePage({
   meta: {
     title: '系统设置',
   },
+  redirect: {
+    name: 'dept-manage',
+  },
 })
 
 const rawRoutes = (routes

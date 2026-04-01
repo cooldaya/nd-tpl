@@ -5,6 +5,7 @@ definePage({
   meta: {
     title: '部门管理',
   },
+  name: 'dept-manage',
 })
 
 const { curdRefData, crudProps, paginationRefData, searchMenuRightProps, crudInstanceRef } =

@@ -1,28 +1,27 @@
-import { reactive, markRaw, computed } from 'vue'
+import { reactive, markRaw, computed, ref, useTemplateRef } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import {
-  defineCrudColumns,
-  defineCrudSubmit,
-  defineCrudSearch,
-  defineCrudBeforeOpen,
-  defineCrudMenuColumns,
-} from 'element-pro-components'
-
-import type { CrudColumn, ICrudProps, ICrudMenuColumns } from 'element-pro-components'
-import { get } from 'lodash-es'
+import { get, isFunction } from 'lodash-es'
 import { gApi } from '@/api/gapi'
-import type {
-  UserMessageVO,
-  UserMessageQO,
-  FurionResultUserMessageVO,
-} from '@/api/generated/data-contracts'
-import { ref } from 'vue'
+import { defineCrudSubmit, defineCrudSearch, defineCrudBeforeOpen } from 'element-pro-components'
 import EpSearch from '~icons/ep/search'
 import EpRefreshLeft from '~icons/ep/refresh-left'
-import { exportProTable } from '@/utils/funcs-tool'
+import { exportProTable, sortBySequence } from '@/utils/funcs-tool'
 
-const createCurdData = (curdOption: Record<string, any> = {}) => {
-  // 表单表格数据
+import type { ComponentPublicInstance } from 'vue'
+import type { CrudColumn, ICrudProps, ICrudMenuColumns, ProCrud } from 'element-pro-components'
+import type {
+  UserMessageVO,
+  // UserMessageForm,
+  // ApiUserMessageAddPostData,
+  // ApiUserMessageEditPostData,
+} from '@/api/generated/data-contracts'
+
+type CurdOption = {
+  exportFileName?: string
+  defaultForm?: Partial<UserMessageVO>
+}
+const createCurdData = (curdOption: CurdOption | undefined = {}) => {
+  const crudInstanceRef = useTemplateRef<ComponentPublicInstance<typeof ProCrud>>('crudInstanceRef')
   const curdRefData = reactive({
     form: {},
     searchForm: {},
@@ -32,6 +31,7 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
 
   const searchMenuRightProps = reactive({
     searchFormExpand: false,
+    showSearchFormExpandBtn: false,
     toggleSearchFormExpand() {
       searchMenuRightProps.searchFormExpand = !searchMenuRightProps.searchFormExpand
     },
@@ -51,7 +51,6 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
     },
   })
 
-  // 分页数据
   const paginationRefData = reactive({
     total: 0,
     pageSize: 10,
@@ -64,15 +63,34 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
     },
   }
 
-  // 表单，搜索属性数据
   const refColumns = ref<CrudColumn[]>([
+    {
+      label: 'userId',
+      prop: 'userId',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: 'messageId',
+      prop: 'messageId',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
     {
       label: '是否已读',
       prop: 'isRead',
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
+      search: false,
       detail: true,
       span: 12,
     },
@@ -82,7 +100,7 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
+      search: false,
       detail: true,
       span: 12,
     },
@@ -92,7 +110,7 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
+      search: false,
       detail: true,
       span: 12,
     },
@@ -102,7 +120,7 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
+      search: false,
       detail: true,
       span: 12,
     },
@@ -112,7 +130,7 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
+      search: false,
       detail: true,
       span: 12,
     },
@@ -122,7 +140,7 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
+      search: false,
       detail: true,
       span: 12,
     },
@@ -132,26 +150,58 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '实体id',
+      prop: 'recordId',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
       detail: true,
       span: 12,
     },
   ])
 
-  // 搜索框字段
+  // 初始化调用每一个column?.props?.reqFunc函数
+  refColumns.value.forEach((column) => {
+    const reqFunc = column?.props?.reqFunc
+    if (isFunction(reqFunc)) {
+      reqFunc(column)
+    }
+  })
+
+  // 修改表单的排序
+  const formColumns = computed(() =>
+    sortBySequence(
+      refColumns.value.filter((item) => item.add),
+      'prop',
+      ['parentId', 'type'],
+    ),
+  )
+
+  const addFormColumns = computed(() => formColumns.value.filter((item) => item.add))
+  const editFormColumns = computed(() => formColumns.value.filter((item) => item.edit))
+
   const refSearchColumns = computed(() => {
-    return refColumns.value
-      .filter(
-        (item: CrudColumn, idx) =>
-          item.search && (searchMenuRightProps.searchFormExpand ? true : idx < 3),
-      )
+    // 所有可搜索columns,修改required为false
+    const arr1 = refColumns.value
+      .filter((item: CrudColumn) => item.search)
       .map((item) => ({
         ...item,
         required: false,
       }))
+    // 按属性字段排序，折叠筛选部分字段
+    const arr = sortBySequence(arr1, 'prop', []).filter((item, idx) =>
+      searchMenuRightProps.searchFormExpand ? true : idx < 3,
+    )
+    searchMenuRightProps.showSearchFormExpandBtn = arr.length > 2
+    return arr
   })
 
-  // 按钮配置
   const refMenu = ref<ICrudMenuColumns>({
     label: '操作',
     addText: '新增',
@@ -171,19 +221,21 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
     },
     submitText: '提交',
     resetText: '重置',
-    detail: (row) => true,
-    edit: (row) => true,
-    del: (row) => true,
+    detail: (_row) => true,
+    edit: (_row) => true,
+    del: (_row) => true,
+    fixed: 'right',
+    width: '180px',
   })
 
-  // 事件回调操作
   const curdHandles = {
     beforeOpen: defineCrudBeforeOpen((done, type, row) => {
-      if (type === 'edit') {
-        curdRefData.form = row || {}
-      } else if (type === 'detail') {
-        curdRefData.detail = row || {}
+      const actions = {
+        edit: () => (curdRefData.form = row || {}),
+        detail: () => (curdRefData.detail = row || {}),
+        add: () => Object.assign(curdRefData.form, curdOption.defaultForm),
       }
+      actions[type]?.()
       done()
     }),
 
@@ -201,13 +253,11 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
     }),
 
     submit: defineCrudSubmit(async (close, done, type, _isValid, _invalidFields) => {
-      const reqFuncMap: Record<
-        string,
-        undefined | ((data: UserMessageVO) => Promise<FurionResultUserMessageVO>)
-      > = {
-        add: undefined, //gApi.apiUserMessageAddPost,
-        edit: undefined, //gApi.apiUserMessageEditPost,
-      }
+      const reqFuncMap: Record<string, ((data: UserMessageVO) => Promise<undefined>) | undefined> =
+        {
+          add: undefined,
+          edit: undefined,
+        }
       const reqFunc = reqFuncMap[type]
 
       if (!reqFunc) {
@@ -268,15 +318,15 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
     },
   }
 
-  // 初始化请求数据
   curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
 
   // 配置文档请看 https://tolking.github.io/element-pro-components/zh-CN/components/crud
 
-  // crud组件属性
   const crudProps = computed<Partial<ICrudProps>>(() => ({
     columns: refColumns.value,
     searchColumns: refSearchColumns.value,
+    addColumns: addFormColumns.value,
+    editColumns: editFormColumns.value,
     menu: refMenu.value,
     data: curdRefData.tableData,
     detail: curdRefData.detail,
@@ -304,6 +354,7 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
     crudProps,
     paginationRefData,
     searchMenuRightProps,
+    crudInstanceRef,
   }
 }
 

@@ -70,7 +70,7 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | '/modules/project-settings/base-infos'
       | '/modules/project-settings/base-infos/hydropower-station'
-      | '/modules/project-settings/base-infos/user-message'
+      | '/modules/project-settings/base-infos/user-message-manage'
       | '/modules/project-settings/monitoring-configuration'
       | 'account-info'
       | 'account-settings'
@@ -96,7 +96,7 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       Record<never, never>,
       | '/modules/project-settings/base-infos/hydropower-station'
-      | '/modules/project-settings/base-infos/user-message'
+      | '/modules/project-settings/base-infos/user-message-manage'
     >,
     '/modules/project-settings/base-infos/hydropower-station': RouteRecordInfo<
       '/modules/project-settings/base-infos/hydropower-station',
@@ -105,9 +105,9 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/modules/project-settings/base-infos/user-message': RouteRecordInfo<
-      '/modules/project-settings/base-infos/user-message',
-      '/modules/project-settings/base-infos/user-message',
+    '/modules/project-settings/base-infos/user-message-manage': RouteRecordInfo<
+      '/modules/project-settings/base-infos/user-message-manage',
+      '/modules/project-settings/base-infos/user-message-manage',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -132,23 +132,23 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       Record<never, never>,
       | '/modules/system-settings/access-control'
-      | '/modules/system-settings/access-control/dept-manage'
       | '/modules/system-settings/access-control/resource-manage'
       | '/modules/system-settings/access-control/role-manage'
       | '/modules/system-settings/access-control/user-manage'
+      | 'dept-manage'
     >,
     '/modules/system-settings/access-control': RouteRecordInfo<
       '/modules/system-settings/access-control',
       '/modules/system-settings/access-control',
       Record<never, never>,
       Record<never, never>,
-      | '/modules/system-settings/access-control/dept-manage'
       | '/modules/system-settings/access-control/resource-manage'
       | '/modules/system-settings/access-control/role-manage'
       | '/modules/system-settings/access-control/user-manage'
+      | 'dept-manage'
     >,
-    '/modules/system-settings/access-control/dept-manage': RouteRecordInfo<
-      '/modules/system-settings/access-control/dept-manage',
+    'dept-manage': RouteRecordInfo<
+      'dept-manage',
       '/modules/system-settings/access-control/dept-manage',
       Record<never, never>,
       Record<never, never>,
@@ -245,7 +245,7 @@ declare module 'vue-router/auto-routes' {
       routes:
         | '/modules/project-settings/base-infos'
         | '/modules/project-settings/base-infos/hydropower-station'
-        | '/modules/project-settings/base-infos/user-message'
+        | '/modules/project-settings/base-infos/user-message-manage'
         | '/modules/project-settings/monitoring-configuration'
         | 'account-info'
         | 'account-settings'
@@ -271,7 +271,7 @@ declare module 'vue-router/auto-routes' {
       routes:
         | '/modules/project-settings/base-infos'
         | '/modules/project-settings/base-infos/hydropower-station'
-        | '/modules/project-settings/base-infos/user-message'
+        | '/modules/project-settings/base-infos/user-message-manage'
       views:
         | 'default'
     }
@@ -281,9 +281,9 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/modules/project-settings/base-infos/user-message.vue': {
+    'src/pages/modules/project-settings/base-infos/user-message-manage.vue': {
       routes:
-        | '/modules/project-settings/base-infos/user-message'
+        | '/modules/project-settings/base-infos/user-message-manage'
       views:
         | never
     }
@@ -302,10 +302,10 @@ declare module 'vue-router/auto-routes' {
     'src/pages/modules/system-settings.vue': {
       routes:
         | '/modules/system-settings/access-control'
-        | '/modules/system-settings/access-control/dept-manage'
         | '/modules/system-settings/access-control/resource-manage'
         | '/modules/system-settings/access-control/role-manage'
         | '/modules/system-settings/access-control/user-manage'
+        | 'dept-manage'
         | 'system-settings'
       views:
         | 'default'
@@ -313,16 +313,16 @@ declare module 'vue-router/auto-routes' {
     'src/pages/modules/system-settings/access-control.vue': {
       routes:
         | '/modules/system-settings/access-control'
-        | '/modules/system-settings/access-control/dept-manage'
         | '/modules/system-settings/access-control/resource-manage'
         | '/modules/system-settings/access-control/role-manage'
         | '/modules/system-settings/access-control/user-manage'
+        | 'dept-manage'
       views:
         | 'default'
     }
     'src/pages/modules/system-settings/access-control/dept-manage.vue': {
       routes:
-        | '/modules/system-settings/access-control/dept-manage'
+        | 'dept-manage'
       views:
         | never
     }
