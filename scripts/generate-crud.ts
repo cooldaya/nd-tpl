@@ -72,7 +72,7 @@ async function generate() {
           component: 'el-input',
           add: true,
           edit: true,
-          search: true,
+          search: false,
           detail: true,
         }
       })

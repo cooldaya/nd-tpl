@@ -142,7 +142,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       icon: EpRefreshLeft,
       type: 'info',
     },
-    submitText: '添加',
+    submitText: '提交',
     resetText: '重置',
     detail: (_row) => true,
     edit: (_row) => true,
@@ -309,7 +309,7 @@ const createAssignPermissions = () => {
       }
     })
 
-  let formElTreeRef = ref()
+  const formElTreeRef = ref()
   const proFormProps = computed<Partial<IFormProps>>(() => ({
     columns: [
       {

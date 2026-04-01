@@ -68,7 +68,7 @@ const createCurdData1 = () => {
       delText: '删除',
       searchText: '搜索',
       searchResetText: '重置',
-      submitText: '添加',
+      submitText: '提交',
       resetText: '重置',
       detail: (row) => row.date !== '2016-05-02',
       edit: (row) => row.date !== '2016-05-03',

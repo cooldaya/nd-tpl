@@ -1,6 +1,6 @@
 import { reactive, markRaw, computed, ref, useTemplateRef } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { get } from 'lodash-es'
+import { get, isFunction } from 'lodash-es'
 import { gApi } from '@/api/gapi'
 import {
   defineCrudSubmit,
@@ -85,6 +85,14 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
 <% }) -%>
   ])
 
+  // 初始化调用每一个column?.props?.reqFunc函数
+  refColumns.value.forEach((column) => {
+    const reqFunc = column?.props?.reqFunc
+    if (isFunction(reqFunc)) {
+      reqFunc(column)
+    }
+  })
+
   // 修改表单的排序
   const formColumns = computed(() =>
     sortBySequence(
@@ -93,6 +101,9 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       ['parentId', 'type'],
     ),
   )
+
+  const addFormColumns = computed(() => formColumns.value.filter((item) => item.add))
+  const editFormColumns = computed(() => formColumns.value.filter((item) => item.edit))
 
 
   const refSearchColumns = computed(() => {
@@ -128,7 +139,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       icon: EpRefreshLeft,
       type: 'info',
     },
-    submitText: '添加',
+    submitText: '提交',
     resetText: '重置',
     detail: (_row) => true,
     edit: (_row) => true,
@@ -236,8 +247,8 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   const crudProps = computed<Partial<ICrudProps>>(() => ({
     columns: refColumns.value,
     searchColumns: refSearchColumns.value,
-    addColumns: formColumns.value,
-    editColumns: formColumns.value,
+    addColumns: addFormColumns.value,
+    editColumns: editFormColumns.value,
     menu: refMenu.value,
     data: curdRefData.tableData,
     detail: curdRefData.detail,

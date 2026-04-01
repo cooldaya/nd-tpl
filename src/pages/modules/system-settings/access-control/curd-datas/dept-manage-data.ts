@@ -205,7 +205,9 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
             onClick: () => handles.handleAddChild(row),
             size: 'small',
           },
-          '添加子级',
+          {
+            default: () => '添加子级',
+          },
         ),
     },
   ])
@@ -250,7 +252,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       icon: EpRefreshLeft,
       type: 'info',
     },
-    submitText: '添加',
+    submitText: '提交',
     resetText: '重置',
     detail: (_row) => true,
     edit: (_row) => true,

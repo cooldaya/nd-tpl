@@ -1,4 +1,4 @@
-import { reactive, markRaw, computed, ref, useTemplateRef } from 'vue'
+import { reactive, markRaw, computed, ref, useTemplateRef, h } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { defineCrudSubmit, defineCrudSearch, defineCrudBeforeOpen } from 'element-pro-components'
@@ -16,6 +16,7 @@ import EpSearch from '~icons/ep/search'
 import EpRefreshLeft from '~icons/ep/refresh-left'
 import { exportProTable, listToTree, sortBySequence } from '@/utils/funcs-tool'
 import AutocompleteArray from '@/components/pro-crud/AutocompleteArray.vue'
+import { ElButton } from 'element-plus'
 
 type CurdOption = {
   exportFileName?: string
@@ -177,19 +178,30 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       },
     },
     {
-      label: '部门操作',
+      label: '菜单操作',
       prop: 'cus-opts',
-      component: 'el-input',
-      span: 12,
+      render: (row: ResourceVO) =>
+        h(
+          ElButton,
+          {
+            onClick: () => handles.handleAddChild(row),
+            size: 'small',
+          },
+          {
+            default: () => '添加子级',
+          },
+        ),
     },
-    // {
-    //   label: 'resourceRoutes',
-    //   prop: 'resourceRoutes',
-    //   detail: true,
-    //   add: false,
-    //   edit: false,
-    // },
   ])
+
+  const handles = {
+    handleAddChild(row: any) {
+      crudInstanceRef.value?.openDialog('add', row)
+      Object.assign(curdRefData.form, {
+        parentId: row.id,
+      })
+    },
+  }
 
   // 修改表单的排序
   const formColumns = computed(() =>
@@ -233,7 +245,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       icon: EpRefreshLeft,
       type: 'info',
     },
-    submitText: '添加',
+    submitText: '提交',
     resetText: '重置',
     detail: (_row) => true,
     edit: (_row) => true,

@@ -1,13 +1,18 @@
 <script setup lang="ts">
-  import { createCurdData } from './curd-datas/user-manage-data.ts'
+import { createCurdData } from './curd-datas/user-manage-data.ts'
 
-  definePage({
-    meta: {
-      title: '用户管理',
-    },
-  })
+definePage({
+  meta: {
+    title: '用户管理',
+  },
+})
 
-  const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData()
+const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData({
+  defaultForm: {
+    isEnable: true,
+    canLogin: true,
+  },
+})
 </script>
 
 <template>

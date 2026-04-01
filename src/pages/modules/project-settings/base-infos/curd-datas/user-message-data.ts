@@ -169,7 +169,7 @@ const createCurdData = (curdOption: Record<string, any> = {}) => {
       icon: EpRefreshLeft,
       type: 'info',
     },
-    submitText: '添加',
+    submitText: '提交',
     resetText: '重置',
     detail: (row) => true,
     edit: (row) => true,

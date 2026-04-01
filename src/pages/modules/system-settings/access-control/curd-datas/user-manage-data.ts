@@ -1,29 +1,30 @@
-import { reactive, markRaw, computed, ref, useTemplateRef } from 'vue'
+import { reactive, markRaw, computed, ref, useTemplateRef, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { get } from 'lodash-es'
+import { get, isFunction } from 'lodash-es'
 import { gApi } from '@/api/gapi'
 import { defineCrudSubmit, defineCrudSearch, defineCrudBeforeOpen } from 'element-pro-components'
 import EpSearch from '~icons/ep/search'
 import EpRefreshLeft from '~icons/ep/refresh-left'
 import { exportProTable, sortBySequence } from '@/utils/funcs-tool'
+import { validator } from '@/utils/validate'
+import { remotePkRsaEncrypt } from '@/api/app-api/auth'
 
 import type { ComponentPublicInstance } from 'vue'
 import type { CrudColumn, ICrudProps, ICrudMenuColumns, ProCrud } from 'element-pro-components'
 import type {
   UserVO,
-  UserForm,
   ApiUserAddPostData,
   ApiUserEditPostData,
 } from '@/api/generated/data-contracts'
 
 type CurdOption = {
   exportFileName?: string
-  defaultForm?: Partial<UserForm>
+  defaultForm?: Partial<UserVO>
 }
 const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   const crudInstanceRef = useTemplateRef<ComponentPublicInstance<typeof ProCrud>>('crudInstanceRef')
   const curdRefData = reactive({
-    form: {},
+    form: {} as UserVO,
     searchForm: {},
     detail: {},
     tableData: [] as UserVO[],
@@ -65,26 +66,6 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
 
   const refColumns = ref<CrudColumn[]>([
     {
-      label: '登录名',
-      prop: 'loginname',
-      component: 'el-input',
-      add: true,
-      edit: true,
-      search: true,
-      detail: true,
-      span: 12,
-    },
-    {
-      label: '密码',
-      prop: 'password',
-      component: 'el-input',
-      add: true,
-      edit: true,
-      search: true,
-      detail: true,
-      span: 12,
-    },
-    {
       label: '编号',
       prop: 'code',
       component: 'el-input',
@@ -92,7 +73,19 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       edit: true,
       search: true,
       detail: true,
-      span: 12,
+      span: 8,
+      required: true,
+    },
+    {
+      label: '登录名',
+      prop: 'loginname',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 8,
+      required: true,
     },
     {
       label: '姓名',
@@ -102,7 +95,37 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       edit: true,
       search: true,
       detail: true,
-      span: 12,
+      span: 8,
+      required: true,
+    },
+    {
+      label: '密码',
+      prop: 'password',
+      component: 'el-input',
+      add: true,
+      edit: false,
+      span: 8,
+      required: true,
+    },
+    {
+      label: '确认密码',
+      prop: 'confirmPassword',
+      component: 'el-input',
+      span: 8,
+      add: true,
+      edit: false,
+      required: true,
+      rules: [
+        {
+          validator: (rule, value, callback) => {
+            if (value !== curdRefData.form.password) {
+              callback(new Error('两次输入的密码不一致'))
+            } else {
+              callback()
+            }
+          },
+        },
+      ],
     },
     {
       label: '邮箱',
@@ -110,9 +133,20 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
       detail: true,
-      span: 12,
+      span: 8,
+      rules: [
+        {
+          validator: (rule, value, callback) => {
+            if (!value) return callback()
+            if (!validator.isEmail(value)) {
+              callback(new Error('请输入正确的邮箱地址'))
+            } else {
+              callback()
+            }
+          },
+        },
+      ],
     },
     {
       label: '身份证号码',
@@ -120,19 +154,31 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
       detail: true,
-      span: 12,
+      span: 8,
+      rules: [
+        {
+          validator: (rule, value, callback) => {
+            if (!value) return callback()
+            if (!validator.isIdCard(value)) {
+              callback(new Error('身份证号码格式不正确'))
+            } else {
+              callback()
+            }
+          },
+        },
+      ],
     },
     {
       label: '性别',
       prop: 'sex',
-      component: 'el-input',
+      component: 'pro-radio',
       add: true,
       edit: true,
-      search: true,
-      detail: true,
-      span: 12,
+      span: 8,
+      props: {
+        data: [],
+      },
     },
     {
       label: '民族',
@@ -140,19 +186,20 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
       detail: true,
-      span: 12,
+      span: 8,
     },
     {
       label: '出生日期',
       prop: 'birthday',
-      component: 'el-input',
+      component: 'el-date-picker',
       add: true,
       edit: true,
-      search: true,
       detail: true,
-      span: 12,
+      span: 8,
+      props: {
+        valueFormat: 'yyyy-MM-dd',
+      },
     },
     {
       label: '手机号',
@@ -160,9 +207,20 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
       detail: true,
-      span: 12,
+      span: 8,
+      rules: [
+        {
+          validator: (rule, value, callback) => {
+            if (!value) return callback()
+            if (!validator.isPhone(value)) {
+              callback(new Error('手机号格式不正确'))
+            } else {
+              callback()
+            }
+          },
+        },
+      ],
     },
     {
       label: '微信openid',
@@ -170,9 +228,8 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
       detail: true,
-      span: 12,
+      span: 8,
     },
     {
       label: '微信unionid',
@@ -180,39 +237,8 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
       detail: true,
-      span: 12,
-    },
-    {
-      label: '地址',
-      prop: 'address',
-      component: 'el-input',
-      add: true,
-      edit: true,
-      search: true,
-      detail: true,
-      span: 12,
-    },
-    {
-      label: '是否可以登录',
-      prop: 'canLogin',
-      component: 'el-input',
-      add: true,
-      edit: true,
-      search: true,
-      detail: true,
-      span: 12,
-    },
-    {
-      label: '是否启用',
-      prop: 'isEnable',
-      component: 'el-input',
-      add: true,
-      edit: true,
-      search: true,
-      detail: true,
-      span: 12,
+      span: 8,
     },
     {
       label: 'maxNos',
@@ -220,29 +246,8 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
       detail: true,
-      span: 12,
-    },
-    {
-      label: 'remark',
-      prop: 'remark',
-      component: 'el-input',
-      add: true,
-      edit: true,
-      search: true,
-      detail: true,
-      span: 12,
-    },
-    {
-      label: 'organizationId',
-      prop: 'organizationId',
-      component: 'el-input',
-      add: true,
-      edit: true,
-      search: true,
-      detail: true,
-      span: 12,
+      span: 8,
     },
     {
       label: 'ssoid',
@@ -250,39 +255,108 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
       detail: true,
-      span: 12,
+      span: 8,
+    },
+    // {
+    //   label: 'typeCode',
+    //   prop: 'typeCode',
+    //   component: 'el-input',
+    //   add: true,
+    //   edit: true,
+    //   search: true,
+    //   detail: true,
+    //   span: 8,
+    // },
+    {
+      label: '从属组织',
+      prop: 'organizationId',
+      component: 'el-cascader',
+      add: true,
+      edit: true,
+      search: true,
+      // detail: true,
+      span: 8,
+      required: true,
+      props: {
+        options: [],
+        class: 'w-full',
+        props: {
+          label: 'name',
+          value: 'id',
+          emitPath: false,
+        },
+        async reqFunc(column: CrudColumn) {
+          if (!column || !column.props || (column.props.options as []).length) {
+            // 只请求一次数据
+            return
+          }
+          const res = await gApi.apiOrganizationTreedataPost({})
+          column.props!.options = res.data
+        },
+      },
     },
     {
-      label: 'typeCode',
-      prop: 'typeCode',
-      component: 'el-input',
+      label: '是否启用',
+      prop: 'isEnable',
+      component: 'el-switch',
       add: true,
       edit: true,
       search: true,
       detail: true,
-      span: 12,
+      span: 8,
+    },
+
+    {
+      label: '是否可以登录',
+      prop: 'canLogin',
+      component: 'el-switch',
+      add: true,
+      edit: true,
+      search: true,
+      detail: true,
+      span: 8,
     },
     {
       label: '上次登录时间',
       prop: 'lastLoginTime',
       component: 'el-input',
-      add: true,
-      edit: true,
-      search: true,
+      // add: true,
+      // edit: true,
+      // search: true,
       detail: true,
-      span: 12,
+      span: 8,
     },
     {
       label: '组织机构名称',
       prop: 'organizationName',
       component: 'el-input',
+      // add: true,
+      // edit: true,
+      // search: true,
+      detail: true,
+      span: 8,
+    },
+    {
+      label: '地址',
+      prop: 'address',
+      component: 'el-input',
       add: true,
       edit: true,
-      search: true,
       detail: true,
-      span: 12,
+      // span: 12,
+    },
+
+    {
+      label: '备注',
+      prop: 'remark',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      detail: true,
+      props: {
+        type: 'textarea',
+      },
     },
     {
       label: '权限操作',
@@ -290,6 +364,14 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       fixed: 'right',
     },
   ])
+
+  // 初始化调用每一个column?.props?.reqFunc函数
+  refColumns.value.forEach((column) => {
+    const reqFunc = column?.props?.reqFunc
+    if (isFunction(reqFunc)) {
+      reqFunc(column)
+    }
+  })
 
   // 修改表单的排序
   const formColumns = computed(() =>
@@ -299,6 +381,9 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       ['parentId', 'type'],
     ),
   )
+
+  const addFormColumns = computed(() => formColumns.value.filter((item) => item.add))
+  const editFormColumns = computed(() => formColumns.value.filter((item) => item.edit))
 
   const refSearchColumns = computed(() => {
     // 所有可搜索columns,修改required为false
@@ -333,7 +418,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       icon: EpRefreshLeft,
       type: 'info',
     },
-    submitText: '添加',
+    submitText: '提交',
     resetText: '重置',
     detail: (_row) => true,
     edit: (_row) => true,
@@ -369,10 +454,10 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     submit: defineCrudSubmit(async (close, done, type, _isValid, _invalidFields) => {
       const reqFuncMap: Record<
         string,
-        (data: UserForm) => Promise<ApiUserAddPostData | ApiUserEditPostData>
+        (data: UserVO) => Promise<ApiUserAddPostData | ApiUserEditPostData>
       > = {
-        add: gApi.apiUserAddPost,
-        edit: gApi.apiUserEditPost,
+        add: gApi.apiUserAddPost as (data: UserVO) => Promise<ApiUserAddPostData>,
+        edit: gApi.apiUserEditPost as (data: UserVO) => Promise<ApiUserAddPostData>,
       }
       const reqFunc = reqFuncMap[type]
 
@@ -381,7 +466,15 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
         return
       }
       try {
-        await reqFunc(curdRefData.form)
+        const payload = { ...curdRefData.form }
+        if (type === 'add') {
+          const encryptedpwd = await remotePkRsaEncrypt(payload.password!)
+          Object.assign(payload, {
+            password: encryptedpwd,
+            confirmPassword: encryptedpwd,
+          })
+        }
+        await reqFunc(payload as UserVO)
         ElMessage.success('操作成功')
         close()
         await curdHandles.paginationChange(
@@ -441,8 +534,8 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   const crudProps = computed<Partial<ICrudProps>>(() => ({
     columns: refColumns.value,
     searchColumns: refSearchColumns.value,
-    addColumns: formColumns.value,
-    editColumns: formColumns.value,
+    addColumns: addFormColumns.value,
+    editColumns: editFormColumns.value,
     menu: refMenu.value,
     data: curdRefData.tableData,
     detail: curdRefData.detail,

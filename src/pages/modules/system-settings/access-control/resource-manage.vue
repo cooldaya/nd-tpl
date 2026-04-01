@@ -16,10 +16,7 @@ const {
   curdHandles,
   crudInstanceRef,
 } = createCurdData({
-  defaultForm: {
-    isEnable: true,
-    routeNames: [],
-  },
+  defaultForm: {},
 })
 
 const handles = {
@@ -30,13 +27,6 @@ const handles = {
     }
     await gApi.apiResourceEditPost(data)
     curdHandles.refreshTable()
-  },
-
-  handleAddChild(row: any) {
-    crudInstanceRef.value?.openDialog('add', row)
-    Object.assign(curdRefData.form, {
-      parentId: row.id,
-    })
   },
 }
 </script>
@@ -71,11 +61,6 @@ const handles = {
             :modelValue="row[column.property]"
             @update:modelValue="(val: any) => handles.changeField(row, column, val)"
           />
-        </template>
-        <template #table-cus-opts="{ row }">
-          <div>
-            <el-button @click="handles.handleAddChild(row)" size="small">添加子级</el-button>
-          </div>
         </template>
       </pro-crud>
     </pro-card>
