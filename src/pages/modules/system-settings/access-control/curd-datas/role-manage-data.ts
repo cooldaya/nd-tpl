@@ -362,7 +362,7 @@ const createAssignPermissions = () => {
 
   const dialogTitle = computed(() => {
     const roleName = apRefData.currentRow?.name ?? ''
-    return roleName + '角色-权限分配'
+    return `权限分配-${roleName}`
   })
 
   return {

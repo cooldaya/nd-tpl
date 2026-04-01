@@ -1,4 +1,4 @@
-import { reactive, markRaw, computed, ref, useTemplateRef, onMounted } from 'vue'
+import { reactive, markRaw, computed, ref, useTemplateRef, nextTick } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { get, isFunction } from 'lodash-es'
 import { gApi } from '@/api/gapi'
@@ -10,11 +10,18 @@ import { validator } from '@/utils/validate'
 import { remotePkRsaEncrypt } from '@/api/app-api/auth'
 
 import type { ComponentPublicInstance } from 'vue'
-import type { CrudColumn, ICrudProps, ICrudMenuColumns, ProCrud } from 'element-pro-components'
+import type {
+  CrudColumn,
+  ICrudProps,
+  ICrudMenuColumns,
+  ProCrud,
+  IFormProps,
+} from 'element-pro-components'
 import type {
   UserVO,
   ApiUserAddPostData,
   ApiUserEditPostData,
+  RoleVO,
 } from '@/api/generated/data-contracts'
 
 type CurdOption = {
@@ -286,6 +293,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
           value: 'id',
           emitPath: false,
         },
+        placeholder: '请选择',
         async reqFunc(column: CrudColumn) {
           if (!column || !column.props || (column.props.options as []).length) {
             // 只请求一次数据
@@ -362,6 +370,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       label: '权限操作',
       prop: 'cus-opts',
       fixed: 'right',
+      width: '220',
     },
   ])
 
@@ -567,4 +576,182 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   }
 }
 
-export { createCurdData }
+const createAssignRoles = () => {
+  type ArRefData = {
+    currentRow: any
+    visible: boolean
+    form: any
+  }
+  const arRefData = reactive<ArRefData>({
+    currentRow: null,
+    visible: false,
+    form: {
+      roleIds: [],
+      userId: 0,
+    },
+  })
+
+  const treeData = ref<RoleVO[]>()
+  // 获取tree数据
+  gApi.apiRoleListPost({}).then((res) => {
+    if (res?.data) {
+      treeData.value = res.data
+    }
+  })
+
+  const formElTreeRef = ref()
+  const proFormProps = computed<Partial<IFormProps>>(() => ({
+    columns: [
+      {
+        label: '菜单权限',
+        prop: 'resourceIds',
+        component: 'el-tree',
+        props: {
+          ref: formElTreeRef,
+          data: treeData.value,
+          showCheckbox: true,
+          props: {
+            label: 'name',
+            children: 'children',
+          },
+          nodeKey: 'id',
+        },
+      },
+    ],
+    menu: {
+      submitText: '提交',
+      reset: false,
+    },
+  }))
+
+  const arHandles = {
+    async open(row: any) {
+      arRefData.currentRow = markRaw(row)
+
+      // 获取用户当前角色
+      arRefData.form.userId = row.id!
+      const res = await gApi.apiUserGetRolesPost({
+        id: row.id,
+      })
+      arRefData.form.roleIds = res.data!.map((item) => item.id)
+      arRefData.visible = true
+      nextTick(() => {
+        if (!formElTreeRef.value) return
+        formElTreeRef.value.setCheckedKeys(arRefData.form.roleIds)
+      })
+    },
+    close() {
+      arRefData.visible = false
+    },
+    async submit(done: () => void, _isValid: boolean) {
+      if (!formElTreeRef.value) throw new Error('formElTreeRef is null')
+      arRefData.form.roleIds = formElTreeRef.value.getCheckedKeys()
+      await gApi.apiUserAssignRolesPost(arRefData.form)
+      done()
+      arHandles.close()
+    },
+  }
+
+  const dialogTitle = computed(() => {
+    const accountName = arRefData.currentRow?.loginname ?? ''
+    return `分配角色-${accountName}`
+  })
+
+  return {
+    arRefData,
+    arHandles,
+    dialogTitle,
+    proFormProps,
+  }
+}
+
+const createResetPassword = () => {
+  type RpRefData = {
+    currentRow: any
+    visible: boolean
+    form: any
+  }
+  const rpRefData = reactive<RpRefData>({
+    currentRow: null,
+    visible: false,
+    form: {
+      userId: 0,
+      password: '',
+    },
+  })
+
+  const rpProFormProps = computed<Partial<IFormProps>>(() => ({
+    columns: [
+      {
+        label: '新密码',
+        prop: 'password',
+        component: 'el-input',
+        required: true,
+
+        props: {
+          type: 'password',
+        },
+      },
+      {
+        label: '确认密码',
+        prop: 'confirmPassword',
+        component: 'el-input',
+        required: true,
+        props: {
+          type: 'password',
+        },
+        rules: [
+          {
+            validator: (rule, value, callback) => {
+              if (value !== rpRefData.form.password) {
+                callback(new Error('两次输入的密码不一致'))
+              } else {
+                callback()
+              }
+            },
+          },
+        ],
+      },
+    ],
+    menu: {
+      submitText: '提交',
+      reset: false,
+    },
+  }))
+
+  const rpHandles = {
+    open(row: any) {
+      rpRefData.currentRow = markRaw(row)
+      rpRefData.form.userId = row.id
+      rpRefData.visible = true
+    },
+    close() {
+      rpRefData.visible = false
+    },
+    async submit(done: () => void, _isValid: boolean) {
+      const encryptedpwd = await remotePkRsaEncrypt(rpRefData.form.password!)
+      await gApi.apiUserEditPwdPost({
+        userId: rpRefData.form.userId,
+        password: encryptedpwd,
+      })
+      done()
+      rpHandles.close()
+    },
+  }
+
+  const rpDialogTitle = computed(() => {
+    const accountName = rpRefData.currentRow?.loginname ?? ''
+    return `重置密码-${accountName}`
+  })
+
+  return {
+    rpRefData,
+    rpHandles,
+    rpDialogTitle,
+    rpProFormProps,
+  }
+}
+
+export { createCurdData, createAssignRoles, createResetPassword }
+
+// TODO 类型待标注
