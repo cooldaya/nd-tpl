@@ -203,6 +203,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
           ElButton,
           {
             onClick: () => handles.handleAddChild(row),
+            size: 'small',
           },
           '添加子级',
         ),
