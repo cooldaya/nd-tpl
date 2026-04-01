@@ -135,6 +135,9 @@ declare module 'vue-router/auto-routes' {
       | '/modules/system-settings/access-control/resource-manage'
       | '/modules/system-settings/access-control/role-manage'
       | '/modules/system-settings/access-control/user-manage'
+      | '/modules/system-settings/system-log'
+      | '/modules/system-settings/system-log/exception-log'
+      | '/modules/system-settings/system-log/operation-log'
       | 'dept-manage'
     >,
     '/modules/system-settings/access-control': RouteRecordInfo<
@@ -171,6 +174,28 @@ declare module 'vue-router/auto-routes' {
     '/modules/system-settings/access-control/user-manage': RouteRecordInfo<
       '/modules/system-settings/access-control/user-manage',
       '/modules/system-settings/access-control/user-manage',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/modules/system-settings/system-log': RouteRecordInfo<
+      '/modules/system-settings/system-log',
+      '/modules/system-settings/system-log',
+      Record<never, never>,
+      Record<never, never>,
+      | '/modules/system-settings/system-log/exception-log'
+      | '/modules/system-settings/system-log/operation-log'
+    >,
+    '/modules/system-settings/system-log/exception-log': RouteRecordInfo<
+      '/modules/system-settings/system-log/exception-log',
+      '/modules/system-settings/system-log/exception-log',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/modules/system-settings/system-log/operation-log': RouteRecordInfo<
+      '/modules/system-settings/system-log/operation-log',
+      '/modules/system-settings/system-log/operation-log',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -305,6 +330,9 @@ declare module 'vue-router/auto-routes' {
         | '/modules/system-settings/access-control/resource-manage'
         | '/modules/system-settings/access-control/role-manage'
         | '/modules/system-settings/access-control/user-manage'
+        | '/modules/system-settings/system-log'
+        | '/modules/system-settings/system-log/exception-log'
+        | '/modules/system-settings/system-log/operation-log'
         | 'dept-manage'
         | 'system-settings'
       views:
@@ -341,6 +369,26 @@ declare module 'vue-router/auto-routes' {
     'src/pages/modules/system-settings/access-control/user-manage.vue': {
       routes:
         | '/modules/system-settings/access-control/user-manage'
+      views:
+        | never
+    }
+    'src/pages/modules/system-settings/system-log.vue': {
+      routes:
+        | '/modules/system-settings/system-log'
+        | '/modules/system-settings/system-log/exception-log'
+        | '/modules/system-settings/system-log/operation-log'
+      views:
+        | 'default'
+    }
+    'src/pages/modules/system-settings/system-log/exception-log.vue': {
+      routes:
+        | '/modules/system-settings/system-log/exception-log'
+      views:
+        | never
+    }
+    'src/pages/modules/system-settings/system-log/operation-log.vue': {
+      routes:
+        | '/modules/system-settings/system-log/operation-log'
       views:
         | never
     }
