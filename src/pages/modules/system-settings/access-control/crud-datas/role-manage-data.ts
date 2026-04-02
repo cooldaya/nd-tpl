@@ -1,31 +1,40 @@
-import { reactive, markRaw, computed, ref, useTemplateRef } from 'vue'
+import { reactive, markRaw, computed, ref, useTemplateRef, nextTick } from 'vue'
+import type { ComponentPublicInstance } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { get, isFunction } from 'lodash-es'
-import { gApi } from '@/api/gapi'
 import { defineCrudSubmit, defineCrudSearch, defineCrudBeforeOpen } from 'element-pro-components'
+
+import type {
+  CrudColumn,
+  ICrudProps,
+  ICrudMenuColumns,
+  IFormProps,
+  ProCrud,
+} from 'element-pro-components'
+import { get } from 'lodash-es'
+import { gApi } from '@/api/gapi'
+import type {
+  RoleVO,
+  RoleFO,
+  ApiRoleAddPostData,
+  ApiRoleEditPostData,
+  RoleAssignResourcesQO,
+  TreeNode,
+} from '@/api/generated/data-contracts'
 import EpSearch from '~icons/ep/search'
 import EpRefreshLeft from '~icons/ep/refresh-left'
 import { exportProTable, sortBySequence } from '@/utils/funcs-tool'
 
-import type { ComponentPublicInstance } from 'vue'
-import type { CrudColumn, ICrudProps, ICrudMenuColumns, ProCrud } from 'element-pro-components'
-import type {
-  LogerrorVO,
-  ApiLogerrorAddPostData,
-  ApiLogerrorEditPostData,
-} from '@/api/generated/data-contracts'
-
-type CurdOption = {
+type CrudOption = {
   exportFileName?: string
-  defaultForm?: Partial<LogerrorVO>
+  defaultForm?: Partial<RoleFO>
 }
-const createCurdData = (curdOption: CurdOption | undefined = {}) => {
+const createCrudData = (crudOption: CrudOption | undefined = {}) => {
   const crudInstanceRef = useTemplateRef<ComponentPublicInstance<typeof ProCrud>>('crudInstanceRef')
-  const curdRefData = reactive({
+  const crudRefData = reactive({
     form: {},
     searchForm: {},
     detail: {},
-    tableData: [] as LogerrorVO[],
+    tableData: [] as RoleVO[],
   })
 
   const searchMenuRightProps = reactive({
@@ -36,16 +45,16 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     },
     async exportTableData() {
       const option = {
-        searchForm: curdRefData.searchForm,
+        searchForm: crudRefData.searchForm,
         columns: refColumns.value,
       }
-      const res = await gApi.apiLogerrorPagedListPost({
+      const res = await gApi.apiRolePagedListPost({
         pageIndex: 1,
         pageSize: 99,
-        ...curdRefData.searchForm,
+        ...crudRefData.searchForm,
       })
       const arrData = get(res, 'data.items', [])
-      const fileName = curdOption.exportFileName || '异常日志'
+      const fileName = crudOption.exportFileName || '角色管理'
       exportProTable(arrData, option.searchForm, option.columns, fileName)
     },
   })
@@ -56,7 +65,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     currentPage: 1,
   })
 
-  const curdStaticData = {
+  const crudStaticData = {
     searchProps: {
       gutter: 20,
     },
@@ -64,64 +73,32 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
 
   const refColumns = ref<CrudColumn[]>([
     {
-      label: '异常信息',
-      prop: 'message',
-      component: 'el-input',
-      add: true,
-      edit: true,
-      search: false,
-      detail: true,
-      span: 12,
-    },
-    {
-      label: '操作用户标识',
-      prop: 'userId',
-      component: 'el-input',
-      add: true,
-      edit: true,
-      search: false,
-      detail: true,
-      span: 12,
-    },
-    {
-      label: '模块',
-      prop: 'controller',
+      label: '名称',
+      prop: 'name',
       component: 'el-input',
       add: true,
       edit: true,
       search: true,
       detail: true,
-      span: 12,
+      required: true,
     },
     {
-      label: '操作',
-      prop: 'action',
+      label: '备注',
+      prop: 'remark',
       component: 'el-input',
       add: true,
       edit: true,
-      search: true,
       detail: true,
-      span: 12,
+      props: {
+        type: 'textarea',
+      },
     },
     {
-      label: 'ip',
-      prop: 'ip',
-      component: 'el-input',
-      add: true,
-      edit: true,
-      search: false,
-      detail: true,
-      span: 12,
+      label: '权限操作',
+      prop: 'cus-opts',
+      width: '140',
     },
   ])
-
-  // 初始化调用每一个column?.props?.reqFunc函数
-  refColumns.value.forEach((column) => {
-    const reqFunc = column?.props?.reqFunc
-    if (isFunction(reqFunc)) {
-      reqFunc(column)
-    }
-  })
 
   // 修改表单的排序
   const formColumns = computed(() =>
@@ -132,13 +109,10 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     ),
   )
 
-  const addFormColumns = computed(() => formColumns.value.filter((item) => item.add))
-  const editFormColumns = computed(() => formColumns.value.filter((item) => item.edit))
-
   const refSearchColumns = computed(() => {
     // 所有可搜索columns,修改required为false
     const arr1 = refColumns.value
-      .filter((item: CrudColumn) => item.search)
+      .filter((item: CrudColumn, _idx) => item.search)
       .map((item) => ({
         ...item,
         required: false,
@@ -177,12 +151,12 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     width: '180px',
   })
 
-  const curdHandles = {
+  const crudHandles = {
     beforeOpen: defineCrudBeforeOpen((done, type, row) => {
       const actions = {
-        edit: () => (curdRefData.form = row || {}),
-        detail: () => (curdRefData.detail = row || {}),
-        add: () => Object.assign(curdRefData.form, curdOption.defaultForm),
+        edit: () => (crudRefData.form = row || {}),
+        detail: () => (crudRefData.detail = row || {}),
+        add: () => Object.assign(crudRefData.form, crudOption.defaultForm),
       }
       actions[type]?.()
       done()
@@ -190,7 +164,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
 
     search: defineCrudSearch(async (done, _isValid, _invalidFields) => {
       try {
-        await curdHandles.paginationChange(
+        await crudHandles.paginationChange(
           paginationRefData.currentPage,
           paginationRefData.pageSize,
         )
@@ -204,10 +178,10 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     submit: defineCrudSubmit(async (close, done, type, _isValid, _invalidFields) => {
       const reqFuncMap: Record<
         string,
-        (data: LogerrorVO) => Promise<ApiLogerrorAddPostData | ApiLogerrorEditPostData>
+        (data: RoleFO) => Promise<ApiRoleAddPostData | ApiRoleEditPostData>
       > = {
-        add: gApi.apiLogerrorAddPost,
-        edit: gApi.apiLogerrorEditPost,
+        add: gApi.apiRoleAddPost,
+        edit: gApi.apiRoleEditPost,
       }
       const reqFunc = reqFuncMap[type]
 
@@ -216,10 +190,10 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
         return
       }
       try {
-        await reqFunc(curdRefData.form)
+        await reqFunc(crudRefData.form as RoleFO)
         ElMessage.success('操作成功')
         close()
-        await curdHandles.paginationChange(
+        await crudHandles.paginationChange(
           paginationRefData.currentPage,
           paginationRefData.pageSize,
         )
@@ -230,7 +204,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       }
     }),
 
-    async deleteRow(row: LogerrorVO) {
+    async deleteRow(row: RoleVO) {
       try {
         await ElMessageBox.confirm('确认要删除该条数据吗？', '警告', {
           confirmButtonText: '确定',
@@ -242,11 +216,11 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
         return ElMessage.info('已取消删除')
       }
       try {
-        await gApi.apiLogerrorRemovePost({
+        await gApi.apiRoleRemovePost({
           id: row.id,
         })
         ElMessage.success('删除成功')
-        await curdHandles.paginationChange(
+        await crudHandles.paginationChange(
           paginationRefData.currentPage,
           paginationRefData.pageSize,
         )
@@ -255,41 +229,41 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       }
     },
     async paginationChange(currentPage: number, pageSize: number) {
-      const res = await gApi.apiLogerrorPagedListPost({
+      const res = await gApi.apiRolePagedListPost({
         pageIndex: currentPage,
         pageSize: pageSize,
-        ...curdRefData.searchForm,
+        ...crudRefData.searchForm,
       })
       paginationRefData.total = get(res, 'data.total', 0)
-      curdRefData.tableData = markRaw(get(res, 'data.items', []) as LogerrorVO[])
+      crudRefData.tableData = markRaw(get(res, 'data.items', []) as RoleVO[])
     },
     searchReset() {
       paginationRefData.currentPage = 1
-      curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
+      crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
     },
   }
 
-  curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
+  crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
 
   // 配置文档请看 https://tolking.github.io/element-pro-components/zh-CN/components/crud
 
   const crudProps = computed<Partial<ICrudProps>>(() => ({
     columns: refColumns.value,
     searchColumns: refSearchColumns.value,
-    addColumns: addFormColumns.value,
-    editColumns: editFormColumns.value,
+    addColumns: formColumns.value,
+    editColumns: formColumns.value,
     menu: refMenu.value,
-    data: curdRefData.tableData,
-    detail: curdRefData.detail,
-    beforeOpen: curdHandles.beforeOpen,
-    searchProps: curdStaticData.searchProps,
-    onSearch: curdHandles.search,
-    onSubmit: curdHandles.submit,
-    onDelete: curdHandles.deleteRow,
-    onSearchReset: curdHandles.searchReset,
+    data: crudRefData.tableData,
+    detail: crudRefData.detail,
+    beforeOpen: crudHandles.beforeOpen,
+    searchProps: crudStaticData.searchProps,
+    onSearch: crudHandles.search,
+    onSubmit: crudHandles.submit,
+    onDelete: crudHandles.deleteRow,
+    onSearchReset: crudHandles.searchReset,
     total: paginationRefData.total,
     onLoad: () =>
-      curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize),
+      crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize),
     layout: '->, prev, pager, next, sizes, total',
     background: true,
     gutter: 20,
@@ -299,9 +273,9 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   }))
 
   return {
-    curdRefData,
-    curdStaticData,
-    curdHandles,
+    crudRefData,
+    crudStaticData,
+    crudHandles,
     crudProps,
     paginationRefData,
     searchMenuRightProps,
@@ -309,4 +283,94 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   }
 }
 
-export { createCurdData }
+const createAssignPermissions = () => {
+  type ApRefDataType = {
+    currentRow: RoleFO | null
+    visible: boolean
+    form: RoleAssignResourcesQO
+  }
+  const apRefData = reactive<ApRefDataType>({
+    currentRow: null,
+    visible: false,
+    form: {
+      resourceIds: [],
+      roleId: 0,
+    },
+  })
+
+  const treeData = ref<TreeNode[]>()
+  gApi
+    .apiResourceTreedataPost({
+      isEnable: true,
+    })
+    .then((res) => {
+      if (res?.data) {
+        treeData.value = res.data
+      }
+    })
+
+  const formElTreeRef = ref()
+  const proFormProps = computed<Partial<IFormProps>>(() => ({
+    columns: [
+      {
+        label: '菜单权限',
+        prop: 'resourceIds',
+        component: 'el-tree',
+        props: {
+          ref: formElTreeRef,
+          data: treeData.value,
+          showCheckbox: true,
+          props: {
+            label: 'name',
+            children: 'children',
+          },
+          nodeKey: 'id',
+        },
+      },
+    ],
+    menu: {
+      submitText: '提交',
+      reset: false,
+    },
+  }))
+
+  const apHandles = {
+    async open(row: RoleFO) {
+      apRefData.currentRow = markRaw(row)
+      apRefData.form.roleId = row.id!
+      const res = await gApi.apiResourceGetResourcesPost({
+        id: row.id,
+      })
+      apRefData.form.resourceIds = res.data!
+      apRefData.visible = true
+      nextTick(() => {
+        if (!formElTreeRef.value) return
+        formElTreeRef.value.setCheckedKeys(apRefData.form.resourceIds)
+      })
+    },
+    close() {
+      apRefData.visible = false
+    },
+    async submit(done: () => void, _isValid: boolean) {
+      if (!formElTreeRef.value) throw new Error('formElTreeRef is null')
+      apRefData.form.resourceIds = formElTreeRef.value.getCheckedKeys()
+      await gApi.apiRoleAssignResourcePost(apRefData.form)
+      done()
+      apHandles.close()
+    },
+  }
+
+  const dialogTitle = computed(() => {
+    const roleName = apRefData.currentRow?.name ?? ''
+    return `权限分配-${roleName}`
+  })
+
+  return {
+    apRefData,
+    apHandles,
+    dialogTitle,
+    proFormProps,
+  }
+}
+
+export { createCrudData, createAssignPermissions }

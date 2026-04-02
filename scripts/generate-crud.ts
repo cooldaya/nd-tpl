@@ -82,7 +82,7 @@ async function generate() {
       fs.mkdirSync(outputPathBase, { recursive: true })
     }
 
-    const dataDir = path.join(outputPathBase, 'curd-datas')
+    const dataDir = path.join(outputPathBase, 'crud-datas')
     if (!fs.existsSync(dataDir)) {
       fs.mkdirSync(dataDir, { recursive: true })
     }

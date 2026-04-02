@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { gApi } from '@/api/gapi.ts'
-import { createCurdData } from './curd-datas/resource-manage-data.ts'
+import { createCrudData } from './crud-datas/resource-manage-data.ts'
 
 definePage({
   meta: {
@@ -9,13 +9,13 @@ definePage({
 })
 
 const {
-  curdRefData,
+  crudRefData,
   crudProps,
   paginationRefData,
   searchMenuRightProps,
-  curdHandles,
+  crudHandles,
   crudInstanceRef,
-} = createCurdData({
+} = createCrudData({
   defaultForm: {},
 })
 
@@ -26,7 +26,7 @@ const handles = {
       [column.property]: val,
     }
     await gApi.apiResourceEditPost(data)
-    curdHandles.refreshTable()
+    crudHandles.refreshTable()
   },
 }
 </script>
@@ -36,12 +36,12 @@ const handles = {
     <pro-card header="菜单管理" class="h-[calc(100%-24px)]">
       <pro-crud
         v-bind="crudProps"
-        v-model="curdRefData.form"
-        v-model:search="curdRefData.searchForm"
+        v-model="crudRefData.form"
+        v-model:search="crudRefData.searchForm"
         v-model:current-page="paginationRefData.currentPage"
         v-model:page-size="paginationRefData.pageSize"
         ref="crudInstanceRef"
-        v-loading="curdRefData.loading"
+        v-loading="crudRefData.loading"
       >
         <template #action>
           <pro-column-setting v-model="crudProps.columns" />

@@ -5,6 +5,7 @@ import EpSetUp from '~icons/ep/set-up'
 import EpSetting from '~icons/ep/setting'
 import EpSwitchButton from '~icons/ep/switch-button'
 import EpDataAnalysis from '~icons/ep/data-analysis'
+import EpKey from '~icons/ep/key'
 import { securityDataManager } from '@/utils/security-data-manager'
 import { useRouter } from 'vue-router'
 import { computed, markRaw } from 'vue'
@@ -23,6 +24,11 @@ const MENU_CONFIG = [
     label: '个人中心',
     icon: EpUser,
     toRouteName: 'account-info',
+  },
+  {
+    label: '修改密码',
+    icon: EpKey,
+    toRouteName: 'change-password',
   },
   {
     label: '数据面板',

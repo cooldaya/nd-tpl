@@ -18,13 +18,13 @@ import { exportProTable, listToTree, sortBySequence } from '@/utils/funcs-tool'
 import AutocompleteArray from '@/components/pro-crud/AutocompleteArray.vue'
 import { ElButton } from 'element-plus'
 
-type CurdOption = {
+type CrudOption = {
   exportFileName?: string
   defaultForm?: Partial<ResourceForm>
 }
-const createCurdData = (curdOption: CurdOption | undefined = {}) => {
+const createCrudData = (crudOption: CrudOption | undefined = {}) => {
   const crudInstanceRef = useTemplateRef<ComponentPublicInstance<typeof ProCrud>>('crudInstanceRef')
-  const curdRefData = reactive({
+  const crudRefData = reactive({
     form: {},
     searchForm: {},
     detail: {},
@@ -40,16 +40,16 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     },
     async exportTableData() {
       const option = {
-        searchForm: curdRefData.searchForm,
+        searchForm: crudRefData.searchForm,
         columns: refColumns.value,
       }
       const res = await gApi.apiResourcePagedListPost({
         pageIndex: 1,
         pageSize: 99,
-        ...curdRefData.searchForm,
+        ...crudRefData.searchForm,
       })
       const arrData = get(res, 'data.items', [])
-      const fileName = curdOption.exportFileName || '菜单管理'
+      const fileName = crudOption.exportFileName || '菜单管理'
       exportProTable(arrData, option.searchForm, option.columns, fileName)
     },
   })
@@ -60,7 +60,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     currentPage: 1,
   })
 
-  const curdStaticData = {
+  const crudStaticData = {
     searchProps: {
       gutter: 20,
     },
@@ -197,7 +197,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   const handles = {
     handleAddChild(row: any) {
       crudInstanceRef.value?.openDialog('add', row)
-      Object.assign(curdRefData.form, {
+      Object.assign(crudRefData.form, {
         parentId: row.id,
       })
     },
@@ -254,17 +254,17 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     width: '180px',
   })
 
-  const curdHandles = {
+  const crudHandles = {
     beforeOpen: defineCrudBeforeOpen((done, type, row) => {
       const parentIdColumn = refColumns.value.find((item: CrudColumn) => item.prop === 'parentId')
       if (parentIdColumn && parentIdColumn.props) {
-        parentIdColumn.props.data = curdRefData.tableData
+        parentIdColumn.props.data = crudRefData.tableData
       }
 
       const actions = {
-        edit: () => (curdRefData.form = row || {}),
-        detail: () => (curdRefData.detail = row || {}),
-        add: () => Object.assign(curdRefData.form, curdOption.defaultForm),
+        edit: () => (crudRefData.form = row || {}),
+        detail: () => (crudRefData.detail = row || {}),
+        add: () => Object.assign(crudRefData.form, crudOption.defaultForm),
       }
       actions[type]?.()
       done()
@@ -272,7 +272,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
 
     search: defineCrudSearch(async (done, _isValid, _invalidFields) => {
       try {
-        await curdHandles.paginationChange(
+        await crudHandles.paginationChange(
           paginationRefData.currentPage,
           paginationRefData.pageSize,
         )
@@ -298,10 +298,10 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
         return
       }
       try {
-        await reqFunc(curdRefData.form)
+        await reqFunc(crudRefData.form)
         ElMessage.success('操作成功')
         close()
-        await curdHandles.paginationChange(
+        await crudHandles.paginationChange(
           paginationRefData.currentPage,
           paginationRefData.pageSize,
         )
@@ -328,7 +328,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
           id: row.id,
         })
         ElMessage.success('删除成功')
-        await curdHandles.paginationChange(
+        await crudHandles.paginationChange(
           paginationRefData.currentPage,
           paginationRefData.pageSize,
         )
@@ -337,34 +337,34 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       }
     },
     async paginationChange(_currentPage: number, _pageSize: number) {
-      curdRefData.loading = true
+      crudRefData.loading = true
       try {
         const res = await gApi.apiResourceListPost({
           // pageIndex: currentPage,
           // pageSize: pageSize,
-          ...curdRefData.searchForm,
+          ...crudRefData.searchForm,
         })
         const arrData = markRaw(get(res, 'data', []) as ResourceVO[])
         paginationRefData.total = arrData.length
 
         const treeData = listToTree(arrData)
-        curdRefData.tableData = treeData
+        crudRefData.tableData = treeData
       } catch (e) {
         console.log(e)
       } finally {
-        curdRefData.loading = false
+        crudRefData.loading = false
       }
     },
     searchReset() {
       paginationRefData.currentPage = 1
-      curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
+      crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
     },
     refreshTable() {
-      curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
+      crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
     },
   }
 
-  curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
+  crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
 
   // 配置文档请看 https://tolking.github.io/element-pro-components/zh-CN/components/crud
 
@@ -374,17 +374,17 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     addColumns: formColumns.value,
     editColumns: formColumns.value,
     menu: refMenu.value,
-    data: curdRefData.tableData,
-    detail: curdRefData.detail,
-    beforeOpen: curdHandles.beforeOpen,
-    searchProps: curdStaticData.searchProps,
-    onSearch: curdHandles.search,
-    onSubmit: curdHandles.submit,
-    onDelete: curdHandles.deleteRow,
-    onSearchReset: curdHandles.searchReset,
+    data: crudRefData.tableData,
+    detail: crudRefData.detail,
+    beforeOpen: crudHandles.beforeOpen,
+    searchProps: crudStaticData.searchProps,
+    onSearch: crudHandles.search,
+    onSubmit: crudHandles.submit,
+    onDelete: crudHandles.deleteRow,
+    onSearchReset: crudHandles.searchReset,
     // total: paginationRefData.total,
     onLoad: () =>
-      curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize),
+      crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize),
     layout: '->, prev, pager, next, sizes, total',
     background: true,
     gutter: 20,
@@ -397,9 +397,9 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   }))
 
   return {
-    curdRefData,
-    curdStaticData,
-    curdHandles,
+    crudRefData,
+    crudStaticData,
+    crudHandles,
     crudProps,
     paginationRefData,
     searchMenuRightProps,
@@ -407,4 +407,4 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   }
 }
 
-export { createCurdData }
+export { createCrudData }

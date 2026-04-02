@@ -17,8 +17,8 @@ import type {
   FurionResultReservoirProjectVO,
 } from '@/api/generated/data-contracts'
 
-const createCurdData1 = () => {
-  const curdRefData = reactive({
+const createCrudData1 = () => {
+  const crudRefData = reactive({
     form: {},
     searchForm: {},
     detail: {},
@@ -31,7 +31,7 @@ const createCurdData1 = () => {
     current: 1,
   })
 
-  const curdStaticData = {
+  const crudStaticData = {
     columns: defineCrudColumns([
       {
         label: '水电站名称',
@@ -84,12 +84,12 @@ const createCurdData1 = () => {
     },
   }
 
-  const curdHandles = {
+  const crudHandles = {
     beforeOpen: defineCrudBeforeOpen((done, type, row) => {
       if (type === 'edit') {
-        curdRefData.form = row || {}
+        crudRefData.form = row || {}
       } else if (type === 'detail') {
-        curdRefData.detail = row || {}
+        crudRefData.detail = row || {}
       }
       done()
     }),
@@ -97,7 +97,7 @@ const createCurdData1 = () => {
     search: defineCrudSearch(async (done, isValid, invalidFields) => {
       console.log('search')
       try {
-        await curdHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
+        await crudHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
       } catch (e) {
         console.error(e)
       } finally {
@@ -122,10 +122,10 @@ const createCurdData1 = () => {
         return
       }
       try {
-        const res = await reqFunc(curdRefData.form)
+        const res = await reqFunc(crudRefData.form)
         ElMessage.success('操作成功')
         close()
-        await curdHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
+        await crudHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
       } catch (e) {
         console.error(e)
       } finally {
@@ -148,7 +148,7 @@ const createCurdData1 = () => {
           id: row.id,
         })
         ElMessage.success('删除成功')
-        await curdHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
+        await crudHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
       } catch (e) {
         console.error(e)
       }
@@ -157,25 +157,25 @@ const createCurdData1 = () => {
       const res = await gApi.apiReservoirProjectPagedListPost({
         pageIndex: currentPage,
         pageSize: pageSize,
-        ...curdRefData.searchForm,
+        ...crudRefData.searchForm,
       })
       paginationRefData.total = get(res, 'data.total', 0)
-      curdRefData.tableData = markRaw(get(res, 'data.items', []) as ReservoirProjectVO[])
+      crudRefData.tableData = markRaw(get(res, 'data.items', []) as ReservoirProjectVO[])
     },
   }
 
   const crudProps = computed<Partial<ICrudProps>>(() => ({
-    columns: curdStaticData.columns,
-    menu: curdStaticData.menu,
-    data: curdRefData.tableData,
-    detail: curdRefData.detail,
-    beforeOpen: curdHandles.beforeOpen,
-    searchProps: curdStaticData.searchProps,
-    onSearch: curdHandles.search,
-    onSubmit: curdHandles.submit,
-    onDelete: curdHandles.deleteRow,
-    vModel: curdRefData.form,
-    search: curdRefData.searchForm,
+    columns: crudStaticData.columns,
+    menu: crudStaticData.menu,
+    data: crudRefData.tableData,
+    detail: crudRefData.detail,
+    beforeOpen: crudHandles.beforeOpen,
+    searchProps: crudStaticData.searchProps,
+    onSearch: crudHandles.search,
+    onSubmit: crudHandles.submit,
+    onDelete: crudHandles.deleteRow,
+    vModel: crudRefData.form,
+    search: crudRefData.searchForm,
     currentPage: paginationRefData.current,
     pageSize: paginationRefData.pageSize,
     total: paginationRefData.total,
@@ -187,15 +187,15 @@ const createCurdData1 = () => {
     inline: true,
   }))
 
-  curdHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
+  crudHandles.paginationChange(paginationRefData.current, paginationRefData.pageSize)
 
   return {
-    curdRefData,
-    curdStaticData,
-    curdHandles,
+    crudRefData,
+    crudStaticData,
+    crudHandles,
     crudProps,
     paginationRefData,
   }
 }
 
-export { createCurdData1 }
+export { createCrudData1 }

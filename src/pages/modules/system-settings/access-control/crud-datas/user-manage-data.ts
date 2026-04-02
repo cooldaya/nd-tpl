@@ -26,13 +26,13 @@ import type {
   AdminResetPwdQO,
 } from '@/api/generated/data-contracts'
 
-type CurdOption = {
+type CrudOption = {
   exportFileName?: string
   defaultForm?: Partial<UserVO>
 }
-const createCurdData = (curdOption: CurdOption | undefined = {}) => {
+const createCrudData = (crudOption: CrudOption | undefined = {}) => {
   const crudInstanceRef = useTemplateRef<ComponentPublicInstance<typeof ProCrud>>('crudInstanceRef')
-  const curdRefData = reactive({
+  const crudRefData = reactive({
     form: {} as UserVO,
     searchForm: {},
     detail: {},
@@ -47,16 +47,16 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     },
     async exportTableData() {
       const option = {
-        searchForm: curdRefData.searchForm,
+        searchForm: crudRefData.searchForm,
         columns: refColumns.value,
       }
       const res = await gApi.apiUserPagedListPost({
         pageIndex: 1,
         pageSize: 99,
-        ...curdRefData.searchForm,
+        ...crudRefData.searchForm,
       })
       const arrData = get(res, 'data.items', [])
-      const fileName = curdOption.exportFileName || '用户管理'
+      const fileName = crudOption.exportFileName || '用户管理'
       exportProTable(arrData, option.searchForm, option.columns, fileName)
     },
   })
@@ -67,7 +67,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     currentPage: 1,
   })
 
-  const curdStaticData = {
+  const crudStaticData = {
     searchProps: {
       gutter: 20,
     },
@@ -127,7 +127,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       rules: [
         {
           validator: (rule, value, callback) => {
-            if (value !== curdRefData.form.password) {
+            if (value !== crudRefData.form.password) {
               callback(new Error('两次输入的密码不一致'))
             } else {
               callback()
@@ -438,12 +438,12 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     width: '180px',
   })
 
-  const curdHandles = {
+  const crudHandles = {
     beforeOpen: defineCrudBeforeOpen((done, type, row) => {
       const actions = {
-        edit: () => (curdRefData.form = row || {}),
-        detail: () => (curdRefData.detail = row || {}),
-        add: () => Object.assign(curdRefData.form, curdOption.defaultForm),
+        edit: () => (crudRefData.form = row || {}),
+        detail: () => (crudRefData.detail = row || {}),
+        add: () => Object.assign(crudRefData.form, crudOption.defaultForm),
       }
       actions[type]?.()
       done()
@@ -451,7 +451,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
 
     search: defineCrudSearch(async (done, _isValid, _invalidFields) => {
       try {
-        await curdHandles.paginationChange(
+        await crudHandles.paginationChange(
           paginationRefData.currentPage,
           paginationRefData.pageSize,
         )
@@ -477,7 +477,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
         return
       }
       try {
-        const payload = { ...curdRefData.form }
+        const payload = { ...crudRefData.form }
         if (type === 'add') {
           const encryptedpwd = await remotePkRsaEncrypt(payload.password!)
           Object.assign(payload, {
@@ -488,7 +488,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
         await reqFunc(payload as UserVO)
         ElMessage.success('操作成功')
         close()
-        await curdHandles.paginationChange(
+        await crudHandles.paginationChange(
           paginationRefData.currentPage,
           paginationRefData.pageSize,
         )
@@ -515,7 +515,7 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
           id: row.id,
         })
         ElMessage.success('删除成功')
-        await curdHandles.paginationChange(
+        await crudHandles.paginationChange(
           paginationRefData.currentPage,
           paginationRefData.pageSize,
         )
@@ -527,18 +527,18 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
       const res = await gApi.apiUserPagedListPost({
         pageIndex: currentPage,
         pageSize: pageSize,
-        ...curdRefData.searchForm,
+        ...crudRefData.searchForm,
       })
       paginationRefData.total = get(res, 'data.total', 0)
-      curdRefData.tableData = markRaw(get(res, 'data.items', []) as UserVO[])
+      crudRefData.tableData = markRaw(get(res, 'data.items', []) as UserVO[])
     },
     searchReset() {
       paginationRefData.currentPage = 1
-      curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
+      crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
     },
   }
 
-  curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
+  crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
 
   // 配置文档请看 https://tolking.github.io/element-pro-components/zh-CN/components/crud
 
@@ -548,17 +548,17 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
     addColumns: addFormColumns.value,
     editColumns: editFormColumns.value,
     menu: refMenu.value,
-    data: curdRefData.tableData,
-    detail: curdRefData.detail,
-    beforeOpen: curdHandles.beforeOpen,
-    searchProps: curdStaticData.searchProps,
-    onSearch: curdHandles.search,
-    onSubmit: curdHandles.submit,
-    onDelete: curdHandles.deleteRow,
-    onSearchReset: curdHandles.searchReset,
+    data: crudRefData.tableData,
+    detail: crudRefData.detail,
+    beforeOpen: crudHandles.beforeOpen,
+    searchProps: crudStaticData.searchProps,
+    onSearch: crudHandles.search,
+    onSubmit: crudHandles.submit,
+    onDelete: crudHandles.deleteRow,
+    onSearchReset: crudHandles.searchReset,
     total: paginationRefData.total,
     onLoad: () =>
-      curdHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize),
+      crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize),
     layout: '->, prev, pager, next, sizes, total',
     background: true,
     gutter: 20,
@@ -568,9 +568,9 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
   }))
 
   return {
-    curdRefData,
-    curdStaticData,
-    curdHandles,
+    crudRefData,
+    crudStaticData,
+    crudHandles,
     crudProps,
     paginationRefData,
     searchMenuRightProps,
@@ -754,6 +754,6 @@ const createResetPassword = () => {
   }
 }
 
-export { createCurdData, createAssignRoles, createResetPassword }
+export { createCrudData, createAssignRoles, createResetPassword }
 
 // TODO 类型待标注

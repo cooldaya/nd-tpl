@@ -74,6 +74,7 @@ declare module 'vue-router/auto-routes' {
       | '/modules/project-settings/monitoring-configuration'
       | 'account-info'
       | 'account-settings'
+      | 'change-password'
       | 'work-station'
     >,
     'account-settings': RouteRecordInfo<
@@ -82,10 +83,18 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       Record<never, never>,
       | 'account-info'
+      | 'change-password'
     >,
     'account-info': RouteRecordInfo<
       'account-info',
       '/modules/project-settings/account-settings/account-info',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'change-password': RouteRecordInfo<
+      'change-password',
+      '/modules/project-settings/account-settings/change-password',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -274,6 +283,7 @@ declare module 'vue-router/auto-routes' {
         | '/modules/project-settings/monitoring-configuration'
         | 'account-info'
         | 'account-settings'
+        | 'change-password'
         | 'project-settings'
         | 'work-station'
       views:
@@ -283,12 +293,19 @@ declare module 'vue-router/auto-routes' {
       routes:
         | 'account-info'
         | 'account-settings'
+        | 'change-password'
       views:
         | 'default'
     }
     'src/pages/modules/project-settings/account-settings/account-info.vue': {
       routes:
         | 'account-info'
+      views:
+        | never
+    }
+    'src/pages/modules/project-settings/account-settings/change-password.vue': {
+      routes:
+        | 'change-password'
       views:
         | never
     }

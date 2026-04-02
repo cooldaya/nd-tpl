@@ -1,13 +1,13 @@
 <script setup lang="ts">
-  import { createCurdData } from './curd-datas/user-message-manage-data.ts'
+import { createCrudData } from './crud-datas/user-message-manage-data.ts'
 
-  definePage({
-    meta: {
-      title: '用户消息管理',
-    },
-  })
+definePage({
+  meta: {
+    title: '用户消息管理',
+  },
+})
 
-  const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData({
+const { crudRefData, crudProps, paginationRefData, searchMenuRightProps } = createCrudData({
   defaultForm: {},
 })
 </script>
@@ -17,8 +17,8 @@
     <pro-card header="用户消息管理" class="h-[calc(100%-24px)]">
       <pro-crud
         v-bind="crudProps"
-        v-model="curdRefData.form"
-        v-model:search="curdRefData.searchForm"
+        v-model="crudRefData.form"
+        v-model:search="crudRefData.searchForm"
         v-model:current-page="paginationRefData.currentPage"
         v-model:page-size="paginationRefData.pageSize"
         ref="crudInstanceRef"

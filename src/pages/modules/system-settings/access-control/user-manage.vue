@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {
-  createCurdData,
+  createCrudData,
   createAssignRoles,
   createResetPassword,
-} from './curd-datas/user-manage-data.ts'
+} from './crud-datas/user-manage-data.ts'
 import EpOperation from '~icons/ep/operation'
 import epRefreshLeft from '~icons/ep/refresh-left'
 
@@ -13,7 +13,7 @@ definePage({
   },
 })
 
-const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData({
+const { crudRefData, crudProps, paginationRefData, searchMenuRightProps } = createCrudData({
   defaultForm: {
     isEnable: true,
     canLogin: true,
@@ -31,8 +31,8 @@ const { rpHandles, rpRefData, rpDialogTitle, rpProFormProps } = createResetPassw
     <pro-card header="用户管理" class="h-[calc(100%-24px)]">
       <pro-crud
         v-bind="crudProps"
-        v-model="curdRefData.form"
-        v-model:search="curdRefData.searchForm"
+        v-model="crudRefData.form"
+        v-model:search="crudRefData.searchForm"
         v-model:current-page="paginationRefData.currentPage"
         v-model:page-size="paginationRefData.pageSize"
         ref="crudInstanceRef"

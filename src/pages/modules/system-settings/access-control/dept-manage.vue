@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { createCurdData } from './curd-datas/dept-manage-data.ts'
+import { createCrudData } from './crud-datas/dept-manage-data.ts'
 
 definePage({
   meta: {
@@ -8,8 +8,8 @@ definePage({
   name: 'dept-manage',
 })
 
-const { curdRefData, crudProps, paginationRefData, searchMenuRightProps, crudInstanceRef } =
-  createCurdData({
+const { crudRefData, crudProps, paginationRefData, searchMenuRightProps, crudInstanceRef } =
+  createCrudData({
     defaultForm: {
       isEnable: true,
     },
@@ -21,8 +21,8 @@ const { curdRefData, crudProps, paginationRefData, searchMenuRightProps, crudIns
     <pro-card header="部门管理" class="h-[calc(100%-24px)]">
       <pro-crud
         v-bind="crudProps"
-        v-model="curdRefData.form"
-        v-model:search="curdRefData.searchForm"
+        v-model="crudRefData.form"
+        v-model:search="crudRefData.searchForm"
         v-model:current-page="paginationRefData.currentPage"
         v-model:page-size="paginationRefData.pageSize"
         ref="crudInstanceRef"

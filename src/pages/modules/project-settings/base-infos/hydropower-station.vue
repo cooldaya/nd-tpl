@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import { createCurdData1 } from './data.ts'
+import { createCrudData1 } from './data.ts'
 definePage({
   meta: {
     title: '水电站信息管理',
   },
 })
 
-const { curdRefData, curdStaticData, curdHandles, paginationRefData } = createCurdData1()
+const { crudRefData, crudStaticData, crudHandles, paginationRefData } = createCrudData1()
 </script>
 
 <template>
   <div class="nd-wh-full">
     <pro-card header="水电站信息管理" class="h-[calc(100%-24px)]">
       <pro-crud
-        v-model="curdRefData.form"
-        v-model:search="curdRefData.searchForm"
-        :columns="curdStaticData.columns"
-        :menu="curdStaticData.menu"
-        :data="curdRefData.tableData"
-        :detail="curdRefData.detail"
-        :before-open="curdHandles.beforeOpen"
-        @search="curdHandles.search"
-        @submit="curdHandles.submit"
-        @delete="curdHandles.deleteRow"
-        :search-props="curdStaticData.searchProps"
+        v-model="crudRefData.form"
+        v-model:search="crudRefData.searchForm"
+        :columns="crudStaticData.columns"
+        :menu="crudStaticData.menu"
+        :data="crudRefData.tableData"
+        :detail="crudRefData.detail"
+        :before-open="crudHandles.beforeOpen"
+        @search="crudHandles.search"
+        @submit="crudHandles.submit"
+        @delete="crudHandles.deleteRow"
+        :search-props="crudStaticData.searchProps"
       />
 
       <el-pagination
@@ -34,7 +34,7 @@ const { curdRefData, curdStaticData, curdHandles, paginationRefData } = createCu
         v-model:current-page="paginationRefData.current"
         v-model:page-size="paginationRefData.pageSize"
         :total="paginationRefData.total"
-        @change="curdHandles.paginationChange"
+        @change="crudHandles.paginationChange"
       />
     </pro-card>
   </div>

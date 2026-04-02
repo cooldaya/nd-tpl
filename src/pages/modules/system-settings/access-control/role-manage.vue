@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { createCurdData, createAssignPermissions } from './curd-datas/role-manage-data.ts'
+import { createCrudData, createAssignPermissions } from './crud-datas/role-manage-data.ts'
 import EpOperation from '~icons/ep/operation'
 
 definePage({
@@ -8,7 +8,7 @@ definePage({
   },
 })
 
-const { curdRefData, crudProps, paginationRefData, searchMenuRightProps } = createCurdData()
+const { crudRefData, crudProps, paginationRefData, searchMenuRightProps } = createCrudData()
 
 const { apHandles, apRefData, dialogTitle, proFormProps } = createAssignPermissions()
 </script>
@@ -18,8 +18,8 @@ const { apHandles, apRefData, dialogTitle, proFormProps } = createAssignPermissi
     <pro-card header="角色管理" class="h-[calc(100%-24px)]">
       <pro-crud
         v-bind="crudProps"
-        v-model="curdRefData.form"
-        v-model:search="curdRefData.searchForm"
+        v-model="crudRefData.form"
+        v-model:search="crudRefData.searchForm"
         v-model:current-page="paginationRefData.currentPage"
         v-model:page-size="paginationRefData.pageSize"
         ref="crudInstanceRef"
