@@ -22,6 +22,8 @@ import type {
   ApiUserAddPostData,
   ApiUserEditPostData,
   RoleVO,
+  UserAssignRolesQO,
+  AdminResetPwdQO,
 } from '@/api/generated/data-contracts'
 
 type CurdOption = {
@@ -578,9 +580,9 @@ const createCurdData = (curdOption: CurdOption | undefined = {}) => {
 
 const createAssignRoles = () => {
   type ArRefData = {
-    currentRow: any
+    currentRow: UserVO | null
     visible: boolean
-    form: any
+    form: UserAssignRolesQO
   }
   const arRefData = reactive<ArRefData>({
     currentRow: null,
@@ -625,7 +627,7 @@ const createAssignRoles = () => {
   }))
 
   const arHandles = {
-    async open(row: any) {
+    async open(row: UserVO) {
       arRefData.currentRow = markRaw(row)
 
       // 获取用户当前角色
@@ -633,7 +635,7 @@ const createAssignRoles = () => {
       const res = await gApi.apiUserGetRolesPost({
         id: row.id,
       })
-      arRefData.form.roleIds = res.data!.map((item) => item.id)
+      arRefData.form.roleIds = res.data!.map((item) => item.id!)
       arRefData.visible = true
       nextTick(() => {
         if (!formElTreeRef.value) return
@@ -667,9 +669,9 @@ const createAssignRoles = () => {
 
 const createResetPassword = () => {
   type RpRefData = {
-    currentRow: any
+    currentRow: UserVO | null
     visible: boolean
-    form: any
+    form: AdminResetPwdQO
   }
   const rpRefData = reactive<RpRefData>({
     currentRow: null,
@@ -720,9 +722,9 @@ const createResetPassword = () => {
   }))
 
   const rpHandles = {
-    open(row: any) {
+    open(row: UserVO) {
       rpRefData.currentRow = markRaw(row)
-      rpRefData.form.userId = row.id
+      rpRefData.form.userId = row.id!
       rpRefData.visible = true
     },
     close() {
