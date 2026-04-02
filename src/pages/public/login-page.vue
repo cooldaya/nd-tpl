@@ -7,6 +7,7 @@ import { useAuthStore } from '@/stores/auth'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { projectConfig } from '~/project-config'
+import { rememberAccountTool } from '@/utils/rp-tool'
 import type { IFormMenuColumns } from 'element-pro-components'
 
 definePage({
@@ -17,9 +18,10 @@ const captchaElRef = useTemplateRef<typeof ArithmeticCaptcha>('captchaElRef')
 
 const refData = reactive({
   form: {
-    username: 'admin',
-    password: 'Szxsd586!',
+    username: '',
+    password: '',
     valicode: '',
+    rememberAccount: true,
   },
   columns: defineFormColumns([
     {
@@ -76,6 +78,14 @@ const refData = reactive({
         placeholder: '验证码',
       },
     },
+    {
+      label: '',
+      prop: 'rememberAccount',
+      component: 'el-checkbox',
+      props: {
+        label: '记住我',
+      },
+    },
   ]),
   menu: {
     submitText: '登录',
@@ -106,26 +116,45 @@ const handles = {
       gcap()
       return done()
     }
-    // setTimeout(() => {
-    //   done()
-    // }, 1200)
-    //
-    const res = await appApi.auth.apiLogin({
-      username: refData.form.username,
-      password: refData.form.password,
-    })
-    if (!res.data) {
-      ElMessage.error('用户名或密码错误')
+    try {
+      const res = await appApi.auth.apiLogin({
+        username: refData.form.username,
+        password: refData.form.password,
+      })
+      if (!res.data) {
+        ElMessage.error('用户名或密码错误')
+        gcap()
+        return done()
+      }
+      if (refData.form.rememberAccount) {
+        await rememberAccountTool.saveRememberAccount({
+          username: refData.form.username,
+          password: refData.form.password,
+        })
+      } else {
+        rememberAccountTool.clearRememberAccount()
+      }
+      await authStore.initLoginInfo(res.data)
+      done()
+      router.push({
+        name: 'dashboard-main',
+      })
+    } catch (e) {
+      ElMessage.error('登录失败')
       gcap()
       return done()
     }
-    await authStore.initLoginInfo(res.data)
-    done()
-    router.push({
-      name: 'dashboard-main',
-    })
   }),
+  async tryRememberAccountFillIn() {
+    const rememberAccount = await rememberAccountTool.getRememberAccount()
+    if (rememberAccount) {
+      refData.form.username = rememberAccount.username
+      refData.form.password = rememberAccount.password
+    }
+  },
 }
+
+handles.tryRememberAccountFillIn()
 </script>
 
 <template>
@@ -180,6 +209,19 @@ const handles = {
     }
     padding: 0;
   }
+  ::v-deep(.el-form-item) {
+    margin-bottom: 14px;
+    display: flex;
+  }
+
+  /* 选中内部包含 .el-checkbox 的 .el-form-item */
+  ::v-deep(.el-form-item:has(.el-checkbox)) {
+    .el-form-item__content {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
   --left-pecent: 44%;
 
   background-image: linear-gradient(
