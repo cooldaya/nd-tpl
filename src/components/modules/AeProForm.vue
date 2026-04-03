@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, onMounted, computed, watch, ref } from 'vue'
+import { onMounted, computed, watch, ref } from 'vue'
 import { defineFormSubmit } from 'element-pro-components'
 import { ElMessage } from 'element-plus'
 import type { AeProFormProps } from './types'
@@ -14,7 +14,7 @@ const loading = ref(false)
 const emit = defineEmits(['update:modelValue', 'submit-success', 'submit-error'])
 
 // 响应式表单数据
-let formData = reactive<Record<string, unknown>>({})
+const formData = ref<Record<string, unknown>>({})
 
 // 是否只读模式
 const isReadOnly = computed(() => props.operationType === FROMOPRATIONTYPE.VIEW)
@@ -48,7 +48,7 @@ const initData = async () => {
       if (props.beforeInit) {
         data = props.beforeInit(data)
       }
-      Object.assign(formData, data)
+      Object.assign(formData.value, data)
     } catch (error) {
       console.error('Failed to initialize form data:', error)
       ElMessage.error('获取详情数据失败')
@@ -57,7 +57,7 @@ const initData = async () => {
     }
   } else if (props.params) {
     // ADD 模式下如果有初始参数，也填充进去
-    Object.assign(formData, props.params)
+    Object.assign(formData.value, props.params)
   }
 }
 
@@ -67,7 +67,7 @@ const initData = async () => {
 const handleSubmit = defineFormSubmit(async (done, isValid) => {
   if (!isValid) return done()
 
-  let submitData = { ...formData }
+  let submitData = { ...formData.value }
 
   // 提交前拦截处理
   if (props.beforeSubmit) {
@@ -120,7 +120,7 @@ watch(
 defineExpose({
   formData,
   reset: () => {
-    Object.keys(formData).forEach((key) => delete formData[key])
+    Object.keys(formData.value).forEach((key) => delete formData.value[key])
     initData()
   },
 })
