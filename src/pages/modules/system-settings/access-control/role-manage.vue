@@ -6,6 +6,7 @@ definePage({
   meta: {
     title: '角色管理',
   },
+  name: 'role-manage',
 })
 
 const { crudRefData, crudProps, paginationRefData, searchMenuRightProps } = createCrudData()

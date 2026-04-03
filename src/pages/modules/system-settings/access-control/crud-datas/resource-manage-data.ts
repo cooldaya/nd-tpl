@@ -101,9 +101,9 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       required: true,
       props: {
         data: [
-          { value: 'directory ', label: '目录' },
+          { value: 'directory', label: '目录' },
           { value: 'menu', label: '菜单' },
-          { value: 'button ', label: '按钮' },
+          { value: 'button', label: '按钮' },
         ],
       },
     },
@@ -199,6 +199,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       crudInstanceRef.value?.openDialog('add', row)
       Object.assign(crudRefData.form, {
         parentId: row.id,
+        type: row.type === 'menu' ? 'button' : 'directory',
       })
     },
   }

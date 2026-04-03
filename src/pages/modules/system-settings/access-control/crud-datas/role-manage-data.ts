@@ -2,6 +2,7 @@ import { reactive, markRaw, computed, ref, useTemplateRef, nextTick } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { defineCrudSubmit, defineCrudSearch, defineCrudBeforeOpen } from 'element-pro-components'
+import type { ElTree } from 'element-plus'
 
 import type {
   CrudColumn,
@@ -309,7 +310,7 @@ const createAssignPermissions = () => {
       }
     })
 
-  const formElTreeRef = ref()
+  const formElTreeRef = ref<InstanceType<typeof ElTree>>()
   const proFormProps = computed<Partial<IFormProps>>(() => ({
     columns: [
       {
@@ -353,7 +354,10 @@ const createAssignPermissions = () => {
     },
     async submit(done: () => void, _isValid: boolean) {
       if (!formElTreeRef.value) throw new Error('formElTreeRef is null')
-      apRefData.form.resourceIds = formElTreeRef.value.getCheckedKeys()
+      // 这里不止需要获取勾选的，还需要半勾选的
+      apRefData.form.resourceIds = formElTreeRef.value
+        .getCheckedNodes(false, true)
+        .map((node) => node.id)
       await gApi.apiRoleAssignResourcePost(apRefData.form)
       done()
       apHandles.close()

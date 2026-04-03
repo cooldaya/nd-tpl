@@ -1,4 +1,3 @@
-
 import type { RouteRecordRaw } from 'vue-router'
 const formatRoutes = (routesList: RouteRecordRaw[], parentPath: string): RouteRecordRaw[] => {
   return routesList.map((route) => {
@@ -8,13 +7,12 @@ const formatRoutes = (routesList: RouteRecordRaw[], parentPath: string): RouteRe
     return {
       ...route,
       path: currentPath,
-      children: route.children ? formatRoutes(route.children, currentPath) : undefined,
+      children:
+        route.children && route.children.length
+          ? formatRoutes(route.children, currentPath)
+          : undefined,
     } as RouteRecordRaw
   })
 }
 
-
-
-export {
-  formatRoutes
-}
+export { formatRoutes }

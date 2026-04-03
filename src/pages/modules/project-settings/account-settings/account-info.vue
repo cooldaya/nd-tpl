@@ -11,6 +11,7 @@ definePage({
   name: 'account-info',
   meta: {
     title: '个人信息',
+    white: true,
   },
 })
 

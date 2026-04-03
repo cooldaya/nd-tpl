@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { routes } from 'vue-router/auto-routes'
-import type { RouteRecordRaw } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
+import { computed } from 'vue'
+
 import { formatRoutes } from '@/utils/route-tool'
 import SettingsPageLayout from '@/layouts/SettingsPageLayout.vue'
 
@@ -14,11 +15,17 @@ definePage({
   },
 })
 
-const rawRoutes = (routes
-  .find((item) => item.path === '/modules')
-  ?.children?.find((item) => item.name === 'system-settings')?.children || []) as RouteRecordRaw[]
+const authStore = useAuthStore()
 
-const systemSettingsRoutes = formatRoutes(rawRoutes, '/modules/system-settings')
+const systemSettingsRoutes = computed(() => {
+  const rawRoutes =
+    authStore.authFilteredRoutes
+      .find((item) => item.path === '/modules')
+      ?.children?.find((item) => item.name === 'system-settings')?.children || []
+  return formatRoutes(rawRoutes, '/modules/system-settings')
+})
+
+console.log({ systemSettingsRoutes })
 </script>
 
 <template>

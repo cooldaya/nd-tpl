@@ -6,18 +6,17 @@ definePage({
   meta: {
     title: '菜单管理',
   },
+  name: 'resource-manage',
 })
 
-const {
-  crudRefData,
-  crudProps,
-  paginationRefData,
-  searchMenuRightProps,
-  crudHandles,
-  crudInstanceRef,
-} = createCrudData({
-  defaultForm: {},
-})
+const { crudRefData, crudProps, paginationRefData, searchMenuRightProps, crudHandles } =
+  createCrudData({
+    defaultForm: {
+      isEnable: true,
+      isAdmin: false,
+      type: 'directory',
+    },
+  })
 
 const handles = {
   async changeField(row: Record<string, any>, column: any, val: any) {

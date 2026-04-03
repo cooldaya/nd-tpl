@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import { useDateFormat, useNow } from '@vueuse/core'
-
-import { routes } from 'vue-router/auto-routes'
-
+import { useAuthStore } from '@/stores/auth'
+import { computed } from 'vue'
 const currentNow = useNow()
 const dateFormatted = useDateFormat(currentNow, 'YYYY-MM-DD dddd')
 const timeFormatted = useDateFormat(currentNow, 'HH:mm:ss')
 
-const dashboardRoutes =
-  routes
-    .find((item) => item.path === '/modules')
-    ?.children?.find((item) => item.name === 'dashboard-main')?.children || []
+const authStore = useAuthStore()
+const dashboardRoutes = computed(
+  () =>
+    authStore.authFilteredRoutes
+      .find((item) => item.path === '/modules')
+      ?.children?.find((item) => item.name === 'dashboard-main')?.children || [],
+)
 </script>
 
 <template>

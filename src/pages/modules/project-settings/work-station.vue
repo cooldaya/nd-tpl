@@ -11,6 +11,7 @@ definePage({
   name: 'work-station',
   meta: {
     title: '工作台',
+    white: true,
   },
 })
 

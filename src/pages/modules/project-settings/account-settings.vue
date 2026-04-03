@@ -3,6 +3,7 @@ definePage({
   name: 'account-settings',
   meta: {
     title: '账号设置',
+    white: true,
   },
   redirect: {
     name: 'account-info',

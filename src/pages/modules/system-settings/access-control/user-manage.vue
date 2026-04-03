@@ -11,6 +11,7 @@ definePage({
   meta: {
     title: '用户管理',
   },
+  name: 'user-manage',
 })
 
 const { crudRefData, crudProps, paginationRefData, searchMenuRightProps } = createCrudData({

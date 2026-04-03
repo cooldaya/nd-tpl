@@ -1,5 +1,6 @@
 <script setup lang="ts">
 definePage({
+  name: 'system-log',
   meta: {
     title: '系统日志',
   },

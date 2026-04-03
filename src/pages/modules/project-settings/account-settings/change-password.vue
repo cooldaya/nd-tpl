@@ -5,6 +5,7 @@ definePage({
   name: 'change-password',
   meta: {
     title: '修改密码',
+    white: true,
   },
 })
 

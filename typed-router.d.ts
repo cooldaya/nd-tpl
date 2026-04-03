@@ -140,24 +140,24 @@ declare module 'vue-router/auto-routes' {
       '/modules/system-settings',
       Record<never, never>,
       Record<never, never>,
-      | '/modules/system-settings/access-control'
-      | '/modules/system-settings/access-control/resource-manage'
-      | '/modules/system-settings/access-control/role-manage'
-      | '/modules/system-settings/access-control/user-manage'
-      | '/modules/system-settings/system-log'
       | '/modules/system-settings/system-log/exception-log'
       | '/modules/system-settings/system-log/operation-log'
+      | 'access-control'
       | 'dept-manage'
+      | 'resource-manage'
+      | 'role-manage'
+      | 'system-log'
+      | 'user-manage'
     >,
-    '/modules/system-settings/access-control': RouteRecordInfo<
-      '/modules/system-settings/access-control',
+    'access-control': RouteRecordInfo<
+      'access-control',
       '/modules/system-settings/access-control',
       Record<never, never>,
       Record<never, never>,
-      | '/modules/system-settings/access-control/resource-manage'
-      | '/modules/system-settings/access-control/role-manage'
-      | '/modules/system-settings/access-control/user-manage'
       | 'dept-manage'
+      | 'resource-manage'
+      | 'role-manage'
+      | 'user-manage'
     >,
     'dept-manage': RouteRecordInfo<
       'dept-manage',
@@ -166,29 +166,29 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
-    '/modules/system-settings/access-control/resource-manage': RouteRecordInfo<
+    'resource-manage': RouteRecordInfo<
+      'resource-manage',
       '/modules/system-settings/access-control/resource-manage',
-      '/modules/system-settings/access-control/resource-manage',
       Record<never, never>,
       Record<never, never>,
       | never
     >,
-    '/modules/system-settings/access-control/role-manage': RouteRecordInfo<
+    'role-manage': RouteRecordInfo<
+      'role-manage',
       '/modules/system-settings/access-control/role-manage',
-      '/modules/system-settings/access-control/role-manage',
       Record<never, never>,
       Record<never, never>,
       | never
     >,
-    '/modules/system-settings/access-control/user-manage': RouteRecordInfo<
-      '/modules/system-settings/access-control/user-manage',
+    'user-manage': RouteRecordInfo<
+      'user-manage',
       '/modules/system-settings/access-control/user-manage',
       Record<never, never>,
       Record<never, never>,
       | never
     >,
-    '/modules/system-settings/system-log': RouteRecordInfo<
-      '/modules/system-settings/system-log',
+    'system-log': RouteRecordInfo<
+      'system-log',
       '/modules/system-settings/system-log',
       Record<never, never>,
       Record<never, never>,
@@ -343,25 +343,25 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/modules/system-settings.vue': {
       routes:
-        | '/modules/system-settings/access-control'
-        | '/modules/system-settings/access-control/resource-manage'
-        | '/modules/system-settings/access-control/role-manage'
-        | '/modules/system-settings/access-control/user-manage'
-        | '/modules/system-settings/system-log'
         | '/modules/system-settings/system-log/exception-log'
         | '/modules/system-settings/system-log/operation-log'
+        | 'access-control'
         | 'dept-manage'
+        | 'resource-manage'
+        | 'role-manage'
+        | 'system-log'
         | 'system-settings'
+        | 'user-manage'
       views:
         | 'default'
     }
     'src/pages/modules/system-settings/access-control.vue': {
       routes:
-        | '/modules/system-settings/access-control'
-        | '/modules/system-settings/access-control/resource-manage'
-        | '/modules/system-settings/access-control/role-manage'
-        | '/modules/system-settings/access-control/user-manage'
+        | 'access-control'
         | 'dept-manage'
+        | 'resource-manage'
+        | 'role-manage'
+        | 'user-manage'
       views:
         | 'default'
     }
@@ -373,27 +373,27 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/modules/system-settings/access-control/resource-manage.vue': {
       routes:
-        | '/modules/system-settings/access-control/resource-manage'
+        | 'resource-manage'
       views:
         | never
     }
     'src/pages/modules/system-settings/access-control/role-manage.vue': {
       routes:
-        | '/modules/system-settings/access-control/role-manage'
+        | 'role-manage'
       views:
         | never
     }
     'src/pages/modules/system-settings/access-control/user-manage.vue': {
       routes:
-        | '/modules/system-settings/access-control/user-manage'
+        | 'user-manage'
       views:
         | never
     }
     'src/pages/modules/system-settings/system-log.vue': {
       routes:
-        | '/modules/system-settings/system-log'
         | '/modules/system-settings/system-log/exception-log'
         | '/modules/system-settings/system-log/operation-log'
+        | 'system-log'
       views:
         | 'default'
     }
