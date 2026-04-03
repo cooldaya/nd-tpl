@@ -8,10 +8,15 @@ const useGuards = (router: Router) => {
   router.beforeEach(async (to) => {
     NProgress.start() // 开始
     const toLoingPage = () => ({ name: 'login' })
-    debugger
+    const toDashboardMain = () => ({ name: 'dashboard-main', replace: true })
+    const isToRootPath = () => to.path === '/'
+
     if (to.fullPath.startsWith('/public')) return
     const authStore = useAuthStore()
-    if (authStore.authRefData.isLogIn) return
+    if (authStore.authRefData.isLogIn) {
+      if (isToRootPath()) return toDashboardMain()
+      return
+    }
     const securityData = await securityDataManager.initSecurityData()
     // 检查以前是否登录过，就会有token，初始化
     if (!securityData) {
@@ -27,6 +32,7 @@ const useGuards = (router: Router) => {
         user: res.data,
         ...securityData,
       })
+      if (isToRootPath()) return toDashboardMain()
 
       return {
         ...to,
