@@ -8,7 +8,7 @@ const useGuards = (router: Router) => {
   router.beforeEach(async (to) => {
     NProgress.start() // 开始
     const toLoingPage = () => ({ name: 'login' })
-
+    debugger
     if (to.fullPath.startsWith('/public')) return
     const authStore = useAuthStore()
     if (authStore.authRefData.isLogIn) return

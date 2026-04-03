@@ -15,32 +15,42 @@ export const useAuthStore = defineStore('auth', () => {
     roles: LoginResultUserAO['roles']
     userInfo: Omit<LoginResultUserAO, 'resources' | 'roles'> | null
     isLogIn: boolean
+    isRoutesLoaded: boolean
   }>({
     resources: new Set(),
     roles: [],
     userInfo: null,
     isLogIn: false,
+    isRoutesLoaded: false,
   })
 
   const authFilteredRoutes = shallowRef<RouteRecordRaw[]>([])
 
   const handles = {
     async initLoginInfo(loginInfo: LoginResultVO) {
-      securityDataManager.setSecurityData({
-        accessToken: loginInfo.accessToken as string,
-        refreshToken: loginInfo.refreshToken as string,
-      })
+      debugger
+      if (authRefData.isLogIn) return
+      try {
+        authRefData.isLogIn = true
+        securityDataManager.setSecurityData({
+          accessToken: loginInfo.accessToken as string,
+          refreshToken: loginInfo.refreshToken as string,
+        })
 
-      authRefData.resources = loginInfo.user?.resources
-        ? new Set(loginInfo.user.resources)
-        : new Set()
+        authRefData.resources = loginInfo.user?.resources
+          ? new Set(loginInfo.user.resources)
+          : new Set()
 
-      authRefData.roles = markRaw(loginInfo.user?.roles || [])
-      authRefData.userInfo = omit(loginInfo.user, ['resources', 'roles'])
-      await handles.initAuthFilteredRoutes()
-      authRefData.isLogIn = true
+        authRefData.roles = markRaw(loginInfo.user?.roles || [])
+        authRefData.userInfo = omit(loginInfo.user, ['resources', 'roles'])
+        await handles.initAuthFilteredRoutes()
+      } catch (error) {
+        console.error(error)
+      }
     },
     async initAuthFilteredRoutes() {
+      if (authRefData.isRoutesLoaded) return
+      authRefData.isRoutesLoaded = true
       // 过滤路由
       const filteredRoutes =
         authRefData.userInfo?.loginname === ADMINISTRATOR_NAME
@@ -52,7 +62,14 @@ export const useAuthStore = defineStore('auth', () => {
       // 添加通配页面
       router.addRoute(generatedRoutes.wildcardRoute)
       authFilteredRoutes.value = filteredRoutes
-      console.log('ssss--->', filteredRoutes, router.getRoutes())
+      authRefData.isRoutesLoaded = true
+    },
+    resetAuthStatus() {
+      authRefData.isLogIn = false
+      authRefData.isRoutesLoaded = false
+      authRefData.userInfo = null
+      authRefData.resources = new Set()
+      securityDataManager.clear()
     },
   }
 

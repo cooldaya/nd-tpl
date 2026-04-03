@@ -23,7 +23,7 @@ export default defineConfig({
       exclude: ['**/comps/**'],
     }),
     vue(),
-    vueDevTools(),
+    // vueDevTools(),
     // 1. 自动导入组件
     Components({
       dts: true,
