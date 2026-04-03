@@ -14,7 +14,7 @@ const loading = ref(false)
 const emit = defineEmits(['update:modelValue', 'submit-success', 'submit-error'])
 
 // 响应式表单数据
-const formData = reactive<Record<string, unknown>>({})
+let formData = reactive<Record<string, unknown>>({})
 
 // 是否只读模式
 const isReadOnly = computed(() => props.operationType === FROMOPRATIONTYPE.VIEW)
