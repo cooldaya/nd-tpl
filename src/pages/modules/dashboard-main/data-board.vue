@@ -1,5 +1,6 @@
 <script setup lang="ts">
 definePage({
+  name: 'data-board',
   meta: {
     title: '一张图',
   },

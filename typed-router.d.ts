@@ -46,18 +46,18 @@ declare module 'vue-router/auto-routes' {
       '/modules/dashboard-main',
       Record<never, never>,
       Record<never, never>,
-      | '/modules/dashboard-main/data-board'
-      | '/modules/dashboard-main/monitor-video'
+      | 'data-board'
+      | 'monitor-video'
     >,
-    '/modules/dashboard-main/data-board': RouteRecordInfo<
-      '/modules/dashboard-main/data-board',
+    'data-board': RouteRecordInfo<
+      'data-board',
       '/modules/dashboard-main/data-board',
       Record<never, never>,
       Record<never, never>,
       | never
     >,
-    '/modules/dashboard-main/monitor-video': RouteRecordInfo<
-      '/modules/dashboard-main/monitor-video',
+    'monitor-video': RouteRecordInfo<
+      'monitor-video',
       '/modules/dashboard-main/monitor-video',
       Record<never, never>,
       Record<never, never>,
@@ -257,21 +257,21 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/modules/dashboard-main.vue': {
       routes:
-        | '/modules/dashboard-main/data-board'
-        | '/modules/dashboard-main/monitor-video'
         | 'dashboard-main'
+        | 'data-board'
+        | 'monitor-video'
       views:
         | 'default'
     }
     'src/pages/modules/dashboard-main/data-board.vue': {
       routes:
-        | '/modules/dashboard-main/data-board'
+        | 'data-board'
       views:
         | never
     }
     'src/pages/modules/dashboard-main/monitor-video.vue': {
       routes:
-        | '/modules/dashboard-main/monitor-video'
+        | 'monitor-video'
       views:
         | never
     }

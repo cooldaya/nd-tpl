@@ -7,6 +7,7 @@ import ElementPlus from 'element-plus'
 import ElementPro from 'element-pro-components'
 import './assets/styles/element.scss' // 这个放置位置，会影响element-pro-components的样式覆盖
 import router from './router'
+import { permissionDirective } from '@/directives/permission'
 import type { App } from 'vue'
 
 export function useLibs(app: App) {
@@ -14,4 +15,5 @@ export function useLibs(app: App) {
   app.use(router)
   app.use(ElementPlus)
   app.use(ElementPro)
+  app.use(permissionDirective)
 }

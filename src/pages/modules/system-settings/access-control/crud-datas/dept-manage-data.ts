@@ -353,7 +353,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
 
       const arrData = markRaw(get(res, 'data', []) as OrganizationVO[])
       paginationRefData.total = arrData.length
-      const treeData = listToTree(arrData)
+      const { treeData } = listToTree(arrData)
       crudRefData.tableData = treeData
     },
     searchReset() {

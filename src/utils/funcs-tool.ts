@@ -15,7 +15,7 @@ interface TreeConfig {
 export const listToTree = <T extends Record<string, any>>(
   list: T[],
   { parentIdKey = 'parentId', primaryKey = 'id', childrenKey = 'children' }: TreeConfig = {},
-): T[] => {
+): { treeData: T[]; nodeMap: Map<string | number, T> } => {
   const data = cloneDeep(list)
   const nodeMap = new Map<string | number, T>()
   const tree: T[] = []
@@ -38,7 +38,10 @@ export const listToTree = <T extends Record<string, any>>(
     }
   }
 
-  return tree
+  return {
+    treeData: tree,
+    nodeMap,
+  }
 }
 
 /**

@@ -12,7 +12,6 @@ export function filterAsyncRoutes(
   userResources: Set<string>,
 ): RouteRecordRaw[] {
   const res: RouteRecordRaw[] = []
-  debugger
   routes.forEach((route) => {
     const tmp = { ...route }
     if (hasPermission(userResources, tmp)) {

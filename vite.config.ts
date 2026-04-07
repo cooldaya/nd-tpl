@@ -9,6 +9,7 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import vitePluginCustomOutDir from './plugins/vite-plugin-custom-outdir' // 引入插件
+import {transformPermission} from './plugins/vite-plugin-permission' // 引入权限转换插件
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -22,6 +23,7 @@ export default defineConfig({
       // routesFolder, extensions, dts 等都可以在这里配
       exclude: ['**/comps/**'],
     }),
+    transformPermission(),
     vue(),
     // vueDevTools(),
     // 1. 自动导入组件

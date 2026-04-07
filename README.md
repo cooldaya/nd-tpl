@@ -7,3 +7,8 @@ swagger-typescript-api 生成请求文件 api文档->
 图标(使用unplugin-icons，自动注册)，两种使用方式 https://icones.js.org/
 <i-ant-design-table-outlined />
 import AntDesignBarsOutlined from '~icons/ant-design/bars-outlined'
+
+权限控制
+<!--  <el-button v-has="'monitor-video:delete'" type="danger">删除-测试</el-button> -->
+<!--  <el-button v-if="pHasPerm('monitor-video:delete')" type="danger">删除-测试</el-button> -->
+<!--  <el-button p-has="monitor-video:delete" type="danger">删除-测试</el-button> -->

@@ -4,7 +4,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { defineCrudSubmit, defineCrudSearch, defineCrudBeforeOpen } from 'element-pro-components'
 import type { CrudColumn, ICrudProps, ICrudMenuColumns } from 'element-pro-components'
 import type { ProCrud } from 'element-pro-components'
-import { get } from 'lodash-es'
+import { get, isFunction } from 'lodash-es'
 import { gApi } from '@/api/gapi'
 import type {
   ResourceVO,
@@ -12,11 +12,13 @@ import type {
   ApiResourceAddPostData,
   ApiResourceEditPostData,
 } from '@/api/generated/data-contracts'
+import type { RouteRecordNormalized } from 'vue-router'
 import EpSearch from '~icons/ep/search'
 import EpRefreshLeft from '~icons/ep/refresh-left'
 import { exportProTable, listToTree, sortBySequence } from '@/utils/funcs-tool'
 import AutocompleteArray from '@/components/pro-crud/AutocompleteArray.vue'
 import { ElButton } from 'element-plus'
+import { useRouter } from 'vue-router'
 
 type CrudOption = {
   exportFileName?: string
@@ -25,7 +27,7 @@ type CrudOption = {
 const createCrudData = (crudOption: CrudOption | undefined = {}) => {
   const crudInstanceRef = useTemplateRef<ComponentPublicInstance<typeof ProCrud>>('crudInstanceRef')
   const crudRefData = reactive({
-    form: {},
+    form: {} as ResourceForm,
     searchForm: {},
     detail: {},
     tableData: [] as ResourceVO[],
@@ -66,17 +68,51 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
     },
   }
 
+  const router = useRouter()
+
   const refColumns = ref<CrudColumn[]>([
     {
       label: '名称',
       prop: 'name',
-      component: 'el-input',
+      component: 'el-autocomplete',
       add: true,
       edit: true,
       search: true,
       detail: true,
       span: 12,
       required: true,
+      props: {
+        fetchSuggestions(queryString: string, cb: any) {
+          const resouceRoutes = router.getRoutes()
+          const wrappedRoutes = resouceRoutes.map((route) => ({
+            ...route,
+            value: route.meta?.title,
+          }))
+          const createFilter = (query: string) => {
+            return wrappedRoutes.filter((route) => {
+              const title = route.meta?.title
+              return title && (title + '').includes(query)
+            })
+          }
+          const rsArr = queryString ? createFilter(queryString) : wrappedRoutes
+          cb(rsArr)
+        },
+        onSelect(item: RouteRecordNormalized) {
+          if (typeof item.name === 'string') {
+            crudRefData.form.code = item.name
+          }
+        },
+        onBlur() {
+          // if (crudRefData.form.code) return;
+          const resouceRoutes = router.getRoutes()
+          const targetRoute = resouceRoutes.find(
+            (route) => route.meta?.title === crudRefData.form.name,
+          )
+          if (targetRoute && typeof targetRoute.name === 'string') {
+            crudRefData.form.code = targetRoute.name
+          }
+        },
+      },
     },
 
     {
@@ -193,6 +229,14 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
         ),
     },
   ])
+
+  // 初始化调用每一个column?.props?.reqFunc函数
+  refColumns.value.forEach((column) => {
+    const reqFunc = column?.props?.reqFunc
+    if (isFunction(reqFunc)) {
+      reqFunc(column)
+    }
+  })
 
   const handles = {
     handleAddChild(row: any) {
@@ -348,7 +392,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
         const arrData = markRaw(get(res, 'data', []) as ResourceVO[])
         paginationRefData.total = arrData.length
 
-        const treeData = listToTree(arrData)
+        const { treeData } = listToTree(arrData)
         crudRefData.tableData = treeData
       } catch (e) {
         console.log(e)

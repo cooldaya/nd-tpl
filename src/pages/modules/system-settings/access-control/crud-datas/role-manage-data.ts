@@ -346,7 +346,16 @@ const createAssignPermissions = () => {
       apRefData.visible = true
       nextTick(() => {
         if (!formElTreeRef.value) return
-        formElTreeRef.value.setCheckedKeys(apRefData.form.resourceIds)
+        // 1. 先清空当前的所有选中状态（非常重要，防止缓存）
+        formElTreeRef.value.setCheckedKeys([])
+        // 过滤出只有叶子节点的 ID 数组
+        const leafKeys = apRefData.form.resourceIds.filter((id) => {
+          const node = formElTreeRef.value?.getNode(id)
+          // node.isLeaf 为 true 表示该节点没有子节点
+          return node && node.isLeaf
+        })
+        // 使用 setCheckedKeys 设置，此时父节点会根据子节点情况自动呈现“全选”或“半选”
+        formElTreeRef.value.setCheckedKeys(leafKeys)
       })
     },
     close() {

@@ -28,7 +28,6 @@ export const useAuthStore = defineStore('auth', () => {
 
   const handles = {
     async initLoginInfo(loginInfo: LoginResultVO) {
-      debugger
       if (authRefData.isLogIn) return
       try {
         authRefData.isLogIn = true
@@ -71,11 +70,16 @@ export const useAuthStore = defineStore('auth', () => {
       authRefData.resources = new Set()
       securityDataManager.clear()
     },
+    hasPerm: (value: string) => {
+      if(authRefData.userInfo?.loginname === ADMINISTRATOR_NAME) return true
+      return authRefData.resources.has(value)
+    },
   }
 
   return {
     initLoginInfo: handles.initLoginInfo,
     authRefData,
     authFilteredRoutes,
+    hasPerm: handles.hasPerm,
   }
 })
