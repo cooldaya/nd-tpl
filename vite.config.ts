@@ -9,10 +9,11 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import vitePluginCustomOutDir from './plugins/vite-plugin-custom-outdir' // 引入插件
-import {transformPermission} from './plugins/vite-plugin-permission' // 引入权限转换插件
+import { transformPermission } from './plugins/vite-plugin-permission' // 引入权限转换插件
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: './',
   server: {
     port: 9846,
     hmr: true,

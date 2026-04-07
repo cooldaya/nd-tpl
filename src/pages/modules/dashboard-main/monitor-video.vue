@@ -13,7 +13,7 @@ definePage({
     <div>
       <!--  <el-button v-has="'monitor-video:delete'" type="danger">删除-测试</el-button> -->
       <!--  <el-button v-if="pHasPerm('monitor-video:delete')" type="danger">删除-测试</el-button> -->
-      <!--  <el-button p-has="monitor-video:delete" type="danger">删除-测试</el-button> -->
+      <el-button p-has="monitor-video:delete" type="danger">删除-测试</el-button>
     </div>
   </div>
 </template>
