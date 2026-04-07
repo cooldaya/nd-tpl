@@ -3,6 +3,7 @@ import { securityDataManager } from '@/utils/security-data-manager'
 import { gApi } from '@/api/gapi'
 import { useAuthStore } from '@/stores/auth'
 import type { Router } from 'vue-router'
+import { projectConfig } from '~/project-config'
 
 const useGuards = (router: Router) => {
   router.beforeEach(async (to) => {
@@ -46,7 +47,10 @@ const useGuards = (router: Router) => {
     }
   })
 
-  router.afterEach(() => {
+  router.afterEach((to) => {
+    const defaultTitle = projectConfig.name
+
+    document.title = to.meta.title ? `${to.meta.title}-${defaultTitle}` : defaultTitle
     NProgress.done() // 结束
   })
 }
