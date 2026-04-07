@@ -11,14 +11,14 @@ import type { ComponentPublicInstance } from 'vue'
 import type { CrudColumn, ICrudProps, ICrudMenuColumns, ProCrud } from 'element-pro-components'
 import type {
   LogoperationVO,
-  LogoperationForm,
+  LogoperationFO,
   ApiLogoperationAddPostData,
   ApiLogoperationEditPostData,
 } from '@/api/generated/data-contracts'
 
 type CrudOption = {
   exportFileName?: string
-  defaultForm?: Partial<LogoperationForm>
+  defaultForm?: Partial<LogoperationFO>
 }
 const createCrudData = (crudOption: CrudOption | undefined = {}) => {
   const crudInstanceRef = useTemplateRef<ComponentPublicInstance<typeof ProCrud>>('crudInstanceRef')
@@ -256,7 +256,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       const reqFuncMap: Record<
         string,
         (
-          data: LogoperationForm,
+          data: LogoperationFO,
         ) => Promise<ApiLogoperationAddPostData | ApiLogoperationEditPostData>
       > = {
         add: gApi.apiLogoperationAddPost,
