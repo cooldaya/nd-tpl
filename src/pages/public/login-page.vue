@@ -161,7 +161,7 @@ handles.tryRememberAccountFillIn()
   <div class="nd-wh-full nd-fcc login-page">
     <div class="w-200 flex h-120 rounded-sm overflow-hidden shadow-xl bg-white/85 backdrop-blur-md">
       <div class="w-60 relative">
-        <img src="@/assets/imgs/public/p1.png" class="w-full h-full object-cover" />
+        <img src="@/assets/imgs/public/p1.avif" class="w-full h-full object-cover" />
         <div class="font-bold text-xl absolute left-0.5 top-6 text-[26px] leading-[1.6] p-4">
           <span class="text-[#1e4c40]">
             {{ projectConfig.title }}<br />{{ projectConfig.subTitle }}
