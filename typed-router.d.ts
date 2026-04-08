@@ -148,6 +148,7 @@ declare module 'vue-router/auto-routes' {
       | 'role-manage'
       | 'system-log'
       | 'user-manage'
+      | 'user-test'
     >,
     'access-control': RouteRecordInfo<
       'access-control',
@@ -158,6 +159,7 @@ declare module 'vue-router/auto-routes' {
       | 'resource-manage'
       | 'role-manage'
       | 'user-manage'
+      | 'user-test'
     >,
     'dept-manage': RouteRecordInfo<
       'dept-manage',
@@ -183,6 +185,13 @@ declare module 'vue-router/auto-routes' {
     'user-manage': RouteRecordInfo<
       'user-manage',
       '/modules/system-settings/access-control/user-manage',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'user-test': RouteRecordInfo<
+      'user-test',
+      '/modules/system-settings/access-control/user-test',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -352,6 +361,7 @@ declare module 'vue-router/auto-routes' {
         | 'system-log'
         | 'system-settings'
         | 'user-manage'
+        | 'user-test'
       views:
         | 'default'
     }
@@ -362,6 +372,7 @@ declare module 'vue-router/auto-routes' {
         | 'resource-manage'
         | 'role-manage'
         | 'user-manage'
+        | 'user-test'
       views:
         | 'default'
     }
@@ -386,6 +397,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/modules/system-settings/access-control/user-manage.vue': {
       routes:
         | 'user-manage'
+      views:
+        | never
+    }
+    'src/pages/modules/system-settings/access-control/user-test.vue': {
+      routes:
+        | 'user-test'
       views:
         | never
     }

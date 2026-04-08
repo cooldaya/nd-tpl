@@ -15,10 +15,10 @@ import { useAuthStore } from '@/stores/auth'
 import type {ComponentPublicInstance} from 'vue'
 import type { CrudColumn, ICrudProps, ICrudMenuColumns,ProCrud } from 'element-pro-components'
 import type {
-  <%= entityName %>VO,
-  <%= entityName %>Form,
-  Api<%= entityName %>AddPostData,
-  Api<%= entityName %>EditPostData,
+  UserVO,
+  UserForm,
+  ApiUserAddPostData,
+  ApiUserEditPostData,
 } from '@/api/generated/data-contracts'
 
 
@@ -26,16 +26,16 @@ import type {
 
 type CrudOption = {
   exportFileName?: string
-  defaultForm?: Partial<<%= entityName %>Form>
+  defaultForm?: Partial<UserForm>
 }
 const createCrudData = (crudOption: CrudOption | undefined = {}) => {
   const authStore = useAuthStore()
   const crudInstanceRef = useTemplateRef<ComponentPublicInstance<typeof ProCrud>>('crudInstanceRef')
   const crudRefData = reactive({
-    form: {} as <%= entityName %>Form,
+    form: {} as UserForm,
     searchForm: {},
     detail: {},
-    tableData: [] as <%= entityName %>VO[],
+    tableData: [] as UserVO[],
   })
 
   const searchMenuRightProps = reactive({
@@ -49,13 +49,13 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
         searchForm: crudRefData.searchForm,
         columns: refColumns.value,
       }
-      const res = await gApi.api<%= entityName %>PagedListPost({
+      const res = await gApi.apiUserPagedListPost({
         pageIndex: 1,
         pageSize: 99,
         ...crudRefData.searchForm,
       })
       const arrData = get(res, 'data.items', [])
-      const fileName = crudOption.exportFileName || '<%= pageTitle %>'
+      const fileName = crudOption.exportFileName || '测试crud'
       exportProTable(arrData, option.searchForm, option.columns, fileName)
     },
   })
@@ -73,18 +73,226 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
   }
 
   const refColumns = ref<CrudColumn[]>([
-<% columns.forEach(col => { -%>
     {
-      label: '<%= col.label %>',
-      prop: '<%= col.prop %>',
-      component: '<%= col.component %>',
-      add: <%= col.add %>,
-      edit: <%= col.edit %>,
-      search: <%= col.search %>,
-      detail: <%= col.detail %>,
+      label: '登录名',
+      prop: 'loginname',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
       span: 12,
     },
-<% }) -%>
+    {
+      label: '密码',
+      prop: 'password',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '编号',
+      prop: 'code',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '姓名',
+      prop: 'name',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '邮箱',
+      prop: 'email',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '身份证号码',
+      prop: 'idcode',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '性别',
+      prop: 'sex',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '民族',
+      prop: 'nation',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '出生日期',
+      prop: 'birthday',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '手机号',
+      prop: 'mobile',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '微信openid',
+      prop: 'wxopenid',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '微信unionid',
+      prop: 'wxunionid',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '地址',
+      prop: 'address',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '是否可以登录',
+      prop: 'canLogin',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '是否启用',
+      prop: 'isEnable',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: 'maxNos',
+      prop: 'maxNos',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: 'remark',
+      prop: 'remark',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: 'organizationId',
+      prop: 'organizationId',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: 'ssoid',
+      prop: 'ssoId',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: 'typeCode',
+      prop: 'typeCode',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '上次登录时间',
+      prop: 'lastLoginTime',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
+    {
+      label: '组织机构名称',
+      prop: 'organizationName',
+      component: 'el-input',
+      add: true,
+      edit: true,
+      search: false,
+      detail: true,
+      span: 12,
+    },
   ])
 
   // 初始化调用每一个column?.props?.reqFunc函数
@@ -126,10 +334,10 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
 
   const refMenu = computed<ICrudMenuColumns>(() => ({
       // 权限控制---
-    detail: (_row) => authStore.hasPerm('<%= dataName %>:detail'),
-    edit: (_row) => authStore.hasPerm('<%= dataName %>:edit'),
-    del: (_row) => authStore.hasPerm('<%= dataName %>:del'),
-    add: authStore.hasPerm('<%= dataName %>:add'),
+    detail: (_row) => authStore.hasPerm('user-test:detail'),
+    edit: (_row) => authStore.hasPerm('user-test:edit'),
+    del: (_row) => authStore.hasPerm('user-test:del'),
+    add: authStore.hasPerm('user-test:add'),
     // ---
     label: '操作',
     addText: '新增',
@@ -180,10 +388,10 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
     submit: defineCrudSubmit(async (close, done, type, _isValid, _invalidFields) => {
       const reqFuncMap: Record<
         string,
-        (data: <%= entityName %>Form) => Promise<Api<%= entityName %>AddPostData | Api<%= entityName %>EditPostData>
+        (data: UserForm) => Promise<ApiUserAddPostData | ApiUserEditPostData>
       > = {
-        add: gApi.api<%= entityName %>AddPost,
-        edit: gApi.api<%= entityName %>EditPost,
+        add: gApi.apiUserAddPost,
+        edit: gApi.apiUserEditPost,
       }
       const reqFunc = reqFuncMap[type]
 
@@ -206,7 +414,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       }
     }),
 
-    async deleteRow(row: <%= entityName %>VO) {
+    async deleteRow(row: UserVO) {
       try {
         await ElMessageBox.confirm('确认要删除该条数据吗？', '警告', {
           confirmButtonText: '确定',
@@ -218,7 +426,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
         return ElMessage.info('已取消删除')
       }
       try {
-        await gApi.api<%= entityName %>RemovePost({
+        await gApi.apiUserRemovePost({
           id: row.id,
         })
         ElMessage.success('删除成功')
@@ -231,13 +439,13 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       }
     },
     async paginationChange(currentPage: number, pageSize: number) {
-      const res = await gApi.api<%= entityName %>PagedListPost({
+      const res = await gApi.apiUserPagedListPost({
         pageIndex: currentPage,
         pageSize: pageSize,
         ...crudRefData.searchForm,
       })
       paginationRefData.total = get(res, 'data.total', 0)
-      crudRefData.tableData = markRaw(get(res, 'data.items', []) as <%= entityName %>VO[])
+      crudRefData.tableData = markRaw(get(res, 'data.items', []) as UserVO[])
     },
     searchReset() {
       paginationRefData.currentPage = 1

@@ -24,8 +24,6 @@ const systemSettingsRoutes = computed(() => {
       ?.children?.find((item) => item.name === 'system-settings')?.children || []
   return formatRoutes(rawRoutes, '/modules/system-settings')
 })
-
-console.log({ systemSettingsRoutes })
 </script>
 
 <template>

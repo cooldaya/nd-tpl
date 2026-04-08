@@ -1,4 +1,4 @@
-import { reactive, markRaw, computed, ref, useTemplateRef, h } from 'vue'
+import { reactive, markRaw, computed, ref, useTemplateRef, h, nextTick } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { defineCrudSubmit, defineCrudSearch, defineCrudBeforeOpen } from 'element-pro-components'
@@ -19,6 +19,7 @@ import { exportProTable, listToTree, sortBySequence } from '@/utils/funcs-tool'
 import AutocompleteArray from '@/components/pro-crud/AutocompleteArray.vue'
 import { ElButton } from 'element-plus'
 import { useRouter } from 'vue-router'
+import { ElTreeSelect } from 'element-plus'
 
 type CrudOption = {
   exportFileName?: string
@@ -69,7 +70,8 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
   }
 
   const router = useRouter()
-
+  type ParentIdTreeElRefType = InstanceType<typeof ElTreeSelect> | null
+  const parentIdTreeElRef = ref<ParentIdTreeElRefType>(null)
   const refColumns = ref<CrudColumn[]>([
     {
       label: '名称',
@@ -84,10 +86,36 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       props: {
         fetchSuggestions(queryString: string, cb: any) {
           const resouceRoutes = router.getRoutes()
-          const wrappedRoutes = resouceRoutes.map((route) => ({
+          let wrappedRoutes = resouceRoutes.map((route) => ({
             ...route,
             value: route.meta?.title,
-          }))
+          })) as (RouteRecordNormalized & { value: string })[]
+
+          {
+            // 父级选中筛选
+            let parentNodeData: any = {}
+            if (parentIdTreeElRef.value) {
+              // 获取 Tree 实例
+              const tree = (parentIdTreeElRef.value as any).treeRef
+              // 获取 Node 包装对象
+              const node = tree?.getNode(crudRefData.form.parentId)
+              if (node && node.data) {
+                // 2. 注意：这里要取 node.data 才是你的原始业务对象
+                parentNodeData = node.data
+              }
+            }
+            const parentRoute = wrappedRoutes.find(
+              (routeItem) => parentNodeData.code === routeItem.name,
+            )
+            if (parentRoute) {
+              const childrenNames = (parentRoute.children?.map((child) => child.name) ||
+                []) as string[]
+              wrappedRoutes = wrappedRoutes.filter((routeItem) =>
+                childrenNames.includes(routeItem.name as string),
+              )
+            }
+          }
+
           const createFilter = (query: string) => {
             return wrappedRoutes.filter((route) => {
               const title = route.meta?.title
@@ -148,6 +176,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       prop: 'parentId',
       component: 'el-tree-select',
       props: {
+        ref: (el) => (parentIdTreeElRef.value = el as ParentIdTreeElRefType),
         filterable: true,
         data: [], // 初始为空，由逻辑填充
         nodeKey: 'id',
@@ -163,14 +192,14 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       detail: true,
       hide: true,
     },
+
     {
       label: '是否启用',
       prop: 'isEnable',
       component: 'el-switch',
       add: true,
       detail: true,
-      span: 12,
-      required: true,
+      span: 8,
     },
     {
       label: '是否仅限管理员',
@@ -180,7 +209,16 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       edit: true,
       // search: true,
       detail: true,
-      span: 12,
+      span: 8,
+    },
+
+    {
+      label: '生成crud权限',
+      prop: 'autoGenCrudBtn',
+      component: 'el-switch',
+      add: true,
+      detail: true,
+      span: 8,
     },
     {
       label: '备注',
@@ -343,7 +381,12 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
         return
       }
       try {
-        await reqFunc(crudRefData.form)
+        const res = await reqFunc(crudRefData.form)
+        if (type === 'add' && (crudRefData.form as any).autoGenCrudBtn) {
+          await crudHandles._addCrudPermission(res.data as ResourceVO)
+        }
+
+
         ElMessage.success('操作成功')
         close()
         await crudHandles.paginationChange(
@@ -407,6 +450,34 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
     refreshTable() {
       crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
     },
+    _addCrudPermission(parentData: ResourceVO) {
+      const crudPerms = [{
+        code: 'add',
+        label: '添加'
+      }, {
+        code: 'detail',
+        label: '查看'
+      }, {
+        code: 'edit',
+        label: '编辑'
+      }, {
+        code: 'del',
+        label: '删除'
+      }]
+      const promises = crudPerms.map((perm) => {
+        const payload = {
+            "routeNames": [""],
+            "parentId": parentData.id,
+            "type": "button",
+            "name": perm.label,
+            "code": `${parentData.code}:${perm.code}`,
+            "isEnable": true,
+            "isAdmin": false
+        }
+        return gApi.apiResourceAddPost(payload as any)
+      })
+      return Promise.allSettled(promises)
+    }
   }
 
   crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import { createCrudData } from './crud-datas/<%= dataName %>-data.ts'
+  import { createCrudData } from './crud-datas/user-test-data.ts'
 
   definePage({
-    name: "<%= dataName %>",
+    name: "user-test",
     meta: {
-      title: "<%= pageTitle %>",
+      title: "测试crud",
     },
   })
 

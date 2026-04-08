@@ -12,3 +12,11 @@ import AntDesignBarsOutlined from '~icons/ant-design/bars-outlined'
 <!--  <el-button v-has="'monitor-video:delete'" type="danger">删除-测试</el-button> -->
 <!--  <el-button v-if="pHasPerm('monitor-video:delete')" type="danger">删除-测试</el-button> -->
 <!--  <el-button p-has="monitor-video:delete" type="danger">删除-测试</el-button> -->
+
+
+
+<!-- 添加菜单时，
+    1.提示菜单名称，尝试自动填写权限标识
+    2.给菜单页面可选一键田间crud权限按钮
+    del、add、detail、add
+-->

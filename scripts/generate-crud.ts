@@ -94,6 +94,7 @@ async function generate() {
       entityName,
       columns,
       pageTitle,
+      dataName
     })
 
     const vueContent = await ejs.renderFile(path.join(templatesDir, 'vue.vue.ejs'), {
