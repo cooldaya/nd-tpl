@@ -10,6 +10,8 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import vitePluginCustomOutDir from './plugins/vite-plugin-custom-outdir' // 引入插件
 import { transformPermission } from './plugins/vite-plugin-permission' // 引入权限转换插件
+import { visualizer } from 'rollup-plugin-visualizer'
+import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -22,7 +24,7 @@ export default defineConfig({
   plugins: [
     VueRouter({
       // routesFolder, extensions, dts 等都可以在这里配
-      exclude: ['**/comps/**','**/components/**'],
+      exclude: ['**/comps/**', '**/components/**'],
     }),
     transformPermission(),
     vue(),
@@ -44,6 +46,20 @@ export default defineConfig({
     }),
     tailwindcss(),
     vitePluginCustomOutDir(),
+    visualizer({
+      open: true, // 打包完成后自动打开浏览器看报告
+      filename: 'stats.html',
+      gzipSize: true,
+      brotliSize: true,
+    }),
+    chunkSplitPlugin({
+      strategy: 'default', // 保持核心依赖聚合
+      customSplitting: {
+        'lib-maplibre': [/maplibre-gl/],
+        'lib-xlsx': [/xlsx/],
+        'lib-element-plus': [/element-plus/],
+      }
+    }),
   ],
   resolve: {
     alias: {

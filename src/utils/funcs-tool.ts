@@ -1,5 +1,5 @@
 import { cloneDeep } from 'lodash-es'
-import * as XLSX from 'xlsx'
+
 import { orderBy, get } from 'lodash-es'
 
 interface TreeConfig {
@@ -59,12 +59,13 @@ const getSheetValueWidth = (value: any): number => {
 /**
  * element-pro-components 导出工具函数 (优化版)
  */
-export const exportProTable = (
+export const exportProTable = async (
   data: Record<string, any>[],
   searchForm: Record<string, any> = {},
   columns: any[],
   fileName: string = 'export-data',
 ) => {
+  const XLSX = await import('xlsx')
   // 1. 过滤掉不需要导出的列
   const validColumns = columns.filter(
     (col) =>

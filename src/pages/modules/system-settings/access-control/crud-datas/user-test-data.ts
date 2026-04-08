@@ -390,8 +390,8 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
         string,
         (data: UserForm) => Promise<ApiUserAddPostData | ApiUserEditPostData>
       > = {
-        add: gApi.apiUserAddPost,
-        edit: gApi.apiUserEditPost,
+        add: gApi.apiUserAddPost as any,
+        edit: gApi.apiUserEditPost as any,
       }
       const reqFunc = reqFuncMap[type]
 
