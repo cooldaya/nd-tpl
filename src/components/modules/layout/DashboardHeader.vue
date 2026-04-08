@@ -32,7 +32,7 @@ const dashboardRoutes = computed(
         <UserPopperAvatar />
       </div>
     </div>
-    <div class="mx-auto w-fit mt-5.5 flex gap-x-">
+    <div class="mx-auto w-fit mt-5.5 flex gap-x-4">
       <router-link
         v-for="routeItem in dashboardRoutes"
         :to="routeItem"

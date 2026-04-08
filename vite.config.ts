@@ -22,7 +22,7 @@ export default defineConfig({
   plugins: [
     VueRouter({
       // routesFolder, extensions, dts 等都可以在这里配
-      exclude: ['**/comps/**'],
+      exclude: ['**/comps/**','**/components/**'],
     }),
     transformPermission(),
     vue(),

@@ -1,6 +1,9 @@
 <script setup lang="ts">
 definePage({
   name: 'dashboard-main',
+  redirect:{
+    name:'data-board'
+  }
 })
 </script>
 
