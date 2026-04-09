@@ -1,101 +1,46 @@
 <template>
-  <div class="w-full h-full" ref="mapElRef"></div>
+  <div class="relative nd-wh-full">
+    <div class="nd-wh-full" ref="mapElRef"></div>
+
+    <!-- 业务 UI 按钮：调用插件功能 -->
+    <!-- <div class="absolute top-4 left-4 z-10">
+      <button @click="startDraw('Polygon')" class="bg-white p-2 shadow">
+        开启绘图功能
+      </button>
+    </div> -->
+  </div>
 </template>
 
 <script setup lang="ts">
-import { useTemplateRef, onMounted, onBeforeUnmount } from 'vue'
-import maplibregl from 'maplibre-gl'
-import 'maplibre-gl/dist/maplibre-gl.css'
-import { getTdtUrls } from './utils/url-sets'
-import { TDT_TK } from './constants'
+import { ref } from 'vue'
+import { useMapCore } from './hooks/useMapCore'
+import { useMapSources } from './hooks/useMapSources'
+import { useMapLayers } from './hooks/useMapLayers'
+import { useMapControls } from './hooks/useMapControls'
+import { useMapEvents } from './hooks/useMapEvents'
+import { useDrawing } from './plugins/useDrawing'
 
-import type { Map } from 'maplibre-gl'
+const emit = defineEmits(['map-click'])
+const mapElRef = ref<HTMLElement | null>(null)
 
-const mapElRef = useTemplateRef<HTMLElement>('mapElRef')
-let manInstance: Map | null = null
-const handles = {
-  initMap() {
-    if (!mapElRef.value) return
+// 1. 初始化核心（获取 map 实例）
+const { map } = useMapCore(mapElRef)
 
-    // 预先生成多域名 URL 数组
-    const vecUrls = getTdtUrls('img_w', TDT_TK) // 矢量底图
-    const cvaUrls = getTdtUrls('cva_w', TDT_TK) // 矢量注记
-    // 初始化地图
-    manInstance = new maplibregl.Map({
-      container: mapElRef.value, // 也可以直接传 ID
-      // --- 修改重点 ---
-      center: [106.55073, 29.56471], // 重庆解放碑附近经纬度
-      zoom: 12, // 缩放层级，12可以看到城市全貌
-      pitch: 45, // 高仰角，能更好地看山城的立体感
-      bearing: -10, // 地图旋转角度，稍微转一下更有动感
-      // ----------------
-      style: {
-        version: 8,
-        sources: {
-          // 天地图矢量底图
-          'tdt-vec': {
-            type: 'raster',
-            tiles: vecUrls,
-            tileSize: 256,
-            minzoom: 1,
-            maxzoom: 18,
-          },
-          // 天地图注记层（路名、地名）
-          'tdt-cva': {
-            type: 'raster',
-            tiles: cvaUrls,
-            tileSize: 256,
-            minzoom: 1,
-            maxzoom: 18,
-          },
-        },
-        layers: [
-          {
-            id: 'background',
-            type: 'background',
-            paint: {
-              'background-color': '#000000', // 设置背景颜色
-            },
-          },
-          {
-            id: 'tdt-vec-layer',
-            type: 'raster',
-            source: 'tdt-vec',
-          },
-          {
-            id: 'tdt-cva-layer',
-            type: 'raster',
-            source: 'tdt-cva',
-          },
-        ],
-        sky: {},
-      },
-      maxZoom: 18,
-      maxPitch: 85,
-    })
-    manInstance.addControl(
-      new maplibregl.NavigationControl({
-        visualizePitch: true,
-        showZoom: true,
-        showCompass: true,
-      }),
-    )
-    const observer = new ResizeObserver(() => manInstance?.resize())
-    observer.observe(mapElRef.value!)
-  },
-  destroyMap() {
-    if (!manInstance) return
-    manInstance.remove()
-    manInstance = null
-  },
-}
-onMounted(() => {
-  handles.initMap()
-})
+// 2. 挂载数据源
+useMapSources(map)
 
-onBeforeUnmount(() => {
-  handles.destroyMap()
-})
+// 3. 挂载底图和图层逻辑
+useMapLayers(map)
+
+// 4. 挂载 UI 控件
+useMapControls(map)
+
+// 5. 挂载事件监听
+useMapEvents(map, emit)
+
+// 6. 挂载功能插件
+const { startDraw } = useDrawing(map)
+
+// 如果需要，暴露实例给外部父组件
+defineExpose({ mapInstance: map })
 </script>
-
-<style scoped></style>
