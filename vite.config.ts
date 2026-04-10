@@ -59,6 +59,9 @@ export default defineConfig({
         'lib-xlsx': [/xlsx/],
         'lib-element-plus': [/element-plus/],
         'lib-hls': [/hls.js/],
+        'lib-jsencrypt': [/jsencrypt/],
+        'lib-axios': [/axios/],
+        'lib-localforage': [/localforage/],
       }
     }),
   ],
