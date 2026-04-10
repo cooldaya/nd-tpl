@@ -1,4 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import autofit from 'autofit.js'
+
+
+autofit.init({
+  delay:100
+})
+</script>
 
 <template>
   <div class="nd-wh-full text-gray-200">
