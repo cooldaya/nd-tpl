@@ -62,6 +62,7 @@ export default defineConfig({
         'lib-jsencrypt': [/jsencrypt/],
         'lib-axios': [/axios/],
         'lib-localforage': [/localforage/],
+        'lib-echarts': [/echarts/],
       }
     }),
   ],

@@ -14,6 +14,7 @@ declare module 'vue' {
     AeProForm: typeof import('./src/components/modules/AeProForm.vue')['default']
     ArithmeticCaptcha: typeof import('./src/components/public/ArithmeticCaptcha.vue')['default']
     AutocompleteArray: typeof import('./src/components/pro-crud/AutocompleteArray.vue')['default']
+    BaseChart: typeof import('./src/components/public/BaseChart.vue')['default']
     DashboardHeader: typeof import('./src/components/modules/layout/DashboardHeader.vue')['default']
     DashboardLayout: typeof import('./src/components/modules/layout/DashboardLayout.vue')['default']
     HikMsePlayer: typeof import('./src/components/modules/dashboard-main/monitor-video/monitor-tools/comps/HikMsePlayer.vue')['default']

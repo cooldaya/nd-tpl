@@ -12,6 +12,14 @@ import { isFunction, merge } from 'lodash-es'
 export function initMapLayers(mapInstance: Map) {
   const staticLayers = [SOURCE_IDS.TDT_IMG]
 
+  // 添加bg
+  mapInstance.addLayer({
+    id: 'bg-layer',
+    type: 'background',
+    paint: {
+      'background-color':'#000000' ,
+    },
+  })
   staticLayers.forEach((sourceId) => {
     mapInstance.addLayer({
       id: `layer-${sourceId}`,

@@ -6,4 +6,5 @@ export function initMapSources(mapInstance: Map) {
   for (const [sourceId, source] of Object.entries(MAP_SOURCES)) {
     mapInstance.addSource(sourceId, source as SourceSpecification | CanvasSourceSpecification)
   }
+
 }
