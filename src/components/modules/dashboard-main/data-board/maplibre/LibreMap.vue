@@ -17,6 +17,7 @@ import { technicsData } from '../test/technics-data'
 import { useLibreMap } from './hooks/use-libremap'
 import maplibregl from 'maplibre-gl'
 import { getIconUrl } from './assets/get-assets'
+import './vue-web-comps/index.ts'
 
 import type { GeoJSONFeature } from 'maplibre-gl'
 // src/utils/mapHelper.ts
@@ -40,12 +41,9 @@ useLibreMap(mapElRef, emit, (libreMapTool) => {
     // 添加图标
     async beforeAdd(mapInstance) {
       const imags = {
-        dianzhan_zaixian:
-          getIconUrl('icon_dianzhan_zaixian'),
-        dianzhan_lixian:
-          getIconUrl('icon_dianzhan_lixian'),
-        dianzhan_yujing:
-          getIconUrl('icon_dianzhan_yujing'),
+        dianzhan_zaixian: getIconUrl('icon_dianzhan_zaixian'),
+        dianzhan_lixian: getIconUrl('icon_dianzhan_lixian'),
+        dianzhan_yujing: getIconUrl('icon_dianzhan_yujing'),
       }
       const promises = Object.entries(imags).map(([key, url]) =>
         mapInstance.loadImage(url).then((response) => mapInstance.addImage(key, response.data)),
@@ -95,25 +93,35 @@ useLibreMap(mapElRef, emit, (libreMapTool) => {
     },
     // 点击事件
     onClick({ features, feature, mapInstance }) {
-      const {
-        monitorState,
-        name,
-        longitude,
-        latitude,
-      } = feature.properties
-      // 2. 创建并弹出 Popup
-      new maplibregl.Popup({ offset: 25 }) // offset 防止遮挡图标
-        .setLngLat([longitude, latitude])
-        .setHTML(
-          `
-          <div style="padding: 10px;">
-            <h3 style="margin: 0 0 5px 0;">${name}</h3>
-            <p>地址: ${monitorState}</p>
+      const { monitorState, name, longitude, latitude } = feature.properties
 
-            <button onclick="alert('查看详情')">跳转</button>
-          </div>
-        `,
-        )
+      // 1. 创建 Web Component 实例
+      const popupEl = document.createElement('vwc-popup-1') as any
+      // 2. 传递属性 (注意：Web Components 属性通常是字符串，或者通过 DOM Property 传递)
+      popupEl.setAttribute('data', JSON.stringify(feature.properties))
+
+      // 3. 创建并弹出 Popup
+      const popup = new maplibregl.Popup({
+        offset: 25,
+        closeButton:false,
+        padding: {
+          top: 0,
+          bottom:0 ,
+          left: 0,
+          right: 0,
+        }
+      }) // offset 防止遮挡图标
+      // 4. 监听组件内部发出的 'close' 事件
+      // 注意：Vue emit 的 'close' 在 DOM 上监听的是 'close'
+      popupEl.addEventListener('close', () => {
+        console.log('[Map] Closing popup via component event')
+        popup.remove() // 销毁弹出框
+      })
+
+      // 5. 使用 setDOMContent 挂载
+      popup
+        .setLngLat([longitude, latitude])
+        .setDOMContent(popupEl) // 关键：传入真实的 DOM 对象
         .addTo(mapInstance)
     },
   })

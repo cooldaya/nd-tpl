@@ -29,6 +29,7 @@ declare module 'vue' {
     MonitorPreview: typeof import('./src/components/modules/dashboard-main/monitor-video/monitor-tools/func-tabs/MonitorPreview.vue')['default']
     NavMultiTabs: typeof import('./src/components/modules/NavMultiTabs.vue')['default']
     PanTilt: typeof import('./src/components/modules/dashboard-main/monitor-video/monitor-tools/comps/PanTilt.vue')['default']
+    'Popup1.ce': typeof import('./src/components/modules/dashboard-main/data-board/maplibre/vue-web-comps/Popup1.ce.vue')['default']
     PreviewMonitorVideo: typeof import('./src/components/modules/dashboard-main/monitor-video/monitor-tools/comps/PreviewMonitorVideo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
