@@ -58,6 +58,7 @@ export default defineConfig({
         'lib-maplibre': [/maplibre-gl/],
         'lib-xlsx': [/xlsx/],
         'lib-element-plus': [/element-plus/],
+        'lib-hls': [/hls.js/],
       }
     }),
   ],

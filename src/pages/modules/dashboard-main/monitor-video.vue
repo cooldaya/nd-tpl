@@ -1,21 +1,72 @@
-<script setup lang="ts">
+<script setup>
 definePage({
   name: 'monitor-video',
   meta: {
     title: '监控视频',
   },
 })
+
+import { reactive } from 'vue'
+import { SiteVideoTree, MonitorPlayer, PanTilt, useMonitorTool } from '@/components/modules/dashboard-main/monitor-video/monitor-tools'
+import { testTreeData } from '@/components/modules/dashboard-main/monitor-video/monitor-tools/test-data.js'
+
+const { selectedVideoNode } = useMonitorTool()
+
+const refData = reactive({
+  testTreeData: Object.freeze(testTreeData),
+})
 </script>
 
 <template>
-  <div>
-    <h3>监控视频</h3>
-    <div>
-      <!--  <el-button v-has="'monitor-video:delete'" type="danger">删除-测试</el-button> -->
-      <!--  <el-button v-if="pHasPerm('monitor-video:delete')" type="danger">删除-测试</el-button> -->
-      <el-button p-has="monitor-video:delete" type="danger">删除-测试</el-button>
+  <div class="test-monitor-page nd-dm-page">
+    <div class="side-bar">
+      <SiteVideoTree :tree-data="refData.testTreeData" />
+      <div class="pan-tilt-wrap" v-show="selectedVideoNode">
+        <el-collapse accordion>
+          <el-collapse-item title="云台">
+            <div class="pan-tilt-panel-wrap">
+              <PanTilt :scale="0.8" />
+            </div>
+          </el-collapse-item>
+        </el-collapse>
+      </div>
+    </div>
+    <div class="monitor-main">
+      <MonitorPlayer />
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped lang="scss">
+.test-monitor-page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  column-gap: 14px;
+  background-color: rgba(31, 51, 51, 0.47);
+
+  .side-bar {
+    width: 240px;
+    position: relative;
+    background-color: #1f3333;
+
+    .pan-tilt-wrap {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      .pan-tilt-panel-wrap {
+        display: flex;
+        justify-content: center;
+      }
+      ::v-deep(.el-collapse-item__title){
+        padding-left: 12px;
+      }
+    }
+  }
+  .monitor-main {
+    min-width: 0;
+    flex: 1;
+    background-color: #1f3333;
+  }
+}
+</style>

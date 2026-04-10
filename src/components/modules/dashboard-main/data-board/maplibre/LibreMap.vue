@@ -16,6 +16,8 @@ import { ref } from 'vue'
 import { technicsData } from '../test/technics-data'
 import { useLibreMap } from './hooks/use-libremap'
 import maplibregl from 'maplibre-gl'
+import { getIconUrl } from './assets/get-assets'
+
 import type { GeoJSONFeature } from 'maplibre-gl'
 // src/utils/mapHelper.ts
 const convertToGeoJSON = (data: any[]) => {
@@ -39,11 +41,11 @@ useLibreMap(mapElRef, emit, (libreMapTool) => {
     async beforeAdd(mapInstance) {
       const imags = {
         dianzhan_zaixian:
-          'http://localhost:5177/view/static/image/map/marker/icon_dianzhan_zaixian.png',
+          getIconUrl('icon_dianzhan_zaixian'),
         dianzhan_lixian:
-          'http://localhost:5177/view/static/image/map/marker/icon_dianzhan_lixian.png',
+          getIconUrl('icon_dianzhan_lixian'),
         dianzhan_yujing:
-          'http://localhost:5177/view/static/image/map/marker/icon_dianzhan_yujing.png',
+          getIconUrl('icon_dianzhan_yujing'),
       }
       const promises = Object.entries(imags).map(([key, url]) =>
         mapInstance.loadImage(url).then((response) => mapInstance.addImage(key, response.data)),

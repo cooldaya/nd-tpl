@@ -21,6 +21,14 @@
   @apply cursor-pointer pointer-events-auto;
 }
 
+
+
+/*业务-页面*/
+
+.nd-dm-page{
+  @apply p-5 pt-28;
+}
+
 @theme {
   --font-dtjt:
     'DingTalkJinBuTi', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI',
