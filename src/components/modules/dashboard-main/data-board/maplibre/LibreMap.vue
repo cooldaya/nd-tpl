@@ -33,7 +33,7 @@ const convertToGeoJSON = (data: any[]) => {
     })),
   }
 }
-const emit = defineEmits(['map-click'])
+const emit = defineEmits(['map-click']) as (event: string, ...args: any[]) => void
 const mapElRef = ref<HTMLElement | null>(null)
 useLibreMap(mapElRef, emit, (libreMapTool) => {
   libreMapTool.mapLayersTool.addLayer({
