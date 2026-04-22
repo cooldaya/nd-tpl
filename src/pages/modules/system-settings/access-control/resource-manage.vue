@@ -61,6 +61,8 @@ const handles = {
             @update:modelValue="(val: any) => handles.changeField(row, column, val)"
           />
         </template>
+        <template #table-routeName>
+        </template>
       </pro-crud>
     </pro-card>
   </div>

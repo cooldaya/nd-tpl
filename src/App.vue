@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import autofit from 'autofit.js'
+// import autofit from 'autofit.js'
 
 
-autofit.init({
-  delay:100
-})
 </script>
 
 <template>

@@ -24,26 +24,10 @@ import {
   ApiAuthLoginSsoGetParams,
   ApiAuthLogoutPostData,
   ApiAuthPkinfoPostData,
-  ApiBsInformationAddPostData,
-  ApiBsInformationEditPostData,
-  ApiBsInformationListPostData,
-  ApiBsInformationPagedListPostData,
-  ApiBsInformationRemoveMulPostData,
-  ApiBsInformationRemovePostData,
-  ApiBsInformationShowPostData,
-  ApiBsNewsAddPostData,
-  ApiBsNewsEditPostData,
-  ApiBsNewsListPostData,
-  ApiBsNewsPagedListPostData,
-  ApiBsNewsRemoveMulPostData,
-  ApiBsNewsRemovePostData,
-  ApiBsNewsShowPostData,
   ApiCommonFileDownloadGetData,
   ApiCommonFileDownloadGetParams,
   ApiCommonGenIdPostData,
   ApiCommonGenIdsPostData,
-  ApiCommonGetFilesPostData,
-  ApiCommonRemoveFilePostData,
   ApiCommonUploadFilePostData,
   ApiCommonUploadFilePostPayload,
   ApiCommonUploadFilesPostData,
@@ -79,7 +63,6 @@ import {
   ApiEquipmentEditPostData,
   ApiEquipmentListPostData,
   ApiEquipmentOnlineInfoPostData,
-  ApiEquipmentOnlineInfoTwoPostData,
   ApiEquipmentPagedListPostData,
   ApiEquipmentParamAddPostData,
   ApiEquipmentParamDdAddPostData,
@@ -90,11 +73,10 @@ import {
   ApiEquipmentParamDdRemovePostData,
   ApiEquipmentParamDdShowPostData,
   ApiEquipmentParamEditPostData,
+  ApiEquipmentParamEquipmentParamRainConditionPostData,
   ApiEquipmentParamEquipmentYqDicPostData,
-  ApiEquipmentParamGetRealtimeTrafficMonitorPostData,
   ApiEquipmentParamHdAddPostData,
   ApiEquipmentParamHdEditPostData,
-  ApiEquipmentParamHdExportExcelPostData,
   ApiEquipmentParamHdListPostData,
   ApiEquipmentParamHdPagedListPostData,
   ApiEquipmentParamHdRemoveMulPostData,
@@ -106,7 +88,6 @@ import {
   ApiEquipmentParamMdDataTransferRatePostData,
   ApiEquipmentParamMdDataTransferRateReportPostData,
   ApiEquipmentParamMdEditPostData,
-  ApiEquipmentParamMdExportExcelPostData,
   ApiEquipmentParamMdListPostData,
   ApiEquipmentParamMdPagedListPostData,
   ApiEquipmentParamMdQueryByGnssOffsetReportPostData,
@@ -193,13 +174,6 @@ import {
   ApiMessageListPostData,
   ApiMessagePagedListPostData,
   ApiMessageShowPostData,
-  ApiMsgnoticeAddPostData,
-  ApiMsgnoticeEditPostData,
-  ApiMsgnoticeListPostData,
-  ApiMsgnoticePagedListPostData,
-  ApiMsgnoticeRemoveMulPostData,
-  ApiMsgnoticeRemovePostData,
-  ApiMsgnoticeShowPostData,
   ApiOrganizationAddPostData,
   ApiOrganizationEditPostData,
   ApiOrganizationListPostData,
@@ -223,7 +197,6 @@ import {
   ApiPrealarmRecordPrealarmDataPostData,
   ApiPrealarmRecordRemoveMulPostData,
   ApiPrealarmRecordRemovePostData,
-  ApiPrealarmRecordReportPrealarmPostData,
   ApiPrealarmRecordShowOnePostData,
   ApiPrealarmRecordShowPostData,
   ApiPrealarmRecordVerifyPrealarmDataPostData,
@@ -290,7 +263,6 @@ import {
   ApiReservoirProjectEditPostData,
   ApiReservoirProjectGetProjectTsFilePostData,
   ApiReservoirProjectGetPtfPagedListPostData,
-  ApiReservoirProjectGetRiversGetData,
   ApiReservoirProjectListPostData,
   ApiReservoirProjectPagedListPostData,
   ApiReservoirProjectRemoveMulPostData,
@@ -354,28 +326,28 @@ import {
   ApiSysCacheValueKeyGetParams,
   ApiTechnicsAddPostData,
   ApiTechnicsEditPostData,
-  ApiTechnicsExportEcologicalFlowAssessmentInformationPostData,
-  ApiTechnicsExportEcologicalFlowReportPostData,
-  ApiTechnicsExportTechnicsFlowAssessmentPostData,
-  ApiTechnicsGetCountyComplianceStatisticsPostData,
-  ApiTechnicsGetEcologicalFlowAssessmentInformationPostData,
-  ApiTechnicsGetEcologicalFlowQualifiedPostData,
-  ApiTechnicsGetEcologicalFlowReportPostData,
-  ApiTechnicsGetMonitoringDataOverviewPostData,
-  ApiTechnicsGetRecordFilesPostData,
-  ApiTechnicsGetTechnicsBaseInfoPostData,
-  ApiTechnicsGetTechnicsFlowAssessmentAllPostData,
-  ApiTechnicsGetTechnicsFlowAssessmentPostData,
-  ApiTechnicsGetTechnicsFlowDetailsPostData,
-  ApiTechnicsGetTechnicsFlowDiagramPostData,
-  ApiTechnicsGetTechnicsOnlineRatePostData,
-  ApiTechnicsGetTechnicsPostData,
-  ApiTechnicsGetTrafficDataComparisonPostData,
+  ApiTechnicsGetCoverNumByVillagePostData,
+  ApiTechnicsGetCoverNumPostData,
+  ApiTechnicsGetImplementationKeyLinksPostData,
+  ApiTechnicsGetImplementationReservoirSafetyAppraisalPostData,
+  ApiTechnicsGetTechnicsCapacityPostData,
+  ApiTechnicsGetTechnicsCountByVillagePostData,
   ApiTechnicsListPostData,
   ApiTechnicsPagedListPostData,
+  ApiTechnicsQueryByConventionalWaterLevelReportPostData,
+  ApiTechnicsQueryByDailyWaterLevelReportPostData,
+  ApiTechnicsQueryByReservoirRpPostData,
+  ApiTechnicsQueryByReservoirStatePostData,
+  ApiTechnicsQueryByReservoirStatusPostData,
   ApiTechnicsRemoveMulPostData,
   ApiTechnicsRemovePostData,
   ApiTechnicsShowPostData,
+  ApiTechnicsTechnicsInvalidWaterLevelListPostData,
+  ApiTechnicsTechnicsListWithepPostData,
+  ApiTechnicsTechnicsOverflowByNormalWaterListPostData,
+  ApiTechnicsTechnicsOverflowListPostData,
+  ApiTechnicsWhitePagedListPostData,
+  ApiTechnicsWhitelistPostData,
   ApiUserAddPostData,
   ApiUserAssignRolesPostData,
   ApiUserAssignTechnicsesPostData,
@@ -428,18 +400,13 @@ import {
   ApiWorkNoticeHandleActShowPostData,
   ApiWorkNoticeListPostData,
   ApiWorkNoticePagedListPostData,
+  ApiWorkNoticeQueryByWiidPostData,
   ApiWorkNoticeRemoveMulPostData,
   ApiWorkNoticeRemovePostData,
   ApiWorkNoticeShowPostData,
   AppVersionPQO,
   AppVersionQO,
-  BaseTimeQO,
-  BsInformationFO,
-  BsInformationPQO,
-  BsInformationQO,
-  BsNewsFO,
-  BsNewsPQO,
-  BsNewsQO,
+  BasePageQuery,
   DataDictionaryFO,
   DataDictionaryPQO,
   DataDictionaryQO,
@@ -450,7 +417,6 @@ import {
   DsmSpgPztbFO,
   DsmSpgPztbPQO,
   DsmSpgPztbQO,
-  EcologicalFlowReportQO,
   EmergencyPlanPQO,
   EmergencyPlanQO,
   EquipmentFO,
@@ -467,6 +433,7 @@ import {
   EquipmentParamMdQO,
   EquipmentParamPQO,
   EquipmentParamQO,
+  EquipmentParamRainConditionQO,
   EquipmentQO,
   HIkControllingQO,
   InspectionItemFO,
@@ -496,13 +463,10 @@ import {
   LogoperationQO,
   MessagePQO,
   MessageQO,
-  MsgnoticeFO,
-  MsgnoticePQO,
-  MsgnoticeQO,
   NmsCameraOnlineQO,
-  OnlyIdAndTImePageQO,
   OnlyIdQO,
   OnlyMsgIdList,
+  OnlyVillageQO,
   OnlyWiIdQO,
   OrganizationForm,
   OrganizationPQO,
@@ -527,7 +491,6 @@ import {
   PtfPQO,
   PtfQO,
   RemoveMulQO,
-  ReportPrealarmQO,
   ReqIdsQO,
   ReservoirCapacityFO,
   ReservoirCapacityPQO,
@@ -557,13 +520,8 @@ import {
   RolePQO,
   RoleQO,
   TechnicsFO,
-  TechnicsFlowAssessmentQO,
-  TechnicsFlowDetailsQO,
-  TechnicsFlowDiagramQO,
-  TechnicsOnlineRateQO,
   TechnicsPQO,
   TechnicsQO,
-  TrafficDataComparisonQO,
   UpdateRpsQO,
   UserAssignRolesQO,
   UserAssignTechnicsesQO,
@@ -791,290 +749,6 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags bs-information
-   * @name ApiBsInformationAddPost
-   * @summary 新增数据
-   * @request POST:/api/bs-information/add
-   * @secure
-   */
-  apiBsInformationAddPost = (
-    data: BsInformationFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiBsInformationAddPostData, any>({
-      path: `/api/bs-information/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-information
-   * @name ApiBsInformationEditPost
-   * @summary 编辑数据
-   * @request POST:/api/bs-information/edit
-   * @secure
-   */
-  apiBsInformationEditPost = (
-    data: BsInformationFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiBsInformationEditPostData, any>({
-      path: `/api/bs-information/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-information
-   * @name ApiBsInformationListPost
-   * @summary 查询全部对象
-   * @request POST:/api/bs-information/list
-   * @secure
-   */
-  apiBsInformationListPost = (
-    data: BsInformationQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiBsInformationListPostData, any>({
-      path: `/api/bs-information/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-information
-   * @name ApiBsInformationPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/bs-information/paged-list
-   * @secure
-   */
-  apiBsInformationPagedListPost = (
-    data: BsInformationPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiBsInformationPagedListPostData, any>({
-      path: `/api/bs-information/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-information
-   * @name ApiBsInformationRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/bs-information/remove-mul
-   * @secure
-   */
-  apiBsInformationRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiBsInformationRemoveMulPostData, any>({
-      path: `/api/bs-information/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-information
-   * @name ApiBsInformationRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/bs-information/remove
-   * @secure
-   */
-  apiBsInformationRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiBsInformationRemovePostData, any>({
-      path: `/api/bs-information/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-information
-   * @name ApiBsInformationShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/bs-information/show
-   * @secure
-   */
-  apiBsInformationShowPost = (
-    data: BsInformationQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiBsInformationShowPostData, any>({
-      path: `/api/bs-information/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-news
-   * @name ApiBsNewsAddPost
-   * @summary 新增数据
-   * @request POST:/api/bs-news/add
-   * @secure
-   */
-  apiBsNewsAddPost = (data: BsNewsFO, params: RequestParams = {}) =>
-    this.http.request<ApiBsNewsAddPostData, any>({
-      path: `/api/bs-news/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-news
-   * @name ApiBsNewsEditPost
-   * @summary 编辑数据
-   * @request POST:/api/bs-news/edit
-   * @secure
-   */
-  apiBsNewsEditPost = (data: BsNewsFO, params: RequestParams = {}) =>
-    this.http.request<ApiBsNewsEditPostData, any>({
-      path: `/api/bs-news/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-news
-   * @name ApiBsNewsListPost
-   * @summary 查询全部对象
-   * @request POST:/api/bs-news/list
-   * @secure
-   */
-  apiBsNewsListPost = (data: BsNewsQO, params: RequestParams = {}) =>
-    this.http.request<ApiBsNewsListPostData, any>({
-      path: `/api/bs-news/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-news
-   * @name ApiBsNewsPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/bs-news/paged-list
-   * @secure
-   */
-  apiBsNewsPagedListPost = (data: BsNewsPQO, params: RequestParams = {}) =>
-    this.http.request<ApiBsNewsPagedListPostData, any>({
-      path: `/api/bs-news/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-news
-   * @name ApiBsNewsRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/bs-news/remove-mul
-   * @secure
-   */
-  apiBsNewsRemoveMulPost = (data: RemoveMulQO, params: RequestParams = {}) =>
-    this.http.request<ApiBsNewsRemoveMulPostData, any>({
-      path: `/api/bs-news/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-news
-   * @name ApiBsNewsRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/bs-news/remove
-   * @secure
-   */
-  apiBsNewsRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiBsNewsRemovePostData, any>({
-      path: `/api/bs-news/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags bs-news
-   * @name ApiBsNewsShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/bs-news/show
-   * @secure
-   */
-  apiBsNewsShowPost = (data: BsNewsQO, params: RequestParams = {}) =>
-    this.http.request<ApiBsNewsShowPostData, any>({
-      path: `/api/bs-news/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
    * @tags common
    * @name ApiCommonFileDownloadGet
    * @request GET:/api/common/file-download
@@ -1120,44 +794,6 @@ export class Api<SecurityDataType = unknown> {
   apiCommonGenIdsPost = (data: ReqIdsQO, params: RequestParams = {}) =>
     this.http.request<ApiCommonGenIdsPostData, any>({
       path: `/api/common/gen-ids`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags common
-   * @name ApiCommonGetFilesPost
-   * @summary 获取文件列表
-   * @request POST:/api/common/get-files
-   * @secure
-   */
-  apiCommonGetFilesPost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiCommonGetFilesPostData, any>({
-      path: `/api/common/get-files`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags common
-   * @name ApiCommonRemoveFilePost
-   * @summary 删除文件
-   * @request POST:/api/common/remove-file
-   * @secure
-   */
-  apiCommonRemoveFilePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiCommonRemoveFilePostData, any>({
-      path: `/api/common/remove-file`,
       method: "POST",
       body: data,
       secure: true,
@@ -1799,23 +1435,6 @@ export class Api<SecurityDataType = unknown> {
    * No description
    *
    * @tags equipment
-   * @name ApiEquipmentOnlineInfoTwoPost
-   * @summary 查询设备在线数量
-   * @request POST:/api/equipment/online-info-two
-   * @secure
-   */
-  apiEquipmentOnlineInfoTwoPost = (params: RequestParams = {}) =>
-    this.http.request<ApiEquipmentOnlineInfoTwoPostData, any>({
-      path: `/api/equipment/online-info-two`,
-      method: "POST",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags equipment
    * @name ApiEquipmentPagedListPost
    * @summary 查询分页数据
    * @request POST:/api/equipment/paged-list
@@ -2036,6 +1655,31 @@ export class Api<SecurityDataType = unknown> {
    * No description
    *
    * @tags equipment-param
+   * @name ApiEquipmentParamEquipmentParamRainConditionPost
+   * @summary 实时雨水情数据
+   * @request POST:/api/equipment-param/equipment-param-rain-condition
+   * @secure
+   */
+  apiEquipmentParamEquipmentParamRainConditionPost = (
+    data: EquipmentParamRainConditionQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<
+      ApiEquipmentParamEquipmentParamRainConditionPostData,
+      any
+    >({
+      path: `/api/equipment-param/equipment-param-rain-condition`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param
    * @name ApiEquipmentParamEquipmentYqDicPost
    * @summary 所有蚁情数据
    * @request POST:/api/equipment-param/equipment-yq-dic
@@ -2046,28 +1690,6 @@ export class Api<SecurityDataType = unknown> {
       path: `/api/equipment-param/equipment-yq-dic`,
       method: "POST",
       secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags equipment-param
-   * @name ApiEquipmentParamGetRealtimeTrafficMonitorPost
-   * @summary 实时流量数据
-   * @request POST:/api/equipment-param/get-realtime-traffic-monitor
-   * @secure
-   */
-  apiEquipmentParamGetRealtimeTrafficMonitorPost = (
-    data: OnlyIdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEquipmentParamGetRealtimeTrafficMonitorPostData, any>({
-      path: `/api/equipment-param/get-realtime-traffic-monitor`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
       format: "json",
       ...params,
     });
@@ -2108,28 +1730,6 @@ export class Api<SecurityDataType = unknown> {
   ) =>
     this.http.request<ApiEquipmentParamHdEditPostData, any>({
       path: `/api/equipment-param-hd/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags equipment-param-hd
-   * @name ApiEquipmentParamHdExportExcelPost
-   * @summary 导出
-   * @request POST:/api/equipment-param-hd/export-excel
-   * @secure
-   */
-  apiEquipmentParamHdExportExcelPost = (
-    data: EquipmentParamHdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEquipmentParamHdExportExcelPostData, any>({
-      path: `/api/equipment-param-hd/export-excel`,
       method: "POST",
       body: data,
       secure: true,
@@ -2370,28 +1970,6 @@ export class Api<SecurityDataType = unknown> {
   ) =>
     this.http.request<ApiEquipmentParamMdEditPostData, any>({
       path: `/api/equipment-param-md/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags equipment-param-md
-   * @name ApiEquipmentParamMdExportExcelPost
-   * @summary 导出
-   * @request POST:/api/equipment-param-md/export-excel
-   * @secure
-   */
-  apiEquipmentParamMdExportExcelPost = (
-    data: EquipmentParamMdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEquipmentParamMdExportExcelPostData, any>({
-      path: `/api/equipment-param-md/export-excel`,
       method: "POST",
       body: data,
       secure: true,
@@ -4198,142 +3776,6 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags msgnotice
-   * @name ApiMsgnoticeAddPost
-   * @summary 新增数据
-   * @request POST:/api/msgnotice/add
-   * @secure
-   */
-  apiMsgnoticeAddPost = (data: MsgnoticeFO, params: RequestParams = {}) =>
-    this.http.request<ApiMsgnoticeAddPostData, any>({
-      path: `/api/msgnotice/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags msgnotice
-   * @name ApiMsgnoticeEditPost
-   * @summary 编辑数据
-   * @request POST:/api/msgnotice/edit
-   * @secure
-   */
-  apiMsgnoticeEditPost = (data: MsgnoticeFO, params: RequestParams = {}) =>
-    this.http.request<ApiMsgnoticeEditPostData, any>({
-      path: `/api/msgnotice/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags msgnotice
-   * @name ApiMsgnoticeListPost
-   * @summary 查询全部对象
-   * @request POST:/api/msgnotice/list
-   * @secure
-   */
-  apiMsgnoticeListPost = (data: MsgnoticeQO, params: RequestParams = {}) =>
-    this.http.request<ApiMsgnoticeListPostData, any>({
-      path: `/api/msgnotice/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags msgnotice
-   * @name ApiMsgnoticePagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/msgnotice/paged-list
-   * @secure
-   */
-  apiMsgnoticePagedListPost = (
-    data: MsgnoticePQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMsgnoticePagedListPostData, any>({
-      path: `/api/msgnotice/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags msgnotice
-   * @name ApiMsgnoticeRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/msgnotice/remove-mul
-   * @secure
-   */
-  apiMsgnoticeRemoveMulPost = (data: RemoveMulQO, params: RequestParams = {}) =>
-    this.http.request<ApiMsgnoticeRemoveMulPostData, any>({
-      path: `/api/msgnotice/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags msgnotice
-   * @name ApiMsgnoticeRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/msgnotice/remove
-   * @secure
-   */
-  apiMsgnoticeRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiMsgnoticeRemovePostData, any>({
-      path: `/api/msgnotice/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags msgnotice
-   * @name ApiMsgnoticeShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/msgnotice/show
-   * @secure
-   */
-  apiMsgnoticeShowPost = (data: MsgnoticeQO, params: RequestParams = {}) =>
-    this.http.request<ApiMsgnoticeShowPostData, any>({
-      path: `/api/msgnotice/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
    * @tags organization
    * @name ApiOrganizationAddPost
    * @summary 新增数据
@@ -4819,28 +4261,6 @@ export class Api<SecurityDataType = unknown> {
   apiPrealarmRecordRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
     this.http.request<ApiPrealarmRecordRemovePostData, any>({
       path: `/api/prealarm-record/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags prealarm-record
-   * @name ApiPrealarmRecordReportPrealarmPost
-   * @summary 上报一条预警记录
-   * @request POST:/api/prealarm-record/report-prealarm
-   * @secure
-   */
-  apiPrealarmRecordReportPrealarmPost = (
-    data: ReportPrealarmQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiPrealarmRecordReportPrealarmPostData, any>({
-      path: `/api/prealarm-record/report-prealarm`,
       method: "POST",
       body: data,
       secure: true,
@@ -6057,23 +5477,6 @@ export class Api<SecurityDataType = unknown> {
    * No description
    *
    * @tags reservoir-project
-   * @name ApiReservoirProjectGetRiversGet
-   * @summary 获取河流列表
-   * @request GET:/api/reservoir-project/get-rivers
-   * @secure
-   */
-  apiReservoirProjectGetRiversGet = (params: RequestParams = {}) =>
-    this.http.request<ApiReservoirProjectGetRiversGetData, any>({
-      path: `/api/reservoir-project/get-rivers`,
-      method: "GET",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags reservoir-project
    * @name ApiReservoirProjectListPost
    * @summary 查询全部对象
    * @request POST:/api/reservoir-project/list
@@ -7185,24 +6588,79 @@ export class Api<SecurityDataType = unknown> {
    * No description
    *
    * @tags technics
-   * @name ApiTechnicsExportEcologicalFlowAssessmentInformationPost
-   * @summary 导出生态流量考核信息
-   * @request POST:/api/technics/export-ecological-flow-assessment-information
+   * @name ApiTechnicsGetCoverNumByVillagePost
+   * @summary 乡镇分组查询设备覆盖率
+   * @request POST:/api/technics/get-cover-num-by-village
    * @secure
    */
-  apiTechnicsExportEcologicalFlowAssessmentInformationPost = (
-    data: OnlyIdAndTImePageQO,
+  apiTechnicsGetCoverNumByVillagePost = (
+    data: TechnicsQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsGetCoverNumByVillagePostData, any>({
+      path: `/api/technics/get-cover-num-by-village`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsGetCoverNumPost
+   * @summary 查询设备覆盖率
+   * @request POST:/api/technics/get-cover-num
+   * @secure
+   */
+  apiTechnicsGetCoverNumPost = (data: TechnicsQO, params: RequestParams = {}) =>
+    this.http.request<ApiTechnicsGetCoverNumPostData, any>({
+      path: `/api/technics/get-cover-num`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsGetImplementationKeyLinksPost
+   * @summary 查询水库重点环节落实情况
+   * @request POST:/api/technics/get-implementation-key-links
+   * @secure
+   */
+  apiTechnicsGetImplementationKeyLinksPost = (params: RequestParams = {}) =>
+    this.http.request<ApiTechnicsGetImplementationKeyLinksPostData, any>({
+      path: `/api/technics/get-implementation-key-links`,
+      method: "POST",
+      secure: true,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsGetImplementationReservoirSafetyAppraisalPost
+   * @summary 查询水库安全鉴定落实情况
+   * @request POST:/api/technics/get-implementation-reservoir-safety-appraisal
+   * @secure
+   */
+  apiTechnicsGetImplementationReservoirSafetyAppraisalPost = (
     params: RequestParams = {},
   ) =>
     this.http.request<
-      ApiTechnicsExportEcologicalFlowAssessmentInformationPostData,
+      ApiTechnicsGetImplementationReservoirSafetyAppraisalPostData,
       any
     >({
-      path: `/api/technics/export-ecological-flow-assessment-information`,
+      path: `/api/technics/get-implementation-reservoir-safety-appraisal`,
       method: "POST",
-      body: data,
       secure: true,
-      type: ContentType.Json,
       format: "json",
       ...params,
     });
@@ -7210,335 +6668,34 @@ export class Api<SecurityDataType = unknown> {
    * No description
    *
    * @tags technics
-   * @name ApiTechnicsExportEcologicalFlowReportPost
-   * @summary 导出生态流量报表
-   * @request POST:/api/technics/export-ecological-flow-report
+   * @name ApiTechnicsGetTechnicsCapacityPost
+   * @summary 查询库容和比例
+   * @request POST:/api/technics/get-technics-capacity
    * @secure
    */
-  apiTechnicsExportEcologicalFlowReportPost = (
-    data: EcologicalFlowReportQO,
+  apiTechnicsGetTechnicsCapacityPost = (params: RequestParams = {}) =>
+    this.http.request<ApiTechnicsGetTechnicsCapacityPostData, any>({
+      path: `/api/technics/get-technics-capacity`,
+      method: "POST",
+      secure: true,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsGetTechnicsCountByVillagePost
+   * @summary 根据乡镇查询水库数量
+   * @request POST:/api/technics/get-technics-count-by-village
+   * @secure
+   */
+  apiTechnicsGetTechnicsCountByVillagePost = (
+    data: OnlyVillageQO,
     params: RequestParams = {},
   ) =>
-    this.http.request<ApiTechnicsExportEcologicalFlowReportPostData, any>({
-      path: `/api/technics/export-ecological-flow-report`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsExportTechnicsFlowAssessmentPost
-   * @summary 水电站生态流量考核导出
-   * @request POST:/api/technics/export-technics-flow-assessment
-   * @secure
-   */
-  apiTechnicsExportTechnicsFlowAssessmentPost = (
-    data: TechnicsFlowAssessmentQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiTechnicsExportTechnicsFlowAssessmentPostData, any>({
-      path: `/api/technics/export-technics-flow-assessment`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetCountyComplianceStatisticsPost
-   * @summary 各县达标统计
-   * @request POST:/api/technics/get-county-compliance-statistics
-   * @secure
-   */
-  apiTechnicsGetCountyComplianceStatisticsPost = (
-    data: BaseTimeQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiTechnicsGetCountyComplianceStatisticsPostData, any>({
-      path: `/api/technics/get-county-compliance-statistics`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetEcologicalFlowAssessmentInformationPost
-   * @summary 生态流量考核信息
-   * @request POST:/api/technics/get-ecological-flow-assessment-information
-   * @secure
-   */
-  apiTechnicsGetEcologicalFlowAssessmentInformationPost = (
-    data: OnlyIdAndTImePageQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<
-      ApiTechnicsGetEcologicalFlowAssessmentInformationPostData,
-      any
-    >({
-      path: `/api/technics/get-ecological-flow-assessment-information`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetEcologicalFlowQualifiedPost
-   * @summary 生态流量达标情况(月统计)
-   * @request POST:/api/technics/get-ecological-flow-qualified
-   * @secure
-   */
-  apiTechnicsGetEcologicalFlowQualifiedPost = (
-    data: OnlyIdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiTechnicsGetEcologicalFlowQualifiedPostData, any>({
-      path: `/api/technics/get-ecological-flow-qualified`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetEcologicalFlowReportPost
-   * @summary 生态流量报表
-   * @request POST:/api/technics/get-ecological-flow-report
-   * @secure
-   */
-  apiTechnicsGetEcologicalFlowReportPost = (
-    data: EcologicalFlowReportQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiTechnicsGetEcologicalFlowReportPostData, any>({
-      path: `/api/technics/get-ecological-flow-report`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetMonitoringDataOverviewPost
-   * @summary 获取监控数据概览
-   * @request POST:/api/technics/get-monitoring-data-overview
-   * @secure
-   */
-  apiTechnicsGetMonitoringDataOverviewPost = (params: RequestParams = {}) =>
-    this.http.request<ApiTechnicsGetMonitoringDataOverviewPostData, any>({
-      path: `/api/technics/get-monitoring-data-overview`,
-      method: "POST",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetRecordFilesPost
-   * @summary 获取测站图片
-   * @request POST:/api/technics/get-record-files
-   * @secure
-   */
-  apiTechnicsGetRecordFilesPost = (
-    data: OnlyIdAndTImePageQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiTechnicsGetRecordFilesPostData, any>({
-      path: `/api/technics/get-record-files`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetTechnicsBaseInfoPost
-   * @summary 电站基本信息
-   * @request POST:/api/technics/get-technics-base-info
-   * @secure
-   */
-  apiTechnicsGetTechnicsBaseInfoPost = (params: RequestParams = {}) =>
-    this.http.request<ApiTechnicsGetTechnicsBaseInfoPostData, any>({
-      path: `/api/technics/get-technics-base-info`,
-      method: "POST",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetTechnicsFlowAssessmentAllPost
-   * @summary 水电站生态流量考核(不分页)
-   * @request POST:/api/technics/get-technics-flow-assessment-all
-   * @secure
-   */
-  apiTechnicsGetTechnicsFlowAssessmentAllPost = (
-    data: TechnicsFlowAssessmentQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiTechnicsGetTechnicsFlowAssessmentAllPostData, any>({
-      path: `/api/technics/get-technics-flow-assessment-all`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetTechnicsFlowAssessmentPost
-   * @summary 水电站生态流量考核
-   * @request POST:/api/technics/get-technics-flow-assessment
-   * @secure
-   */
-  apiTechnicsGetTechnicsFlowAssessmentPost = (
-    data: TechnicsFlowAssessmentQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiTechnicsGetTechnicsFlowAssessmentPostData, any>({
-      path: `/api/technics/get-technics-flow-assessment`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetTechnicsFlowDetailsPost
-   * @summary 电站流量详细数据
-   * @request POST:/api/technics/get-technics-flow-details
-   * @secure
-   */
-  apiTechnicsGetTechnicsFlowDetailsPost = (
-    data: TechnicsFlowDetailsQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiTechnicsGetTechnicsFlowDetailsPostData, any>({
-      path: `/api/technics/get-technics-flow-details`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetTechnicsFlowDiagramPost
-   * @summary 电站流量图表数据
-   * @request POST:/api/technics/get-technics-flow-diagram
-   * @secure
-   */
-  apiTechnicsGetTechnicsFlowDiagramPost = (
-    data: TechnicsFlowDiagramQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiTechnicsGetTechnicsFlowDiagramPostData, any>({
-      path: `/api/technics/get-technics-flow-diagram`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetTechnicsOnlineRatePost
-   * @summary 数据在线率
-   * @request POST:/api/technics/get-technics-online-rate
-   * @secure
-   */
-  apiTechnicsGetTechnicsOnlineRatePost = (
-    data: TechnicsOnlineRateQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiTechnicsGetTechnicsOnlineRatePostData, any>({
-      path: `/api/technics/get-technics-online-rate`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetTechnicsPost
-   * @summary 获取测站列表
-   * @request POST:/api/technics/get-technics
-   * @secure
-   */
-  apiTechnicsGetTechnicsPost = (params: RequestParams = {}) =>
-    this.http.request<ApiTechnicsGetTechnicsPostData, any>({
-      path: `/api/technics/get-technics`,
-      method: "POST",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags technics
-   * @name ApiTechnicsGetTrafficDataComparisonPost
-   * @summary 流量数据对比图
-   * @request POST:/api/technics/get-traffic-data-comparison
-   * @secure
-   */
-  apiTechnicsGetTrafficDataComparisonPost = (
-    data: TrafficDataComparisonQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiTechnicsGetTrafficDataComparisonPostData, any>({
-      path: `/api/technics/get-traffic-data-comparison`,
+    this.http.request<ApiTechnicsGetTechnicsCountByVillagePostData, any>({
+      path: `/api/technics/get-technics-count-by-village`,
       method: "POST",
       body: data,
       secure: true,
@@ -7577,6 +6734,119 @@ export class Api<SecurityDataType = unknown> {
   apiTechnicsPagedListPost = (data: TechnicsPQO, params: RequestParams = {}) =>
     this.http.request<ApiTechnicsPagedListPostData, any>({
       path: `/api/technics/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsQueryByConventionalWaterLevelReportPost
+   * @summary 常规水位报表
+   * @request POST:/api/technics/query-by-conventional-water-level-report
+   * @secure
+   */
+  apiTechnicsQueryByConventionalWaterLevelReportPost = (
+    data: TechnicsPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<
+      ApiTechnicsQueryByConventionalWaterLevelReportPostData,
+      any
+    >({
+      path: `/api/technics/query-by-conventional-water-level-report`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsQueryByDailyWaterLevelReportPost
+   * @summary 水位日报表
+   * @request POST:/api/technics/query-by-daily-water-level-report
+   * @secure
+   */
+  apiTechnicsQueryByDailyWaterLevelReportPost = (
+    data: TechnicsPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsQueryByDailyWaterLevelReportPostData, any>({
+      path: `/api/technics/query-by-daily-water-level-report`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsQueryByReservoirRpPost
+   * @summary 查询水库责任人落实情况
+   * @request POST:/api/technics/query-by-reservoir-rp
+   * @secure
+   */
+  apiTechnicsQueryByReservoirRpPost = (
+    data: TechnicsQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsQueryByReservoirRpPostData, any>({
+      path: `/api/technics/query-by-reservoir-rp`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsQueryByReservoirStatePost
+   * @summary 查询水库状态
+   * @request POST:/api/technics/query-by-reservoir-state
+   * @secure
+   */
+  apiTechnicsQueryByReservoirStatePost = (
+    data: TechnicsPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsQueryByReservoirStatePostData, any>({
+      path: `/api/technics/query-by-reservoir-state`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsQueryByReservoirStatusPost
+   * @summary 查询水库概况
+   * @request POST:/api/technics/query-by-reservoir-status
+   * @secure
+   */
+  apiTechnicsQueryByReservoirStatusPost = (
+    data: TechnicsQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsQueryByReservoirStatusPostData, any>({
+      path: `/api/technics/query-by-reservoir-status`,
       method: "POST",
       body: data,
       secure: true,
@@ -7634,6 +6904,138 @@ export class Api<SecurityDataType = unknown> {
   apiTechnicsShowPost = (data: TechnicsQO, params: RequestParams = {}) =>
     this.http.request<ApiTechnicsShowPostData, any>({
       path: `/api/technics/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsTechnicsInvalidWaterLevelListPost
+   * @summary 查询死水位水库
+   * @request POST:/api/technics/technics-invalid-water-level-list
+   * @secure
+   */
+  apiTechnicsTechnicsInvalidWaterLevelListPost = (
+    data: BasePageQuery,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsTechnicsInvalidWaterLevelListPostData, any>({
+      path: `/api/technics/technics-invalid-water-level-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsTechnicsListWithepPost
+   * @summary 包含实时数据的水库查询
+   * @request POST:/api/technics/technics-list-withep
+   * @secure
+   */
+  apiTechnicsTechnicsListWithepPost = (
+    data: TechnicsQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsTechnicsListWithepPostData, any>({
+      path: `/api/technics/technics-list-withep`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsTechnicsOverflowByNormalWaterListPost
+   * @summary 查询溢洪水库(超过正常水位)
+   * @request POST:/api/technics/technics-overflow-by-normal-water-list
+   * @secure
+   */
+  apiTechnicsTechnicsOverflowByNormalWaterListPost = (
+    data: BasePageQuery,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<
+      ApiTechnicsTechnicsOverflowByNormalWaterListPostData,
+      any
+    >({
+      path: `/api/technics/technics-overflow-by-normal-water-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsTechnicsOverflowListPost
+   * @summary 查询溢洪水库
+   * @request POST:/api/technics/technics-overflow-list
+   * @secure
+   */
+  apiTechnicsTechnicsOverflowListPost = (
+    data: BasePageQuery,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsTechnicsOverflowListPostData, any>({
+      path: `/api/technics/technics-overflow-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsWhitelistPost
+   * @summary 不设权限查询所有水库
+   * @request POST:/api/technics/whitelist
+   * @secure
+   */
+  apiTechnicsWhitelistPost = (data: TechnicsQO, params: RequestParams = {}) =>
+    this.http.request<ApiTechnicsWhitelistPostData, any>({
+      path: `/api/technics/whitelist`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsWhitePagedListPost
+   * @summary 不设权限分页查询水库
+   * @request POST:/api/technics/white-paged-list
+   * @secure
+   */
+  apiTechnicsWhitePagedListPost = (
+    data: TechnicsPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsWhitePagedListPostData, any>({
+      path: `/api/technics/white-paged-list`,
       method: "POST",
       body: data,
       secure: true,
@@ -8677,6 +8079,28 @@ export class Api<SecurityDataType = unknown> {
   ) =>
     this.http.request<ApiWorkNoticePagedListPostData, any>({
       path: `/api/work-notice/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags work-notice
+   * @name ApiWorkNoticeQueryByWiidPost
+   * @summary 根据流程实例ID查询数据
+   * @request POST:/api/work-notice/query-by-wiid
+   * @secure
+   */
+  apiWorkNoticeQueryByWiidPost = (
+    data: OnlyWiIdQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiWorkNoticeQueryByWiidPostData, any>({
+      path: `/api/work-notice/query-by-wiid`,
       method: "POST",
       body: data,
       secure: true,

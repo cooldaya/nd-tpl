@@ -131,7 +131,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
           }
         },
         onBlur() {
-          // if (crudRefData.form.code) return;
+          if (!crudRefData.form.name) return;
           const resouceRoutes = router.getRoutes()
           const targetRoute = resouceRoutes.find(
             (route) => route.meta?.title === crudRefData.form.name,
@@ -282,6 +282,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       Object.assign(crudRefData.form, {
         parentId: row.id,
         type: row.type === 'menu' ? 'button' : 'directory',
+        code: `${row.code}:`
       })
     },
   }
@@ -292,7 +293,12 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       refColumns.value.filter((item) => item.add),
       'prop',
       ['parentId', 'type'],
-    ),
+    ).filter(item => {
+      if(item.prop === 'routeNames' && crudRefData.form?.type !== 'button') {
+        return false
+      }
+      return true
+    }),
   )
 
   const refSearchColumns = computed(() => {

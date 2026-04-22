@@ -3,9 +3,10 @@ import { Api } from './generated/Api'
 import { ElMessage } from 'element-plus'
 import type { SecurityDataType } from './types'
 import { securityDataManager } from '@/utils/security-data-manager'
+import { projectConfig } from '~/project-config'
 
 const customHttpClient = new HttpClient<SecurityDataType>({
-  baseURL: 'http://113.249.105.12:9931/netcore',
+  baseURL: projectConfig.backEndUrl,
   timeout: 10000,
   headers: {
     'X-Custom-Header': 'value',

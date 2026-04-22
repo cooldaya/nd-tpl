@@ -20,6 +20,6 @@ export function rsaEncrypt(str: string, pemPk: string) {
  */
 export function decryptJWT(token: string) {
   token = token.replace(/_/g, '/').replace(/-/g, '+')
-  var json = decodeURIComponent(escape(window.atob(token.split('.')[1] as string)))
+  const json = decodeURIComponent(escape(window.atob(token.split('.')[1] as string)))
   return JSON.parse(json)
 }
