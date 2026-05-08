@@ -4,15 +4,17 @@ type ProjectConfig = {
   subTitle: string
   backEndUrl: string
   swaggerUrl: string
+  customAuthHeaderKey: string
 }
 
 
 const projectConfig: ProjectConfig = {
   name: 'nd-tpl',
-  title: '石柱',
-  subTitle: '小水电站生态流量监测系统',
-  backEndUrl: 'http://113.249.105.12:8074/netcore',
-  swaggerUrl:''
+  title: '潼南',
+  subTitle: '灌区',
+  backEndUrl: 'http://122.9.157.65:9600/netcore',
+  swaggerUrl: '',
+  customAuthHeaderKey: 'tngq-access-token',
   // swaggerUrl: 'http://113.249.105.12:9931/netcore/swagger/Default/swagger.json',
 }
 

@@ -131,7 +131,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
           }
         },
         onBlur() {
-          if (!crudRefData.form.name) return;
+          if (!crudRefData.form.name) return
           const resouceRoutes = router.getRoutes()
           const targetRoute = resouceRoutes.find(
             (route) => route.meta?.title === crudRefData.form.name,
@@ -282,7 +282,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       Object.assign(crudRefData.form, {
         parentId: row.id,
         type: row.type === 'menu' ? 'button' : 'directory',
-        code: `${row.code}:`
+        code: `${row.code}:`,
       })
     },
   }
@@ -293,8 +293,8 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       refColumns.value.filter((item) => item.add),
       'prop',
       ['parentId', 'type'],
-    ).filter(item => {
-      if(item.prop === 'routeNames' && crudRefData.form?.type !== 'button') {
+    ).filter((item) => {
+      if (item.prop === 'routeNames' && crudRefData.form?.type !== 'button') {
         return false
       }
       return true
@@ -392,7 +392,6 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
           await crudHandles._addCrudPermission(res.data as ResourceVO)
         }
 
-
         ElMessage.success('操作成功')
         close()
         await crudHandles.paginationChange(
@@ -457,33 +456,38 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
     },
     _addCrudPermission(parentData: ResourceVO) {
-      const crudPerms = [{
-        code: 'add',
-        label: '添加'
-      }, {
-        code: 'detail',
-        label: '查看'
-      }, {
-        code: 'edit',
-        label: '编辑'
-      }, {
-        code: 'del',
-        label: '删除'
-      }]
+      const crudPerms = [
+        {
+          code: 'add',
+          label: '添加',
+        },
+        {
+          code: 'remove',
+          label: '删除',
+        },
+        {
+          code: 'edit',
+          label: '编辑',
+        },
+        {
+          code: 'query',
+          label: '查看',
+        },
+      ]
       const promises = crudPerms.map((perm) => {
         const payload = {
-            "routeNames": [""],
-            "parentId": parentData.id,
-            "type": "button",
-            "name": perm.label,
-            "code": `${parentData.code}:${perm.code}`,
-            "isEnable": true,
-            "isAdmin": false
+          routeNames: [''],
+          parentId: parentData.id,
+          type: 'button',
+          name: perm.label,
+          code: `${parentData.code}:${perm.code}`,
+          isEnable: true,
+          isAdmin: false,
         }
         return gApi.apiResourceAddPost(payload as any)
       })
       return Promise.allSettled(promises)
-    }
+    },
   }
 
   crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)

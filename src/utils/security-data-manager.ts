@@ -5,13 +5,14 @@ import { gApi } from '@/api/gapi'
 import router from '@/router' // 指向你的 router 实例文件
 import { ElMessage } from 'element-plus'
 import type { AxiosResponse } from 'axios'
+import { projectConfig } from '~/project-config'
 
 const securityDataKey = 'securityData'
 
-enum HeaderTokenKeyType {
-  Authorization = 'authorization',
-  XAuthorization = 'x-authorization',
-}
+const HeaderTokenKeyType = {
+  Authorization: projectConfig.customAuthHeaderKey,
+  XAuthorization: `x-${projectConfig.customAuthHeaderKey}`,
+} as const;
 
 class SecurityDataManager {
   private securityData: SecurityDataType | null = null
@@ -102,4 +103,4 @@ class SecurityDataManager {
   }
 }
 const securityDataManager = new SecurityDataManager()
-export { securityDataManager, HeaderTokenKeyType }
+export { securityDataManager }
