@@ -476,7 +476,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       ]
       const promises = crudPerms.map((perm) => {
         const payload = {
-          routeNames: [''],
+          routeNames: [`/${perm.code}`],
           parentId: parentData.id,
           type: 'button',
           name: perm.label,

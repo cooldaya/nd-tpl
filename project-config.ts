@@ -14,7 +14,7 @@ const projectConfig: ProjectConfig = {
   subTitle: '灌区',
   backEndUrl: 'http://122.9.157.65:9600/netcore',
   swaggerUrl: '',
-  customAuthHeaderKey: 'tngq-access-token',
+  customAuthHeaderKey: 'authorization',
   // swaggerUrl: 'http://113.249.105.12:9931/netcore/swagger/Default/swagger.json',
 }
 

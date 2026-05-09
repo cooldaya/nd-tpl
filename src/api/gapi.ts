@@ -27,7 +27,7 @@ const gApi = new Api(customHttpClient)
 gApi.http.instance.interceptors.request.use(
   (config) => {
     // 请求拦截器
-    console.log('Request:', config)
+    // console.log('Request:', config)
     return config
   },
   (error) => Promise.reject(error),
