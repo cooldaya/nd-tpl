@@ -192,7 +192,6 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       detail: true,
       hide: true,
     },
-
     {
       label: '是否启用',
       prop: 'isEnable',
@@ -213,9 +212,9 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
     },
 
     {
-      label: '生成crud权限',
-      prop: 'autoGenCrudBtn',
-      component: 'el-switch',
+      label: 'crud-api前缀',
+      prop: 'genCrudPrefix',
+      component: 'el-input',
       add: true,
       detail: true,
       span: 8,
@@ -295,6 +294,10 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       ['parentId', 'type'],
     ).filter((item) => {
       if (item.prop === 'routeNames' && crudRefData.form?.type !== 'button') {
+        // 按钮类型才可配置api路径
+        return false
+      }
+      if (item.prop === 'genCrudPrefix' && crudRefData.form?.type !== 'menu') {
         return false
       }
       return true
@@ -388,8 +391,8 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       }
       try {
         const res = await reqFunc(crudRefData.form)
-        if (type === 'add' && (crudRefData.form as any).autoGenCrudBtn) {
-          await crudHandles._addCrudPermission(res.data as ResourceVO)
+        if (type === 'add' && (crudRefData.form as any).genCrudPrefix) {
+          await crudHandles._addCrudPermission(res.data as ResourceVO,(crudRefData.form as any).genCrudPrefix)
         }
 
         ElMessage.success('操作成功')
@@ -455,7 +458,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
     refreshTable() {
       crudHandles.paginationChange(paginationRefData.currentPage, paginationRefData.pageSize)
     },
-    _addCrudPermission(parentData: ResourceVO) {
+    _addCrudPermission(parentData: ResourceVO, prefix: string) {
       const crudPerms = [
         {
           code: 'add',
@@ -472,11 +475,12 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
         {
           code: 'query',
           label: '查看',
+          api:'paged-list'
         },
       ]
       const promises = crudPerms.map((perm) => {
         const payload = {
-          routeNames: [`/${perm.code}`],
+          routeNames: [`${prefix}/${perm.api ?? perm.code}`],
           parentId: parentData.id,
           type: 'button',
           name: perm.label,

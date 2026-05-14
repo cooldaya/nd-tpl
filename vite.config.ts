@@ -17,7 +17,7 @@ import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
 export default defineConfig({
   base: './',
   server: {
-    port: 9846,
+    port: 19842,
     hmr: true,
     host: '0.0.0.0',
   },

@@ -63,7 +63,6 @@ import {
   ApiBizPlantingSchemeEditPostData,
   ApiBizPlantingSchemeListPostData,
   ApiBizPlantingSchemePagedListPostData,
-  ApiBizPlantingSchemeRemoveMulPostData,
   ApiBizPlantingSchemeRemovePostData,
   ApiBizPlantingSchemeShowPostData,
   ApiCommonFileDownloadGetData,
@@ -84,6 +83,21 @@ import {
   ApiDataDictionaryShowPostData,
   ApiDataDictionaryTreedataPostData,
   ApiDataDictionaryTypedataPostData,
+  ApiEquipmentAddPostData,
+  ApiEquipmentEditPostData,
+  ApiEquipmentListPostData,
+  ApiEquipmentOnlineInfoPostData,
+  ApiEquipmentPagedListPostData,
+  ApiEquipmentParamAddPostData,
+  ApiEquipmentParamEditPostData,
+  ApiEquipmentParamListPostData,
+  ApiEquipmentParamPagedListPostData,
+  ApiEquipmentParamRemoveMulPostData,
+  ApiEquipmentParamRemovePostData,
+  ApiEquipmentParamShowPostData,
+  ApiEquipmentRemoveMulPostData,
+  ApiEquipmentRemovePostData,
+  ApiEquipmentShowPostData,
   ApiKnowledegUserCollectAddPostData,
   ApiKnowledegUserCollectDeleteMulPostData,
   ApiKnowledegUserCollectDeletePostData,
@@ -156,13 +170,17 @@ import {
   ApiOrganizationRemovePostData,
   ApiOrganizationShowPostData,
   ApiOrganizationTreedataPostData,
+  ApiRecordFileListPostData,
+  ApiRecordFilePagedListPostData,
+  ApiRecordFileRemoveMulPostData,
+  ApiRecordFileRemovePostData,
+  ApiRecordFileShowPostData,
   ApiRegionAddPostData,
   ApiRegionEditPostData,
   ApiRegionListPostData,
   ApiRegionPagedListPostData,
-  ApiRegionRemoveMulPostData,
-  ApiRegionRemovePostData,
   ApiRegionShowPostData,
+  ApiRegionTreedataPostData,
   ApiResourceAddPostData,
   ApiResourceEditPostData,
   ApiResourceGetResourcesPostData,
@@ -274,6 +292,12 @@ import {
   DataDictionaryPQO,
   DataDictionaryQO,
   DdTypedataQO,
+  EquipmentFO,
+  EquipmentPQO,
+  EquipmentParamFO,
+  EquipmentParamPQO,
+  EquipmentParamQO,
+  EquipmentQO,
   KnowledegUserCollectFO,
   KnowledegUserCollectPQO,
   KnowledgeBaseFileDeleteQO,
@@ -306,6 +330,8 @@ import {
   OrganizationForm,
   OrganizationPQO,
   OrganizationQO,
+  RecordFilePQO,
+  RecordFileQO,
   RegionFO,
   RegionPQO,
   RegionQO,
@@ -1367,30 +1393,8 @@ export class Api<SecurityDataType = unknown> {
    * No description
    *
    * @tags biz-planting-scheme
-   * @name ApiBizPlantingSchemeRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/biz-planting-scheme/remove-mul
-   * @secure
-   */
-  apiBizPlantingSchemeRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiBizPlantingSchemeRemoveMulPostData, any>({
-      path: `/api/biz-planting-scheme/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags biz-planting-scheme
    * @name ApiBizPlantingSchemeRemovePost
-   * @summary 删除1条数据
+   * @summary 删除数据
    * @request POST:/api/biz-planting-scheme/remove
    * @secure
    */
@@ -1716,6 +1720,315 @@ export class Api<SecurityDataType = unknown> {
   ) =>
     this.http.request<ApiDataDictionaryTypedataPostData, any>({
       path: `/api/data-dictionary/typedata`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment
+   * @name ApiEquipmentAddPost
+   * @summary 新增数据
+   * @request POST:/api/equipment/add
+   * @secure
+   */
+  apiEquipmentAddPost = (data: EquipmentFO, params: RequestParams = {}) =>
+    this.http.request<ApiEquipmentAddPostData, any>({
+      path: `/api/equipment/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment
+   * @name ApiEquipmentEditPost
+   * @summary 编辑数据
+   * @request POST:/api/equipment/edit
+   * @secure
+   */
+  apiEquipmentEditPost = (data: EquipmentFO, params: RequestParams = {}) =>
+    this.http.request<ApiEquipmentEditPostData, any>({
+      path: `/api/equipment/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment
+   * @name ApiEquipmentListPost
+   * @summary 查询全部对象
+   * @request POST:/api/equipment/list
+   * @secure
+   */
+  apiEquipmentListPost = (data: EquipmentQO, params: RequestParams = {}) =>
+    this.http.request<ApiEquipmentListPostData, any>({
+      path: `/api/equipment/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment
+   * @name ApiEquipmentOnlineInfoPost
+   * @summary 查询设备在线率
+   * @request POST:/api/equipment/online-info
+   * @secure
+   */
+  apiEquipmentOnlineInfoPost = (
+    data: EquipmentQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEquipmentOnlineInfoPostData, any>({
+      path: `/api/equipment/online-info`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment
+   * @name ApiEquipmentPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/equipment/paged-list
+   * @secure
+   */
+  apiEquipmentPagedListPost = (
+    data: EquipmentPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEquipmentPagedListPostData, any>({
+      path: `/api/equipment/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param
+   * @name ApiEquipmentParamAddPost
+   * @summary 新增数据
+   * @request POST:/api/equipment-param/add
+   * @secure
+   */
+  apiEquipmentParamAddPost = (
+    data: EquipmentParamFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEquipmentParamAddPostData, any>({
+      path: `/api/equipment-param/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param
+   * @name ApiEquipmentParamEditPost
+   * @summary 编辑数据
+   * @request POST:/api/equipment-param/edit
+   * @secure
+   */
+  apiEquipmentParamEditPost = (
+    data: EquipmentParamFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEquipmentParamEditPostData, any>({
+      path: `/api/equipment-param/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param
+   * @name ApiEquipmentParamListPost
+   * @summary 查询全部对象
+   * @request POST:/api/equipment-param/list
+   * @secure
+   */
+  apiEquipmentParamListPost = (
+    data: EquipmentParamQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEquipmentParamListPostData, any>({
+      path: `/api/equipment-param/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param
+   * @name ApiEquipmentParamPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/equipment-param/paged-list
+   * @secure
+   */
+  apiEquipmentParamPagedListPost = (
+    data: EquipmentParamPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEquipmentParamPagedListPostData, any>({
+      path: `/api/equipment-param/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param
+   * @name ApiEquipmentParamRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/equipment-param/remove-mul
+   * @secure
+   */
+  apiEquipmentParamRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEquipmentParamRemoveMulPostData, any>({
+      path: `/api/equipment-param/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param
+   * @name ApiEquipmentParamRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/equipment-param/remove
+   * @secure
+   */
+  apiEquipmentParamRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiEquipmentParamRemovePostData, any>({
+      path: `/api/equipment-param/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param
+   * @name ApiEquipmentParamShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/equipment-param/show
+   * @secure
+   */
+  apiEquipmentParamShowPost = (
+    data: EquipmentParamQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEquipmentParamShowPostData, any>({
+      path: `/api/equipment-param/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment
+   * @name ApiEquipmentRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/equipment/remove-mul
+   * @secure
+   */
+  apiEquipmentRemoveMulPost = (data: RemoveMulQO, params: RequestParams = {}) =>
+    this.http.request<ApiEquipmentRemoveMulPostData, any>({
+      path: `/api/equipment/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment
+   * @name ApiEquipmentRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/equipment/remove
+   * @secure
+   */
+  apiEquipmentRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiEquipmentRemovePostData, any>({
+      path: `/api/equipment/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment
+   * @name ApiEquipmentShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/equipment/show
+   * @secure
+   */
+  apiEquipmentShowPost = (data: EquipmentQO, params: RequestParams = {}) =>
+    this.http.request<ApiEquipmentShowPostData, any>({
+      path: `/api/equipment/show`,
       method: "POST",
       body: data,
       secure: true,
@@ -3180,9 +3493,110 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
+   * @tags record-file
+   * @name ApiRecordFileListPost
+   * @summary 查询全部对象
+   * @request POST:/api/record-file/list
+   * @secure
+   */
+  apiRecordFileListPost = (data: RecordFileQO, params: RequestParams = {}) =>
+    this.http.request<ApiRecordFileListPostData, any>({
+      path: `/api/record-file/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags record-file
+   * @name ApiRecordFilePagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/record-file/paged-list
+   * @secure
+   */
+  apiRecordFilePagedListPost = (
+    data: RecordFilePQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiRecordFilePagedListPostData, any>({
+      path: `/api/record-file/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags record-file
+   * @name ApiRecordFileRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/record-file/remove-mul
+   * @secure
+   */
+  apiRecordFileRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiRecordFileRemoveMulPostData, any>({
+      path: `/api/record-file/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags record-file
+   * @name ApiRecordFileRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/record-file/remove
+   * @secure
+   */
+  apiRecordFileRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiRecordFileRemovePostData, any>({
+      path: `/api/record-file/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags record-file
+   * @name ApiRecordFileShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/record-file/show
+   * @secure
+   */
+  apiRecordFileShowPost = (data: RecordFileQO, params: RequestParams = {}) =>
+    this.http.request<ApiRecordFileShowPostData, any>({
+      path: `/api/record-file/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
    * @tags region
    * @name ApiRegionAddPost
-   * @summary 新增数据
+   * @summary 新增
    * @request POST:/api/region/add
    * @secure
    */
@@ -3201,7 +3615,7 @@ export class Api<SecurityDataType = unknown> {
    *
    * @tags region
    * @name ApiRegionEditPost
-   * @summary 编辑数据
+   * @summary 编辑
    * @request POST:/api/region/edit
    * @secure
    */
@@ -3257,44 +3671,6 @@ export class Api<SecurityDataType = unknown> {
    * No description
    *
    * @tags region
-   * @name ApiRegionRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/region/remove-mul
-   * @secure
-   */
-  apiRegionRemoveMulPost = (data: RemoveMulQO, params: RequestParams = {}) =>
-    this.http.request<ApiRegionRemoveMulPostData, any>({
-      path: `/api/region/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags region
-   * @name ApiRegionRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/region/remove
-   * @secure
-   */
-  apiRegionRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiRegionRemovePostData, any>({
-      path: `/api/region/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags region
    * @name ApiRegionShowPost
    * @summary 查询1个对象
    * @request POST:/api/region/show
@@ -3303,6 +3679,25 @@ export class Api<SecurityDataType = unknown> {
   apiRegionShowPost = (data: RegionQO, params: RequestParams = {}) =>
     this.http.request<ApiRegionShowPostData, any>({
       path: `/api/region/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags region
+   * @name ApiRegionTreedataPost
+   * @summary 获取树形结构数据
+   * @request POST:/api/region/treedata
+   * @secure
+   */
+  apiRegionTreedataPost = (data: RegionQO, params: RequestParams = {}) =>
+    this.http.request<ApiRegionTreedataPostData, any>({
+      path: `/api/region/treedata`,
       method: "POST",
       body: data,
       secure: true,
