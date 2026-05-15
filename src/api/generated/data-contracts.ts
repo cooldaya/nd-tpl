@@ -325,6 +325,9 @@ export type ApiEquipmentParamRemovePostData = FurionResultInt64;
 export type ApiEquipmentParamShowPostData = FurionResultEquipmentParamVO;
 
 /** 全局返回结果 */
+export type ApiEquipmentParamTreeDataPostData = FurionResultListTreeNodeKf;
+
+/** 全局返回结果 */
 export type ApiEquipmentRemoveMulPostData = FurionResultListInt64;
 
 /** 全局返回结果 */
@@ -576,6 +579,34 @@ export type ApiOrganizationShowPostData = FurionResultOrganizationVO;
 
 /** 全局返回结果 */
 export type ApiOrganizationTreedataPostData = FurionResultListTreeNode;
+
+/** 全局返回结果 */
+export type ApiPrealarmRuleAddPostData = FurionResultPrealarmRuleVO;
+
+/** 全局返回结果 */
+export type ApiPrealarmRuleEditPostData = FurionResultPrealarmRuleVO;
+
+/** 全局返回结果 */
+export type ApiPrealarmRuleGetRpsPostData = FurionResultListInt64;
+
+/** 全局返回结果 */
+export type ApiPrealarmRuleListPostData = FurionResultListPrealarmRuleVO;
+
+/** 全局返回结果 */
+export type ApiPrealarmRulePagedListPostData =
+  FurionResultSqlSugarPagedListPrealarmRuleVO;
+
+/** 全局返回结果 */
+export type ApiPrealarmRuleRemoveMulPostData = FurionResultListInt64;
+
+/** 全局返回结果 */
+export type ApiPrealarmRuleRemovePostData = FurionResultInt64;
+
+/** 全局返回结果 */
+export type ApiPrealarmRuleShowPostData = FurionResultPrealarmRuleVO;
+
+/** 全局返回结果 */
+export type ApiPrealarmRuleUpdateRpsPostData = FurionResultBoolean;
 
 /** 全局返回结果 */
 export type ApiRecordFileListPostData = FurionResultListRecordFileVO;
@@ -1337,7 +1368,7 @@ export interface BizIrrigationDistrictPQO {
    * 序号
    * @format int32
    */
-  orderNumber?: number;
+  orderNumber?: null | number;
   /**
    * 当前页码
    * @format int32
@@ -1351,7 +1382,7 @@ export interface BizIrrigationDistrictPQO {
    */
   pageSize?: number;
   /** @format int64 */
-  regionId?: number;
+  regionId?: null | number;
   /** @format date-time */
   updatedAt?: null | string;
   updatedPerson?: null | string;
@@ -1372,9 +1403,9 @@ export interface BizIrrigationDistrictQO {
    * 序号
    * @format int32
    */
-  orderNumber?: number;
+  orderNumber?: null | number;
   /** @format int64 */
-  regionId?: number;
+  regionId?: null | number;
   /** @format date-time */
   updatedAt?: null | string;
   updatedPerson?: null | string;
@@ -1395,9 +1426,9 @@ export interface BizIrrigationDistrictVO {
    * 序号
    * @format int32
    */
-  orderNumber?: number;
+  orderNumber?: null | number;
   /** @format int64 */
-  regionId?: number;
+  regionId?: null | number;
   /** 所属行政区划名称 */
   regionName?: null | string;
   /** @format date-time */
@@ -2006,21 +2037,11 @@ export interface EquipmentFO {
   dataTime?: null | string;
   /** 设备功率 */
   equipmentPower?: null | string;
-  /** 俯视图vr位置pitch */
-  fvrPitch?: null | string;
-  /** 俯视图vr位置yaw */
-  fvrYaw?: null | string;
-  /** 后视图vr位置pitch */
-  hvrPitch?: null | string;
-  /** 后视图vr位置yaw */
-  hvrYaw?: null | string;
   /**
    * id
    * @format int64
    */
   id?: number;
-  /** imei */
-  imei?: null | string;
   /** 是否启用 */
   isEnable?: null | boolean;
   /** 是否在线 */
@@ -2044,16 +2065,8 @@ export interface EquipmentFO {
    * @format int32
    */
   orderNumber?: null | number;
-  /** 图片路径 */
-  picUrl?: null | string;
-  /** 前景图vr位置pitch */
-  qvrPitch?: null | string;
-  /** 前景图vr位置yaw */
-  qvrYaw?: null | string;
   /** 备注 */
   remark?: null | string;
-  /** 是否在vr显示 */
-  showInVr?: null | boolean;
   /** 测站编码 */
   stcode?: null | string;
   /**
@@ -2095,21 +2108,11 @@ export interface EquipmentPQO {
   equipmentPower?: null | string;
   /** 排序字段 */
   field?: null | string;
-  /** 俯视图vr位置pitch */
-  fvrPitch?: null | string;
-  /** 俯视图vr位置yaw */
-  fvrYaw?: null | string;
-  /** 后视图vr位置pitch */
-  hvrPitch?: null | string;
-  /** 后视图vr位置yaw */
-  hvrYaw?: null | string;
   /**
    * id
    * @format int64
    */
   id?: number;
-  /** imei */
-  imei?: null | string;
   /** 是否启用 */
   isEnable?: null | boolean;
   /** 是否在线 */
@@ -2147,16 +2150,8 @@ export interface EquipmentPQO {
    * @max 100
    */
   pageSize?: number;
-  /** 图片路径 */
-  picUrl?: null | string;
-  /** 前景图vr位置pitch */
-  qvrPitch?: null | string;
-  /** 前景图vr位置yaw */
-  qvrYaw?: null | string;
   /** 备注 */
   remark?: null | string;
-  /** 是否在vr显示 */
-  showInVr?: null | boolean;
   /** 测站编码 */
   stcode?: null | string;
   /**
@@ -2219,10 +2214,6 @@ export interface EquipmentParamFO {
    * @format int64
    */
   equipmentId?: null | number;
-  /** 分组 */
-  groupCode?: null | string;
-  /** 渗压所在因子组的位置 */
-  groupPos?: null | string;
   /**
    * id
    * @format int64
@@ -2328,10 +2319,6 @@ export interface EquipmentParamPQO {
   equipmentId?: null | number;
   /** 排序字段 */
   field?: null | string;
-  /** 分组 */
-  groupCode?: null | string;
-  /** 渗压所在因子组的位置 */
-  groupPos?: null | string;
   /**
    * id
    * @format int64
@@ -2454,10 +2441,6 @@ export interface EquipmentParamQO {
    * @format int64
    */
   equipmentId?: null | number;
-  /** 分组 */
-  groupCode?: null | string;
-  /** 渗压所在因子组的位置 */
-  groupPos?: null | string;
   /**
    * id
    * @format int64
@@ -2568,15 +2551,18 @@ export interface EquipmentParamVO {
   equipmentId?: null | number;
   /** 设备名称 */
   equipmentName?: null | string;
-  /** 分组 */
-  groupCode?: null | string;
-  /** 渗压所在因子组的位置 */
-  groupPos?: null | string;
   /**
    * id
    * @format int64
    */
   id?: number;
+  /**
+   * 灌区id
+   * @format int64
+   */
+  irrigationDistrictId?: null | number;
+  /** 灌区名称 */
+  irrigationDistrictName?: null | string;
   /** 是否显示 */
   isDisplay?: null | boolean;
   /** 是否启用 */
@@ -2659,21 +2645,11 @@ export interface EquipmentQO {
   dataTime?: null | string;
   /** 设备功率 */
   equipmentPower?: null | string;
-  /** 俯视图vr位置pitch */
-  fvrPitch?: null | string;
-  /** 俯视图vr位置yaw */
-  fvrYaw?: null | string;
-  /** 后视图vr位置pitch */
-  hvrPitch?: null | string;
-  /** 后视图vr位置yaw */
-  hvrYaw?: null | string;
   /**
    * id
    * @format int64
    */
   id?: number;
-  /** imei */
-  imei?: null | string;
   /** 是否启用 */
   isEnable?: null | boolean;
   /** 是否在线 */
@@ -2697,16 +2673,8 @@ export interface EquipmentQO {
    * @format int32
    */
   orderNumber?: null | number;
-  /** 图片路径 */
-  picUrl?: null | string;
-  /** 前景图vr位置pitch */
-  qvrPitch?: null | string;
-  /** 前景图vr位置yaw */
-  qvrYaw?: null | string;
   /** 备注 */
   remark?: null | string;
-  /** 是否在vr显示 */
-  showInVr?: null | boolean;
   /** 测站编码 */
   stcode?: null | string;
   /**
@@ -2746,21 +2714,11 @@ export interface EquipmentVO {
   dataTime?: null | string;
   /** 设备功率 */
   equipmentPower?: null | string;
-  /** 俯视图vr位置pitch */
-  fvrPitch?: null | string;
-  /** 俯视图vr位置yaw */
-  fvrYaw?: null | string;
-  /** 后视图vr位置pitch */
-  hvrPitch?: null | string;
-  /** 后视图vr位置yaw */
-  hvrYaw?: null | string;
   /**
    * id
    * @format int64
    */
   id?: number;
-  /** imei */
-  imei?: null | string;
   /** 是否启用 */
   isEnable?: null | boolean;
   /** 是否在线 */
@@ -2784,16 +2742,8 @@ export interface EquipmentVO {
    * @format int32
    */
   orderNumber?: null | number;
-  /** 图片路径 */
-  picUrl?: null | string;
-  /** 前景图vr位置pitch */
-  qvrPitch?: null | string;
-  /** 前景图vr位置yaw */
-  qvrYaw?: null | string;
   /** 备注 */
   remark?: null | string;
-  /** 是否在vr显示 */
-  showInVr?: null | boolean;
   /** 测站编码 */
   stcode?: null | string;
   /**
@@ -3880,6 +3830,33 @@ export interface FurionResultListOrganizationVO {
 }
 
 /** 全局返回结果 */
+export interface FurionResultListPrealarmRuleVO {
+  /** 数据 */
+  data?: null | PrealarmRuleVO[];
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: null | number;
+  /** 附加数据 */
+  extras?: null;
+  /** 错误信息 */
+  message?: null | string;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: null | string;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
 export interface FurionResultListRecordFile {
   /** 数据 */
   data?: null | RecordFile[];
@@ -4528,6 +4505,33 @@ export interface FurionResultOrganizationVO {
 }
 
 /** 全局返回结果 */
+export interface FurionResultPrealarmRuleVO {
+  /** 数据 */
+  data?: PrealarmRuleVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: null | number;
+  /** 附加数据 */
+  extras?: null;
+  /** 错误信息 */
+  message?: null | string;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: null | string;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
 export interface FurionResultRecordFile {
   /** 数据 */
   data?: RecordFile;
@@ -5125,6 +5129,33 @@ export interface FurionResultSqlSugarPagedListMessageVO {
 export interface FurionResultSqlSugarPagedListOrganizationVO {
   /** 数据 */
   data?: SqlSugarPagedListOrganizationVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: null | number;
+  /** 附加数据 */
+  extras?: null;
+  /** 错误信息 */
+  message?: null | string;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: null | string;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListPrealarmRuleVO {
+  /** 数据 */
+  data?: SqlSugarPagedListPrealarmRuleVO;
   /**
    * 错误状态码
    * @format int32
@@ -7548,6 +7579,178 @@ export interface OrganizationVO {
   updatedPerson?: null | string;
 }
 
+export interface PrealarmRuleFO {
+  /**
+   * 上限还是下限(0上限1下限)
+   * @format int32
+   */
+  compareType: number;
+  /**
+   * 监测指标id
+   * @format int64
+   */
+  equipmentParamId: number;
+  /** @format int64 */
+  id?: null | number;
+  /** 是否启用 */
+  isEnable?: null | boolean;
+  /**
+   * 限值
+   * @format double
+   */
+  limitValue: number;
+  /**
+   * 规则名称
+   * @minLength 1
+   */
+  name: string;
+  /** 是否发送短信 */
+  sendPhoneMsg?: null | boolean;
+}
+
+export interface PrealarmRulePQO {
+  /**
+   * 上限还是下限(0上限1下限)
+   * @format int32
+   */
+  compareType?: null | number;
+  /** @format date-time */
+  createdAt?: null | string;
+  createdPerson?: null | string;
+  /**
+   * 监测指标id
+   * @format int64
+   */
+  equipmentParamId?: null | number;
+  readonly equipmentParamName?: null;
+  /** 排序字段 */
+  field?: null | string;
+  /** @format int64 */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: null | boolean;
+  /** 是否预警 */
+  isPrealarm?: null | boolean;
+  /**
+   * 限值
+   * @format double
+   */
+  limitValue?: null | number;
+  /** 规则名称 */
+  name?: null | string;
+  /** 排序方向 */
+  order?: null | string;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 是否发送短信 */
+  sendPhoneMsg?: null | boolean;
+  /** @format date-time */
+  updatedAt?: null | string;
+  updatedPerson?: null | string;
+}
+
+export interface PrealarmRuleQO {
+  /**
+   * 上限还是下限(0上限1下限)
+   * @format int32
+   */
+  compareType?: null | number;
+  /** @format date-time */
+  createdAt?: null | string;
+  createdPerson?: null | string;
+  /**
+   * 监测指标id
+   * @format int64
+   */
+  equipmentParamId?: null | number;
+  readonly equipmentParamName?: null;
+  /** @format int64 */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: null | boolean;
+  /** 是否预警 */
+  isPrealarm?: null | boolean;
+  /**
+   * 限值
+   * @format double
+   */
+  limitValue?: null | number;
+  /** 规则名称 */
+  name?: null | string;
+  /** 是否发送短信 */
+  sendPhoneMsg?: null | boolean;
+  /** @format date-time */
+  updatedAt?: null | string;
+  updatedPerson?: null | string;
+}
+
+export interface PrealarmRuleVO {
+  /**
+   * 上限还是下限(0上限1下限)
+   * @format int32
+   */
+  compareType?: null | number;
+  /** @format date-time */
+  createdAt?: null | string;
+  createdPerson?: null | string;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: null | number;
+  /** 设备名称 */
+  equipmentName?: null | string;
+  /**
+   * 监测指标id
+   * @format int64
+   */
+  equipmentParamId?: null | number;
+  /** 监测指标名称 */
+  equipmentParamName?: null | string;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 灌区id
+   * @format int64
+   */
+  irrigationDistrictId?: null | number;
+  /** 灌区名称 */
+  irrigationDistrictName?: null | string;
+  /** 是否启用 */
+  isEnable?: null | boolean;
+  /** 是否预警 */
+  isPrealarm?: null | boolean;
+  /**
+   * 限值
+   * @format double
+   */
+  limitValue?: null | number;
+  /** 规则名称 */
+  name?: null | string;
+  /** 是否发送短信 */
+  sendPhoneMsg?: null | boolean;
+  /**
+   * 监测点id
+   * @format int64
+   */
+  technicsId?: null | number;
+  /** 监测点名称 */
+  technicsName?: null | string;
+  /** @format date-time */
+  updatedAt?: null | string;
+  updatedPerson?: null | string;
+}
+
 export interface RecordFile {
   /** @format date-time */
   createdAt?: null | string;
@@ -8609,6 +8812,36 @@ export interface SqlSugarPagedListOrganizationVO {
 }
 
 /** 分页泛型集合 */
+export interface SqlSugarPagedListPrealarmRuleVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: null | PrealarmRuleVO[];
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
 export interface SqlSugarPagedListRecordFileVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
@@ -8994,6 +9227,8 @@ export interface TechnicsPQO {
    * @format int64
    */
   irrigationDistrictId?: null | number;
+  /** 是否通讯 */
+  isConn?: null | boolean;
   /** 是否启用 */
   isEnable?: null | boolean;
   /** 是否启用监测 */
@@ -9082,6 +9317,8 @@ export interface TechnicsQO {
    * @format int64
    */
   irrigationDistrictId?: null | number;
+  /** 是否通讯 */
+  isConn?: null | boolean;
   /** 是否启用 */
   isEnable?: null | boolean;
   /** 是否启用监测 */
@@ -9224,6 +9461,8 @@ export interface TechnicsVO {
   irrigationDistrictId?: null | number;
   /** 所属灌区名称 */
   irrigationDistrictName?: null | string;
+  /** 是否通讯 */
+  isConn?: null | boolean;
   /** 是否启用 */
   isEnable?: null | boolean;
   /** 是否启用监测 */
@@ -9279,6 +9518,12 @@ export interface TreeNodeKf {
   id?: number;
   name?: null | string;
   type?: null | string;
+}
+
+export interface UpdateRpsQO {
+  /** @format int64 */
+  prealarmRuleId: number;
+  rps?: null | number[];
 }
 
 export interface UserAssignRolesQO {

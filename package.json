@@ -30,6 +30,7 @@
     "localforage": "^1.10.0",
     "lodash-es": "^4.17.23",
     "maplibre-gl": "^5.22.0",
+    "nanoid": "^5.1.11",
     "nprogress": "^0.2.0",
     "pinia": "^3.0.4",
     "tailwindcss": "^4.2.2",

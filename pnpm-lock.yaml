@@ -44,6 +44,9 @@ importers:
       maplibre-gl:
         specifier: ^5.22.0
         version: 5.22.0
+      nanoid:
+        specifier: ^5.1.11
+        version: 5.1.11
       nprogress:
         specifier: ^0.2.0
         version: 0.2.0
@@ -2219,8 +2222,8 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@5.1.7:
-    resolution: {integrity: sha512-ua3NDgISf6jdwezAheMOk4mbE1LXjm1DfMUDMuJf4AqxLFK3ccGpgWizwa5YV7Yz9EpXwEaWoRXSb/BnV0t5dQ==}
+  nanoid@5.1.11:
+    resolution: {integrity: sha512-v+KEsUv2ps74PaSKv0gHTxTCgMXOIfBEbaqa6w6ISIGC7ZsvHN4N9oJ8d4cmf0n5oTzQz2SLmThbQWhjd/8eKg==}
     engines: {node: ^18 || >=20}
     hasBin: true
 
@@ -5006,7 +5009,7 @@ snapshots:
 
   nanoid@3.3.11: {}
 
-  nanoid@5.1.7: {}
+  nanoid@5.1.11: {}
 
   natural-compare@1.4.0: {}
 
@@ -5506,7 +5509,7 @@ snapshots:
       consola: 3.4.2
       es-toolkit: 1.45.1
       eta: 3.5.0
-      nanoid: 5.1.7
+      nanoid: 5.1.11
       openapi-types: 12.1.3
       swagger-schema-official: 2.0.0-bab6bed
       swagger2openapi: 7.0.8
@@ -5923,7 +5926,7 @@ snapshots:
       clsx: 2.1.1
       dayjs: 1.11.20
       dompurify: 3.3.3
-      nanoid: 5.1.7
+      nanoid: 5.1.11
       tailwind-merge: 3.5.0
 
   zrender@6.0.0:

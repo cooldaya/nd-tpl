@@ -95,6 +95,7 @@ import {
   ApiEquipmentParamRemoveMulPostData,
   ApiEquipmentParamRemovePostData,
   ApiEquipmentParamShowPostData,
+  ApiEquipmentParamTreeDataPostData,
   ApiEquipmentRemoveMulPostData,
   ApiEquipmentRemovePostData,
   ApiEquipmentShowPostData,
@@ -170,6 +171,15 @@ import {
   ApiOrganizationRemovePostData,
   ApiOrganizationShowPostData,
   ApiOrganizationTreedataPostData,
+  ApiPrealarmRuleAddPostData,
+  ApiPrealarmRuleEditPostData,
+  ApiPrealarmRuleGetRpsPostData,
+  ApiPrealarmRuleListPostData,
+  ApiPrealarmRulePagedListPostData,
+  ApiPrealarmRuleRemoveMulPostData,
+  ApiPrealarmRuleRemovePostData,
+  ApiPrealarmRuleShowPostData,
+  ApiPrealarmRuleUpdateRpsPostData,
   ApiRecordFileListPostData,
   ApiRecordFilePagedListPostData,
   ApiRecordFileRemoveMulPostData,
@@ -330,6 +340,9 @@ import {
   OrganizationForm,
   OrganizationPQO,
   OrganizationQO,
+  PrealarmRuleFO,
+  PrealarmRulePQO,
+  PrealarmRuleQO,
   RecordFilePQO,
   RecordFileQO,
   RegionFO,
@@ -350,6 +363,7 @@ import {
   TechnicsTypeFO,
   TechnicsTypePQO,
   TechnicsTypeQO,
+  UpdateRpsQO,
   UserAssignRolesQO,
   UserAssignTechnicsesQO,
   UserAssignUsergroupsQO,
@@ -1982,6 +1996,28 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
+   * @tags equipment-param
+   * @name ApiEquipmentParamTreeDataPost
+   * @summary 查询树形结构
+   * @request POST:/api/equipment-param/tree-data
+   * @secure
+   */
+  apiEquipmentParamTreeDataPost = (
+    data: EquipmentParamQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEquipmentParamTreeDataPostData, any>({
+      path: `/api/equipment-param/tree-data`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
    * @tags equipment
    * @name ApiEquipmentRemoveMulPost
    * @summary 删除多条数据
@@ -3483,6 +3519,195 @@ export class Api<SecurityDataType = unknown> {
   ) =>
     this.http.request<ApiOrganizationTreedataPostData, any>({
       path: `/api/organization/treedata`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleAddPost
+   * @summary 新增数据
+   * @request POST:/api/prealarm-rule/add
+   * @secure
+   */
+  apiPrealarmRuleAddPost = (data: PrealarmRuleFO, params: RequestParams = {}) =>
+    this.http.request<ApiPrealarmRuleAddPostData, any>({
+      path: `/api/prealarm-rule/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleEditPost
+   * @summary 编辑数据
+   * @request POST:/api/prealarm-rule/edit
+   * @secure
+   */
+  apiPrealarmRuleEditPost = (
+    data: PrealarmRuleFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRuleEditPostData, any>({
+      path: `/api/prealarm-rule/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleGetRpsPost
+   * @summary 查询关联的责任人
+   * @request POST:/api/prealarm-rule/get-rps
+   * @secure
+   */
+  apiPrealarmRuleGetRpsPost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiPrealarmRuleGetRpsPostData, any>({
+      path: `/api/prealarm-rule/get-rps`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleListPost
+   * @summary 查询全部对象
+   * @request POST:/api/prealarm-rule/list
+   * @secure
+   */
+  apiPrealarmRuleListPost = (
+    data: PrealarmRuleQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRuleListPostData, any>({
+      path: `/api/prealarm-rule/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRulePagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/prealarm-rule/paged-list
+   * @secure
+   */
+  apiPrealarmRulePagedListPost = (
+    data: PrealarmRulePQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRulePagedListPostData, any>({
+      path: `/api/prealarm-rule/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/prealarm-rule/remove-mul
+   * @secure
+   */
+  apiPrealarmRuleRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRuleRemoveMulPostData, any>({
+      path: `/api/prealarm-rule/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/prealarm-rule/remove
+   * @secure
+   */
+  apiPrealarmRuleRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiPrealarmRuleRemovePostData, any>({
+      path: `/api/prealarm-rule/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/prealarm-rule/show
+   * @secure
+   */
+  apiPrealarmRuleShowPost = (
+    data: PrealarmRuleQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRuleShowPostData, any>({
+      path: `/api/prealarm-rule/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleUpdateRpsPost
+   * @summary 查询关联的责任人
+   * @request POST:/api/prealarm-rule/update-rps
+   * @secure
+   */
+  apiPrealarmRuleUpdateRpsPost = (
+    data: UpdateRpsQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRuleUpdateRpsPostData, any>({
+      path: `/api/prealarm-rule/update-rps`,
       method: "POST",
       body: data,
       secure: true,
