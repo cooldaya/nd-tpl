@@ -48,6 +48,7 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | 'data-board'
       | 'monitor-video'
+      | 'test-page'
     >,
     'data-board': RouteRecordInfo<
       'data-board',
@@ -59,6 +60,13 @@ declare module 'vue-router/auto-routes' {
     'monitor-video': RouteRecordInfo<
       'monitor-video',
       '/modules/dashboard-main/monitor-video',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'test-page': RouteRecordInfo<
+      'test-page',
+      '/modules/dashboard-main/test-page',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -269,6 +277,7 @@ declare module 'vue-router/auto-routes' {
         | 'dashboard-main'
         | 'data-board'
         | 'monitor-video'
+        | 'test-page'
       views:
         | 'default'
     }
@@ -281,6 +290,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/modules/dashboard-main/monitor-video.vue': {
       routes:
         | 'monitor-video'
+      views:
+        | never
+    }
+    'src/pages/modules/dashboard-main/test-page.vue': {
+      routes:
+        | 'test-page'
       views:
         | never
     }

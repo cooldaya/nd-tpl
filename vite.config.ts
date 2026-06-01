@@ -12,6 +12,7 @@ import vitePluginCustomOutDir from './plugins/vite-plugin-custom-outdir' // 引�
 import { transformPermission } from './plugins/vite-plugin-permission' // 引入权限转换插件
 import { visualizer } from 'rollup-plugin-visualizer'
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split'
+import { projectConfig } from './project-config'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -20,6 +21,12 @@ export default defineConfig({
     port: 19842,
     hmr: true,
     host: '0.0.0.0',
+    proxy: {
+      '/api': {
+        target: projectConfig.backEndUrl,
+        changeOrigin: true,
+      },
+    },
   },
   plugins: [
     VueRouter({
@@ -63,7 +70,7 @@ export default defineConfig({
         'lib-axios': [/axios/],
         'lib-localforage': [/localforage/],
         'lib-echarts': [/echarts/],
-      }
+      },
     }),
   ],
   resolve: {

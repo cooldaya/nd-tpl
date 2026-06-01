@@ -475,12 +475,12 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
         {
           code: 'query',
           label: '查看',
-          api:'paged-list'
+          api:'paged-list,list'
         },
       ]
       const promises = crudPerms.map((perm) => {
         const payload = {
-          routeNames: [`${prefix}/${perm.api ?? perm.code}`],
+          routeNames: (perm.api ?? perm.code).split(',').map((api) => `${prefix}/${api}`),
           parentId: parentData.id,
           type: 'button',
           name: perm.label,
