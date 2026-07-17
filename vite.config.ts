@@ -22,7 +22,7 @@ export default defineConfig({
     hmr: true,
     host: '0.0.0.0',
     proxy: {
-      '/api': {
+      '/netcore/api': {
         target: projectConfig.backEndUrl,
         changeOrigin: true,
       },

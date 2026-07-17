@@ -2,10 +2,10 @@
 import EpPlus from '~icons/ep/plus'
 import EpMinus from '~icons/ep/minus'
 import { nanoid } from 'nanoid'
-import { ref, watch } from 'vue'
+import { nextTick, ref, watch } from 'vue'
 
 const model = defineModel<string[]>({
-  default: () =>[],
+  default: () => [],
 })
 
 const cusList = ref<{ route: string; key: string }[]>([])
@@ -24,7 +24,10 @@ const init = () => {
 
 // 2. 同步逻辑：当 cusList 变化时，更新 model
 const syncToModel = () => {
-  model.value = cusList.value.map((item) => item.route)
+  nextTick(() => {
+    const newArr = cusList.value.map((item) => item.route)
+    model.value = newArr
+  })
 }
 
 const handles = {

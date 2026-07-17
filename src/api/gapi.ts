@@ -7,7 +7,7 @@ import { projectConfig } from '~/project-config'
 
 const customHttpClient = new HttpClient<SecurityDataType>({
   baseURL: projectConfig.backEndUrl,
-  timeout: 10000,
+  timeout: 1000 * 30,
   headers: {
     'X-Custom-Header': 'value',
   },

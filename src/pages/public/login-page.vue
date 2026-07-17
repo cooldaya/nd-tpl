@@ -53,6 +53,7 @@ const refData = reactive({
       props: {
         placeholder: '密码',
         type: 'password',
+        showPassword: true,
       },
     },
     {

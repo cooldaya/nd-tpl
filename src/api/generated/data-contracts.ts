@@ -23,375 +23,594 @@ export interface AdminResetPwdQO {
   userId: number;
 }
 
-/** 全局返回结果 */
-export type ApiAppVersionLastVersionPostData = FurionResultAppVersionVO;
-
-/** 全局返回结果 */
-export type ApiAppVersionListPostData = FurionResultListAppVersionVO;
-
-/** 全局返回结果 */
-export type ApiAppVersionPagedListPostData =
-  FurionResultSqlSugarPagedListAppVersionVO;
-
-/** 全局返回结果 */
-export type ApiAppVersionShowPostData = FurionResultAppVersionVO;
-
-/** 全局返回结果 */
-export type ApiAppVersionUploadApkPostData = FurionResultAppVersionVO;
-
-export interface ApiAppVersionUploadApkPostPayload {
+export interface AlarmRecordFO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /**
-   * 文件
-   * @format binary
+   * 报警时长
+   * @format int64
    */
-  File: File;
-  /** 版本号 */
-  Version: string;
+  duration?: number | null;
+  /**
+   * 所属设备
+   * @format int64
+   */
+  equipmentId?: number;
+  /** 所属设备 */
+  equipmentName?: string | null;
+  /**
+   * 所属因子
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 所属因子 */
+  equipmentParamName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 报警信息 */
+  prealarmInfo?: string | null;
+  /**
+   * 开始时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 开始时间-小时
+   * @format int32
+   */
+  shour?: number;
+  /**
+   * 开始时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 报警开始时间
+   * @format date-time
+   */
+  startTime?: string;
+  /**
+   * 报警结束时间
+   * @format date-time
+   */
+  stopTime?: string | null;
+  /**
+   * 开始时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 所属工艺系统
+   * @format int64
+   */
+  technicsId?: number;
+  /** 所属工艺系统 */
+  technicsName?: string | null;
+  /** 报警类型 */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
-/** 全局返回结果 */
+export interface AlarmRecordPQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 报警时长
+   * @format int64
+   */
+  duration?: number | null;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 所属设备
+   * @format int64
+   */
+  equipmentId?: number;
+  /** 所属设备 */
+  equipmentName?: string | null;
+  /**
+   * 所属因子
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 所属因子 */
+  equipmentParamName?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 报警信息 */
+  prealarmInfo?: string | null;
+  /**
+   * 开始时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 开始时间-小时
+   * @format int32
+   */
+  shour?: number;
+  /**
+   * 开始时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 报警开始时间
+   * @format date-time
+   */
+  startTime?: string;
+  /**
+   * 报警结束时间
+   * @format date-time
+   */
+  stopTime?: string | null;
+  /**
+   * 开始时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 所属工艺系统
+   * @format int64
+   */
+  technicsId?: number;
+  /** 所属工艺系统 */
+  technicsName?: string | null;
+  /** 报警类型 */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface AlarmRecordQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 报警时长
+   * @format int64
+   */
+  duration?: number | null;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 所属设备
+   * @format int64
+   */
+  equipmentId?: number;
+  /** 所属设备 */
+  equipmentName?: string | null;
+  /**
+   * 所属因子
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 所属因子 */
+  equipmentParamName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 报警信息 */
+  prealarmInfo?: string | null;
+  /**
+   * 开始时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 开始时间-小时
+   * @format int32
+   */
+  shour?: number;
+  /**
+   * 开始时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 报警开始时间
+   * @format date-time
+   */
+  startTime?: string;
+  /**
+   * 报警结束时间
+   * @format date-time
+   */
+  stopTime?: string | null;
+  /**
+   * 开始时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 所属工艺系统
+   * @format int64
+   */
+  technicsId?: number;
+  /** 所属工艺系统 */
+  technicsName?: string | null;
+  /** 报警类型 */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface AlarmRecordVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 报警时长
+   * @format int64
+   */
+  duration?: number | null;
+  /**
+   * 所属设备
+   * @format int64
+   */
+  equipmentId?: number;
+  /** 所属设备 */
+  equipmentName?: string | null;
+  /**
+   * 所属因子
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 所属因子 */
+  equipmentParamName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 报警信息 */
+  prealarmInfo?: string | null;
+  /**
+   * 开始时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 开始时间-小时
+   * @format int32
+   */
+  shour?: number;
+  /**
+   * 开始时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 报警开始时间
+   * @format date-time
+   */
+  startTime?: string;
+  /**
+   * 报警结束时间
+   * @format date-time
+   */
+  stopTime?: string | null;
+  /**
+   * 开始时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 所属工艺系统
+   * @format int64
+   */
+  technicsId?: number;
+  /** 所属工艺系统 */
+  technicsName?: string | null;
+  /** 报警类型 */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface AmJobFO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 职务描述 */
+  jobDesc?: string | null;
+  /** 名称 */
+  name?: string | null;
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface AmJobPQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 职务描述 */
+  jobDesc?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface AmJobQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 职务描述 */
+  jobDesc?: string | null;
+  /** 名称 */
+  name?: string | null;
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface AmJobVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 职务描述 */
+  jobDesc?: string | null;
+  /** 名称 */
+  name?: string | null;
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface AmPostFO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 关联职务
+   * @format int64
+   */
+  jobId?: number | null;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 所属组织机构
+   * @format int64
+   */
+  organizationId?: number | null;
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface AmPostPQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 关联职务
+   * @format int64
+   */
+  jobId?: number | null;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 所属组织机构
+   * @format int64
+   */
+  organizationId?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface AmPostQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 关联职务
+   * @format int64
+   */
+  jobId?: number | null;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 所属组织机构
+   * @format int64
+   */
+  organizationId?: number | null;
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface AmPostVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 职务编码 */
+  jobCode?: string | null;
+  /**
+   * 关联职务
+   * @format int64
+   */
+  jobId?: number | null;
+  /** 职务名称 */
+  jobName?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 所属组织机构
+   * @format int64
+   */
+  organizationId?: number | null;
+  /** 组织结构名称 */
+  organizationName?: string | null;
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export type ApiAlarmRecordAddPostData = FurionResultAlarmRecordVO;
+
+export type ApiAlarmRecordEditPostData = FurionResultAlarmRecordVO;
+
+export type ApiAlarmRecordListPostData = FurionResultListAlarmRecordVO;
+
+export type ApiAlarmRecordPagedListPostData =
+  FurionResultSqlSugarPagedListAlarmRecordVO;
+
+export type ApiAlarmRecordRemoveMulPostData = FurionResultListInt64;
+
+export type ApiAlarmRecordRemovePostData = FurionResultInt64;
+
+export type ApiAlarmRecordShowPostData = FurionResultAlarmRecordVO;
+
+export type ApiAmJobAddPostData = FurionResultAmJobVO;
+
+export type ApiAmJobEditPostData = FurionResultAmJobVO;
+
+export type ApiAmJobListPostData = FurionResultListAmJobVO;
+
+export type ApiAmJobPagedListPostData = FurionResultSqlSugarPagedListAmJobVO;
+
+export type ApiAmJobRemoveMulPostData = FurionResultListInt64;
+
+export type ApiAmJobRemovePostData = FurionResultInt64;
+
+export type ApiAmJobShowPostData = FurionResultAmJobVO;
+
+export type ApiAmPostAddPostData = FurionResultAmPostVO;
+
+export type ApiAmPostCountByNamePostData = FurionResultListNameCount;
+
+export type ApiAmPostEditPostData = FurionResultAmPostVO;
+
+export type ApiAmPostListPostData = FurionResultListAmPostVO;
+
+export type ApiAmPostPagedListPostData = FurionResultSqlSugarPagedListAmPostVO;
+
+export type ApiAmPostRemoveMulPostData = FurionResultListInt64;
+
+export type ApiAmPostRemovePostData = FurionResultInt64;
+
+export type ApiAmPostShowPostData = FurionResultAmPostVO;
+
 export type ApiAuthCheckloginPostData = FurionResultLoginResultUserAO;
 
-/** 全局返回结果 */
+export type ApiAuthLoginByUserNamePostData = FurionResultLoginResultVO;
+
 export type ApiAuthLoginPostData = FurionResultLoginResultVO;
-
-/** 全局返回结果 */
-export type ApiAuthLoginSsoGetData = FurionResultIActionResult;
-
-export interface ApiAuthLoginSsoGetParams {
-  token?: string;
-}
 
 export type ApiAuthLogoutPostData = any;
 
-/** 全局返回结果 */
 export type ApiAuthPkinfoPostData = FurionResultString;
-
-/** 全局返回结果 */
-export type ApiBizCropsAddPostData = FurionResultBizCropsVO;
-
-/** 全局返回结果 */
-export type ApiBizCropsEditPostData = FurionResultBizCropsVO;
-
-/** 全局返回结果 */
-export type ApiBizCropsListPostData = FurionResultListBizCropsVO;
-
-/** 全局返回结果 */
-export type ApiBizCropsPagedListPostData =
-  FurionResultSqlSugarPagedListBizCropsVO;
-
-/** 全局返回结果 */
-export type ApiBizCropsRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizCropsShowPostData = FurionResultBizCropsVO;
-
-/** 全局返回结果 */
-export type ApiBizCropsTypeAddPostData = FurionResultBizCropsTypeVO;
-
-/** 全局返回结果 */
-export type ApiBizCropsTypeEditPostData = FurionResultBizCropsTypeVO;
-
-/** 全局返回结果 */
-export type ApiBizCropsTypeListPostData = FurionResultListBizCropsTypeVO;
-
-/** 全局返回结果 */
-export type ApiBizCropsTypePagedListPostData =
-  FurionResultSqlSugarPagedListBizCropsTypeVO;
-
-/** 全局返回结果 */
-export type ApiBizCropsTypeRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiBizCropsTypeRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizCropsTypeShowPostData = FurionResultBizCropsTypeVO;
-
-/** 全局返回结果 */
-export type ApiBizDayTotalFlowAddPostData = FurionResultBizDayTotalFlowVO;
-
-/** 全局返回结果 */
-export type ApiBizDayTotalFlowEditPostData = FurionResultBizDayTotalFlowVO;
-
-/** 全局返回结果 */
-export type ApiBizDayTotalFlowExportExcelPostData = FurionResultIActionResult;
-
-/** 全局返回结果 */
-export type ApiBizDayTotalFlowListPostData = FurionResultListBizDayTotalFlowVO;
-
-/** 全局返回结果 */
-export type ApiBizDayTotalFlowPagedListPostData =
-  FurionResultSqlSugarPagedListBizDayTotalFlowVO;
-
-/** 全局返回结果 */
-export type ApiBizDayTotalFlowRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiBizDayTotalFlowRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizDayTotalFlowShowPostData = FurionResultBizDayTotalFlowVO;
-
-/** 全局返回结果 */
-export type ApiBizGrowStageAddPostData = FurionResultBizGrowStageVO;
-
-/** 全局返回结果 */
-export type ApiBizGrowStageEditPostData = FurionResultBizGrowStageVO;
-
-/** 全局返回结果 */
-export type ApiBizGrowStageListPostData = FurionResultListBizGrowStageVO;
-
-/** 全局返回结果 */
-export type ApiBizGrowStagePagedListPostData =
-  FurionResultSqlSugarPagedListBizGrowStageVO;
-
-/** 全局返回结果 */
-export type ApiBizGrowStageRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiBizGrowStageRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizGrowStageShowPostData = FurionResultBizGrowStageVO;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchDocAddPostData = FurionResultBizGysDispatchDocVO;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchDocEditPostData = FurionResultBizGysDispatchDocVO;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchDocListPostData =
-  FurionResultListBizGysDispatchDocVO;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchDocPagedListPostData =
-  FurionResultSqlSugarPagedListBizGysDispatchDocVO;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchDocRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchDocShowPostData = FurionResultBizGysDispatchDocVO;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchRecordAddPostData =
-  FurionResultBizGysDispatchRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchRecordEditPostData =
-  FurionResultBizGysDispatchRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchRecordListPostData =
-  FurionResultListBizGysDispatchRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchRecordPagedListPostData =
-  FurionResultSqlSugarPagedListBizGysDispatchRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchRecordRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchRecordRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizGysDispatchRecordShowPostData =
-  FurionResultBizGysDispatchRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizIrrigationDistrictAddPostData =
-  FurionResultBizIrrigationDistrictVO;
-
-/** 全局返回结果 */
-export type ApiBizIrrigationDistrictEditPostData =
-  FurionResultBizIrrigationDistrictVO;
-
-/** 全局返回结果 */
-export type ApiBizIrrigationDistrictListPostData =
-  FurionResultListBizIrrigationDistrictVO;
-
-/** 全局返回结果 */
-export type ApiBizIrrigationDistrictPagedListPostData =
-  FurionResultSqlSugarPagedListBizIrrigationDistrictVO;
-
-/** 全局返回结果 */
-export type ApiBizIrrigationDistrictRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiBizIrrigationDistrictRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizIrrigationDistrictShowPostData =
-  FurionResultBizIrrigationDistrictVO;
-
-/** 全局返回结果 */
-export type ApiBizPlantingPlanAddPostData = FurionResultBizPlantingPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizPlantingPlanEditPostData = FurionResultBizPlantingPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizPlantingPlanListPostData = FurionResultListBizPlantingPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizPlantingPlanPagedListPostData =
-  FurionResultSqlSugarPagedListBizPlantingPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizPlantingPlanRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiBizPlantingPlanRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizPlantingPlanShowPostData = FurionResultBizPlantingPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizPlantingSchemeAddPostData = FurionResultBizPlantingSchemeVO;
-
-/** 全局返回结果 */
-export type ApiBizPlantingSchemeEditPostData = FurionResultBizPlantingSchemeVO;
-
-/** 全局返回结果 */
-export type ApiBizPlantingSchemeListPostData =
-  FurionResultListBizPlantingSchemeVO;
-
-/** 全局返回结果 */
-export type ApiBizPlantingSchemePagedListPostData =
-  FurionResultSqlSugarPagedListBizPlantingSchemeVO;
-
-/** 全局返回结果 */
-export type ApiBizPlantingSchemeRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizPlantingSchemeShowPostData = FurionResultBizPlantingSchemeVO;
-
-/** 全局返回结果 */
-export type ApiBizPoliciyRegulationAddPostData =
-  FurionResultBizPoliciyRegulationVO;
-
-/** 全局返回结果 */
-export type ApiBizPoliciyRegulationEditPostData =
-  FurionResultBizPoliciyRegulationVO;
-
-/** 全局返回结果 */
-export type ApiBizPoliciyRegulationListPostData =
-  FurionResultListBizPoliciyRegulationVO;
-
-/** 全局返回结果 */
-export type ApiBizPoliciyRegulationPagedListPostData =
-  FurionResultSqlSugarPagedListBizPoliciyRegulationVO;
-
-/** 全局返回结果 */
-export type ApiBizPoliciyRegulationRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizPoliciyRegulationShowPostData =
-  FurionResultBizPoliciyRegulationVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterDemandPlanAddPostData = FurionResultBizWaterDemandPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterDemandPlanEditPostData =
-  FurionResultBizWaterDemandPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterDemandPlanListPostData =
-  FurionResultListBizWaterDemandPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterDemandPlanPagedListPostData =
-  FurionResultSqlSugarPagedListBizWaterDemandPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterDemandPlanRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiBizWaterDemandPlanRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizWaterDemandPlanShowPostData =
-  FurionResultBizWaterDemandPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterDistributionPlanAddPostData =
-  FurionResultBizWaterDistributionPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterDistributionPlanEditPostData =
-  FurionResultBizWaterDistributionPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterDistributionPlanListPostData =
-  FurionResultListBizWaterDistributionPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterDistributionPlanPagedListPostData =
-  FurionResultSqlSugarPagedListBizWaterDistributionPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterDistributionPlanRemoveMulPostData =
-  FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiBizWaterDistributionPlanRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizWaterDistributionPlanShowPostData =
-  FurionResultBizWaterDistributionPlanVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterEfficiencyRecordAddPostData =
-  FurionResultBizWaterEfficiencyRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterEfficiencyRecordEditPostData =
-  FurionResultBizWaterEfficiencyRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterEfficiencyRecordListPostData =
-  FurionResultListBizWaterEfficiencyRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterEfficiencyRecordPagedListPostData =
-  FurionResultSqlSugarPagedListBizWaterEfficiencyRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizWaterEfficiencyRecordRemoveMulPostData =
-  FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiBizWaterEfficiencyRecordRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizWaterEfficiencyRecordShowPostData =
-  FurionResultBizWaterEfficiencyRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizYieldRecordAddPostData = FurionResultBizYieldRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizYieldRecordEditPostData = FurionResultBizYieldRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizYieldRecordListPostData = FurionResultListBizYieldRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizYieldRecordPagedListPostData =
-  FurionResultSqlSugarPagedListBizYieldRecordVO;
-
-/** 全局返回结果 */
-export type ApiBizYieldRecordRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiBizYieldRecordRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiBizYieldRecordShowPostData = FurionResultBizYieldRecordVO;
 
 export type ApiCommonFileDownloadGetData = any;
 
@@ -400,13 +619,10 @@ export interface ApiCommonFileDownloadGetParams {
   filepath?: string;
 }
 
-/** 全局返回结果 */
 export type ApiCommonGenIdPostData = FurionResultInt64;
 
-/** 全局返回结果 */
 export type ApiCommonGenIdsPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiCommonUploadFilePostData = FurionResultRecordFile;
 
 export interface ApiCommonUploadFilePostPayload {
@@ -426,7 +642,6 @@ export interface ApiCommonUploadFilePostPayload {
   RecordId: number;
 }
 
-/** 全局返回结果 */
 export type ApiCommonUploadFilesPostData = FurionResultListRecordFile;
 
 export interface ApiCommonUploadFilesPostPayload {
@@ -442,511 +657,800 @@ export interface ApiCommonUploadFilesPostPayload {
   RecordId: number;
 }
 
-/** 全局返回结果 */
 export type ApiDataDictionaryAddPostData = FurionResultDataDictionaryVO;
 
-/** 全局返回结果 */
 export type ApiDataDictionaryEditPostData = FurionResultDataDictionaryVO;
 
-/** 全局返回结果 */
 export type ApiDataDictionaryListPostData = FurionResultListDataDictionaryVO;
 
-/** 全局返回结果 */
 export type ApiDataDictionaryPagedListPostData =
   FurionResultSqlSugarPagedListDataDictionaryVO;
 
-/** 全局返回结果 */
 export type ApiDataDictionaryRemovePostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiDataDictionaryShowPostData = FurionResultDataDictionaryVO;
 
-/** 全局返回结果 */
 export type ApiDataDictionaryTreedataPostData = FurionResultListTreeNode;
 
-/** 全局返回结果 */
 export type ApiDataDictionaryTypedataPostData = FurionResultListTreeNode;
 
-/** 全局返回结果 */
 export type ApiEquipmentAddPostData = FurionResultEquipmentVO;
 
-/** 全局返回结果 */
 export type ApiEquipmentEditPostData = FurionResultEquipmentVO;
 
-/** 全局返回结果 */
 export type ApiEquipmentListPostData = FurionResultListEquipmentVO;
 
-/** 全局返回结果 */
-export type ApiEquipmentOnlineInfoPostData = FurionResultOnlineInfoVO;
-
-/** 全局返回结果 */
 export type ApiEquipmentPagedListPostData =
   FurionResultSqlSugarPagedListEquipmentVO;
 
-/** 全局返回结果 */
 export type ApiEquipmentParamAddPostData = FurionResultEquipmentParamVO;
 
-/** 全局返回结果 */
+export type ApiEquipmentParamDdAddPostData = FurionResultEquipmentParamDdVO;
+
+export type ApiEquipmentParamDdEditPostData = FurionResultEquipmentParamDdVO;
+
+export type ApiEquipmentParamDdListPostData =
+  FurionResultListEquipmentParamDdVO;
+
+export type ApiEquipmentParamDdPagedListPostData =
+  FurionResultSqlSugarPagedListEquipmentParamDdVO;
+
+export type ApiEquipmentParamDdRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEquipmentParamDdRemovePostData = FurionResultInt64;
+
+export type ApiEquipmentParamDdShowPostData = FurionResultEquipmentParamDdVO;
+
 export type ApiEquipmentParamEditPostData = FurionResultEquipmentParamVO;
 
-/** 全局返回结果 */
+export type ApiEquipmentParamHdAddPostData = FurionResultEquipmentParamHdVO;
+
+export type ApiEquipmentParamHdEditPostData = FurionResultEquipmentParamHdVO;
+
+export type ApiEquipmentParamHdListPostData =
+  FurionResultListEquipmentParamHdVO;
+
+export type ApiEquipmentParamHdPagedListPostData =
+  FurionResultSqlSugarPagedListEquipmentParamHdVO;
+
+export type ApiEquipmentParamHdRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEquipmentParamHdRemovePostData = FurionResultInt64;
+
+export type ApiEquipmentParamHdShowPostData = FurionResultEquipmentParamHdVO;
+
 export type ApiEquipmentParamListPostData = FurionResultListEquipmentParamVO;
 
-/** 全局返回结果 */
+export type ApiEquipmentParamMdAddPostData = FurionResultEquipmentParamMdVO;
+
+export type ApiEquipmentParamMdEditPostData = FurionResultEquipmentParamMdVO;
+
+export type ApiEquipmentParamMdListPostData =
+  FurionResultListEquipmentParamMdVO;
+
+export type ApiEquipmentParamMdPagedListPostData =
+  FurionResultSqlSugarPagedListEquipmentParamMdVO;
+
+export type ApiEquipmentParamMdRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEquipmentParamMdRemovePostData = FurionResultInt64;
+
+export type ApiEquipmentParamMdShowPostData = FurionResultEquipmentParamMdVO;
+
 export type ApiEquipmentParamPagedListPostData =
   FurionResultSqlSugarPagedListEquipmentParamVO;
 
-/** 全局返回结果 */
-export type ApiEquipmentParamRealTimeSwllPostData = FurionResultString;
-
-/** 全局返回结果 */
 export type ApiEquipmentParamRemoveMulPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiEquipmentParamRemovePostData = FurionResultInt64;
 
-/** 全局返回结果 */
 export type ApiEquipmentParamShowPostData = FurionResultEquipmentParamVO;
 
-/** 全局返回结果 */
-export type ApiEquipmentParamTreeDataPostData = FurionResultListTreeNodeKf;
-
-/** 全局返回结果 */
 export type ApiEquipmentRemoveMulPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiEquipmentRemovePostData = FurionResultInt64;
 
-/** 全局返回结果 */
 export type ApiEquipmentShowPostData = FurionResultEquipmentVO;
 
-/** 全局返回结果 */
-export type ApiKnowledegUserCollectAddPostData =
-  FurionResultKnowledegUserCollectVO;
+export type ApiEsAlarmRecordAddPostData = FurionResultEsAlarmRecordVO;
 
-/** 全局返回结果 */
-export type ApiKnowledegUserCollectDeleteMulPostData = FurionResultInt64;
+export type ApiEsAlarmRecordEditPostData = FurionResultEsAlarmRecordVO;
 
-/** 全局返回结果 */
-export type ApiKnowledegUserCollectDeletePostData = FurionResultInt64;
+export type ApiEsAlarmRecordGetCountByMonthPostData =
+  FurionResultListMonthAndCount;
 
-/** 全局返回结果 */
-export type ApiKnowledegUserCollectKnowledgeUserCollectListPostData =
-  FurionResultSqlSugarPagedListKnowledgeBaseFileVO;
+export type ApiEsAlarmRecordListPostData = FurionResultListEsAlarmRecordVO;
 
-/** 全局返回结果 */
-export type ApiKnowledegUserCollectListPostData = FurionResultBoolean;
+export type ApiEsAlarmRecordPagedListPostData =
+  FurionResultSqlSugarPagedListEsAlarmRecordVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeBaseFileAddPostData = FurionResultKnowledgeBaseFileVO;
+export type ApiEsAlarmRecordRemoveMulPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
-export type ApiKnowledgeBaseFileAllKnowledgeListPostData =
-  FurionResultSqlSugarPagedListKnowledgeBaseFileVO;
+export type ApiEsAlarmRecordRemovePostData = FurionResultInt64;
 
-/** 全局返回结果 */
-export type ApiKnowledgeBaseFileEditPostData = FurionResultKnowledgeBaseFileVO;
+export type ApiEsAlarmRecordShowPostData = FurionResultEsAlarmRecordVO;
 
-export type ApiKnowledgeBaseFileExportPostData = any;
+export type ApiEsFleetAddPostData = FurionResultEsFleetVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeBaseFileFileDisplayPostData = FurionResultBoolean;
+export type ApiEsFleetEditPostData = FurionResultEsFleetVO;
 
-export type ApiKnowledgeBaseFileFileDownloadByIdGetData = any;
+export type ApiEsFleetListPostData = FurionResultListEsFleetVO;
 
-export interface ApiKnowledgeBaseFileFileDownloadByIdGetParams {
-  filename?: string;
-  filepath?: string;
-  /** @format int64 */
-  id?: number;
-}
+export type ApiEsFleetPagedListPostData =
+  FurionResultSqlSugarPagedListEsFleetVO;
 
-export type ApiKnowledgeBaseFileFileDownloadPostData = any;
+export type ApiEsFleetRemoveMulPostData = FurionResultListInt64;
 
-export type ApiKnowledgeBaseFileFileDownloadPostPayload = FileDownloadQO[];
+export type ApiEsFleetRemovePostData = FurionResultInt64;
 
-/** 全局返回结果 */
-export type ApiKnowledgeBaseFileHotKnowledgeListPostData =
-  FurionResultKnowledgeBaseFileVO;
+export type ApiEsFleetShowPostData = FurionResultEsFleetVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeBaseFileKnowledgeListPostData =
-  FurionResultSqlSugarPagedListKnowledgeBaseFileVO;
+export type ApiEsGarbageCategoryListPostData =
+  FurionResultListEsGarbageCategoryVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeBaseFileRemovePostData = FurionResultInt64;
+export type ApiEsGarbageCategoryPagedListPostData =
+  FurionResultSqlSugarPagedListEsGarbageCategoryVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeCatalogueAddPostData = FurionResultKnowledgeCatalogueVO;
+export type ApiEsGarbageCategoryShowPostData = FurionResultEsGarbageCategoryVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeCatalogueDataDisplayPostData = FurionResultBoolean;
+export type ApiEsGarbageCategoryTreedataPostData = FurionResultListTreeNodeKfSk;
 
-/** 全局返回结果 */
-export type ApiKnowledgeCatalogueDataSortPostData = FurionResultBoolean;
+export type ApiEsGarbageTypeListPostData = FurionResultListEsGarbageTypeVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeCatalogueEditPostData =
-  FurionResultKnowledgeCatalogueVO;
+export type ApiEsGarbageTypePagedListPostData =
+  FurionResultSqlSugarPagedListEsGarbageTypeVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeCatalogueRemoveMulPostData = FurionResultListInt64;
+export type ApiEsGarbageTypeShowPostData = FurionResultEsGarbageTypeVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeCatalogueRemovePostData = FurionResultInt64;
+export type ApiEsGpsAlarmRecordAddPostData = FurionResultEsGpsAlarmRecordVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeCatalogueTreeDataPostData =
-  FurionResultListKnowledgeCatalogueTreeNode;
+export type ApiEsGpsAlarmRecordEditPostData = FurionResultEsGpsAlarmRecordVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeFileAddPostData = FurionResultKnowledgeFileVO;
+export type ApiEsGpsAlarmRecordFileAddPostData =
+  FurionResultEsGpsAlarmRecordFileVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeFileEditPostData = FurionResultKnowledgeFileVO;
+export type ApiEsGpsAlarmRecordFileEditPostData =
+  FurionResultEsGpsAlarmRecordFileVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeFileListPostData = FurionResultListKnowledgeFileVO;
+export type ApiEsGpsAlarmRecordFileListPostData =
+  FurionResultListEsGpsAlarmRecordFileVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeFilePagedListPostData =
-  FurionResultSqlSugarPagedListKnowledgeFileVO;
+export type ApiEsGpsAlarmRecordFilePagedListPostData =
+  FurionResultSqlSugarPagedListEsGpsAlarmRecordFileVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeFileRemovePostData = FurionResultListInt64;
+export type ApiEsGpsAlarmRecordFileRemoveMulPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
-export type ApiKnowledgeFileShowPostData = FurionResultKnowledgeFileVO;
+export type ApiEsGpsAlarmRecordFileRemovePostData = FurionResultInt64;
 
-/** 全局返回结果 */
-export type ApiKnowledgeFileTreedataPostData = FurionResultListTreeNodeKf;
+export type ApiEsGpsAlarmRecordFileShowPostData =
+  FurionResultEsGpsAlarmRecordFileVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeFileUploadPostData = FurionResultKnowledgeFile;
+export type ApiEsGpsAlarmRecordGetGpsAlarmRecordPostData =
+  FurionResultSqlSugarPagedListEsGpsAlarmRecordVO;
 
-export interface ApiKnowledgeFileUploadPostPayload {
-  /**
-   * 文件
-   * @format binary
-   */
-  File?: File;
-  /** 是否静态 */
-  IsStatic?: boolean;
-  /** 模块 */
-  ModelName?: string;
-  /**
-   * ParentId
-   * @format int64
-   */
-  ParentId?: number;
-  /**
-   * 业务对象id
-   * @format int64
-   */
-  RecordId: number;
-}
+export type ApiEsGpsAlarmRecordGroupByDayPostData =
+  FurionResultListGpsAlarmStVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeTypeAddPostData = FurionResultKnowledgeTypeVO;
+export type ApiEsGpsAlarmRecordGroupByLicencePostData =
+  FurionResultListGpsAlarmStVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeTypeAllListPostData = FurionResultListKnowledgeTypeVO;
+export type ApiEsGpsAlarmRecordGroupByMonthPostData =
+  FurionResultListGpsAlarmStVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeTypeEditPostData = FurionResultKnowledgeTypeVO;
+export type ApiEsGpsAlarmRecordGroupByYearPostData =
+  FurionResultListGpsAlarmStVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeTypeListPostData = FurionResultListKnowledgeTypeVO;
+export type ApiEsGpsAlarmRecordListPostData =
+  FurionResultListEsGpsAlarmRecordVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeTypePagedListPostData =
-  FurionResultSqlSugarPagedListKnowledgeTypeVO;
+export type ApiEsGpsAlarmRecordPagedListPostData =
+  FurionResultSqlSugarPagedListEsGpsAlarmRecordVO;
 
-/** 全局返回结果 */
-export type ApiKnowledgeTypeRemoveMulPostData = FurionResultListInt64;
+export type ApiEsGpsAlarmRecordRemoveMulPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
-export type ApiKnowledgeTypeRemovePostData = FurionResultInt64;
+export type ApiEsGpsAlarmRecordRemovePostData = FurionResultInt64;
 
-/** 全局返回结果 */
-export type ApiKnowledgeTypeShowPostData = FurionResultKnowledgeTypeVO;
+export type ApiEsGpsAlarmRecordShowPostData = FurionResultEsGpsAlarmRecordVO;
 
-/** 全局返回结果 */
+export type ApiEsSanitationFacilityAddPostData =
+  FurionResultEsSanitationFacilityVO;
+
+export type ApiEsSanitationFacilityEditPostData =
+  FurionResultEsSanitationFacilityVO;
+
+export type ApiEsSanitationFacilityListPostData =
+  FurionResultListEsSanitationFacilityVO;
+
+export type ApiEsSanitationFacilityPagedListPostData =
+  FurionResultSqlSugarPagedListEsSanitationFacilityVO;
+
+export type ApiEsSanitationFacilityRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEsSanitationFacilityRemovePostData = FurionResultInt64;
+
+export type ApiEsSanitationFacilityShowPostData =
+  FurionResultEsSanitationFacilityVO;
+
+export type ApiEsSanitationFacilityTypeAddPostData =
+  FurionResultEsSanitationFacilityTypeVO;
+
+export type ApiEsSanitationFacilityTypeEditPostData =
+  FurionResultEsSanitationFacilityTypeVO;
+
+export type ApiEsSanitationFacilityTypeListPostData =
+  FurionResultListEsSanitationFacilityTypeVO;
+
+export type ApiEsSanitationFacilityTypePagedListPostData =
+  FurionResultSqlSugarPagedListEsSanitationFacilityTypeVO;
+
+export type ApiEsSanitationFacilityTypeRemoveMulPostData =
+  FurionResultListInt64;
+
+export type ApiEsSanitationFacilityTypeRemovePostData = FurionResultInt64;
+
+export type ApiEsSanitationFacilityTypeShowPostData =
+  FurionResultEsSanitationFacilityTypeVO;
+
+export type ApiEsShipAddPostData = FurionResultEsShipVO;
+
+export type ApiEsShipEditPostData = FurionResultEsShipVO;
+
+export type ApiEsShipListPostData = FurionResultListEsShipVO;
+
+export type ApiEsShipPagedListPostData = FurionResultSqlSugarPagedListEsShipVO;
+
+export type ApiEsShipRealtimeAddPostData = FurionResultEsShipRealtimeVO;
+
+export type ApiEsShipRealtimeEditPostData = FurionResultEsShipRealtimeVO;
+
+export type ApiEsShipRealtimeListPostData = FurionResultListEsShipRealtimeVO;
+
+export type ApiEsShipRealtimePagedListPostData =
+  FurionResultSqlSugarPagedListEsShipRealtimeVO;
+
+export type ApiEsShipRealtimeRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEsShipRealtimeRemovePostData = FurionResultInt64;
+
+export type ApiEsShipRealtimeShowPostData = FurionResultEsShipRealtimeVO;
+
+export type ApiEsShipRemovePostData = FurionResultInt64;
+
+export type ApiEsShipShowPostData = FurionResultEsShipVO;
+
+export type ApiEsVehicleAddPostData = FurionResultEsVehicleVO;
+
+export type ApiEsVehicleDpRecordAddPostData = FurionResultEsVehicleDpRecordVO;
+
+export type ApiEsVehicleDpRecordEditPostData = FurionResultEsVehicleDpRecordVO;
+
+export type ApiEsVehicleDpRecordListPostData =
+  FurionResultListEsVehicleDpRecordVO;
+
+export type ApiEsVehicleDpRecordPagedListPostData =
+  FurionResultSqlSugarPagedListEsVehicleDpRecordVO;
+
+export type ApiEsVehicleDpRecordShowPostData = FurionResultEsVehicleDpRecordVO;
+
+export type ApiEsVehicleEditPostData = FurionResultEsVehicleVO;
+
+export type ApiEsVehicleGetVehicleCountByTypeNamePostData =
+  FurionResultListEsVehicleCountByTypeVO;
+
+export type ApiEsVehicleGetVehicleCountByTypePostData =
+  FurionResultListEsVehicleCountByTypeVO;
+
+export type ApiEsVehicleLcRecordAddPostData = FurionResultEsVehicleLcRecordVO;
+
+export type ApiEsVehicleLcRecordEditPostData = FurionResultEsVehicleLcRecordVO;
+
+export type ApiEsVehicleLcRecordGroupByDayPostData = FurionResultListCommonStVO;
+
+export type ApiEsVehicleLcRecordGroupByMonthPostData =
+  FurionResultListCommonStVO;
+
+export type ApiEsVehicleLcRecordGroupByYearPostData =
+  FurionResultListCommonStVO;
+
+export type ApiEsVehicleLcRecordListPostData =
+  FurionResultListEsVehicleLcRecordVO;
+
+export type ApiEsVehicleLcRecordPagedListPostData =
+  FurionResultSqlSugarPagedListEsVehicleLcRecordVO;
+
+export type ApiEsVehicleLcRecordRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEsVehicleLcRecordRemovePostData = FurionResultInt64;
+
+export type ApiEsVehicleLcRecordShowPostData = FurionResultEsVehicleLcRecordVO;
+
+export type ApiEsVehicleListPostData = FurionResultListEsVehicleVO;
+
+export type ApiEsVehiclePagedListPostData =
+  FurionResultSqlSugarPagedListEsVehicleVO;
+
+export type ApiEsVehicleRealtimeAddPostData = FurionResultEsVehicleRealtimeVO;
+
+export type ApiEsVehicleRealtimeEditPostData = FurionResultEsVehicleRealtimeVO;
+
+export type ApiEsVehicleRealtimeListPostData =
+  FurionResultListEsVehicleRealtimeVO;
+
+export type ApiEsVehicleRealtimePagedListPostData =
+  FurionResultSqlSugarPagedListEsVehicleRealtimeVO;
+
+export type ApiEsVehicleRealtimeRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEsVehicleRealtimeRemovePostData = FurionResultInt64;
+
+export type ApiEsVehicleRealtimeShowPostData = FurionResultEsVehicleRealtimeVO;
+
+export type ApiEsVehicleRealtimeVehicleStateStPostData =
+  FurionResultListEsVehicleStateStVO;
+
+export type ApiEsVehicleRemovePostData = FurionResultInt64;
+
+export type ApiEsVehicleShowPostData = FurionResultEsVehicleVO;
+
+export type ApiEsVehicleTrackPostData = FurionResultListEsVehicleRecordPoint;
+
+export type ApiEsWeightRecordAddPostData = FurionResultEsWeightRecordVO;
+
+export type ApiEsWeightRecordEditPostData = FurionResultEsWeightRecordVO;
+
+export type ApiEsWeightRecordGroupByDayPostData =
+  FurionResultListEsWeightRecordStVO;
+
+export type ApiEsWeightRecordGroupByLicencePostData =
+  FurionResultListEsWeightRecordStVO;
+
+export type ApiEsWeightRecordGroupByMonthPostData =
+  FurionResultListEsWeightRecordStVO;
+
+export type ApiEsWeightRecordGroupByYearPostData =
+  FurionResultListEsWeightRecordStVO;
+
+export type ApiEsWeightRecordListPostData = FurionResultListEsWeightRecordVO;
+
+export type ApiEsWeightRecordMainStPostData = FurionResultWrMainStVO;
+
+export type ApiEsWeightRecordPagedListPostData =
+  FurionResultSqlSugarPagedListEsWeightRecordVO;
+
+export type ApiEsWeightRecordQueryStatisticsPostData =
+  FurionResultEsWeightRecordStatisticsVO;
+
+export type ApiEsWeightRecordRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEsWeightRecordRemovePostData = FurionResultInt64;
+
+export type ApiEsWeightRecordShowPostData = FurionResultEsWeightRecordVO;
+
+export type ApiEsWorkPlanPwAddPostData = FurionResultEsWorkPlanPwVO;
+
+export type ApiEsWorkPlanPwEditPostData = FurionResultEsWorkPlanPwVO;
+
+export type ApiEsWorkPlanPwGroupByDayPostData = FurionResultListEsWorkPlanStVO;
+
+export type ApiEsWorkPlanPwGroupByMonthPostData =
+  FurionResultListEsWorkPlanStVO;
+
+export type ApiEsWorkPlanPwGroupByYearPostData = FurionResultListEsWorkPlanStVO;
+
+export type ApiEsWorkPlanPwListPostData = FurionResultListEsWorkPlanPwVO;
+
+export type ApiEsWorkPlanPwPagedListPostData =
+  FurionResultSqlSugarPagedListEsWorkPlanPwVO;
+
+export type ApiEsWorkPlanPwRemovePostData = FurionResultInt64;
+
+export type ApiEsWorkPlanPwSaveListPostData = any;
+
+export type ApiEsWorkPlanPwShowPostData = FurionResultEsWorkPlanPwVO;
+
+export type ApiEsWorkPlanSwAddPostData = FurionResultEsWorkPlanSwVO;
+
+export type ApiEsWorkPlanSwEditPostData = FurionResultEsWorkPlanSwVO;
+
+export type ApiEsWorkPlanSwGroupByDayPostData = FurionResultListEsWorkPlanStVO;
+
+export type ApiEsWorkPlanSwGroupByMonthPostData =
+  FurionResultListEsWorkPlanStVO;
+
+export type ApiEsWorkPlanSwGroupByYearPostData = FurionResultListEsWorkPlanStVO;
+
+export type ApiEsWorkPlanSwListPostData = FurionResultListEsWorkPlanSwVO;
+
+export type ApiEsWorkPlanSwPagedListPostData =
+  FurionResultSqlSugarPagedListEsWorkPlanSwVO;
+
+export type ApiEsWorkPlanSwRemovePostData = FurionResultInt64;
+
+export type ApiEsWorkPlanSwSaveListPostData = any;
+
+export type ApiEsWorkPlanSwShowPostData = FurionResultEsWorkPlanSwVO;
+
+export type ApiEsWorkPlanVwAddPostData = FurionResultEsWorkPlanVwVO;
+
+export type ApiEsWorkPlanVwEditPostData = FurionResultEsWorkPlanVwVO;
+
+export type ApiEsWorkPlanVwGroupByDayPostData = FurionResultListEsWorkPlanStVO;
+
+export type ApiEsWorkPlanVwGroupByMonthPostData =
+  FurionResultListEsWorkPlanStVO;
+
+export type ApiEsWorkPlanVwGroupByYearPostData = FurionResultListEsWorkPlanStVO;
+
+export type ApiEsWorkPlanVwListPostData = FurionResultListEsWorkPlanVwVO;
+
+export type ApiEsWorkPlanVwPagedListPostData =
+  FurionResultSqlSugarPagedListEsWorkPlanVwVO;
+
+export type ApiEsWorkPlanVwRemovePostData = FurionResultInt64;
+
+export type ApiEsWorkPlanVwSaveListPostData = any;
+
+export type ApiEsWorkPlanVwShowPostData = FurionResultEsWorkPlanVwVO;
+
+export type ApiEsWorkRouteAddPostData = FurionResultEsWorkRouteVO;
+
+export type ApiEsWorkRouteEditPostData = FurionResultEsWorkRouteVO;
+
+export type ApiEsWorkRouteListPostData = FurionResultListEsWorkRouteVO;
+
+export type ApiEsWorkRoutePagedListPostData =
+  FurionResultSqlSugarPagedListEsWorkRouteVO;
+
+export type ApiEsWorkRoutePointListPostData =
+  FurionResultListEsWorkRoutePointVO;
+
+export type ApiEsWorkRoutePointPagedListPostData =
+  FurionResultSqlSugarPagedListEsWorkRoutePointVO;
+
+export type ApiEsWorkRoutePointShowPostData = FurionResultEsWorkRoutePointVO;
+
+export type ApiEsWorkRouteRemovePostData = FurionResultInt64;
+
+export type ApiEsWorkRouteShowPostData = FurionResultEsWorkRouteVO;
+
+export type ApiEsWorkRuleAddPostData = FurionResultEsWorkRuleVO;
+
+export type ApiEsWorkRuleEditPostData = FurionResultEsWorkRuleVO;
+
+export type ApiEsWorkRuleListPostData = FurionResultListEsWorkRuleVO;
+
+export type ApiEsWorkRulePagedListPostData =
+  FurionResultSqlSugarPagedListEsWorkRuleVO;
+
+export type ApiEsWorkRuleRemovePostData = FurionResultInt64;
+
+export type ApiEsWorkRuleShowPostData = FurionResultEsWorkRuleVO;
+
+export type ApiEsWorkShiftPwAddPostData = FurionResultEsWorkShiftPwVO;
+
+export type ApiEsWorkShiftPwEditPostData = FurionResultEsWorkShiftPwVO;
+
+export type ApiEsWorkShiftPwListPostData = FurionResultListEsWorkShiftPwVO;
+
+export type ApiEsWorkShiftPwPagedListPostData =
+  FurionResultSqlSugarPagedListEsWorkShiftPwVO;
+
+export type ApiEsWorkShiftPwRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEsWorkShiftPwRemovePostData = FurionResultInt64;
+
+export type ApiEsWorkShiftPwShowPostData = FurionResultEsWorkShiftPwVO;
+
+export type ApiEsWorkShiftSwAddPostData = FurionResultEsWorkShiftSwVO;
+
+export type ApiEsWorkShiftSwEditPostData = FurionResultEsWorkShiftSwVO;
+
+export type ApiEsWorkShiftSwListPostData = FurionResultListEsWorkShiftSwVO;
+
+export type ApiEsWorkShiftSwPagedListPostData =
+  FurionResultSqlSugarPagedListEsWorkShiftSwVO;
+
+export type ApiEsWorkShiftSwRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEsWorkShiftSwRemovePostData = FurionResultInt64;
+
+export type ApiEsWorkShiftSwShowPostData = FurionResultEsWorkShiftSwVO;
+
+export type ApiEsWorkShiftVwAddPostData = FurionResultEsWorkShiftVwVO;
+
+export type ApiEsWorkShiftVwEditPostData = FurionResultEsWorkShiftVwVO;
+
+export type ApiEsWorkShiftVwListPostData = FurionResultListEsWorkShiftVwVO;
+
+export type ApiEsWorkShiftVwPagedListPostData =
+  FurionResultSqlSugarPagedListEsWorkShiftVwVO;
+
+export type ApiEsWorkShiftVwRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEsWorkShiftVwRemovePostData = FurionResultInt64;
+
+export type ApiEsWorkShiftVwShowPostData = FurionResultEsWorkShiftVwVO;
+
+export type ApiEsWorkWatercourseAddPostData = FurionResultEsWorkWatercourseVO;
+
+export type ApiEsWorkWatercourseEditPostData = FurionResultEsWorkWatercourseVO;
+
+export type ApiEsWorkWatercourseListPostData =
+  FurionResultListEsWorkWatercourseVO;
+
+export type ApiEsWorkWatercoursePagedListPostData =
+  FurionResultSqlSugarPagedListEsWorkWatercourseVO;
+
+export type ApiEsWorkWatercoursePointAddPostData =
+  FurionResultEsWorkWatercoursePointVO;
+
+export type ApiEsWorkWatercoursePointEditPostData =
+  FurionResultEsWorkWatercoursePointVO;
+
+export type ApiEsWorkWatercoursePointListPostData =
+  FurionResultListEsWorkWatercoursePointVO;
+
+export type ApiEsWorkWatercoursePointPagedListPostData =
+  FurionResultSqlSugarPagedListEsWorkWatercoursePointVO;
+
+export type ApiEsWorkWatercoursePointRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEsWorkWatercoursePointRemovePostData = FurionResultInt64;
+
+export type ApiEsWorkWatercoursePointShowPostData =
+  FurionResultEsWorkWatercoursePointVO;
+
+export type ApiEsWorkWatercourseRemovePostData = FurionResultInt64;
+
+export type ApiEsWorkWatercourseShowPostData = FurionResultEsWorkWatercourseVO;
+
+export type ApiEsWtGeneralAddPostData = FurionResultEsWtGeneralVO;
+
+export type ApiEsWtGeneralEditPostData = FurionResultEsWtGeneralVO;
+
+export type ApiEsWtGeneralListPostData = FurionResultListEsWtGeneralVO;
+
+export type ApiEsWtGeneralPagedListPostData =
+  FurionResultSqlSugarPagedListEsWtGeneralVO;
+
+export type ApiEsWtGeneralRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEsWtGeneralRemovePostData = FurionResultInt64;
+
+export type ApiEsWtGeneralShowPostData = FurionResultEsWtGeneralVO;
+
+export type ApiEsWtGeneralTreedataPostData = FurionResultListTreeNodeKfSk;
+
+export type ApiEsWtShiftListPostData = FurionResultListEsWtShiftVO;
+
+export type ApiEsWtShiftPagedListPostData =
+  FurionResultSqlSugarPagedListEsWtShiftVO;
+
+export type ApiEsWtShiftShowPostData = FurionResultEsWtShiftVO;
+
+export type ApiEsWtSpecificAddPostData = FurionResultEsWtSpecificVO;
+
+export type ApiEsWtSpecificEditPostData = FurionResultEsWtSpecificVO;
+
+export type ApiEsWtSpecificListPostData = FurionResultListEsWtSpecificVO;
+
+export type ApiEsWtSpecificPagedListPostData =
+  FurionResultSqlSugarPagedListEsWtSpecificVO;
+
+export type ApiEsWtSpecificRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEsWtSpecificRemovePostData = FurionResultInt64;
+
+export type ApiEsWtSpecificShowPostData = FurionResultEsWtSpecificVO;
+
+export type ApiGpsGpsTokenPostData = FurionResultString;
+
+export type ApiHikCruiseRoutesControllingPostData = FurionResultString;
+
+export type ApiHikPlaybackHlsUrlPostData = FurionResultString;
+
+export type ApiHikPlaybackUrlPostData = FurionResultString;
+
+export type ApiHikPreviewUrlPostData = FurionResultString;
+
+export type ApiHikPtzsControllingPostData = FurionResultString;
+
 export type ApiLogaccessAddPostData = FurionResultLogaccessVO;
 
-/** 全局返回结果 */
 export type ApiLogaccessEditPostData = FurionResultLogaccessVO;
 
-/** 全局返回结果 */
 export type ApiLogaccessListPostData = FurionResultListLogaccessVO;
 
-/** 全局返回结果 */
 export type ApiLogaccessPagedListPostData =
   FurionResultSqlSugarPagedListLogaccessVO;
 
-/** 全局返回结果 */
 export type ApiLogaccessRemoveMulPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiLogaccessRemovePostData = FurionResultInt64;
 
-/** 全局返回结果 */
 export type ApiLogaccessShowPostData = FurionResultLogaccessVO;
 
-/** 全局返回结果 */
 export type ApiLogerrorAddPostData = FurionResultLogerrorVO;
 
-/** 全局返回结果 */
 export type ApiLogerrorEditPostData = FurionResultLogerrorVO;
 
-/** 全局返回结果 */
 export type ApiLogerrorListPostData = FurionResultListLogerrorVO;
 
-/** 全局返回结果 */
 export type ApiLogerrorPagedListPostData =
   FurionResultSqlSugarPagedListLogerrorVO;
 
-/** 全局返回结果 */
 export type ApiLogerrorRemoveMulPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiLogerrorRemovePostData = FurionResultInt64;
 
-/** 全局返回结果 */
 export type ApiLogerrorShowPostData = FurionResultLogerrorVO;
 
-/** 全局返回结果 */
 export type ApiLogoperationAddPostData = FurionResultLogoperationVO;
 
-/** 全局返回结果 */
 export type ApiLogoperationEditPostData = FurionResultLogoperationVO;
 
-/** 全局返回结果 */
 export type ApiLogoperationListPostData = FurionResultListLogoperationVO;
 
-/** 全局返回结果 */
 export type ApiLogoperationPagedListPostData =
   FurionResultSqlSugarPagedListLogoperationVO;
 
-/** 全局返回结果 */
 export type ApiLogoperationRemoveMulPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiLogoperationRemovePostData = FurionResultInt64;
 
-/** 全局返回结果 */
 export type ApiLogoperationShowPostData = FurionResultLogoperationVO;
 
-/** 全局返回结果 */
-export type ApiMdRecordAllListPostData = FurionResultListMdRecord;
-
-/** 全局返回结果 */
-export type ApiMdRecordPagedListPostData =
-  FurionResultSqlSugarPagedListMdRecord;
-
-/** 全局返回结果 */
 export type ApiMessageListPostData = FurionResultListMessageVO;
 
-/** 全局返回结果 */
 export type ApiMessagePagedListPostData =
   FurionResultSqlSugarPagedListMessageVO;
 
-/** 全局返回结果 */
 export type ApiMessageShowPostData = FurionResultMessageVO;
 
-/** 全局返回结果 */
+export type ApiMmInventoryListPostData = FurionResultListMmInventoryVO;
+
+export type ApiMmInventoryPagedListPostData =
+  FurionResultSqlSugarPagedListMmInventoryVO;
+
+export type ApiMmInventoryShowPostData = FurionResultMmInventoryVO;
+
+export type ApiMmMaterialAddPostData = FurionResultMmMaterialVO;
+
+export type ApiMmMaterialCategoryAddPostData = FurionResultMmMaterialCategoryVO;
+
+export type ApiMmMaterialCategoryEditPostData =
+  FurionResultMmMaterialCategoryVO;
+
+export type ApiMmMaterialCategoryListPostData =
+  FurionResultListMmMaterialCategoryVO;
+
+export type ApiMmMaterialCategoryPagedListPostData =
+  FurionResultSqlSugarPagedListMmMaterialCategoryVO;
+
+export type ApiMmMaterialCategoryRemovePostData = FurionResultInt64;
+
+export type ApiMmMaterialCategoryShowPostData =
+  FurionResultMmMaterialCategoryVO;
+
+export type ApiMmMaterialEditPostData = FurionResultMmMaterialVO;
+
+export type ApiMmMaterialListPostData = FurionResultListMmMaterialVO;
+
+export type ApiMmMaterialPagedListPostData =
+  FurionResultSqlSugarPagedListMmMaterialVO;
+
+export type ApiMmMaterialRemovePostData = FurionResultInt64;
+
+export type ApiMmMaterialShowPostData = FurionResultMmMaterialVO;
+
+export type ApiMmRequisitionApproveRequisitionPostData =
+  FurionResultMmRequisitionVO;
+
+export type ApiMmRequisitionGenerateStockOutPostData =
+  FurionResultListMmStockInOutVO;
+
+export type ApiMmRequisitionListPostData = FurionResultListMmRequisitionVO;
+
+export type ApiMmRequisitionPagedListPostData =
+  FurionResultSqlSugarPagedListMmRequisitionVO;
+
+export type ApiMmRequisitionShowPostData = FurionResultMmRequisitionVO;
+
+export type ApiMmRequisitionSubmitRequisitionPostData =
+  FurionResultMmRequisitionVO;
+
+export type ApiMmStockInOutApprovePostData = FurionResultMmStockInOutVO;
+
+export type ApiMmStockInOutListPostData = FurionResultListMmStockInOutVO;
+
+export type ApiMmStockInOutPagedListPostData =
+  FurionResultSqlSugarPagedListMmStockInOutVO;
+
+export type ApiMmStockInOutPendingApproveListPostData =
+  FurionResultSqlSugarPagedListMmStockInOutVO;
+
+export type ApiMmStockInOutShowPostData = FurionResultMmStockInOutVO;
+
+export type ApiMmStockInOutStockInPostData = FurionResultMmStockInOutVO;
+
+export type ApiMmStockInOutStockOutPostData = FurionResultMmStockInOutVO;
+
 export type ApiOrganizationAddPostData = FurionResultOrganizationVO;
 
-/** 全局返回结果 */
 export type ApiOrganizationEditPostData = FurionResultOrganizationVO;
 
-/** 全局返回结果 */
 export type ApiOrganizationListPostData = FurionResultListOrganizationVO;
 
-/** 全局返回结果 */
 export type ApiOrganizationPagedListPostData =
   FurionResultSqlSugarPagedListOrganizationVO;
 
-/** 全局返回结果 */
 export type ApiOrganizationRemovePostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiOrganizationShowPostData = FurionResultOrganizationVO;
 
-/** 全局返回结果 */
 export type ApiOrganizationTreedataPostData = FurionResultListTreeNode;
 
-/** 全局返回结果 */
-export type ApiPrealarmRecordAddPostData = FurionResultPrealarmRecordVO;
+export type ApiReportStwaGroupByDayPostData = FurionResultListEsWorkPlanStVO;
 
-/** 全局返回结果 */
-export type ApiPrealarmRecordEditPostData = FurionResultPrealarmRecordVO;
+export type ApiReportStwaGroupByMonthPostData = FurionResultListEsWorkPlanStVO;
 
-/** 全局返回结果 */
-export type ApiPrealarmRecordListPostData = FurionResultListPrealarmRecordVO;
+export type ApiReportStwaGroupByYearPostData = FurionResultListEsWorkPlanStVO;
 
-/** 全局返回结果 */
-export type ApiPrealarmRecordPagedListPostData =
-  FurionResultSqlSugarPagedListPrealarmRecordVO;
+export type ApiReportStwpGroupByGeneralPostData = FurionResultListCommonStVO;
 
-/** 全局返回结果 */
-export type ApiPrealarmRecordPrealarmCountPostData = FurionResultPrealarmCount;
-
-/** 全局返回结果 */
-export type ApiPrealarmRecordRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiPrealarmRecordRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiPrealarmRecordShowOnePostData = FurionResultPrealarmRecordVO;
-
-/** 全局返回结果 */
-export type ApiPrealarmRecordShowPostData = FurionResultPrealarmRecordVO;
-
-/** 全局返回结果 */
-export type ApiPrealarmRecordWhitePagedListPostData =
-  FurionResultSqlSugarPagedListPrealarmRecordVO;
-
-/** 全局返回结果 */
-export type ApiPrealarmRecordWhitelistPostData =
-  FurionResultListPrealarmRecordVO;
-
-/** 全局返回结果 */
-export type ApiPrealarmRuleAddPostData = FurionResultPrealarmRuleVO;
-
-/** 全局返回结果 */
-export type ApiPrealarmRuleEditPostData = FurionResultPrealarmRuleVO;
-
-/** 全局返回结果 */
-export type ApiPrealarmRuleGetRpsPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiPrealarmRuleListPostData = FurionResultListPrealarmRuleVO;
-
-/** 全局返回结果 */
-export type ApiPrealarmRulePagedListPostData =
-  FurionResultSqlSugarPagedListPrealarmRuleVO;
-
-/** 全局返回结果 */
-export type ApiPrealarmRuleRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiPrealarmRuleRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiPrealarmRuleShowPostData = FurionResultPrealarmRuleVO;
-
-/** 全局返回结果 */
-export type ApiPrealarmRuleUpdateRpsPostData = FurionResultBoolean;
-
-/** 全局返回结果 */
-export type ApiRecordFileListPostData = FurionResultListRecordFileVO;
-
-/** 全局返回结果 */
-export type ApiRecordFilePagedListPostData =
-  FurionResultSqlSugarPagedListRecordFileVO;
-
-/** 全局返回结果 */
-export type ApiRecordFileRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiRecordFileRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiRecordFileShowPostData = FurionResultRecordFileVO;
-
-/** 全局返回结果 */
-export type ApiRegionAddPostData = FurionResultString;
-
-/** 全局返回结果 */
-export type ApiRegionEditPostData = FurionResultString;
-
-/** 全局返回结果 */
-export type ApiRegionListPostData = FurionResultListRegionVO;
-
-/** 全局返回结果 */
-export type ApiRegionPagedListPostData = FurionResultSqlSugarPagedListRegionVO;
-
-/** 全局返回结果 */
-export type ApiRegionShowPostData = FurionResultRegionVO;
-
-/** 全局返回结果 */
-export type ApiRegionTreedataPostData = FurionResultListTreeNode;
-
-/** 全局返回结果 */
 export type ApiResourceAddPostData = FurionResultResourceVO;
 
-/** 全局返回结果 */
 export type ApiResourceEditPostData = FurionResultResourceVO;
 
-/** 全局返回结果 */
 export type ApiResourceGetResourcesPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiResourceListPostData = FurionResultListResourceVO;
 
-/** 全局返回结果 */
 export type ApiResourcePagedListPostData =
   FurionResultSqlSugarPagedListResourceVO;
 
-/** 全局返回结果 */
 export type ApiResourceRemovePostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiResourceRoutePathsPostData = FurionResultListString;
 
-/** 全局返回结果 */
 export type ApiResourceShowPostData = FurionResultResourceVO;
 
-/** 全局返回结果 */
 export type ApiResourceTreedataPostData = FurionResultListTreeNode;
 
-/** 全局返回结果 */
 export type ApiRoleAddPostData = FurionResultRoleVO;
 
 export type ApiRoleAssignResourcePostData = any;
 
-/** 全局返回结果 */
 export type ApiRoleEditPostData = FurionResultRoleVO;
 
-/** 全局返回结果 */
 export type ApiRoleListPostData = FurionResultListRoleVO;
 
-/** 全局返回结果 */
 export type ApiRolePagedListPostData = FurionResultSqlSugarPagedListRoleVO;
 
-/** 全局返回结果 */
 export type ApiRoleRemoveMulPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiRoleRemovePostData = FurionResultInt64;
 
-/** 全局返回结果 */
 export type ApiRoleShowPostData = FurionResultRoleVO;
 
-/** 全局返回结果 */
 export type ApiSsoDoLoginByTicketPostData = FurionResultUserVO;
 
 export interface ApiSsoDoLoginByTicketPostParams {
   ticket?: string;
 }
 
-/** 全局返回结果 */
 export type ApiSsoGetSsoAuthUrlPostData = FurionResultString;
 
 export interface ApiSsoGetSsoAuthUrlPostParams {
   clientloginurl?: string;
 }
 
-/** 全局返回结果 */
 export type ApiSysCacheDeleteKeyPostData = FurionResultInt32;
 
 export interface ApiSysCacheDeleteKeyPostParams {
   key: string;
 }
 
-/** 全局返回结果 */
 export type ApiSysCacheDeletebyprekeyPrefixkeyPostData = FurionResultInt32;
 
 export interface ApiSysCacheDeletebyprekeyPrefixkeyPostParams {
@@ -954,10 +1458,8 @@ export interface ApiSysCacheDeletebyprekeyPrefixkeyPostParams {
   prefixkey: string;
 }
 
-/** 全局返回结果 */
 export type ApiSysCacheKeyListGetData = FurionResultListString;
 
-/** 全局返回结果 */
 export type ApiSysCacheKeysByPrefixKeyPrefixkeyGetData = FurionResultListString;
 
 export interface ApiSysCacheKeysByPrefixKeyPrefixkeyGetParams {
@@ -965,2530 +1467,247 @@ export interface ApiSysCacheKeysByPrefixKeyPrefixkeyGetParams {
   prefixkey: string;
 }
 
-/** 全局返回结果 */
 export type ApiSysCacheValueKeyGetData = FurionResultObject;
 
 export interface ApiSysCacheValueKeyGetParams {
   key: string;
 }
 
-/** 全局返回结果 */
+export type ApiSysNoticeAddPostData = FurionResultSysNoticeVO;
+
+export type ApiSysNoticeEditPostData = FurionResultSysNoticeVO;
+
+export type ApiSysNoticeListPostData = FurionResultListSysNoticeVO;
+
+export type ApiSysNoticePagedListPostData =
+  FurionResultSqlSugarPagedListSysNoticeVO;
+
+export type ApiSysNoticeRemovePostData = FurionResultInt64;
+
+export type ApiSysNoticeShowPostData = FurionResultSysNoticeVO;
+
 export type ApiTechnicsAddPostData = FurionResultTechnicsVO;
 
-/** 全局返回结果 */
 export type ApiTechnicsEditPostData = FurionResultTechnicsVO;
 
-/** 全局返回结果 */
 export type ApiTechnicsListPostData = FurionResultListTechnicsVO;
 
-/** 全局返回结果 */
 export type ApiTechnicsPagedListPostData =
   FurionResultSqlSugarPagedListTechnicsVO;
 
-/** 全局返回结果 */
 export type ApiTechnicsRemoveMulPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiTechnicsRemovePostData = FurionResultInt64;
 
-/** 全局返回结果 */
 export type ApiTechnicsShowPostData = FurionResultTechnicsVO;
 
-/** 全局返回结果 */
-export type ApiTechnicsTypeAddPostData = FurionResultTechnicsTypeVO;
-
-/** 全局返回结果 */
-export type ApiTechnicsTypeEditPostData = FurionResultTechnicsTypeVO;
-
-/** 全局返回结果 */
-export type ApiTechnicsTypeListPostData = FurionResultListTechnicsTypeVO;
-
-/** 全局返回结果 */
-export type ApiTechnicsTypePagedListPostData =
-  FurionResultSqlSugarPagedListTechnicsTypeVO;
-
-/** 全局返回结果 */
-export type ApiTechnicsTypeRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiTechnicsTypeRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiTechnicsTypeShowPostData = FurionResultTechnicsTypeVO;
-
-/** 全局返回结果 */
-export type ApiTechnicsWhitePagedListPostData =
-  FurionResultSqlSugarPagedListTechnicsVO;
-
-/** 全局返回结果 */
-export type ApiTechnicsWhitelistPostData = FurionResultListTechnicsVO;
-
-/** 全局返回结果 */
 export type ApiUserAddPostData = FurionResultUserVO;
 
 export type ApiUserAssignRolesPostData = any;
 
-export type ApiUserAssignTechnicsesPostData = any;
-
 export type ApiUserAssignUsergroupsPostData = any;
 
-/** 全局返回结果 */
+export type ApiUserCountByJobPostData = FurionResultListNameCount;
+
 export type ApiUserEditPostData = FurionResultUserVO;
 
 export type ApiUserEditPwdPostData = any;
 
-/** 全局返回结果 */
 export type ApiUserEditSelfPostData = FurionResultUserVO;
 
-/** 全局返回结果 */
 export type ApiUserGetRolesPostData = FurionResultListRoleVO;
 
-/** 全局返回结果 */
-export type ApiUserGetTechnicsesPostData = FurionResultListTechnicsVO;
+export type ApiUserGetUserCountPostData = FurionResultUserCountVO;
 
-/** 全局返回结果 */
 export type ApiUserGetUsergroupsPostData = FurionResultListUsergroupVO;
 
-/** 全局返回结果 */
 export type ApiUserListPostData = FurionResultListUserVO;
 
-/** 全局返回结果 */
 export type ApiUserMessageAmountstPostData = FurionResultMessageStRes;
 
-/** 全局返回结果 */
 export type ApiUserMessageDeleteMessagePostData = FurionResultBoolean;
 
-/** 全局返回结果 */
 export type ApiUserMessageListPostData = FurionResultListUserMessageVO;
 
-/** 全局返回结果 */
 export type ApiUserMessagePagedListPostData =
   FurionResultSqlSugarPagedListUserMessageVO;
 
-/** 全局返回结果 */
 export type ApiUserMessageReadAllMessagePostData = FurionResultBoolean;
 
-/** 全局返回结果 */
 export type ApiUserMessageReadMessagePostData = FurionResultBoolean;
 
-/** 全局返回结果 */
 export type ApiUserMessageShowPostData = FurionResultUserMessageVO;
 
-/** 全局返回结果 */
 export type ApiUserPagedListPostData = FurionResultSqlSugarPagedListUserVO;
 
-/** 全局返回结果 */
-export type ApiUserRegionAddPostData = FurionResultUserRegionVO;
+export type ApiUserPagedListWpPostData = FurionResultSqlSugarPagedListUserWpVO;
 
-/** 全局返回结果 */
-export type ApiUserRegionEditPostData = FurionResultUserRegionVO;
-
-/** 全局返回结果 */
-export type ApiUserRegionListPostData = FurionResultListUserRegionVO;
-
-/** 全局返回结果 */
-export type ApiUserRegionPagedListPostData =
-  FurionResultSqlSugarPagedListUserRegionVO;
-
-/** 全局返回结果 */
-export type ApiUserRegionRemoveMulPostData = FurionResultListInt64;
-
-/** 全局返回结果 */
-export type ApiUserRegionRemovePostData = FurionResultInt64;
-
-/** 全局返回结果 */
-export type ApiUserRegionShowPostData = FurionResultUserRegionVO;
-
-/** 全局返回结果 */
 export type ApiUserRemoveMulPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiUserRemovePostData = FurionResultInt64;
 
 export type ApiUserResetPwdPostData = any;
 
-/** 全局返回结果 */
 export type ApiUserShowPostData = FurionResultUserVO;
 
-/** 全局返回结果 */
 export type ApiUserShowSelfPostData = FurionResultUserVO;
 
-/** 全局返回结果 */
 export type ApiUsergroupAddPostData = FurionResultUsergroupVO;
 
 export type ApiUsergroupAssignRolesPostData = any;
 
-/** 全局返回结果 */
 export type ApiUsergroupEditPostData = FurionResultUsergroupVO;
 
-/** 全局返回结果 */
 export type ApiUsergroupGetRolesPostData = FurionResultListRoleVO;
 
-/** 全局返回结果 */
 export type ApiUsergroupListPostData = FurionResultListUsergroupVO;
 
-/** 全局返回结果 */
 export type ApiUsergroupPagedListPostData =
   FurionResultSqlSugarPagedListUsergroupVO;
 
-/** 全局返回结果 */
 export type ApiUsergroupRemoveMulPostData = FurionResultListInt64;
 
-/** 全局返回结果 */
 export type ApiUsergroupRemovePostData = FurionResultInt64;
 
-/** 全局返回结果 */
 export type ApiUsergroupShowPostData = FurionResultUsergroupVO;
 
-/** 全局返回结果 */
-export type ApiWaterSupplyGroupByMonthPostData = FurionResultListCommonStVO;
-
-/** 全局返回结果 */
-export type ApiWaterSupplyGroupByYearPostData = FurionResultListCommonStVO;
-
-/** 全局返回结果 */
 export type ApiWeatherWeatherTokenPostData = FurionResultString;
 
-export interface AppVersionPQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  filePath?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 排序方向 */
-  order?: null | string;
+export interface ApproveRequisitionFO {
+  /** 审批结果 */
+  approved: boolean;
   /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  version?: null | string;
-}
-
-export interface AppVersionQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  filePath?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  version?: null | string;
-}
-
-export interface AppVersionVO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  filePath?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  version?: null | string;
-}
-
-export interface BizCropsFO {
-  /**
-   * 编码
-   * @minLength 1
-   */
-  code: string;
-  /**
-   * 作物类型
+   * 领料申请单id必填
    * @format int64
    */
-  cropsTypeId: number;
-  /**
-   * 供水量下限
-   * @format double
-   */
-  gslLowerLimit?: null | number;
-  /**
-   * 供水量上限
-   * @format double
-   */
-  gslUpperLimit?: null | number;
-  /** 图标文件 */
-  iconFile?: null | RecordFile[];
-  /**
-   * 图标文件ID
-   * @format int64
-   */
-  iconFileId?: null | number;
-  /** @format int64 */
-  id?: null | number;
-  /** 图片文件 */
-  imgFile?: null | RecordFile[];
-  /**
-   * 图片文件ID
-   * @format int64
-   */
-  imgFileId?: null | number;
-  /**
-   * 名称
-   * @minLength 1
-   */
-  name: string;
+  id: number;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
 }
 
-export interface BizCropsPQO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+export interface ApproveSioFO {
+  /** 审批结果 */
+  approved: boolean;
   /**
-   * 作物类型
+   * 领料申请单id
    * @format int64
    */
-  cropsTypeId?: null | number;
-  /** 排序字段 */
-  field?: null | string;
-  /**
-   * 供水量下限
-   * @format double
-   */
-  gslLowerLimit?: null | number;
-  /**
-   * 供水量上限
-   * @format double
-   */
-  gslUpperLimit?: null | number;
-  /**
-   * 图标文件ID
-   * @format int64
-   */
-  iconFileId?: null | number;
-  /** 图标文件路径 */
-  iconFilePath?: null | string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 图片文件ID
-   * @format int64
-   */
-  imgFileId?: null | number;
-  /** 图片文件路径 */
-  imgFilePath?: null | string;
-  /** 名称 */
-  name?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
+  id: number;
   /** 备注 */
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizCropsQO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 作物类型
-   * @format int64
-   */
-  cropsTypeId?: null | number;
-  /**
-   * 供水量下限
-   * @format double
-   */
-  gslLowerLimit?: null | number;
-  /**
-   * 供水量上限
-   * @format double
-   */
-  gslUpperLimit?: null | number;
-  /**
-   * 图标文件ID
-   * @format int64
-   */
-  iconFileId?: null | number;
-  /** 图标文件路径 */
-  iconFilePath?: null | string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 图片文件ID
-   * @format int64
-   */
-  imgFileId?: null | number;
-  /** 图片文件路径 */
-  imgFilePath?: null | string;
-  /** 名称 */
-  name?: null | string;
-  /** 备注 */
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizCropsTypeFO {
-  /**
-   * 编码
-   * @minLength 1
-   */
-  code: string;
-  /**
-   * id
-   * @format int64
-   */
-  id?: null | number;
-  /**
-   * 名称
-   * @minLength 1
-   */
-  name: string;
-}
-
-export interface BizCropsTypePQO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizCropsTypeQO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizCropsTypeVO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizCropsVO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 作物类型编码 */
-  cropsTypeCode?: null | string;
-  /**
-   * 作物类型
-   * @format int64
-   */
-  cropsTypeId?: null | number;
-  /** 作物类型名称 */
-  cropsTypeName?: null | string;
-  /**
-   * 供水量下限
-   * @format double
-   */
-  gslLowerLimit?: null | number;
-  /**
-   * 供水量上限
-   * @format double
-   */
-  gslUpperLimit?: null | number;
-  /**
-   * 图标文件ID
-   * @format int64
-   */
-  iconFileId?: null | number;
-  /** 图标文件路径 */
-  iconFilePath?: null | string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 图片文件ID
-   * @format int64
-   */
-  imgFileId?: null | number;
-  /** 图片文件路径 */
-  imgFilePath?: null | string;
-  /** 名称 */
-  name?: null | string;
-  /** 备注 */
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizDayTotalFlowFO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format date-time */
-  dataTime?: null | string;
-  /** @format double */
-  dataValue?: null | number;
-  /** @format int64 */
-  equipmentId?: null | number;
-  equipmentName?: null | string;
-  /** @format int64 */
-  equipmentParamId?: null | number;
-  equipmentParamName?: null | string;
-  /** @format double */
-  etValue?: null | number;
-  /** @format date-time */
-  etValueTime?: null | string;
-  /** @format int64 */
-  id?: number;
-  isModified?: null | boolean;
-  modifiedDesc?: null | string;
-  /** @format int32 */
-  sday?: number;
-  /** @format int32 */
-  smonth?: number;
-  /** @format double */
-  stValue?: null | number;
-  /** @format date-time */
-  stValueTime?: null | string;
-  /** @format int32 */
-  syear?: number;
-  /** @format int64 */
-  technicsId?: null | number;
-  technicsName?: null | string;
-  /** 点位类型 */
-  technicsTypeCode?: null | string;
-  /**
-   * 点位类型
-   * @format int64
-   */
-  technicsTypeId?: null | number;
-  /** 点位类型 */
-  technicsTypeName?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizDayTotalFlowPQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format date-time */
-  dataTime?: null | string;
-  /** @format double */
-  dataValue?: null | number;
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  endTime?: null | string;
-  /** @format int64 */
-  equipmentId?: null | number;
-  equipmentName?: null | string;
-  /** @format int64 */
-  equipmentParamId?: null | number;
-  equipmentParamName?: null | string;
-  /** @format double */
-  etValue?: null | number;
-  /** @format date-time */
-  etValueTime?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  isModified?: null | boolean;
-  modifiedDesc?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** @format int32 */
-  sday?: number;
-  /** @format int32 */
-  smonth?: number;
-  /** @format double */
-  stValue?: null | number;
-  /** @format date-time */
-  stValueTime?: null | string;
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  startTime?: null | string;
-  /** @format int32 */
-  syear?: number;
-  /** @format int64 */
-  technicsId?: null | number;
-  technicsName?: null | string;
-  /** 点位类型 */
-  technicsTypeCode?: null | string;
-  /**
-   * 点位类型
-   * @format int64
-   */
-  technicsTypeId?: null | number;
-  /** 点位类型 */
-  technicsTypeName?: null | string;
-  /**
-   * 类型 0：小于，1：等于，2：大于等于
-   * @format int32
-   */
-  type?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 数值
-   * @format double
-   */
-  value?: null | number;
-}
-
-export interface BizDayTotalFlowQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format date-time */
-  dataTime?: null | string;
-  /** @format double */
-  dataValue?: null | number;
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  endTime?: null | string;
-  /** @format int64 */
-  equipmentId?: null | number;
-  equipmentName?: null | string;
-  /** @format int64 */
-  equipmentParamId?: null | number;
-  equipmentParamName?: null | string;
-  /** @format double */
-  etValue?: null | number;
-  /** @format date-time */
-  etValueTime?: null | string;
-  /** @format int64 */
-  id?: number;
-  isModified?: null | boolean;
-  modifiedDesc?: null | string;
-  /** @format int32 */
-  sday?: number;
-  /** @format int32 */
-  smonth?: number;
-  /** @format double */
-  stValue?: null | number;
-  /** @format date-time */
-  stValueTime?: null | string;
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  startTime?: null | string;
-  /** @format int32 */
-  syear?: number;
-  /** @format int64 */
-  technicsId?: null | number;
-  technicsName?: null | string;
-  /** 点位类型 */
-  technicsTypeCode?: null | string;
-  /**
-   * 点位类型
-   * @format int64
-   */
-  technicsTypeId?: null | number;
-  /** 点位类型 */
-  technicsTypeName?: null | string;
-  /**
-   * 类型 0：小于，1：等于，2：大于等于
-   * @format int32
-   */
-  type?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 数值
-   * @format double
-   */
-  value?: null | number;
-}
-
-export interface BizDayTotalFlowVO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format date-time */
-  dataTime?: null | string;
-  /** @format double */
-  dataValue?: null | number;
-  /** @format int64 */
-  equipmentId?: null | number;
-  equipmentName?: null | string;
-  /** @format int64 */
-  equipmentParamId?: null | number;
-  equipmentParamName?: null | string;
-  /** @format double */
-  etValue?: null | number;
-  /** @format date-time */
-  etValueTime?: null | string;
-  /** @format int64 */
-  id?: number;
-  isModified?: null | boolean;
-  modifiedDesc?: null | string;
-  /** @format int32 */
-  sday?: number;
-  /** @format int32 */
-  smonth?: number;
-  /** @format double */
-  stValue?: null | number;
-  /** @format date-time */
-  stValueTime?: null | string;
-  /** @format int32 */
-  syear?: number;
-  /** @format int64 */
-  technicsId?: null | number;
-  technicsName?: null | string;
-  /** 点位类型 */
-  technicsTypeCode?: null | string;
-  /**
-   * 点位类型
-   * @format int64
-   */
-  technicsTypeId?: null | number;
-  /** 点位类型 */
-  technicsTypeName?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizGrowStageFO {
-  /**
-   * 结束天数
-   * @format int32
-   */
-  endDn: number;
-  /**
-   * id
-   * @format int64
-   */
-  id?: null | number;
-  /**
-   * 名称
-   * @minLength 1
-   */
-  name: string;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber: number;
-  /**
-   * 所属种植方案
-   * @format int64
-   */
-  plantingSchemeId?: null | number;
-  /**
-   * 开始天数
-   * @format int32
-   */
-  startDn: number;
-  /**
-   * 需水占比
-   * @format double
-   */
-  waterRatio: number;
-}
-
-export interface BizGrowStagePQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 结束天数
-   * @format int32
-   */
-  endDn?: number;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 所属种植方案
-   * @format int64
-   */
-  plantingSchemeId?: number;
-  /**
-   * 开始天数
-   * @format int32
-   */
-  startDn?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 需水占比
-   * @format double
-   */
-  waterRatio?: number;
-}
-
-export interface BizGrowStageQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 结束天数
-   * @format int32
-   */
-  endDn?: number;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number;
-  /**
-   * 所属种植方案
-   * @format int64
-   */
-  plantingSchemeId?: number;
-  /**
-   * 开始天数
-   * @format int32
-   */
-  startDn?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 需水占比
-   * @format double
-   */
-  waterRatio?: number;
-}
-
-export interface BizGrowStageVO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 结束天数
-   * @format int32
-   */
-  endDn?: number;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number;
-  /**
-   * 所属种植方案
-   * @format int64
-   */
-  plantingSchemeId?: number;
-  /** 所属种植方案名称 */
-  plantingSchemeName?: null | string;
-  /**
-   * 开始天数
-   * @format int32
-   */
-  startDn?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 需水占比
-   * @format double
-   */
-  waterRatio?: number;
-}
-
-export interface BizGysDispatchDocFO {
-  /** 文件 */
-  files?: null | RecordFile[];
-  /** @format int64 */
-  id?: null | number;
-  /**
-   * 名称
-   * @minLength 1
-   */
-  name: string;
-  /**
-   * 发布日期
-   * @format date-time
-   */
-  publishDate: string;
-  /** 备注 */
-  remark?: null | string;
-}
-
-export interface BizGysDispatchDocPQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 发布日期
-   * @format date-time
-   */
-  publishDate?: null | string;
-  /** 备注 */
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizGysDispatchDocQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 发布日期
-   * @format date-time
-   */
-  publishDate?: null | string;
-  /** 备注 */
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizGysDispatchDocVO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 发布日期
-   * @format date-time
-   */
-  publishDate?: null | string;
-  /** 备注 */
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizGysDispatchRecordFO {
-  /**
-   * 调度时间
-   * @format date-time
-   */
-  dispatchTime: string;
-  /**
-   * 调度类型
-   * @minLength 1
-   */
-  dispatchType: string;
-  /**
-   * 调度人员
-   * @format int64
-   */
-  dispatchUserId: number;
-  /** @format int64 */
-  id?: null | number;
-  /**
-   * 累计流量
-   * @format double
-   */
-  ljll?: null | number;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 监测站点
-   * @format int64
-   */
-  technicsId: number;
-}
-
-export interface BizGysDispatchRecordPQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 调度时间
-   * @format date-time
-   */
-  dispatchTime?: null | string;
-  /** 调度类型 */
-  dispatchType?: null | string;
-  /**
-   * 调度人员
-   * @format int64
-   */
-  dispatchUserId?: null | number;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 累计流量
-   * @format double
-   */
-  ljll?: null | number;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 监测站点
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizGysDispatchRecordQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 调度时间
-   * @format date-time
-   */
-  dispatchTime?: null | string;
-  /** 调度类型 */
-  dispatchType?: null | string;
-  /**
-   * 调度人员
-   * @format int64
-   */
-  dispatchUserId?: null | number;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 累计流量
-   * @format double
-   */
-  ljll?: null | number;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 监测站点
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizGysDispatchRecordVO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 调度时间
-   * @format date-time
-   */
-  dispatchTime?: null | string;
-  /** 调度类型 */
-  dispatchType?: null | string;
-  /**
-   * 调度人员
-   * @format int64
-   */
-  dispatchUserId?: null | number;
-  /** 调度人员名称 */
-  dispatchUserName?: null | string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 累计流量
-   * @format double
-   */
-  ljll?: null | number;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 监测站点
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** 监测站点名称 */
-  technicsName?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizIrrigationDistrictFO {
-  /** 地理位置 */
-  address?: null | string;
-  /**
-   * 编码
-   * @minLength 1
-   */
-  code: string;
-  geojson?: null | string;
-  /** @format int64 */
-  id?: null | number;
-  /**
-   * 名称
-   * @minLength 1
-   */
-  name: string;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber: number;
-  /** 生产效益描述 */
-  productionEfficiencyDesc?: null | string;
-  /**
-   * 所属行政区域
-   * @format int64
-   */
-  regionId: number;
-  /**
-   * 灌溉面积(亩)
-   * @format double
-   */
-  totalArea?: null | number;
-}
-
-export interface BizIrrigationDistrictPQO {
-  /** 地理位置 */
-  address?: null | string;
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  geojson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: null | number;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** 生产效益描述 */
-  productionEfficiencyDesc?: null | string;
-  /** @format int64 */
-  regionId?: null | number;
-  /**
-   * 灌溉面积(亩)
-   * @format double
-   */
-  totalArea?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizIrrigationDistrictQO {
-  /** 地理位置 */
-  address?: null | string;
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  geojson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: null | number;
-  /** 生产效益描述 */
-  productionEfficiencyDesc?: null | string;
-  /** @format int64 */
-  regionId?: null | number;
-  /**
-   * 灌溉面积(亩)
-   * @format double
-   */
-  totalArea?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizIrrigationDistrictVO {
-  /** 地理位置 */
-  address?: null | string;
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  geojson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: null | number;
-  /** 生产效益描述 */
-  productionEfficiencyDesc?: null | string;
-  /** @format int64 */
-  regionId?: null | number;
-  /** 所属行政区划名称 */
-  regionName?: null | string;
-  /**
-   * 灌溉面积(亩)
-   * @format double
-   */
-  totalArea?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizPlantingPlanFO {
-  /**
-   * 面积
-   * @format double
-   */
-  area: number;
-  /**
-   * 农作物
-   * @format int64
-   */
-  cropsId: number;
-  /** 农户 */
-  farmer?: null | string;
-  /**
-   * id
-   * @format int64
-   */
-  id?: null | number;
-  /**
-   * 种植开始时间
-   * @format date-time
-   */
-  startDate: string;
-  /**
-   * 关联站点
-   * @format int64
-   */
-  technicsId: number;
-  /**
-   * 年份
-   * @format int32
-   */
-  year: number;
-}
-
-export interface BizPlantingPlanPQO {
-  /**
-   * 面积
-   * @format double
-   */
-  area?: null | number;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 农作物
-   * @format int64
-   */
-  cropsId?: null | number;
-  farmer?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 种植开始时间
-   * @format date-time
-   */
-  startDate?: null | string;
-  /**
-   * 结束时间(按种植开始时间查询)
-   * @format date-time
-   */
-  startDateEt?: null | string;
-  /**
-   * 开始时间(按种植开始时间查询)
-   * @format date-time
-   */
-  startDateSt?: null | string;
-  /**
-   * 关联站点
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 年份
-   * @format int32
-   */
-  year?: null | number;
-}
-
-export interface BizPlantingPlanQO {
-  /**
-   * 面积
-   * @format double
-   */
-  area?: null | number;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 农作物
-   * @format int64
-   */
-  cropsId?: null | number;
-  farmer?: null | string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 种植开始时间
-   * @format date-time
-   */
-  startDate?: null | string;
-  /**
-   * 结束时间(按种植开始时间查询)
-   * @format date-time
-   */
-  startDateEt?: null | string;
-  /**
-   * 开始时间(按种植开始时间查询)
-   * @format date-time
-   */
-  startDateSt?: null | string;
-  /**
-   * 关联站点
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 年份
-   * @format int32
-   */
-  year?: null | number;
-}
-
-export interface BizPlantingPlanVO {
-  /**
-   * 面积
-   * @format double
-   */
-  area?: null | number;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 农作物
-   * @format int64
-   */
-  cropsId?: null | number;
-  /** 作物名称 */
-  readonly cropsName?: null;
-  farmer?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 灌区名称 */
-  readonly irrigationDistrictName?: null;
-  /**
-   * 种植开始时间
-   * @format date-time
-   */
-  startDate?: null | string;
-  /**
-   * 关联站点
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** 监测点位名称 */
-  readonly technicsName?: null;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 年份
-   * @format int32
-   */
-  year?: null | number;
-}
-
-export interface BizPlantingSchemeFO {
-  /**
-   * 编码
-   * @minLength 1
-   */
-  code: string;
-  /**
-   * 农作物
-   * @format int64
-   */
-  cropsId: number;
-  /**
-   * 预期产量(kg每亩)
-   * @format double
-   */
-  expectedYield?: null | number;
-  /** 生育阶段列表 */
-  growStageList?: null | BizGrowStageFO[];
-  /**
-   * id
-   * @format int64
-   */
-  id?: null | number;
-  /**
-   * 名称
-   * @minLength 1
-   */
-  name: string;
-  /**
-   * 方案年份
-   * @format int32
-   */
-  planYear: number;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 亩需水量(立方米每亩)
-   * @format double
-   */
-  wrpm: number;
-}
-
-export interface BizPlantingSchemePQO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 农作物
-   * @format int64
-   */
-  cropsId?: number;
-  /**
-   * 预期产量(kg每亩)
-   * @format double
-   */
-  expectedYield?: null | number;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 方案年份
-   * @format int32
-   */
-  planYear?: number;
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 亩需水量(立方米每亩)
-   * @format double
-   */
-  wrpm?: number;
-}
-
-export interface BizPlantingSchemeQO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 农作物
-   * @format int64
-   */
-  cropsId?: number;
-  /**
-   * 预期产量(kg每亩)
-   * @format double
-   */
-  expectedYield?: null | number;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 方案年份
-   * @format int32
-   */
-  planYear?: number;
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 亩需水量(立方米每亩)
-   * @format double
-   */
-  wrpm?: number;
-}
-
-export interface BizPlantingSchemeVO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 农作物编码 */
-  cropsCode?: null | string;
-  /**
-   * 农作物
-   * @format int64
-   */
-  cropsId?: number;
-  /** 农作物名称 */
-  cropsName?: null | string;
-  /**
-   * 预期产量(kg每亩)
-   * @format double
-   */
-  expectedYield?: null | number;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 方案年份
-   * @format int32
-   */
-  planYear?: number;
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 亩需水量(立方米每亩)
-   * @format double
-   */
-  wrpm?: number;
-}
-
-export interface BizPoliciyRegulationFO {
-  /** 内容 */
-  content?: null | string;
-  /** 文件 */
-  files?: null | RecordFile[];
-  /** @format int64 */
-  id?: null | number;
-  /** 灌区列表 */
-  irrIdList?: null | (null | number)[];
-  /**
-   * 名称
-   * @minLength 1
-   */
-  name: string;
-  /**
-   * 发布时间
-   * @format date-time
-   */
-  publishDate?: null | string;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 类型(policiy|regulation)
-   * @minLength 1
-   */
-  type: string;
-}
-
-export interface BizPoliciyRegulationPQO {
-  /** 内容 */
-  content?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 发布时间
-   * @format date-time
-   */
-  publishDate?: null | string;
-  /** 备注 */
-  remark?: null | string;
-  /** 类型(policiy|regulation) */
-  type?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizPoliciyRegulationQO {
-  /** 内容 */
-  content?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 发布时间
-   * @format date-time
-   */
-  publishDate?: null | string;
-  /** 备注 */
-  remark?: null | string;
-  /** 类型(policiy|regulation) */
-  type?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizPoliciyRegulationVO {
-  /** 内容 */
-  content?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 灌区列表 */
-  irrIdList?: null | number[];
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 发布时间
-   * @format date-time
-   */
-  publishDate?: null | string;
-  /** 备注 */
-  remark?: null | string;
-  /** 类型(policiy|regulation) */
-  type?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizWaterDemandPlanFO {
-  /**
-   * 农作物
-   * @format int64
-   */
-  cropsId: number;
-  /** @format int64 */
-  id?: null | number;
-  /**
-   * 需水日期
-   * @format date-time
-   */
-  planDate: string;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 监测点位
-   * @format int64
-   */
-  technicsId: number;
-  /**
-   * 需水量(立方米)
-   * @format double
-   */
-  totalWater: number;
-}
-
-export interface BizWaterDemandPlanPQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 农作物
-   * @format int64
-   */
-  cropsId?: null | number;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 灌区id
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 需水日期
-   * @format date-time
-   */
-  planDate?: null | string;
-  /**
-   * 结束时间(按需水时间查询)
-   * @format date-time
-   */
-  planDateEt?: null | string;
-  /**
-   * 开始时间(按需水时间查询)
-   * @format date-time
-   */
-  planDateSt?: null | string;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 监测点位
-   * @format int64
-   */
-  technicsId?: null | number;
-  /**
-   * 需水量(立方米)
-   * @format double
-   */
-  totalWater?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizWaterDemandPlanQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 农作物
-   * @format int64
-   */
-  cropsId?: null | number;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 灌区id
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /**
-   * 需水日期
-   * @format date-time
-   */
-  planDate?: null | string;
-  /**
-   * 结束时间(按需水时间查询)
-   * @format date-time
-   */
-  planDateEt?: null | string;
-  /**
-   * 开始时间(按需水时间查询)
-   * @format date-time
-   */
-  planDateSt?: null | string;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 监测点位
-   * @format int64
-   */
-  technicsId?: null | number;
-  /**
-   * 需水量(立方米)
-   * @format double
-   */
-  totalWater?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizWaterDemandPlanVO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 农作物
-   * @format int64
-   */
-  cropsId?: null | number;
-  /** 农作物名称 */
-  readonly cropsName?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 灌区名称 */
-  irrigationDistrictName?: null | string;
-  /**
-   * 需水日期
-   * @format date-time
-   */
-  planDate?: null | string;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 监测点位
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** 站点名称 */
-  readonly technicsName?: null | string;
-  /**
-   * 需水量(立方米)
-   * @format double
-   */
-  totalWater?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface BizWaterDistributionPlanFO {
-  /**
-   * 配置日期
-   * @format date-time
-   */
-  dataTime?: null | string;
-  /** @format int64 */
-  id?: null | number;
-  /**
-   * 名称
-   * @minLength 1
-   */
-  name: string;
-  /**
-   * 配置水量(m3)
-   * @format double
-   */
-  planWater: number;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 监测点
-   * @format int64
-   */
-  technicsId: number;
-  /**
-   * 实际用水量(m3)
-   * @format double
-   */
-  useWater?: null | number;
-}
-
-export interface BizWaterDistributionPlanPQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 日期
-   * @format date-time
-   */
-  dataTime?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 配置水量
-   * @format double
-   */
-  planWater?: null | number;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 监测点
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 实际用水量
-   * @format double
-   */
-  useWater?: null | number;
-}
-
-export interface BizWaterDistributionPlanQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 日期
-   * @format date-time
-   */
-  dataTime?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 配置水量
-   * @format double
-   */
-  planWater?: null | number;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 监测点
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 实际用水量
-   * @format double
-   */
-  useWater?: null | number;
-}
-
-export interface BizWaterDistributionPlanVO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 日期
-   * @format date-time
-   */
-  dataTime?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 配置水量
-   * @format double
-   */
-  planWater?: null | number;
-  /** 备注 */
-  remark?: null | string;
-  /**
-   * 监测点
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** 监测点位名称 */
-  technicsName?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 实际用水量
-   * @format double
-   */
-  useWater?: null | number;
-}
-
-export interface BizWaterEfficiencyRecordFO {
-  /**
-   * 毛灌溉水量
-   * @format double
-   */
-  grossWater: number;
-  /** @format int64 */
-  id?: null | number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId: number;
-  /**
-   * 净灌溉水量
-   * @format double
-   */
-  netWater: number;
-  /**
-   * 年份
-   * @format int32
-   */
-  year: number;
-}
-
-export interface BizWaterEfficiencyRecordPQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /**
-   * 毛灌溉水量
-   * @format double
-   */
-  grossWater?: null | number;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /**
-   * 净灌溉水量
-   * @format double
-   */
-  netWater?: null | number;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 年份
-   * @format int32
-   */
-  year?: null | number;
-}
-
-export interface BizWaterEfficiencyRecordQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 毛灌溉水量
-   * @format double
-   */
-  grossWater?: null | number;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /**
-   * 净灌溉水量
-   * @format double
-   */
-  netWater?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 年份
-   * @format int32
-   */
-  year?: null | number;
-}
-
-export interface BizWaterEfficiencyRecordVO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 毛灌溉水量
-   * @format double
-   */
-  grossWater?: null | number;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /** 所属灌区名称 */
-  irrigationDistrictName?: null | string;
-  /**
-   * 净灌溉水量
-   * @format double
-   */
-  netWater?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 年份
-   * @format int32
-   */
-  year?: null | number;
-}
-
-export interface BizYieldRecordFO {
-  /**
-   * 农作物id
-   * @format int64
-   */
-  cropsId: number;
-  /**
-   * id
-   * @format int64
-   */
-  id?: null | number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId: number;
-  /**
-   * 年份
-   * @format int32
-   */
-  year: number;
-  /**
-   * 产量
-   * @format double
-   */
-  yield: number;
-}
-
-export interface BizYieldRecordPQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 农作物id
-   * @format int64
-   */
-  cropsId?: null | number;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 年份
-   * @format int32
-   */
-  year?: null | number;
-  /**
-   * 产量
-   * @format double
-   */
-  yield?: null | number;
-}
-
-export interface BizYieldRecordQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 农作物id
-   * @format int64
-   */
-  cropsId?: null | number;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 年份
-   * @format int32
-   */
-  year?: null | number;
-  /**
-   * 产量
-   * @format double
-   */
-  yield?: null | number;
-}
-
-export interface BizYieldRecordVO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 农作物id
-   * @format int64
-   */
-  cropsId?: null | number;
-  /** 农作物名称 */
-  cropsName?: null | string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /** 灌区名称 */
-  irrigationDistrictName?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 年份
-   * @format int32
-   */
-  year?: null | number;
-  /**
-   * 产量
-   * @format double
-   */
-  yield?: null | number;
+  remark?: string | null;
 }
 
 export interface CommonStVO {
   /** @format double */
-  avg?: null | number;
+  avg?: number | null;
+  /** @format int64 */
+  count?: number;
+  label?: string | null;
   /** @format double */
-  count?: null | number;
-  label?: null | string;
-  /** @format double */
-  sum?: null | number;
+  sum?: number | null;
+}
+
+export interface CruiseRoutesControllingQO {
+  /**
+   * 监控点编号
+   * @minLength 1
+   */
+  cameraIndexCode: string;
+  /**
+   * 控制命令，不区分大小写，开始巡航：START_CRUISE；停止巡航：STOP_CRUISE
+   * @minLength 1
+   */
+  command: string;
+  /**
+   * 巡航路径序号，范围：[1,8]，可通过查询巡航路径接口获取返回参数cruiseIndex
+   * @format int32
+   */
+  cruiseIndex: number;
 }
 
 export interface DataDictionaryFO {
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /**
    * created_at
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** created_person */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /**
    * id
    * @format int64
    */
   id?: number;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /**
    * 级别
    * @format int32
    */
-  level?: null | number;
+  level?: number | null;
   /** 名称 */
-  name?: null | string;
-  nestedcode?: null | string;
+  name?: string | null;
+  nestedcode?: string | null;
   /** 路径 */
-  nestedpath?: null | string;
-  parentCode?: null | string;
+  nestedpath?: string | null;
+  parentCode?: string | null;
   /**
    * 父级
    * @format int64
    */
-  parentId?: null | number;
-  parentName?: null | string;
+  parentId?: number | null;
+  parentName?: string | null;
   /**
    * 路径key
    * @format int32
    */
   pathkey?: number;
   /** 其他属性 */
-  props?: null | string;
+  props?: string | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /**
    * updated_at
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** updated_person */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface DataDictionaryPQO {
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /**
    * created_at
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** created_person */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
   /**
    * id
    * @format int64
    */
   id?: number;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /**
    * 级别
    * @format int32
    */
-  level?: null | number;
+  level?: number | null;
   /** 名称 */
-  name?: null | string;
-  nestedcode?: null | string;
+  name?: string | null;
+  nestedcode?: string | null;
   /** 路径 */
-  nestedpath?: null | string;
+  nestedpath?: string | null;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 当前页码
    * @format int32
@@ -3501,123 +1720,109 @@ export interface DataDictionaryPQO {
    * @max 100
    */
   pageSize?: number;
-  parentCode?: null | string;
+  parentCode?: string | null;
   /**
    * 父级
    * @format int64
    */
-  parentId?: null | number;
-  parentName?: null | string;
+  parentId?: number | null;
+  parentName?: string | null;
   /**
    * 路径key
    * @format int32
    */
   pathkey?: number;
   /** 其他属性 */
-  props?: null | string;
+  props?: string | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /**
    * updated_at
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** updated_person */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface DataDictionaryQO {
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /**
    * created_at
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** created_person */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /**
    * id
    * @format int64
    */
   id?: number;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /**
    * 级别
    * @format int32
    */
-  level?: null | number;
+  level?: number | null;
   /** 名称 */
-  name?: null | string;
-  nestedcode?: null | string;
+  name?: string | null;
+  nestedcode?: string | null;
   /** 路径 */
-  nestedpath?: null | string;
-  parentCode?: null | string;
+  nestedpath?: string | null;
+  parentCode?: string | null;
   /**
    * 父级
    * @format int64
    */
-  parentId?: null | number;
-  parentName?: null | string;
+  parentId?: number | null;
+  parentName?: string | null;
   /**
    * 路径key
    * @format int32
    */
   pathkey?: number;
   /** 其他属性 */
-  props?: null | string;
+  props?: string | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /**
    * updated_at
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** updated_person */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface DataDictionaryVO {
   /** 编号 */
-  code?: null | string;
-  /**
-   * created_at
-   * @format date-time
-   */
-  createdAt?: null | string;
-  /** created_person */
-  createdPerson?: null | string;
+  code?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /**
    * 级别
    * @format int32
    */
-  level?: null | number;
+  level?: number | null;
   /** 名称 */
-  name?: null | string;
-  nestedcode?: null | string;
-  parentCode?: null | string;
+  name?: string | null;
+  nestedcode?: string | null;
+  parentCode?: string | null;
   /**
    * 父级
    * @format int64
    */
-  parentId?: null | number;
-  parentName?: null | string;
+  parentId?: number | null;
+  parentName?: string | null;
   /** 其他属性 */
-  props?: null | string;
+  props?: string | null;
   /** 备注 */
-  remark?: null | string;
-  /**
-   * updated_at
-   * @format date-time
-   */
-  updatedAt?: null | string;
-  /** updated_person */
-  updatedPerson?: null | string;
+  remark?: string | null;
 }
 
 export interface DdTypedataQO {
@@ -3630,126 +1835,138 @@ export interface DdTypedataQO {
 
 export interface EquipmentFO {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /** 品牌 */
-  brand?: null | string;
+  brand?: string | null;
   /** 编码 */
-  code?: null | string;
+  code?: string | null;
   /**
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: null | string;
+  dataTime?: string | null;
   /** 设备功率 */
-  equipmentPower?: null | string;
+  equipmentPower?: string | null;
   /**
    * id
    * @format int64
    */
   id?: number;
+  /** imei */
+  imei?: string | null;
+  /** 是否报警 */
+  isAlarm?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否在线 */
-  isOnline?: null | boolean;
+  isOnline?: boolean | null;
   /**
    * 纬度
    * @format double
    */
-  latitude?: null | number;
+  latitude?: number | null;
   /**
    * 经度
    * @format double
    */
-  longitude?: null | number;
+  longitude?: number | null;
   /** 规格型号 */
-  modelSpec?: null | string;
+  modelSpec?: string | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /**
    * 排序序号
    * @format int32
    */
-  orderNumber?: null | number;
+  orderNumber?: number;
+  /** 图片路径 */
+  picUrl?: string | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
+  /** 设备状态编码 */
+  stateCode?: string | null;
   /** 测站编码 */
-  stcode?: null | string;
+  stcode?: string | null;
   /**
-   * 所属水库
+   * 所属工艺系统
    * @format int64
    */
-  technicsId?: null | number;
+  technicsId?: number | null;
   /** 设备类型编码 */
-  typeCode?: null | string;
+  typeCode?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface EquipmentPQO {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /** 品牌 */
-  brand?: null | string;
+  brand?: string | null;
   /** 编码 */
-  code?: null | string;
+  code?: string | null;
   /**
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: null | string;
+  dataTime?: string | null;
   /** 设备功率 */
-  equipmentPower?: null | string;
+  equipmentPower?: string | null;
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
   /**
    * id
    * @format int64
    */
   id?: number;
+  /** imei */
+  imei?: string | null;
+  /** 是否报警 */
+  isAlarm?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否在线 */
-  isOnline?: null | boolean;
+  isOnline?: boolean | null;
   /**
    * 纬度
    * @format double
    */
-  latitude?: null | number;
+  latitude?: number | null;
   /**
    * 经度
    * @format double
    */
-  longitude?: null | number;
+  longitude?: number | null;
   /** 规格型号 */
-  modelSpec?: null | string;
+  modelSpec?: string | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 排序序号
    * @format int32
    */
-  orderNumber?: null | number;
+  orderNumber?: number;
   /**
    * 当前页码
    * @format int32
@@ -3762,215 +1979,1213 @@ export interface EquipmentPQO {
    * @max 100
    */
   pageSize?: number;
+  /** 图片路径 */
+  picUrl?: string | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
+  /** 设备状态编码 */
+  stateCode?: string | null;
   /** 测站编码 */
-  stcode?: null | string;
+  stcode?: string | null;
   /**
-   * 所属水库
+   * 所属工艺系统
    * @format int64
    */
-  technicsId?: null | number;
+  technicsId?: number | null;
   /** 设备类型编码 */
-  typeCode?: null | string;
+  typeCode?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
+}
+
+export interface EquipmentParamDdFO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 数据时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 数据时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 数据时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 水库名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
+}
+
+export interface EquipmentParamDdPQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 数据时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 数据时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 数据时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 水库名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
+}
+
+export interface EquipmentParamDdQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 数据时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 数据时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 数据时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 水库名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
+}
+
+export interface EquipmentParamDdVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 数据时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 数据时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 数据时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 水库名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
 }
 
 export interface EquipmentParamFO {
   /** 编码 */
-  code?: null | string;
+  code?: string | null;
   /**
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /** 数据代码 */
-  dataCode?: null | string;
+  dataCode?: string | null;
   /**
    * 数据信号（0-模拟量，1-开关量，2-文本型）
    * @format int32
    */
-  dataSignal?: null | number;
+  dataSignal?: number | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: null | string;
+  dataTime?: string | null;
   /**
    * 数据类型（0-实时，1-统计）
    * @format int32
    */
-  dataType?: null | number;
+  dataType?: number | null;
   /**
    * 数据值
    * @format double
    */
-  dataValue?: null | number;
+  dataValue?: number | null;
   /**
    * 小数位数
    * @format int32
    */
   decimalPlaces?: number;
   /** 展示名称 */
-  displayName?: null | string;
+  displayName?: string | null;
   /**
    * 所属设备
    * @format int64
    */
-  equipmentId?: null | number;
+  equipmentId?: number | null;
+  /**
+   * 报警上限
+   * @format double
+   */
+  hiValue?: number | null;
   /**
    * id
    * @format int64
    */
   id?: number;
-  /** 是否显示 */
-  isDisplay?: null | boolean;
+  /** 是否报警 */
+  isAlarm?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否在线 */
-  isOnline?: null | boolean;
-  /** 单位 */
-  measureUnit?: null | string;
-  /** 名称 */
-  name?: null | string;
-  /** 关状态颜色 */
-  offColor?: null | string;
-  /** 关状态标签 */
-  offLabel?: null | string;
+  isOnline?: boolean | null;
   /**
-   * 离线判断时长，距离当前时间多久算离线(秒)
-   * @format int32
+   * 报警下限
+   * @format double
    */
-  offlineTimespan?: number;
+  loValue?: number | null;
+  /** 单位 */
+  measureUnit?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /** 关状态颜色 */
+  offColor?: string | null;
   /** 开状态颜色 */
-  onColor?: null | string;
-  /** 开状态标签 */
-  onLabel?: null | string;
+  onColor?: string | null;
   /**
    * 排序序号
    * @format int32
    */
-  orderNumber?: null | number;
+  orderNumber?: number | null;
   /**
    * 读写类型（0-只读，1-读写，2-只写）
    * @format int32
    */
-  readWrite?: null | number;
+  readWrite?: number | null;
   /**
    * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  receiveFlag?: null | number;
+  receiveFlag?: number | null;
   /** 备注 */
-  remark?: null | string;
-  /**
-   * 传输间隔
-   * @format int32
-   */
-  transInterval?: null | number;
+  remark?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
-export interface EquipmentParamPQO {
-  /** 编码 */
-  code?: null | string;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: null | string;
-  /** 创建人 */
-  createdPerson?: null | string;
-  /** 数据代码 */
-  dataCode?: null | string;
-  /**
-   * 数据信号（0-模拟量，1-开关量，2-文本型）
-   * @format int32
-   */
-  dataSignal?: null | number;
+export interface EquipmentParamHdFO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: null | string;
+  dataTime?: string;
   /**
-   * 数据类型（0-实时，1-统计）
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 数据时间-日
    * @format int32
    */
-  dataType?: null | number;
+  sday?: number;
+  /**
+   * 数据时间-小时
+   * @format int32
+   */
+  shour?: number;
+  /**
+   * 数据时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 数据时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 水库名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
+}
+
+export interface EquipmentParamHdPQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 数据时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 数据时间-小时
+   * @format int32
+   */
+  shour?: number;
+  /**
+   * 数据时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 数据时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 水库名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
+}
+
+export interface EquipmentParamHdQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 数据时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 数据时间-小时
+   * @format int32
+   */
+  shour?: number;
+  /**
+   * 数据时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 数据时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 水库名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
+}
+
+export interface EquipmentParamHdVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 数据时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 数据时间-小时
+   * @format int32
+   */
+  shour?: number;
+  /**
+   * 数据时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 数据时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 水库名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
+}
+
+export interface EquipmentParamMdFO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
   /**
    * 数据值
    * @format double
    */
-  dataValue?: null | number;
+  dataValue?: number | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** 是否已参与计算统计数据 */
+  hasCalcst?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /**
+   * 获取方式（0-自动，1-手动）
+   * @format int32
+   */
+  receiveFlag?: number;
+  /**
+   * 数据时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 数据时间-小时
+   * @format int32
+   */
+  shour?: number;
+  /**
+   * 数据时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 数据时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 水库名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EquipmentParamMdPQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 数据值
+   * @format double
+   */
+  dataValue?: number | null;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** 是否已参与计算统计数据 */
+  hasCalcst?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100000000
+   */
+  pageSize?: number;
+  /**
+   * 获取方式（0-自动，1-手动）
+   * @format int32
+   */
+  receiveFlag?: number;
+  /**
+   * 数据时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 日期（1:小时， 2：日，3：周， 4：旬，5：月，6：季， 7：年）
+   * @format int32
+   */
+  searchMode?: number | null;
+  /**
+   * 数据时间-小时
+   * @format int32
+   */
+  shour?: number;
+  /**
+   * 数据时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 数据时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 水库名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 乡镇 */
+  village?: string | null;
+}
+
+export interface EquipmentParamMdQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 数据值
+   * @format double
+   */
+  dataValue?: number | null;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** 是否已参与计算统计数据 */
+  hasCalcst?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /**
+   * 获取方式（0-自动，1-手动）
+   * @format int32
+   */
+  receiveFlag?: number;
+  /**
+   * 数据时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 日期（1:小时， 2：日，3：周， 4：旬，5：月，6：季， 7：年）
+   * @format int32
+   */
+  searchMode?: number | null;
+  /**
+   * 数据时间-小时
+   * @format int32
+   */
+  shour?: number;
+  /**
+   * 数据时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 数据时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 水库名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 乡镇 */
+  village?: string | null;
+}
+
+export interface EquipmentParamMdVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 数据值
+   * @format double
+   */
+  dataValue?: number | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** 是否已参与计算统计数据 */
+  hasCalcst?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /**
+   * 获取方式（0-自动，1-手动）
+   * @format int32
+   */
+  receiveFlag?: number;
+  /**
+   * 数据时间-日
+   * @format int32
+   */
+  sday?: number;
+  /**
+   * 数据时间-小时
+   * @format int32
+   */
+  shour?: number;
+  /**
+   * 数据时间-月
+   * @format int32
+   */
+  smonth?: number;
+  /**
+   * 数据时间-年
+   * @format int32
+   */
+  syear?: number;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 水库名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EquipmentParamPQO {
+  /** 编码 */
+  code?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /** 数据代码 */
+  dataCode?: string | null;
+  /**
+   * 数据信号（0-模拟量，1-开关量，2-文本型）
+   * @format int32
+   */
+  dataSignal?: number | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /**
+   * 数据类型（0-实时，1-统计）
+   * @format int32
+   */
+  dataType?: number | null;
+  /**
+   * 数据值
+   * @format double
+   */
+  dataValue?: number | null;
   /**
    * 小数位数
    * @format int32
    */
   decimalPlaces?: number;
   /** 展示名称 */
-  displayName?: null | string;
+  displayName?: string | null;
   /**
    * 所属设备
    * @format int64
    */
-  equipmentId?: null | number;
+  equipmentId?: number | null;
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
+  /**
+   * 报警上限
+   * @format double
+   */
+  hiValue?: number | null;
   /**
    * id
    * @format int64
    */
   id?: number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /** 是否显示 */
-  isDisplay?: null | boolean;
+  /** 是否报警 */
+  isAlarm?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否在线 */
-  isOnline?: null | boolean;
-  /** 单位 */
-  measureUnit?: null | string;
-  /** 名称 */
-  name?: null | string;
-  /** 关状态颜色 */
-  offColor?: null | string;
-  /** 关状态标签 */
-  offLabel?: null | string;
+  isOnline?: boolean | null;
   /**
-   * 离线判断时长，距离当前时间多久算离线(秒)
-   * @format int32
+   * 报警下限
+   * @format double
    */
-  offlineTimespan?: number;
+  loValue?: number | null;
+  /** 单位 */
+  measureUnit?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /** 关状态颜色 */
+  offColor?: string | null;
   /** 开状态颜色 */
-  onColor?: null | string;
-  /** 开状态标签 */
-  onLabel?: null | string;
+  onColor?: string | null;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 排序序号
    * @format int32
    */
-  orderNumber?: null | number;
+  orderNumber?: number | null;
   /**
    * 当前页码
    * @format int32
@@ -3987,431 +3202,5724 @@ export interface EquipmentParamPQO {
    * 读写类型（0-只读，1-读写，2-只写）
    * @format int32
    */
-  readWrite?: null | number;
+  readWrite?: number | null;
   /**
    * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  receiveFlag?: null | number;
+  receiveFlag?: number | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /**
-   * 所属点位
+   * 所属水库
    * @format int64
    */
-  technicsId?: null | number;
-  /**
-   * 传输间隔
-   * @format int32
-   */
-  transInterval?: null | number;
+  technicsId?: number | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface EquipmentParamQO {
   /** 编码 */
-  code?: null | string;
+  code?: string | null;
   /**
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /** 数据代码 */
-  dataCode?: null | string;
+  dataCode?: string | null;
   /**
    * 数据信号（0-模拟量，1-开关量，2-文本型）
    * @format int32
    */
-  dataSignal?: null | number;
+  dataSignal?: number | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: null | string;
+  dataTime?: string | null;
   /**
    * 数据类型（0-实时，1-统计）
    * @format int32
    */
-  dataType?: null | number;
+  dataType?: number | null;
   /**
    * 数据值
    * @format double
    */
-  dataValue?: null | number;
+  dataValue?: number | null;
   /**
    * 小数位数
    * @format int32
    */
   decimalPlaces?: number;
   /** 展示名称 */
-  displayName?: null | string;
+  displayName?: string | null;
   /**
    * 所属设备
    * @format int64
    */
-  equipmentId?: null | number;
+  equipmentId?: number | null;
+  /**
+   * 报警上限
+   * @format double
+   */
+  hiValue?: number | null;
   /**
    * id
    * @format int64
    */
   id?: number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /** 是否显示 */
-  isDisplay?: null | boolean;
+  /** 是否报警 */
+  isAlarm?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否在线 */
-  isOnline?: null | boolean;
-  /** 单位 */
-  measureUnit?: null | string;
-  /** 名称 */
-  name?: null | string;
-  /** 关状态颜色 */
-  offColor?: null | string;
-  /** 关状态标签 */
-  offLabel?: null | string;
+  isOnline?: boolean | null;
   /**
-   * 离线判断时长，距离当前时间多久算离线(秒)
-   * @format int32
+   * 报警下限
+   * @format double
    */
-  offlineTimespan?: number;
+  loValue?: number | null;
+  /** 单位 */
+  measureUnit?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /** 关状态颜色 */
+  offColor?: string | null;
   /** 开状态颜色 */
-  onColor?: null | string;
-  /** 开状态标签 */
-  onLabel?: null | string;
+  onColor?: string | null;
   /**
    * 排序序号
    * @format int32
    */
-  orderNumber?: null | number;
+  orderNumber?: number | null;
   /**
    * 读写类型（0-只读，1-读写，2-只写）
    * @format int32
    */
-  readWrite?: null | number;
+  readWrite?: number | null;
   /**
    * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  receiveFlag?: null | number;
+  receiveFlag?: number | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /**
-   * 所属点位
+   * 所属水库
    * @format int64
    */
-  technicsId?: null | number;
-  /**
-   * 传输间隔
-   * @format int32
-   */
-  transInterval?: null | number;
+  technicsId?: number | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface EquipmentParamVO {
   /** 编码 */
-  code?: null | string;
+  code?: string | null;
   /**
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /** 数据代码 */
-  dataCode?: null | string;
+  dataCode?: string | null;
   /**
    * 数据信号（0-模拟量，1-开关量，2-文本型）
    * @format int32
    */
-  dataSignal?: null | number;
+  dataSignal?: number | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: null | string;
+  dataTime?: string | null;
   /**
    * 数据类型（0-实时，1-统计）
    * @format int32
    */
-  dataType?: null | number;
+  dataType?: number | null;
   /**
    * 数据值
    * @format double
    */
-  dataValue?: null | number;
+  dataValue?: number | null;
   /**
    * 小数位数
    * @format int32
    */
   decimalPlaces?: number;
   /** 展示名称 */
-  displayName?: null | string;
+  displayName?: string | null;
   /**
    * 所属设备
    * @format int64
    */
-  equipmentId?: null | number;
+  equipmentId?: number | null;
   /** 设备名称 */
-  equipmentName?: null | string;
+  equipmentName?: string | null;
+  /**
+   * 报警上限
+   * @format double
+   */
+  hiValue?: number | null;
   /**
    * id
    * @format int64
    */
   id?: number;
-  /**
-   * 灌区id
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /** 灌区名称 */
-  irrigationDistrictName?: null | string;
-  /** 是否显示 */
-  isDisplay?: null | boolean;
+  /** 是否报警 */
+  isAlarm?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否在线 */
-  isOnline?: null | boolean;
-  /** 单位 */
-  measureUnit?: null | string;
-  /** 名称 */
-  name?: null | string;
-  /** 关状态颜色 */
-  offColor?: null | string;
-  /** 关状态标签 */
-  offLabel?: null | string;
+  isOnline?: boolean | null;
   /**
-   * 离线判断时长，距离当前时间多久算离线(秒)
-   * @format int32
+   * 报警下限
+   * @format double
    */
-  offlineTimespan?: number;
+  loValue?: number | null;
+  /** 单位 */
+  measureUnit?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /** 关状态颜色 */
+  offColor?: string | null;
   /** 开状态颜色 */
-  onColor?: null | string;
-  /** 开状态标签 */
-  onLabel?: null | string;
+  onColor?: string | null;
   /**
    * 排序序号
    * @format int32
    */
-  orderNumber?: null | number;
+  orderNumber?: number | null;
   /**
    * 读写类型（0-只读，1-读写，2-只写）
    * @format int32
    */
-  readWrite?: null | number;
+  readWrite?: number | null;
   /**
    * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  receiveFlag?: null | number;
+  receiveFlag?: number | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /**
    * 所属水库
    * @format int64
    */
-  technicsId?: null | number;
+  technicsId?: number | null;
   /** 所属水库 */
-  technicsName?: null | string;
-  /**
-   * 传输间隔
-   * @format int32
-   */
-  transInterval?: null | number;
+  technicsName?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface EquipmentQO {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /** 品牌 */
-  brand?: null | string;
+  brand?: string | null;
   /** 编码 */
-  code?: null | string;
+  code?: string | null;
   /**
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: null | string;
+  dataTime?: string | null;
   /** 设备功率 */
-  equipmentPower?: null | string;
+  equipmentPower?: string | null;
   /**
    * id
    * @format int64
    */
   id?: number;
+  /** imei */
+  imei?: string | null;
+  /** 是否报警 */
+  isAlarm?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否在线 */
-  isOnline?: null | boolean;
+  isOnline?: boolean | null;
   /**
    * 纬度
    * @format double
    */
-  latitude?: null | number;
+  latitude?: number | null;
   /**
    * 经度
    * @format double
    */
-  longitude?: null | number;
+  longitude?: number | null;
   /** 规格型号 */
-  modelSpec?: null | string;
+  modelSpec?: string | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /**
    * 排序序号
    * @format int32
    */
-  orderNumber?: null | number;
+  orderNumber?: number;
+  /** 图片路径 */
+  picUrl?: string | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
+  /** 设备状态编码 */
+  stateCode?: string | null;
   /** 测站编码 */
-  stcode?: null | string;
+  stcode?: string | null;
   /**
-   * 所属水库
+   * 所属工艺系统
    * @format int64
    */
-  technicsId?: null | number;
+  technicsId?: number | null;
   /** 设备类型编码 */
-  typeCode?: null | string;
+  typeCode?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface EquipmentVO {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /** 品牌 */
-  brand?: null | string;
+  brand?: string | null;
   /** 编码 */
-  code?: null | string;
+  code?: string | null;
   /**
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: null | string;
+  dataTime?: string | null;
   /** 设备功率 */
-  equipmentPower?: null | string;
+  equipmentPower?: string | null;
   /**
    * id
    * @format int64
    */
   id?: number;
+  /** imei */
+  imei?: string | null;
+  /** 是否报警 */
+  isAlarm?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否在线 */
-  isOnline?: null | boolean;
+  isOnline?: boolean | null;
   /**
    * 纬度
    * @format double
    */
-  latitude?: null | number;
+  latitude?: number | null;
   /**
    * 经度
    * @format double
    */
-  longitude?: null | number;
+  longitude?: number | null;
   /** 规格型号 */
-  modelSpec?: null | string;
+  modelSpec?: string | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /**
    * 排序序号
    * @format int32
    */
-  orderNumber?: null | number;
+  orderNumber?: number;
+  /** 图片路径 */
+  picUrl?: string | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
+  /** 设备状态编码 */
+  stateCode?: string | null;
+  /** 设备状态 */
+  stateName?: string | null;
   /** 测站编码 */
-  stcode?: null | string;
+  stcode?: string | null;
   /**
-   * 所属水库
+   * 所属工艺系统
    * @format int64
    */
-  technicsId?: null | number;
+  technicsId?: number | null;
   /** 所属水库 */
-  technicsName?: null | string;
+  technicsName?: string | null;
   /** 设备类型编码 */
-  typeCode?: null | string;
+  typeCode?: string | null;
   /** 设备类型 */
-  typeName?: null | string;
+  typeName?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
-export interface FileDownloadQO {
-  filePath?: null | string;
+export interface EsAlarmRecordFO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  duration?: number | null;
+  /** @format int64 */
+  equipmentId?: number;
+  equipmentName?: string | null;
+  /** @format int64 */
+  equipmentParamId?: number;
+  equipmentParamName?: string | null;
+  /** @format int64 */
+  id?: number;
+  prealarmInfo?: string | null;
+  /** @format int32 */
+  sday?: number;
+  /** @format int32 */
+  shour?: number;
+  /** @format int32 */
+  smonth?: number;
+  /** @format date-time */
+  startTime?: string;
+  /** @format date-time */
+  stopTime?: string | null;
+  /** @format int32 */
+  syear?: number;
+  /** @format int64 */
+  technicsId?: number;
+  technicsName?: string | null;
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsAlarmRecordPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  duration?: number | null;
+  /** @format int64 */
+  equipmentId?: number;
+  equipmentName?: string | null;
+  /** @format int64 */
+  equipmentParamId?: number;
+  equipmentParamName?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  prealarmInfo?: string | null;
+  /** @format int32 */
+  sday?: number;
+  /** @format int32 */
+  shour?: number;
+  /** @format int32 */
+  smonth?: number;
+  /** @format date-time */
+  startTime?: string;
+  /** @format date-time */
+  stopTime?: string | null;
+  /** @format int32 */
+  syear?: number;
+  /** @format int64 */
+  technicsId?: number;
+  technicsName?: string | null;
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsAlarmRecordQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  duration?: number | null;
+  /** @format int64 */
+  equipmentId?: number;
+  equipmentName?: string | null;
+  /** @format int64 */
+  equipmentParamId?: number;
+  equipmentParamName?: string | null;
+  /** @format int64 */
+  id?: number;
+  prealarmInfo?: string | null;
+  /** @format int32 */
+  sday?: number;
+  /** @format int32 */
+  shour?: number;
+  /** @format int32 */
+  smonth?: number;
+  /** @format date-time */
+  startTime?: string;
+  /** @format date-time */
+  stopTime?: string | null;
+  /** @format int32 */
+  syear?: number;
+  /** @format int64 */
+  technicsId?: number;
+  technicsName?: string | null;
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsAlarmRecordVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  duration?: number | null;
+  /** @format int64 */
+  equipmentId?: number;
+  equipmentName?: string | null;
+  /** @format int64 */
+  equipmentParamId?: number;
+  equipmentParamName?: string | null;
+  /** @format int64 */
+  id?: number;
+  prealarmInfo?: string | null;
+  /** @format int32 */
+  sday?: number;
+  /** @format int32 */
+  shour?: number;
+  /** @format int32 */
+  smonth?: number;
+  /** @format date-time */
+  startTime?: string;
+  /** @format date-time */
+  stopTime?: string | null;
+  /** @format int32 */
+  syear?: number;
+  /** @format int64 */
+  technicsId?: number;
+  technicsName?: string | null;
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsFleetFO {
+  /**
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  remark?: string | null;
+}
+
+export interface EsFleetPQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsFleetQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsFleetVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsGarbageCategoryPQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsGarbageCategoryQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsGarbageCategoryVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsGarbageTypePQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** 所属类别 */
+  garbageCategoryCode?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsGarbageTypeQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 所属类别 */
+  garbageCategoryCode?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsGarbageTypeVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 所属类别 */
+  garbageCategoryCode?: string | null;
+  /** 垃圾类别名称 */
+  garbageCategoryName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsGpsAlarmRecordFO {
+  /**
+   * 报警结束状态1
+   * @format int32
+   */
+  es1?: number | null;
+  /**
+   * 报警结束状态2
+   * @format int32
+   */
+  es2?: number | null;
+  /**
+   * 报警参数1
+   * @format int32
+   */
+  p1?: number | null;
+  /**
+   * 报警参数2
+   * @format int32
+   */
+  p2?: number | null;
+  /**
+   * 报警参数3
+   * @format int32
+   */
+  p3?: number | null;
+  /**
+   * 报警参数4
+   * @format int32
+   */
+  p4?: number | null;
+  /**
+   * 报警开始状态1
+   * @format int32
+   */
+  ss1?: number | null;
+  /**
+   * 报警开始状态2
+   * @format int32
+   */
+  ss2?: number | null;
+  /**
+   * 报警类型
+   * @format int32
+   */
+  atp?: number | null;
+  /** 报警类型描述 */
+  atpStr?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 更新时间 */
+  createtime?: string | null;
+  /** 报警描述 */
+  desc?: string | null;
+  /** 设备号 */
+  did?: string | null;
+  /** 报警结束纬度 */
+  elat?: string | null;
+  /**
+   * 报警结束里程,单位: 米。
+   * @format int64
+   */
+  elc?: number | null;
+  /** 报警结束经度 */
+  elng?: string | null;
+  /** 报警结束纬度,经过转换后的经度 */
+  emlat?: string | null;
+  /** 报警结束经度,经过转换后的经度 */
+  emlng?: string | null;
+  /** 报警结束地理位置,解析后的地理位置 */
+  eps?: string | null;
+  /**
+   * 报警结束速度,单位: km/h，使用中需先除以10。
+   * @format int32
+   */
+  esp?: number | null;
+  /**
+   * 报警结束时间(UTC) 秒数
+   * @format int64
+   */
+  etm?: number | null;
+  /**
+   * 报警结束时间
+   * @format date-time
+   */
+  etmDt?: string | null;
+  /** 报警唯一编号 */
+  guid?: string | null;
+  /**
+   * 处理状态,1表示已处理，0表示未处理
+   * @format int32
+   */
+  hd?: number | null;
+  /** 处理时间 */
+  hdt?: string | null;
+  /**
+   * 处理用户id
+   * @format int64
+   */
+  hdu?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 图片信息,用;分隔，为http地址路径，可以为多个图片信息。 */
+  img?: string | null;
+  /**
+   * 报警信息
+   * @format int32
+   */
+  info?: number | null;
+  /** 报警开始纬度 */
+  slat?: string | null;
+  /**
+   * 报警开始里程,单位: 米。
+   * @format int64
+   */
+  slc?: number | null;
+  /** 报警开始经度 */
+  slng?: string | null;
+  /** 报警开始纬度,经过转换后的经度 */
+  smlat?: string | null;
+  /** 报警开始经度,经过转换后的经度 */
+  smlng?: string | null;
+  /** 报警开始地理位置,解析后的地理位置 */
+  sps?: string | null;
+  /**
+   * 报警开始速度,单位: km/h，使用中需先除以10。
+   * @format int32
+   */
+  ssp?: number | null;
+  /**
+   * 报警开始时间(UTC) 秒数
+   * @format int64
+   */
+  stm?: number | null;
+  /**
+   * 报警开始时间
+   * @format date-time
+   */
+  stmDt?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 车牌号 */
+  vid?: string | null;
+}
+
+export interface EsGpsAlarmRecordFileFO {
+  /** @format int32 */
+  alarmParam?: number | null;
+  alarmType?: string | null;
+  /** @format int32 */
+  channel?: number | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  devIdno?: string | null;
+  fileETime?: string | null;
+  /** @format int64 */
+  fileOffset?: number | null;
+  fileSTime?: string | null;
+  /** @format int64 */
+  fileSize?: number | null;
+  /** @format int64 */
+  fileTime?: number | null;
+  fileUrl?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** @format int64 */
+  jingDu?: number | null;
+  label?: string | null;
+  /** @format int32 */
+  mediaType?: number;
+  position?: string | null;
+  /** @format int32 */
+  status?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  vehiIdno?: string | null;
+  videoFile?: string | null;
+  /** @format int64 */
+  weiDu?: number | null;
+}
+
+export interface EsGpsAlarmRecordFilePQO {
+  /** @format int32 */
+  alarmParam?: number | null;
+  alarmType?: string | null;
+  /** @format int32 */
+  channel?: number | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  devIdno?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  fileETime?: string | null;
+  /** @format int64 */
+  fileOffset?: number | null;
+  fileSTime?: string | null;
+  /** @format int64 */
+  fileSize?: number | null;
+  /** @format int64 */
+  fileTime?: number | null;
+  fileUrl?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** @format int64 */
+  jingDu?: number | null;
+  label?: string | null;
+  /** @format int32 */
+  mediaType?: number;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  position?: string | null;
+  /** @format int32 */
+  status?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  vehiIdno?: string | null;
+  videoFile?: string | null;
+  /** @format int64 */
+  weiDu?: number | null;
+}
+
+export interface EsGpsAlarmRecordFileQO {
+  /** @format int32 */
+  alarmParam?: number | null;
+  alarmType?: string | null;
+  /** @format int32 */
+  channel?: number | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  devIdno?: string | null;
+  fileETime?: string | null;
+  /** @format int64 */
+  fileOffset?: number | null;
+  fileSTime?: string | null;
+  /** @format int64 */
+  fileSize?: number | null;
+  /** @format int64 */
+  fileTime?: number | null;
+  fileUrl?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** @format int64 */
+  jingDu?: number | null;
+  label?: string | null;
+  /** @format int32 */
+  mediaType?: number;
+  position?: string | null;
+  /** @format int32 */
+  status?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  vehiIdno?: string | null;
+  videoFile?: string | null;
+  /** @format int64 */
+  weiDu?: number | null;
+}
+
+export interface EsGpsAlarmRecordFileVO {
+  /** @format int32 */
+  alarmParam?: number | null;
+  alarmType?: string | null;
+  /** @format int32 */
+  channel?: number | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  devIdno?: string | null;
+  fileETime?: string | null;
+  /** @format int64 */
+  fileOffset?: number | null;
+  fileSTime?: string | null;
+  /** @format int64 */
+  fileSize?: number | null;
+  /** @format int64 */
+  fileTime?: number | null;
+  fileUrl?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** @format int64 */
+  jingDu?: number | null;
+  label?: string | null;
+  /** @format int32 */
+  mediaType?: number;
+  position?: string | null;
+  /** @format int32 */
+  status?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  vehiIdno?: string | null;
+  videoFile?: string | null;
+  /** @format int64 */
+  weiDu?: number | null;
+}
+
+export interface EsGpsAlarmRecordPQO {
+  /**
+   * 报警结束状态1
+   * @format int32
+   */
+  es1?: number | null;
+  /**
+   * 报警结束状态2
+   * @format int32
+   */
+  es2?: number | null;
+  /**
+   * 报警参数1
+   * @format int32
+   */
+  p1?: number | null;
+  /**
+   * 报警参数2
+   * @format int32
+   */
+  p2?: number | null;
+  /**
+   * 报警参数3
+   * @format int32
+   */
+  p3?: number | null;
+  /**
+   * 报警参数4
+   * @format int32
+   */
+  p4?: number | null;
+  /**
+   * 报警开始状态1
+   * @format int32
+   */
+  ss1?: number | null;
+  /**
+   * 报警开始状态2
+   * @format int32
+   */
+  ss2?: number | null;
+  /**
+   * 报警类型
+   * @format int32
+   */
+  atp?: number | null;
+  /** 报警类型描述 */
+  atpStr?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 更新时间 */
+  createtime?: string | null;
+  /** 报警描述 */
+  desc?: string | null;
+  /** 设备号 */
+  did?: string | null;
+  /** 报警结束纬度 */
+  elat?: string | null;
+  /**
+   * 报警结束里程,单位: 米。
+   * @format int64
+   */
+  elc?: number | null;
+  /** 报警结束经度 */
+  elng?: string | null;
+  /** 报警结束纬度,经过转换后的经度 */
+  emlat?: string | null;
+  /** 报警结束经度,经过转换后的经度 */
+  emlng?: string | null;
+  /**
+   * 时间段查询条件，用于前端传入的时间段筛选。
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** 报警结束地理位置,解析后的地理位置 */
+  eps?: string | null;
+  /**
+   * 报警结束速度,单位: km/h，使用中需先除以10。
+   * @format int32
+   */
+  esp?: number | null;
+  /**
+   * 报警结束时间(UTC) 秒数
+   * @format int64
+   */
+  etm?: number | null;
+  /**
+   * 报警结束时间
+   * @format date-time
+   */
+  etmDt?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** 报警唯一编号 */
+  guid?: string | null;
+  /**
+   * 处理状态,1表示已处理，0表示未处理
+   * @format int32
+   */
+  hd?: number | null;
+  /** 处理时间 */
+  hdt?: string | null;
+  /**
+   * 处理用户id
+   * @format int64
+   */
+  hdu?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 图片信息,用;分隔，为http地址路径，可以为多个图片信息。 */
+  img?: string | null;
+  /**
+   * 报警信息
+   * @format int32
+   */
+  info?: number | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 报警开始纬度 */
+  slat?: string | null;
+  /**
+   * 报警开始里程,单位: 米。
+   * @format int64
+   */
+  slc?: number | null;
+  /** 报警开始经度 */
+  slng?: string | null;
+  /** 报警开始纬度,经过转换后的经度 */
+  smlat?: string | null;
+  /** 报警开始经度,经过转换后的经度 */
+  smlng?: string | null;
+  /** 报警开始地理位置,解析后的地理位置 */
+  sps?: string | null;
+  /**
+   * 报警开始速度,单位: km/h，使用中需先除以10。
+   * @format int32
+   */
+  ssp?: number | null;
+  /**
+   * 时间段查询条件，用于前端传入的时间段筛选。
+   * @format date-time
+   */
+  startTime?: string | null;
+  /**
+   * 报警开始时间(UTC) 秒数
+   * @format int64
+   */
+  stm?: number | null;
+  /**
+   * 报警开始时间
+   * @format date-time
+   */
+  stmDt?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 车牌号 */
+  vid?: string | null;
+}
+
+export interface EsGpsAlarmRecordQO {
+  /**
+   * 报警结束状态1
+   * @format int32
+   */
+  es1?: number | null;
+  /**
+   * 报警结束状态2
+   * @format int32
+   */
+  es2?: number | null;
+  /**
+   * 报警参数1
+   * @format int32
+   */
+  p1?: number | null;
+  /**
+   * 报警参数2
+   * @format int32
+   */
+  p2?: number | null;
+  /**
+   * 报警参数3
+   * @format int32
+   */
+  p3?: number | null;
+  /**
+   * 报警参数4
+   * @format int32
+   */
+  p4?: number | null;
+  /**
+   * 报警开始状态1
+   * @format int32
+   */
+  ss1?: number | null;
+  /**
+   * 报警开始状态2
+   * @format int32
+   */
+  ss2?: number | null;
+  /**
+   * 报警类型
+   * @format int32
+   */
+  atp?: number | null;
+  /** 报警类型描述 */
+  atpStr?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 更新时间 */
+  createtime?: string | null;
+  /** 报警描述 */
+  desc?: string | null;
+  /** 设备号 */
+  did?: string | null;
+  /** 报警结束纬度 */
+  elat?: string | null;
+  /**
+   * 报警结束里程,单位: 米。
+   * @format int64
+   */
+  elc?: number | null;
+  /** 报警结束经度 */
+  elng?: string | null;
+  /** 报警结束纬度,经过转换后的经度 */
+  emlat?: string | null;
+  /** 报警结束经度,经过转换后的经度 */
+  emlng?: string | null;
+  /**
+   * 时间段查询条件，用于前端传入的时间段筛选。
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** 报警结束地理位置,解析后的地理位置 */
+  eps?: string | null;
+  /**
+   * 报警结束速度,单位: km/h，使用中需先除以10。
+   * @format int32
+   */
+  esp?: number | null;
+  /**
+   * 报警结束时间(UTC) 秒数
+   * @format int64
+   */
+  etm?: number | null;
+  /**
+   * 报警结束时间
+   * @format date-time
+   */
+  etmDt?: string | null;
+  /** 报警唯一编号 */
+  guid?: string | null;
+  /**
+   * 处理状态,1表示已处理，0表示未处理
+   * @format int32
+   */
+  hd?: number | null;
+  /** 处理时间 */
+  hdt?: string | null;
+  /**
+   * 处理用户id
+   * @format int64
+   */
+  hdu?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 图片信息,用;分隔，为http地址路径，可以为多个图片信息。 */
+  img?: string | null;
+  /**
+   * 报警信息
+   * @format int32
+   */
+  info?: number | null;
+  /** 报警开始纬度 */
+  slat?: string | null;
+  /**
+   * 报警开始里程,单位: 米。
+   * @format int64
+   */
+  slc?: number | null;
+  /** 报警开始经度 */
+  slng?: string | null;
+  /** 报警开始纬度,经过转换后的经度 */
+  smlat?: string | null;
+  /** 报警开始经度,经过转换后的经度 */
+  smlng?: string | null;
+  /** 报警开始地理位置,解析后的地理位置 */
+  sps?: string | null;
+  /**
+   * 报警开始速度,单位: km/h，使用中需先除以10。
+   * @format int32
+   */
+  ssp?: number | null;
+  /**
+   * 时间段查询条件，用于前端传入的时间段筛选。
+   * @format date-time
+   */
+  startTime?: string | null;
+  /**
+   * 报警开始时间(UTC) 秒数
+   * @format int64
+   */
+  stm?: number | null;
+  /**
+   * 报警开始时间
+   * @format date-time
+   */
+  stmDt?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 车牌号 */
+  vid?: string | null;
+}
+
+export interface EsGpsAlarmRecordVO {
+  /**
+   * 报警结束状态1
+   * @format int32
+   */
+  es1?: number | null;
+  /**
+   * 报警结束状态2
+   * @format int32
+   */
+  es2?: number | null;
+  /**
+   * 报警参数1
+   * @format int32
+   */
+  p1?: number | null;
+  /**
+   * 报警参数2
+   * @format int32
+   */
+  p2?: number | null;
+  /**
+   * 报警参数3
+   * @format int32
+   */
+  p3?: number | null;
+  /**
+   * 报警参数4
+   * @format int32
+   */
+  p4?: number | null;
+  /**
+   * 报警开始状态1
+   * @format int32
+   */
+  ss1?: number | null;
+  /**
+   * 报警开始状态2
+   * @format int32
+   */
+  ss2?: number | null;
+  /**
+   * 报警类型
+   * @format int32
+   */
+  atp?: number | null;
+  /** 报警类型描述 */
+  atpStr?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 更新时间 */
+  createtime?: string | null;
+  /** 报警描述 */
+  desc?: string | null;
+  /** 设备号 */
+  did?: string | null;
+  /** 报警结束纬度 */
+  elat?: string | null;
+  /**
+   * 报警结束里程,单位: 米。
+   * @format int64
+   */
+  elc?: number | null;
+  /** 报警结束经度 */
+  elng?: string | null;
+  /** 报警结束纬度,经过转换后的经度 */
+  emlat?: string | null;
+  /** 报警结束经度,经过转换后的经度 */
+  emlng?: string | null;
+  /** 报警结束地理位置,解析后的地理位置 */
+  eps?: string | null;
+  /**
+   * 报警结束速度,单位: km/h，使用中需先除以10。
+   * @format int32
+   */
+  esp?: number | null;
+  /**
+   * 报警结束时间(UTC) 秒数
+   * @format int64
+   */
+  etm?: number | null;
+  /**
+   * 报警结束时间
+   * @format date-time
+   */
+  etmDt?: string | null;
+  /** 报警唯一编号 */
+  guid?: string | null;
+  /**
+   * 处理状态,1表示已处理，0表示未处理
+   * @format int32
+   */
+  hd?: number | null;
+  /** 处理时间 */
+  hdt?: string | null;
+  /**
+   * 处理用户id
+   * @format int64
+   */
+  hdu?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 图片信息,用;分隔，为http地址路径，可以为多个图片信息。 */
+  img?: string | null;
+  /**
+   * 报警信息
+   * @format int32
+   */
+  info?: number | null;
+  /** 图片地址 */
+  picUrl?: string[] | null;
+  /** 报警开始纬度 */
+  slat?: string | null;
+  /**
+   * 报警开始里程,单位: 米。
+   * @format int64
+   */
+  slc?: number | null;
+  /** 报警开始经度 */
+  slng?: string | null;
+  /** 报警开始纬度,经过转换后的经度 */
+  smlat?: string | null;
+  /** 报警开始经度,经过转换后的经度 */
+  smlng?: string | null;
+  /** 报警开始地理位置,解析后的地理位置 */
+  sps?: string | null;
+  /**
+   * 报警开始速度,单位: km/h，使用中需先除以10。
+   * @format int32
+   */
+  ssp?: number | null;
+  /**
+   * 报警开始时间(UTC) 秒数
+   * @format int64
+   */
+  stm?: number | null;
+  /**
+   * 报警开始时间
+   * @format date-time
+   */
+  stmDt?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 视频地址 */
+  vedioUrl?: string[] | null;
+  /** 车牌号 */
+  vid?: string | null;
+}
+
+export interface EsSanitationFacilityFO {
+  /** 地址 */
+  address?: string | null;
+  /** @format int64 */
+  id?: number | null;
+  /** 是否重点关注 */
+  isFollow: boolean;
+  /** 是否地图显示 */
+  isMapDisplay: boolean;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 责任部门
+   * @format int64
+   */
+  organizationId: number;
+  /**
+   * 车辆停靠半径(m)
+   * @format double
+   */
+  parkRadius?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 类型
+   * @minLength 1
+   */
+  typeCode: string;
+}
+
+export interface EsSanitationFacilityPQO {
+  /** 地址 */
+  address?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否重点关注 */
+  isFollow?: boolean | null;
+  /** 是否地图显示 */
+  isMapDisplay?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 责任部门
+   * @format int64
+   */
+  organizationId?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 车辆停靠半径(m)
+   * @format double
+   */
+  parkRadius?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 类型 */
+  typeCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsSanitationFacilityQO {
+  /** 地址 */
+  address?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否重点关注 */
+  isFollow?: boolean | null;
+  /** 是否地图显示 */
+  isMapDisplay?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 责任部门
+   * @format int64
+   */
+  organizationId?: number | null;
+  /**
+   * 车辆停靠半径(m)
+   * @format double
+   */
+  parkRadius?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 类型 */
+  typeCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsSanitationFacilityTypeFO {
+  /**
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+}
+
+export interface EsSanitationFacilityTypePQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsSanitationFacilityTypeQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsSanitationFacilityTypeVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsSanitationFacilityVO {
+  /** 地址 */
+  address?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否重点关注 */
+  isFollow?: boolean | null;
+  /** 是否地图显示 */
+  isMapDisplay?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 责任部门
+   * @format int64
+   */
+  organizationId?: number | null;
+  /** 责任单位 */
+  readonly organizationName?: string | null;
+  /**
+   * 车辆停靠半径(m)
+   * @format double
+   */
+  parkRadius?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 类型 */
+  typeCode?: string | null;
+  /** 类型 */
+  readonly typeName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsShipFO {
+  /**
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** @format int64 */
+  id?: number | null;
+  /** 是否在地图显示 */
+  isDisplay?: boolean | null;
+  /**
+   * 管理部门
+   * @format int64
+   */
+  organizationId: number;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 船只状态
+   * @minLength 1
+   */
+  shipStateCode: string;
+  /** 设备号 */
+  terminalCode?: string | null;
+}
+
+export interface EsShipPQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否在地图显示 */
+  isDisplay?: boolean | null;
+  /** 是否安装设备 */
+  isExistEquipment?: boolean | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 管理部门
+   * @format int64
+   */
+  organizationId?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** 船只状态 */
+  shipStateCode?: string | null;
+  /** 设备号 */
+  terminalCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsShipQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否在地图显示 */
+  isDisplay?: boolean | null;
+  /** 是否安装设备 */
+  isExistEquipment?: boolean | null;
+  /**
+   * 管理部门
+   * @format int64
+   */
+  organizationId?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 船只状态 */
+  shipStateCode?: string | null;
+  /** 设备号 */
+  terminalCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsShipRealtimeFO {
+  /**
+   * 音频类型
+   * @format int32
+   */
+  acType?: number | null;
+  /**
+   * 报警状态（0-未报警，1-报警中）
+   * @format int32
+   */
+  alarmState?: number | null;
+  /**
+   * 方向，正北方向为0度，顺时针方向增大，最大值360度
+   * @format int32
+   */
+  angle?: number | null;
+  /**
+   * 网络类型，0表示3G，1表示WIFI，2表示有线，3表示4G，4表示5G
+   * @format int32
+   */
+  connetNet?: number | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 磁盘类型（1-SD卡，2-硬盘，3-SSD卡）
+   * @format int32
+   */
+  diskType?: number | null;
+  /**
+   * 里程(米)
+   * @format int32
+   */
+  driverDistance?: number | null;
+  /**
+   * GPS定位状态（0为无效,1为有效）
+   * @format int32
+   */
+  gpsState?: number | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 原始坐标纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 原始坐标经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 发动机状态（0-停止，1-工作）
+   * @format int32
+   */
+  motoState?: number | null;
+  /**
+   * 在线状态（0-离线，1-在线）
+   * @format int32
+   */
+  onlineState?: number | null;
+  /**
+   * 停车时长(秒)
+   * @format int32
+   */
+  parkingDuration?: number | null;
+  /**
+   * 刷新时间
+   * @format date-time
+   */
+  refreshTime?: string | null;
+  /** 船只编码 */
+  shipCode?: string | null;
+  /**
+   * 速度，单位: km/h
+   * @format double
+   */
+  speed?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsShipRealtimePQO {
+  /**
+   * 音频类型
+   * @format int32
+   */
+  acType?: number | null;
+  /**
+   * 报警状态（0-未报警，1-报警中）
+   * @format int32
+   */
+  alarmState?: number | null;
+  /**
+   * 方向，正北方向为0度，顺时针方向增大，最大值360度
+   * @format int32
+   */
+  angle?: number | null;
+  /**
+   * 网络类型，0表示3G，1表示WIFI，2表示有线，3表示4G，4表示5G
+   * @format int32
+   */
+  connetNet?: number | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 磁盘类型（1-SD卡，2-硬盘，3-SSD卡）
+   * @format int32
+   */
+  diskType?: number | null;
+  /**
+   * 里程(米)
+   * @format int32
+   */
+  driverDistance?: number | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * GPS定位状态（0为无效,1为有效）
+   * @format int32
+   */
+  gpsState?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否在地图显示 */
+  isDisplay?: boolean | null;
+  /** 是否安装设备 */
+  isExistEquipment?: boolean | null;
+  /**
+   * 原始坐标纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 原始坐标经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 发动机状态（0-停止，1-工作）
+   * @format int32
+   */
+  motoState?: number | null;
+  /**
+   * 在线状态（0-离线，1-在线）
+   * @format int32
+   */
+  onlineState?: number | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 停车时长(秒)
+   * @format int32
+   */
+  parkingDuration?: number | null;
+  /**
+   * 刷新时间
+   * @format date-time
+   */
+  refreshTime?: string | null;
+  /** 船只编码 */
+  shipCode?: string | null;
+  /** 船只状态 */
+  shipStateCode?: string | null;
+  /**
+   * 速度，单位: km/h
+   * @format double
+   */
+  speed?: number | null;
+  /** 设备号 */
+  terminalCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsShipRealtimeQO {
+  /**
+   * 音频类型
+   * @format int32
+   */
+  acType?: number | null;
+  /**
+   * 报警状态（0-未报警，1-报警中）
+   * @format int32
+   */
+  alarmState?: number | null;
+  /**
+   * 方向，正北方向为0度，顺时针方向增大，最大值360度
+   * @format int32
+   */
+  angle?: number | null;
+  /**
+   * 网络类型，0表示3G，1表示WIFI，2表示有线，3表示4G，4表示5G
+   * @format int32
+   */
+  connetNet?: number | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 磁盘类型（1-SD卡，2-硬盘，3-SSD卡）
+   * @format int32
+   */
+  diskType?: number | null;
+  /**
+   * 里程(米)
+   * @format int32
+   */
+  driverDistance?: number | null;
+  /**
+   * GPS定位状态（0为无效,1为有效）
+   * @format int32
+   */
+  gpsState?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否在地图显示 */
+  isDisplay?: boolean | null;
+  /** 是否安装设备 */
+  isExistEquipment?: boolean | null;
+  /**
+   * 原始坐标纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 原始坐标经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 发动机状态（0-停止，1-工作）
+   * @format int32
+   */
+  motoState?: number | null;
+  /**
+   * 在线状态（0-离线，1-在线）
+   * @format int32
+   */
+  onlineState?: number | null;
+  /**
+   * 停车时长(秒)
+   * @format int32
+   */
+  parkingDuration?: number | null;
+  /**
+   * 刷新时间
+   * @format date-time
+   */
+  refreshTime?: string | null;
+  /** 船只编码 */
+  shipCode?: string | null;
+  /** 船只状态 */
+  shipStateCode?: string | null;
+  /**
+   * 速度，单位: km/h
+   * @format double
+   */
+  speed?: number | null;
+  /** 设备号 */
+  terminalCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsShipRealtimeVO {
+  /**
+   * 音频类型
+   * @format int32
+   */
+  acType?: number | null;
+  /**
+   * 报警状态（0-未报警，1-报警中）
+   * @format int32
+   */
+  alarmState?: number | null;
+  /**
+   * 方向，正北方向为0度，顺时针方向增大，最大值360度
+   * @format int32
+   */
+  angle?: number | null;
+  /**
+   * 网络类型，0表示3G，1表示WIFI，2表示有线，3表示4G，4表示5G
+   * @format int32
+   */
+  connetNet?: number | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 磁盘类型（1-SD卡，2-硬盘，3-SSD卡）
+   * @format int32
+   */
+  diskType?: number | null;
+  /**
+   * 里程(米)
+   * @format int32
+   */
+  driverDistance?: number | null;
+  /**
+   * GPS定位状态（0为无效,1为有效）
+   * @format int32
+   */
+  gpsState?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否在地图显示 */
+  isDisplay?: boolean | null;
+  /**
+   * 原始坐标纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 原始坐标经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 发动机状态（0-停止，1-工作）
+   * @format int32
+   */
+  motoState?: number | null;
+  /**
+   * 在线状态（0-离线，1-在线）
+   * @format int32
+   */
+  onlineState?: number | null;
+  /**
+   * 停车时长(秒)
+   * @format int32
+   */
+  parkingDuration?: number | null;
+  /**
+   * 刷新时间
+   * @format date-time
+   */
+  refreshTime?: string | null;
+  /** 船只编码 */
+  shipCode?: string | null;
+  /** 船只状态 */
+  shipStateName?: string | null;
+  /**
+   * 速度，单位: km/h
+   * @format double
+   */
+  speed?: number | null;
+  /** 设备号 */
+  terminalCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsShipVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否在地图显示 */
+  isDisplay?: boolean | null;
+  /**
+   * 管理部门
+   * @format int64
+   */
+  organizationId?: number | null;
+  /** 管理单位 */
+  organizationName?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 船只状态 */
+  shipStateCode?: string | null;
+  /** 船只状态 */
+  shipStateName?: string | null;
+  /** 设备号 */
+  terminalCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsVehicleCountByTypeVO {
+  /**
+   * 数量
+   * @format int32
+   */
+  count?: number;
+  /** 车辆类型 */
+  type?: string | null;
+}
+
+export interface EsVehicleDpRecordFO {
+  /**
+   * 调动时间
+   * @format date-time
+   */
+  dispatchTime: string;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude: number;
+  /**
+   * 车牌号
+   * @minLength 1
+   */
+  licence: string;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude: number;
+  /** 备注 */
+  remark?: string | null;
+}
+
+export interface EsVehicleDpRecordPQO {
+  /** 地址 */
+  address?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 调动时间
+   * @format date-time
+   */
+  dispatchTime?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 驾驶员
+   * @format int64
+   */
+  userId?: number | null;
+}
+
+export interface EsVehicleDpRecordQO {
+  /** 地址 */
+  address?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 调动时间
+   * @format date-time
+   */
+  dispatchTime?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 驾驶员
+   * @format int64
+   */
+  userId?: number | null;
+}
+
+export interface EsVehicleDpRecordVO {
+  /** 地址 */
+  address?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 调动时间
+   * @format date-time
+   */
+  dispatchTime?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 驾驶员
+   * @format int64
+   */
+  userId?: number | null;
+  /** 驾驶员姓名 */
+  readonly userName?: string | null;
+}
+
+export interface EsVehicleFO {
+  /**
+   * 驾驶员
+   * @format int64
+   */
+  driverId: number;
+  /** 所属车队 */
+  fleetCode?: string | null;
+  /** @format int64 */
+  id?: number | null;
+  /** 是否在地图显示 */
+  isDisplay?: boolean | null;
+  /**
+   * 车牌号
+   * @minLength 1
+   */
+  licence: string;
+  /**
+   * 管理部门
+   * @format int64
+   */
+  organizationId: number;
+  /** 备注 */
+  remark?: string | null;
+  /** 终端号 */
+  terminalCode?: string | null;
+  /**
+   * 车辆状态
+   * @minLength 1
+   */
+  vehicleStateCode: string;
+  /**
+   * 车辆皮重(kg)
+   * @format int32
+   */
+  vehicleTareWeight?: number | null;
+  /**
+   * 车辆类型
+   * @minLength 1
+   */
+  vehicleTypeCode: string;
+}
+
+export interface EsVehicleLcRecordFO {
+  /**
+   * 数据时间(天)
+   * @format date-time
+   */
+  dataTime: string;
+  /**
+   * 总里程(m)
+   * @format double
+   */
+  dataValue: number;
+  /**
+   * 结束里程(m)
+   * @format double
+   */
+  etValue: number;
+  /**
+   * 结束里程时间
+   * @format date-time
+   */
+  etValueTime: string;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 车牌号
+   * @minLength 1
+   */
+  licence: string;
+  /**
+   * 开始里程(m)
+   * @format double
+   */
+  stValue: number;
+  /**
+   * 开始里程时间
+   * @format date-time
+   */
+  stValueTime: string;
+}
+
+export interface EsVehicleLcRecordPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间(天)
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /**
+   * 总里程(米)
+   * @format int64
+   */
+  dataValue?: number | null;
+  /** 结束地址 */
+  etAddress?: string | null;
+  /**
+   * 结束纬度
+   * @format double
+   */
+  etLatitude?: number | null;
+  /**
+   * 结束经度
+   * @format double
+   */
+  etLongitude?: number | null;
+  /**
+   * 结束里程(米)
+   * @format int64
+   */
+  etValue?: number | null;
+  /**
+   * 结束里程时间
+   * @format date-time
+   */
+  etValueTime?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 车牌号 */
+  licence?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 开始地址 */
+  stAddress?: string | null;
+  /**
+   * 开始纬度
+   * @format double
+   */
+  stLatitude?: number | null;
+  /**
+   * 开始经度
+   * @format double
+   */
+  stLongitude?: number | null;
+  /**
+   * 开始里程(米)
+   * @format int64
+   */
+  stValue?: number | null;
+  /**
+   * 开始里程时间
+   * @format date-time
+   */
+  stValueTime?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsVehicleLcRecordQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间(天)
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /**
+   * 总里程(米)
+   * @format int64
+   */
+  dataValue?: number | null;
+  /** 结束地址 */
+  etAddress?: string | null;
+  /**
+   * 结束纬度
+   * @format double
+   */
+  etLatitude?: number | null;
+  /**
+   * 结束经度
+   * @format double
+   */
+  etLongitude?: number | null;
+  /**
+   * 结束里程(米)
+   * @format int64
+   */
+  etValue?: number | null;
+  /**
+   * 结束里程时间
+   * @format date-time
+   */
+  etValueTime?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 车牌号 */
+  licence?: string | null;
+  /** 开始地址 */
+  stAddress?: string | null;
+  /**
+   * 开始纬度
+   * @format double
+   */
+  stLatitude?: number | null;
+  /**
+   * 开始经度
+   * @format double
+   */
+  stLongitude?: number | null;
+  /**
+   * 开始里程(米)
+   * @format int64
+   */
+  stValue?: number | null;
+  /**
+   * 开始里程时间
+   * @format date-time
+   */
+  stValueTime?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsVehicleLcRecordStQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime: string;
+  /** 车牌号 */
+  licence?: string | null;
+}
+
+export interface EsVehicleLcRecordVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间(天)
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /**
+   * 总里程(米)
+   * @format int64
+   */
+  dataValue?: number | null;
+  /** 结束地址 */
+  etAddress?: string | null;
+  /**
+   * 结束纬度
+   * @format double
+   */
+  etLatitude?: number | null;
+  /**
+   * 结束经度
+   * @format double
+   */
+  etLongitude?: number | null;
+  /**
+   * 结束里程(米)
+   * @format int64
+   */
+  etValue?: number | null;
+  /**
+   * 结束里程时间
+   * @format date-time
+   */
+  etValueTime?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 车牌号 */
+  licence?: string | null;
+  /** 开始地址 */
+  stAddress?: string | null;
+  /**
+   * 开始纬度
+   * @format double
+   */
+  stLatitude?: number | null;
+  /**
+   * 开始经度
+   * @format double
+   */
+  stLongitude?: number | null;
+  /**
+   * 开始里程(米)
+   * @format int64
+   */
+  stValue?: number | null;
+  /**
+   * 开始里程时间
+   * @format date-time
+   */
+  stValueTime?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsVehiclePQO {
+  /** 驾驶员姓名 */
+  driverName?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** 所属车队 */
+  fleetCode?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否在地图显示 */
+  isDisplay?: boolean | null;
+  /** 是否安装设备 */
+  isExistEquipment?: boolean | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 设备号 */
+  terminalCode?: string | null;
+  /** 车辆状态 */
+  vehicleStateCode?: string | null;
+  /** 车辆类型 */
+  vehicleTypeCode?: string | null;
+}
+
+export interface EsVehicleQO {
+  /** 驾驶员姓名 */
+  driverName?: string | null;
+  /** 所属车队 */
+  fleetCode?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否在地图显示 */
+  isDisplay?: boolean | null;
+  /** 是否安装设备 */
+  isExistEquipment?: boolean | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /** 设备号 */
+  terminalCode?: string | null;
+  /** 车辆状态 */
+  vehicleStateCode?: string | null;
+  /** 车辆类型 */
+  vehicleTypeCode?: string | null;
+}
+
+export interface EsVehicleRealtimeFO {
+  /**
+   * 音频类型
+   * @format int32
+   */
+  acType?: number | null;
+  /**
+   * 报警状态（0-未报警，1-报警中）
+   * @format int32
+   */
+  alarmState?: number | null;
+  /**
+   * 方向，正北方向为0度，顺时针方向增大，最大值360度
+   * @format int32
+   */
+  angle?: number | null;
+  /**
+   * 网络类型，0表示3G，1表示WIFI，2表示有线，3表示4G，4表示5G
+   * @format int32
+   */
+  connetNet?: number | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 磁盘类型（1-SD卡，2-硬盘，3-SSD卡）
+   * @format int32
+   */
+  diskType?: number | null;
+  /**
+   * 里程(米)
+   * @format int32
+   */
+  driverDistance?: number | null;
+  /**
+   * GPS定位状态（0为无效,1为有效）
+   * @format int32
+   */
+  gpsState?: number | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 原始坐标纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /**
+   * 原始坐标经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 发动机状态(acc状态)（0-停止，1-工作）
+   * @format int32
+   */
+  motoState?: number | null;
+  /**
+   * 在线状态（0-离线，1-在线）
+   * @format int32
+   */
+  onlineState?: number | null;
+  /**
+   * 停车时长(秒)
+   * @format int32
+   */
+  parkingDuration?: number | null;
+  /**
+   * 刷新时间
+   * @format date-time
+   */
+  refreshTime?: string | null;
+  /**
+   * 速度，单位: km/h
+   * @format double
+   */
+  speed?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsVehicleRealtimePQO {
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否在地图显示 */
+  isDisplay?: boolean | null;
+  /** 是否安装设备 */
+  isExistEquipment?: boolean | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 设备号 */
+  terminalCode?: string | null;
+  /**
+   * 车辆id
+   * @format int64
+   */
+  vehicleId?: number;
+  /** 车辆类型 */
+  vehicleTypeCode?: string | null;
+}
+
+export interface EsVehicleRealtimeQO {
+  /** @format int64 */
+  id?: number;
+  /** 是否在地图显示 */
+  isDisplay?: boolean | null;
+  /** 是否安装设备 */
+  isExistEquipment?: boolean | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /** 设备号 */
+  terminalCode?: string | null;
+  /**
+   * 车辆id
+   * @format int64
+   */
+  vehicleId?: number;
+  /** 车辆类型 */
+  vehicleTypeCode?: string | null;
+}
+
+export interface EsVehicleRealtimeVO {
+  /**
+   * 音频类型
+   * @format int32
+   */
+  acType?: number | null;
+  /**
+   * 报警状态（0-未报警，1-报警中）
+   * @format int32
+   */
+  alarmState?: number | null;
+  /**
+   * 方向，正北方向为0度，顺时针方向增大，最大值360度
+   * @format int32
+   */
+  angle?: number | null;
+  /**
+   * 网络类型，0表示3G，1表示WIFI，2表示有线，3表示4G，4表示5G
+   * @format int32
+   */
+  connetNet?: number | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 磁盘类型（1-SD卡，2-硬盘，3-SSD卡）
+   * @format int32
+   */
+  diskType?: number | null;
+  /**
+   * 里程(米)
+   * @format int32
+   */
+  driverDistance?: number | null;
+  /**
+   * GPS定位状态（0为无效,1为有效）
+   * @format int32
+   */
+  gpsState?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否在地图显示 */
+  isDisplay?: boolean;
+  /**
+   * 原始坐标纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /**
+   * 原始坐标经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 发动机状态(acc状态)（0-停止，1-工作）
+   * @format int32
+   */
+  motoState?: number | null;
+  /**
+   * 在线状态（0-离线，1-在线）
+   * @format int32
+   */
+  onlineState?: number | null;
+  /**
+   * 停车时长(秒)
+   * @format int32
+   */
+  parkingDuration?: number | null;
+  /**
+   * 刷新时间
+   * @format date-time
+   */
+  refreshTime?: string | null;
+  /**
+   * 速度，单位: km/h
+   * @format double
+   */
+  speed?: number | null;
+  /** 设备号 */
+  terminalCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 车辆类型 */
+  vehicleTypeCode?: string | null;
+  /** 车辆类型 */
+  vehicleTypeName?: string | null;
+}
+
+/** 车辆轨迹点 */
+export interface EsVehicleRecordPoint {
+  /**
+   * 音频类型
+   * @format int32
+   */
+  acType?: number | null;
+  /**
+   * 报警状态（0-未报警，1-报警中）
+   * @format int32
+   */
+  alarmState?: number | null;
+  /**
+   * 方向，正北方向为0度，顺时针方向增大，最大值360度
+   * @format int32
+   */
+  angle?: number | null;
+  /**
+   * 网络类型，0表示3G，1表示WIFI，2表示有线，3表示4G，4表示5G
+   * @format int32
+   */
+  connetNet?: number | null;
+  /**
+   * Desc:
+   * Default:
+   * Nullable:True
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /**
+   * Desc:数据时间
+   * Default:
+   * Nullable:False
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 磁盘类型（1-SD卡，2-硬盘，3-SSD卡）
+   * @format int32
+   */
+  diskType?: number | null;
+  /**
+   * 里程(米)
+   * @format int32
+   */
+  driverDistance?: number | null;
+  /**
+   * GPS定位状态（0为无效,1为有效）
+   * @format int32
+   */
+  gpsState?: number | null;
+  id?: string | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 发动机状态(acc状态)（0-停止，1-工作）
+   * @format int32
+   */
+  motoState?: number | null;
+  /**
+   * 在线状态（0-离线，1-在线）
+   * @format int32
+   */
+  onlineState?: number | null;
+  /**
+   * 停车时长(秒)
+   * @format int32
+   */
+  parkingDuration?: number | null;
+  /**
+   * 速度，单位: km/h
+   * @format double
+   */
+  speed?: number | null;
+  /** 终端号 */
+  terminalCode?: string | null;
+}
+
+export interface EsVehicleStateStVO {
+  /**
+   * 数量
+   * @format int32
+   */
+  count?: number;
+  /** 车辆状态 */
+  state?: string | null;
+}
+
+export interface EsVehicleVO {
+  /**
+   * 通道数量
+   * @format int32
+   */
+  cc?: number | null;
+  /** 通道名称,以','分隔 */
+  cn?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /**
+   * 驾驶员
+   * @format int64
+   */
+  driverId?: number | null;
+  /** 驾驶员 */
+  driverName?: string | null;
+  /** 所属车队 */
+  fleetCode?: string | null;
+  /** 所属车队 */
+  fleetName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否在地图显示 */
+  isDisplay?: boolean;
+  /** 车牌号 */
+  licence?: string | null;
+  /**
+   * 管理部门
+   * @format int64
+   */
+  organizationId?: number | null;
+  /** 管理单位 */
+  organizationName?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 设备号 */
+  terminalCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 车辆状态 */
+  vehicleStateCode?: string | null;
+  /** 车辆状态 */
+  vehicleStateName?: string | null;
+  /**
+   * 车辆皮重
+   * @format int32
+   */
+  vehicleTareWeight?: number | null;
+  /** 车辆类型 */
+  vehicleTypeCode?: string | null;
+  /** 车辆类型 */
+  vehicleTypeName?: string | null;
+}
+
+export interface EsWeightRecordFO {
+  /**
+   * 称重时间
+   * @format date-time
+   */
+  dataTime: string;
+  /** 设备编号 */
+  equipmentCode?: string | null;
+  /**
+   * 毛重(kg)
+   * @format double
+   */
+  gross?: number | null;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 进出站标志(1进站2出站)
+   * @format int32
+   */
+  inOut: number;
+  /**
+   * 车牌号
+   * @minLength 1
+   */
+  licence: string;
+  /**
+   * 净重(kg)
+   * @format double
+   */
+  netWeight?: number | null;
+  /** 收货单位 */
+  receiver?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 发货单位 */
+  sender?: string | null;
+  /**
+   * 皮重(kg)
+   * @format double
+   */
+  tare?: number | null;
+  /**
+   * 计量单号
+   * @minLength 1
+   */
+  ticketNo: string;
+  /** 垃圾来源 */
+  trashSource?: string | null;
+  /**
+   * 垃圾类型
+   * @minLength 1
+   */
+  trashType: string;
+}
+
+export interface EsWeightRecordPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 称重时间
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /** 设备编号 */
+  equipmentCode?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 毛重(kg)
+   * @format double
+   */
+  gross?: number | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 进出站标志(1进站2出站)
+   * @format int32
+   */
+  inOut?: number | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /**
+   * 净重(kg)
+   * @format double
+   */
+  netWeight?: number | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 收货单位 */
+  receiver?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 发货单位 */
+  sender?: string | null;
+  /**
+   * 皮重(kg)
+   * @format double
+   */
+  tare?: number | null;
+  /** 计量单号 */
+  ticketNo?: string | null;
+  /** 垃圾来源 */
+  trashSource?: string | null;
+  /** 垃圾类型 */
+  trashType?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsWeightRecordQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 称重时间
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /** 设备编号 */
+  equipmentCode?: string | null;
+  /**
+   * 毛重(kg)
+   * @format double
+   */
+  gross?: number | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 进出站标志(1进站2出站)
+   * @format int32
+   */
+  inOut?: number | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /**
+   * 净重(kg)
+   * @format double
+   */
+  netWeight?: number | null;
+  /** 收货单位 */
+  receiver?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 发货单位 */
+  sender?: string | null;
+  /**
+   * 皮重(kg)
+   * @format double
+   */
+  tare?: number | null;
+  /** 计量单号 */
+  ticketNo?: string | null;
+  /** 垃圾来源 */
+  trashSource?: string | null;
+  /** 垃圾类型 */
+  trashType?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsWeightRecordStQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime: string;
+  /**
+   * 进出站标志(1进站2出站)
+   * @format int32
+   */
+  inOut?: number | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /** 收货单位 */
+  receiver?: string | null;
+  /** 发货单位 */
+  sender?: string | null;
+  /** 垃圾来源 */
+  trashSource?: string | null;
+  /** 垃圾类型 */
+  trashType?: string | null;
+}
+
+export interface EsWeightRecordStVO {
+  /**
+   * 数量
+   * @format double
+   */
+  count?: number | null;
+  /** 维度 */
+  label?: string | null;
+  /**
+   * 重量(kg)
+   * @format double
+   */
+  sum?: number | null;
+}
+
+export interface EsWeightRecordStatisticsVO {
+  /**
+   * 进站量
+   * @format double
+   */
+  totalWeight?: number | null;
+  /**
+   * 进站车次
+   * @format int32
+   */
+  trainNumber?: number;
+}
+
+export interface EsWeightRecordVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 称重时间
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /** 设备编号 */
+  equipmentCode?: string | null;
+  /**
+   * 毛重(kg)
+   * @format double
+   */
+  gross?: number | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 进出站标志(1进站2出站)
+   * @format int32
+   */
+  inOut?: number | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /**
+   * 净重(kg)
+   * @format double
+   */
+  netWeight?: number | null;
+  /** 收货单位 */
+  receiver?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 发货单位 */
+  sender?: string | null;
+  /**
+   * 皮重(kg)
+   * @format double
+   */
+  tare?: number | null;
+  /** 计量单号 */
+  ticketNo?: string | null;
+  /** 垃圾来源 */
+  trashSource?: string | null;
+  /** 垃圾类型 */
+  trashType?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsWorkPlanPwFO {
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 排班日期
+   * @format date-time
+   */
+  planDate: string;
+  /** 人员列表 */
+  userIdList?: number[] | null;
+  /**
+   * 人员作业班次
+   * @format int64
+   */
+  workShiftId: number;
+}
+
+export interface EsWorkPlanPwPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否执行 */
+  isExe?: boolean | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 排班日期
+   * @format date-time
+   */
+  planDate?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 人员作业班次
+   * @format int64
+   */
+  workShiftId?: number | null;
+}
+
+export interface EsWorkPlanPwQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否执行 */
+  isExe?: boolean | null;
+  /**
+   * 排班日期
+   * @format date-time
+   */
+  planDate?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 人员作业班次
+   * @format int64
+   */
+  workShiftId?: number | null;
+}
+
+export interface EsWorkPlanPwStQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime: string;
+  /** 是否执行 */
+  isExe?: boolean | null;
+}
+
+export interface EsWorkPlanPwVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否执行 */
+  isExe?: boolean | null;
+  /**
+   * 排班日期
+   * @format date-time
+   */
+  planDate?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 人员列表 */
+  userIdList?: number[] | null;
+  /**
+   * 人员作业班次
+   * @format int64
+   */
+  workShiftId?: number | null;
+  /** 人员作业班次名称 */
+  workShiftName?: string | null;
+  /** 班次时间编码 */
+  wtShiftCode?: string | null;
+  /** 班次时间名称 */
+  wtShiftName?: string | null;
+}
+
+export interface EsWorkPlanStQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime: string;
+  /** 是否执行 */
+  isExe?: boolean | null;
+}
+
+export interface EsWorkPlanStVO {
+  /** @format int64 */
+  count?: number;
+  label?: string | null;
+  /** @format double */
+  totalArea?: number | null;
+}
+
+export interface EsWorkPlanSwFO {
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 排班日期
+   * @format date-time
+   */
+  planDate: string;
+  /**
+   * 船编号
+   * @minLength 1
+   */
+  shipCode: string;
+  /**
+   * 船只作业班次
+   * @format int64
+   */
+  workShiftId: number;
+}
+
+export interface EsWorkPlanSwPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否执行 */
+  isExe?: boolean | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 排班日期
+   * @format date-time
+   */
+  planDate?: string | null;
+  /** 船编号 */
+  shipCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 船只作业班次
+   * @format int64
+   */
+  workShiftId?: number | null;
+}
+
+export interface EsWorkPlanSwQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否执行 */
+  isExe?: boolean | null;
+  /**
+   * 排班日期
+   * @format date-time
+   */
+  planDate?: string | null;
+  /** 船编号 */
+  shipCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 船只作业班次
+   * @format int64
+   */
+  workShiftId?: number | null;
+}
+
+export interface EsWorkPlanSwStQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime: string;
+  /** 是否执行 */
+  isExe?: boolean | null;
+  /** 船只编码 */
+  shipCode?: string | null;
+}
+
+export interface EsWorkPlanSwVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否执行 */
+  isExe?: boolean | null;
+  /**
+   * 排班日期
+   * @format date-time
+   */
+  planDate?: string | null;
+  /** 船编号 */
+  shipCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 船只作业班次
+   * @format int64
+   */
+  workShiftId?: number | null;
+  /** 船只作业班次名称 */
+  workShiftName?: string | null;
+  /** 班次时间编码 */
+  wtShiftCode?: string | null;
+  /** 班次时间名称 */
+  wtShiftName?: string | null;
+}
+
+export interface EsWorkPlanVwFO {
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 车牌号
+   * @minLength 1
+   */
+  licence: string;
+  /**
+   * 排班日期
+   * @format date-time
+   */
+  planDate: string;
+  /**
+   * 车辆作业班次
+   * @format int64
+   */
+  workShiftId: number;
+}
+
+export interface EsWorkPlanVwPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否执行 */
+  isExe?: boolean | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 排班日期
+   * @format date-time
+   */
+  planDate?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 车辆作业班次
+   * @format int64
+   */
+  workShiftId?: number | null;
+}
+
+export interface EsWorkPlanVwQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否执行 */
+  isExe?: boolean | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /**
+   * 排班日期
+   * @format date-time
+   */
+  planDate?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 车辆作业班次
+   * @format int64
+   */
+  workShiftId?: number | null;
+}
+
+export interface EsWorkPlanVwStQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime: string;
+  /** 是否执行 */
+  isExe?: boolean | null;
+  /** 车牌号 */
+  licence?: string | null;
+}
+
+export interface EsWorkPlanVwVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否执行 */
+  isExe?: boolean | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /**
+   * 排班日期
+   * @format date-time
+   */
+  planDate?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 车辆作业班次
+   * @format int64
+   */
+  workShiftId?: number | null;
+  /** 车辆作业班次名称 */
+  workShiftName?: string | null;
+  /** 班次时间编码 */
+  wtShiftCode?: string | null;
+  /** 班次时间名称 */
+  wtShiftName?: string | null;
+}
+
+export interface EsWorkRouteFO {
+  /**
+   * 保洁方式(机械化清扫,人工清扫)
+   * @minLength 1
+   */
+  cleanMethodCode: string;
+  /**
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** 止点名称 */
+  endName?: string | null;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /** 点列表 */
+  pointList?: EsWorkRoutePointFO[] | null;
+  /**
+   * 区域geojson
+   * @minLength 1
+   */
+  polygonGeojson: string;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 路面宽度(米)
+   * @format double
+   */
+  roadWidth: number;
+  /**
+   * 路基宽度(米)
+   * @format double
+   */
+  roadbedWidth?: number | null;
+  /** 起点名称 */
+  startName?: string | null;
+  /**
+   * 长度(米)
+   * @format double
+   */
+  totalLength: number;
+  /**
+   * 类型（集镇,农村）
+   * @minLength 1
+   */
+  typeCode: string;
+}
+
+export interface EsWorkRoutePQO {
+  /** 保洁方式(机械化清扫,人工清扫) */
+  cleanMethodCode?: string | null;
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 止点名称 */
+  endName?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 区域geojson */
+  polygonGeojson?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 路面宽度(米)
+   * @format double
+   */
+  roadWidth?: number | null;
+  /**
+   * 路基宽度(米)
+   * @format double
+   */
+  roadbedWidth?: number | null;
+  /** 起点名称 */
+  startName?: string | null;
+  /**
+   * 面积(平方米)(长度*路面宽度)
+   * @format double
+   */
+  totalArea?: number | null;
+  /**
+   * 长度(米)
+   * @format double
+   */
+  totalLength?: number | null;
+  /** 类型（集镇,农村） */
+  typeCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsWorkRoutePointFO {
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude: number;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude: number;
+  /**
+   * 点顺序
+   * @format int32
+   */
+  pointIdx: number;
+  /**
+   * 路线顺序
+   * @format int32
+   */
+  routeIdx: number;
+  /**
+   * 所属路线
+   * @format int64
+   */
+  workRouteId?: number | null;
+}
+
+export interface EsWorkRoutePointPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 点顺序
+   * @format int32
+   */
+  pointIdx?: number | null;
+  /**
+   * 路线顺序
+   * @format int32
+   */
+  routeIdx?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 所属路线
+   * @format int64
+   */
+  workRouteId?: number | null;
+}
+
+export interface EsWorkRoutePointQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 点顺序
+   * @format int32
+   */
+  pointIdx?: number | null;
+  /**
+   * 路线顺序
+   * @format int32
+   */
+  routeIdx?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 所属路线
+   * @format int64
+   */
+  workRouteId?: number | null;
+}
+
+export interface EsWorkRoutePointVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 点顺序
+   * @format int32
+   */
+  pointIdx?: number | null;
+  /**
+   * 路线顺序
+   * @format int32
+   */
+  routeIdx?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 所属路线
+   * @format int64
+   */
+  workRouteId?: number | null;
+}
+
+export interface EsWorkRouteQO {
+  /** 保洁方式(机械化清扫,人工清扫) */
+  cleanMethodCode?: string | null;
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 止点名称 */
+  endName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 区域geojson */
+  polygonGeojson?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 路面宽度(米)
+   * @format double
+   */
+  roadWidth?: number | null;
+  /**
+   * 路基宽度(米)
+   * @format double
+   */
+  roadbedWidth?: number | null;
+  /** 起点名称 */
+  startName?: string | null;
+  /**
+   * 面积(平方米)(长度*路面宽度)
+   * @format double
+   */
+  totalArea?: number | null;
+  /**
+   * 长度(米)
+   * @format double
+   */
+  totalLength?: number | null;
+  /** 类型（集镇,农村） */
+  typeCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsWorkRouteVO {
+  /** 保洁方式(机械化清扫,人工清扫) */
+  cleanMethodCode?: string | null;
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 止点名称 */
+  endName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 区域geojson */
+  polygonGeojson?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 路面宽度(米)
+   * @format double
+   */
+  roadWidth?: number | null;
+  /**
+   * 路基宽度(米)
+   * @format double
+   */
+  roadbedWidth?: number | null;
+  /** 起点名称 */
+  startName?: string | null;
+  /**
+   * 面积(平方米)(长度*路面宽度)
+   * @format double
+   */
+  totalArea?: number | null;
+  /**
+   * 长度(米)
+   * @format double
+   */
+  totalLength?: number | null;
+  /** 类型（集镇,农村） */
+  typeCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsWorkRuleFO {
+  /** 垃圾类型 */
+  garbageTypeCode?: string | null;
+  /** @format int64 */
+  id?: number | null;
+  /** 是否启用 */
+  isEnabled?: boolean | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 限速(km/h)
+   * @format double
+   */
+  speedLimit?: number | null;
+  /**
+   * 作业趟数
+   * @format int32
+   * @min 1
+   * @max 9999999
+   */
+  times: number;
+  /**
+   * 作业类型
+   * @minLength 1
+   */
+  wtSpecificCode: string;
+}
+
+export interface EsWorkRulePQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** 垃圾类型 */
+  garbageTypeCode?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否启用(为false时排班的时候不显示) */
+  isEnabled?: boolean | null;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 限速(km/h)
+   * @format double
+   */
+  speedLimit?: number | null;
+  /**
+   * 作业趟数
+   * @format int32
+   */
+  times?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 作业方式 */
+  wtGeneralCode?: string | null;
+  /** 作业类型 */
+  wtSpecificCode?: string | null;
+}
+
+export interface EsWorkRuleQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 垃圾类型 */
+  garbageTypeCode?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否启用(为false时排班的时候不显示) */
+  isEnabled?: boolean | null;
+  /** 名称 */
+  name?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 限速(km/h)
+   * @format double
+   */
+  speedLimit?: number | null;
+  /**
+   * 作业趟数
+   * @format int32
+   */
+  times?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 作业方式 */
+  wtGeneralCode?: string | null;
+  /** 作业类型 */
+  wtSpecificCode?: string | null;
+}
+
+export interface EsWorkRuleVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 垃圾类型 */
+  garbageTypeCode?: string | null;
+  /** 垃圾类型名称 */
+  garbageTypeName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否启用(为false时排班的时候不显示) */
+  isEnabled?: boolean | null;
+  /** 名称 */
+  name?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 限速(km/h)
+   * @format double
+   */
+  speedLimit?: number | null;
+  /**
+   * 作业趟数
+   * @format int32
+   */
+  times?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 作业类型 */
+  wtSpecificCode?: string | null;
+  /** 作业类型名称 */
+  wtSpecificName?: string | null;
+}
+
+export interface EsWorkShiftPwFO {
+  /**
+   * 结束时间(秒)
+   * @format int32
+   * @min 0
+   * @max 86399
+   */
+  endTime: number;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /** 备注 */
+  reamrk?: string | null;
+  /**
+   * 开始时间(秒)
+   * @format int32
+   * @min 0
+   * @max 86399
+   */
+  startTime: number;
+  /**
+   * 作业路线
+   * @minLength 1
+   */
+  workRouteCode: string;
+  /**
+   * 作业规则
+   * @format int64
+   */
+  workRuleId: number;
+  /**
+   * 班次时间
+   * @minLength 1
+   */
+  wtShiftCode: string;
+}
+
+export interface EsWorkShiftPwPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 结束时间(秒)
+   * @format int32
+   */
+  endTime?: number | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  reamrk?: string | null;
+  /**
+   * 开始时间(秒)
+   * @format int32
+   */
+  startTime?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 作业路线 */
+  workRouteCode?: string | null;
+  /**
+   * 作业规则
+   * @format int64
+   */
+  workRuleId?: number | null;
+  /** 班次 */
+  wtShiftCode?: string | null;
+}
+
+export interface EsWorkShiftPwQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 结束时间(秒)
+   * @format int32
+   */
+  endTime?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 备注 */
+  reamrk?: string | null;
+  /**
+   * 开始时间(秒)
+   * @format int32
+   */
+  startTime?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 作业路线 */
+  workRouteCode?: string | null;
+  /**
+   * 作业规则
+   * @format int64
+   */
+  workRuleId?: number | null;
+  /** 班次 */
+  wtShiftCode?: string | null;
+}
+
+export interface EsWorkShiftPwVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 结束时间(秒)
+   * @format int32
+   */
+  endTime?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 备注 */
+  reamrk?: string | null;
+  /**
+   * 开始时间(秒)
+   * @format int32
+   */
+  startTime?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 作业路线 */
+  workRouteCode?: string | null;
+  /** 作业路线名称 */
+  readonly workRouteName?: string | null;
+  /**
+   * 作业规则
+   * @format int64
+   */
+  workRuleId?: number | null;
+  /** 作业规则名称 */
+  readonly workRuleName?: string | null;
+  /** 班次 */
+  wtShiftCode?: string | null;
+  /** 班次时间名称 */
+  readonly wtShiftName?: string | null;
+}
+
+export interface EsWorkShiftSwFO {
+  /**
+   * 结束时间(秒)
+   * @format int32
+   * @min 0
+   * @max 86399
+   */
+  endTime: number;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /** 备注 */
+  reamrk?: string | null;
+  /**
+   * 开始时间(秒)
+   * @format int32
+   * @min 0
+   * @max 86399
+   */
+  startTime: number;
+  /**
+   * 作业规则
+   * @format int64
+   */
+  workRuleId: number;
+  /**
+   * 作业河道
+   * @minLength 1
+   */
+  workWatercourseCode: string;
+  /**
+   * 班次时间
+   * @minLength 1
+   */
+  wtShiftCode: string;
+}
+
+export interface EsWorkShiftSwPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 结束时间(秒)
+   * @format int32
+   */
+  endTime?: number | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  reamrk?: string | null;
+  /**
+   * 开始时间(秒)
+   * @format int32
+   */
+  startTime?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 作业规则
+   * @format int64
+   */
+  workRuleId?: number | null;
+  /** 作业河道 */
+  workWatercourseCode?: string | null;
+  /** 班次时间 */
+  wtShiftCode?: string | null;
+}
+
+export interface EsWorkShiftSwQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 结束时间(秒)
+   * @format int32
+   */
+  endTime?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 备注 */
+  reamrk?: string | null;
+  /**
+   * 开始时间(秒)
+   * @format int32
+   */
+  startTime?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 作业规则
+   * @format int64
+   */
+  workRuleId?: number | null;
+  /** 作业河道 */
+  workWatercourseCode?: string | null;
+  /** 班次时间 */
+  wtShiftCode?: string | null;
+}
+
+export interface EsWorkShiftSwVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 结束时间(秒)
+   * @format int32
+   */
+  endTime?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 备注 */
+  reamrk?: string | null;
+  /**
+   * 开始时间(秒)
+   * @format int32
+   */
+  startTime?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 作业规则
+   * @format int64
+   */
+  workRuleId?: number | null;
+  /** 作业规则 */
+  readonly workRuleName?: string | null;
+  /** 作业河道 */
+  workWatercourseCode?: string | null;
+  /** 作业河道 */
+  readonly workWatercourseName?: string | null;
+  /** 班次时间 */
+  wtShiftCode?: string | null;
+  /** 班次时间 */
+  readonly wtShiftName?: string | null;
+}
+
+export interface EsWorkShiftVwFO {
+  /**
+   * 结束时间(秒)
+   * @format int32
+   * @min 0
+   * @max 86399
+   */
+  endTime: number;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /** 备注 */
+  reamrk?: string | null;
+  /**
+   * 开始时间(秒)
+   * @format int32
+   * @min 0
+   * @max 86399
+   */
+  startTime: number;
+  /**
+   * 作业路线
+   * @minLength 1
+   */
+  workRouteCode: string;
+  /**
+   * 作业规则
+   * @format int64
+   */
+  workRuleId: number;
+  /**
+   * 班次时间
+   * @minLength 1
+   */
+  wtShiftCode: string;
+}
+
+export interface EsWorkShiftVwPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 结束时间(秒)
+   * @format int32
+   */
+  endTime?: number | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  reamrk?: string | null;
+  /**
+   * 开始时间(秒)
+   * @format int32
+   */
+  startTime?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 作业路线 */
+  workRouteCode?: string | null;
+  /**
+   * 作业规则
+   * @format int64
+   */
+  workRuleId?: number | null;
+  /** 班次 */
+  wtShiftCode?: string | null;
+}
+
+export interface EsWorkShiftVwQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 结束时间(秒)
+   * @format int32
+   */
+  endTime?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 备注 */
+  reamrk?: string | null;
+  /**
+   * 开始时间(秒)
+   * @format int32
+   */
+  startTime?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 作业路线 */
+  workRouteCode?: string | null;
+  /**
+   * 作业规则
+   * @format int64
+   */
+  workRuleId?: number | null;
+  /** 班次 */
+  wtShiftCode?: string | null;
+}
+
+export interface EsWorkShiftVwVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 结束时间(秒)
+   * @format int32
+   */
+  endTime?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 备注 */
+  reamrk?: string | null;
+  /**
+   * 开始时间(秒)
+   * @format int32
+   */
+  startTime?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 作业路线 */
+  workRouteCode?: string | null;
+  /** 作业路线名称 */
+  readonly workRouteName?: string | null;
+  /**
+   * 作业规则
+   * @format int64
+   */
+  workRuleId?: number | null;
+  /** 作业规则名称 */
+  readonly workRuleName?: string | null;
+  /** 班次 */
+  wtShiftCode?: string | null;
+  /** 班次时间名称 */
+  readonly wtShiftName?: string | null;
+}
+
+export interface EsWorkWatercourseFO {
+  /**
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** 止点名称 */
+  endName?: string | null;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /** 点列表 */
+  pointList?: EsWorkWatercoursePointFO[] | null;
+  /**
+   * 区域geojson
+   * @minLength 1
+   */
+  polygonGeojson: string;
+  /** 所属区域 */
+  region?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 起点名称 */
+  startName?: string | null;
+  /**
+   * 长度(米)
+   * @format double
+   */
+  totalLength: number;
+  /**
+   * 宽度(米)
+   * @format double
+   */
+  width: number;
+}
+
+export interface EsWorkWatercoursePQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 止点名称 */
+  endName?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 区域geojson */
+  polygonGeojson?: string | null;
+  /** 所属区域 */
+  region?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 起点名称 */
+  startName?: string | null;
+  /**
+   * 面积(平方米)(长度*路面宽度)
+   * @format double
+   */
+  totalArea?: number | null;
+  /**
+   * 长度(米)
+   * @format double
+   */
+  totalLength?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 宽度(米)
+   * @format double
+   */
+  width?: number | null;
+}
+
+export interface EsWorkWatercoursePointFO {
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude: number;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude: number;
+  /**
+   * 点顺序
+   * @format int32
+   */
+  pointIdx: number;
+  /**
+   * 河道顺序
+   * @format int32
+   */
+  routeIdx: number;
+  /**
+   * 所属河道
+   * @format int64
+   */
+  workWatercourseId?: number | null;
+}
+
+export interface EsWorkWatercoursePointPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 点顺序
+   * @format int32
+   */
+  pointIdx?: number | null;
+  /**
+   * 河道顺序
+   * @format int32
+   */
+  routeIdx?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 所属河道
+   * @format int64
+   */
+  workWatercourseId?: number | null;
+}
+
+export interface EsWorkWatercoursePointQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 点顺序
+   * @format int32
+   */
+  pointIdx?: number | null;
+  /**
+   * 河道顺序
+   * @format int32
+   */
+  routeIdx?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 所属河道
+   * @format int64
+   */
+  workWatercourseId?: number | null;
+}
+
+export interface EsWorkWatercoursePointVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 点顺序
+   * @format int32
+   */
+  pointIdx?: number | null;
+  /**
+   * 河道顺序
+   * @format int32
+   */
+  routeIdx?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 所属河道
+   * @format int64
+   */
+  workWatercourseId?: number | null;
+}
+
+export interface EsWorkWatercourseQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 止点名称 */
+  endName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 区域geojson */
+  polygonGeojson?: string | null;
+  /** 所属区域 */
+  region?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 起点名称 */
+  startName?: string | null;
+  /**
+   * 面积(平方米)(长度*路面宽度)
+   * @format double
+   */
+  totalArea?: number | null;
+  /**
+   * 长度(米)
+   * @format double
+   */
+  totalLength?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 宽度(米)
+   * @format double
+   */
+  width?: number | null;
+}
+
+export interface EsWorkWatercourseVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 止点名称 */
+  endName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 区域geojson */
+  polygonGeojson?: string | null;
+  /** 所属区域 */
+  region?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 起点名称 */
+  startName?: string | null;
+  /**
+   * 面积(平方米)(长度*路面宽度)
+   * @format double
+   */
+  totalArea?: number | null;
+  /**
+   * 长度(米)
+   * @format double
+   */
+  totalLength?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 宽度(米)
+   * @format double
+   */
+  width?: number | null;
+}
+
+export interface EsWtGeneralFO {
+  /**
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+}
+
+export interface EsWtGeneralPQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsWtGeneralQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsWtGeneralVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsWtShiftPQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsWtShiftQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsWtShiftVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EsWtSpecificFO {
+  /**
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 作业方式
+   * @minLength 1
+   */
+  wtGeneralCode: string;
+}
+
+export interface EsWtSpecificPQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 作业方式 */
+  wtGeneralCode?: string | null;
+}
+
+export interface EsWtSpecificQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 作业方式 */
+  wtGeneralCode?: string | null;
+}
+
+export interface EsWtSpecificVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 作业方式 */
+  wtGeneralCode?: string | null;
+  /** 作业方式名称 */
+  wtGeneralName?: string | null;
 }
 
 /** 全局返回结果 */
-export interface FurionResultAppVersionVO {
-  /** 数据 */
-  data?: AppVersionVO;
+export interface FurionResultAlarmRecordVO {
+  data?: AlarmRecordVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -4420,25 +8928,24 @@ export interface FurionResultAppVersionVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultBizCropsTypeVO {
-  /** 数据 */
-  data?: BizCropsTypeVO;
+export interface FurionResultAmJobVO {
+  data?: AmJobVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -4447,349 +8954,24 @@ export interface FurionResultBizCropsTypeVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultBizCropsVO {
-  /** 数据 */
-  data?: BizCropsVO;
+export interface FurionResultAmPostVO {
+  data?: AmPostVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBizDayTotalFlowVO {
-  /** 数据 */
-  data?: BizDayTotalFlowVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBizGrowStageVO {
-  /** 数据 */
-  data?: BizGrowStageVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBizGysDispatchDocVO {
-  /** 数据 */
-  data?: BizGysDispatchDocVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBizGysDispatchRecordVO {
-  /** 数据 */
-  data?: BizGysDispatchRecordVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBizIrrigationDistrictVO {
-  /** 数据 */
-  data?: BizIrrigationDistrictVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBizPlantingPlanVO {
-  /** 数据 */
-  data?: BizPlantingPlanVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBizPlantingSchemeVO {
-  /** 数据 */
-  data?: BizPlantingSchemeVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBizPoliciyRegulationVO {
-  /** 数据 */
-  data?: BizPoliciyRegulationVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBizWaterDemandPlanVO {
-  /** 数据 */
-  data?: BizWaterDemandPlanVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBizWaterDistributionPlanVO {
-  /** 数据 */
-  data?: BizWaterDistributionPlanVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBizWaterEfficiencyRecordVO {
-  /** 数据 */
-  data?: BizWaterEfficiencyRecordVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBizYieldRecordVO {
-  /** 数据 */
-  data?: BizYieldRecordVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -4805,18 +8987,18 @@ export interface FurionResultBoolean {
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -4826,24 +9008,101 @@ export interface FurionResultBoolean {
 
 /** 全局返回结果 */
 export interface FurionResultDataDictionaryVO {
-  /** 数据 */
   data?: DataDictionaryVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEquipmentParamDdVO {
+  data?: EquipmentParamDdVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEquipmentParamHdVO {
+  data?: EquipmentParamHdVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEquipmentParamMdVO {
+  data?: EquipmentParamMdVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -4853,24 +9112,23 @@ export interface FurionResultDataDictionaryVO {
 
 /** 全局返回结果 */
 export interface FurionResultEquipmentParamVO {
-  /** 数据 */
   data?: EquipmentParamVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -4880,24 +9138,23 @@ export interface FurionResultEquipmentParamVO {
 
 /** 全局返回结果 */
 export interface FurionResultEquipmentVO {
-  /** 数据 */
   data?: EquipmentVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -4906,25 +9163,778 @@ export interface FurionResultEquipmentVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultIActionResult {
-  /** 数据 */
-  data?: IActionResult;
+export interface FurionResultEsAlarmRecordVO {
+  data?: EsAlarmRecordVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsFleetVO {
+  data?: EsFleetVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsGarbageCategoryVO {
+  data?: EsGarbageCategoryVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsGarbageTypeVO {
+  data?: EsGarbageTypeVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsGpsAlarmRecordFileVO {
+  data?: EsGpsAlarmRecordFileVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsGpsAlarmRecordVO {
+  data?: EsGpsAlarmRecordVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsSanitationFacilityTypeVO {
+  data?: EsSanitationFacilityTypeVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsSanitationFacilityVO {
+  data?: EsSanitationFacilityVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsShipRealtimeVO {
+  data?: EsShipRealtimeVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsShipVO {
+  data?: EsShipVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsVehicleDpRecordVO {
+  data?: EsVehicleDpRecordVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsVehicleLcRecordVO {
+  data?: EsVehicleLcRecordVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsVehicleRealtimeVO {
+  data?: EsVehicleRealtimeVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsVehicleVO {
+  data?: EsVehicleVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWeightRecordStatisticsVO {
+  data?: EsWeightRecordStatisticsVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWeightRecordVO {
+  data?: EsWeightRecordVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWorkPlanPwVO {
+  data?: EsWorkPlanPwVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWorkPlanSwVO {
+  data?: EsWorkPlanSwVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWorkPlanVwVO {
+  data?: EsWorkPlanVwVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWorkRoutePointVO {
+  data?: EsWorkRoutePointVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWorkRouteVO {
+  data?: EsWorkRouteVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWorkRuleVO {
+  data?: EsWorkRuleVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWorkShiftPwVO {
+  data?: EsWorkShiftPwVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWorkShiftSwVO {
+  data?: EsWorkShiftSwVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWorkShiftVwVO {
+  data?: EsWorkShiftVwVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWorkWatercoursePointVO {
+  data?: EsWorkWatercoursePointVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWorkWatercourseVO {
+  data?: EsWorkWatercourseVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWtGeneralVO {
+  data?: EsWtGeneralVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWtShiftVO {
+  data?: EsWtShiftVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEsWtSpecificVO {
+  data?: EsWtSpecificVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -4943,18 +9953,18 @@ export interface FurionResultInt32 {
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -4973,18 +9983,18 @@ export interface FurionResultInt64 {
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -4993,25 +10003,25 @@ export interface FurionResultInt64 {
 }
 
 /** 全局返回结果 */
-export interface FurionResultKnowledegUserCollectVO {
+export interface FurionResultListAlarmRecordVO {
   /** 数据 */
-  data?: KnowledegUserCollectVO;
+  data?: AlarmRecordVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5020,25 +10030,25 @@ export interface FurionResultKnowledegUserCollectVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultKnowledgeBaseFileVO {
+export interface FurionResultListAmJobVO {
   /** 数据 */
-  data?: KnowledgeBaseFileVO;
+  data?: AmJobVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5047,511 +10057,25 @@ export interface FurionResultKnowledgeBaseFileVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultKnowledgeCatalogueVO {
+export interface FurionResultListAmPostVO {
   /** 数据 */
-  data?: KnowledgeCatalogueVO;
+  data?: AmPostVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultKnowledgeFile {
-  /** 数据 */
-  data?: KnowledgeFile;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultKnowledgeFileVO {
-  /** 数据 */
-  data?: KnowledgeFileVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultKnowledgeTypeVO {
-  /** 数据 */
-  data?: KnowledgeTypeVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListAppVersionVO {
-  /** 数据 */
-  data?: null | AppVersionVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizCropsTypeVO {
-  /** 数据 */
-  data?: null | BizCropsTypeVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizCropsVO {
-  /** 数据 */
-  data?: null | BizCropsVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizDayTotalFlowVO {
-  /** 数据 */
-  data?: null | BizDayTotalFlowVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizGrowStageVO {
-  /** 数据 */
-  data?: null | BizGrowStageVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizGysDispatchDocVO {
-  /** 数据 */
-  data?: null | BizGysDispatchDocVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizGysDispatchRecordVO {
-  /** 数据 */
-  data?: null | BizGysDispatchRecordVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizIrrigationDistrictVO {
-  /** 数据 */
-  data?: null | BizIrrigationDistrictVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizPlantingPlanVO {
-  /** 数据 */
-  data?: null | BizPlantingPlanVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizPlantingSchemeVO {
-  /** 数据 */
-  data?: null | BizPlantingSchemeVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizPoliciyRegulationVO {
-  /** 数据 */
-  data?: null | BizPoliciyRegulationVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizWaterDemandPlanVO {
-  /** 数据 */
-  data?: null | BizWaterDemandPlanVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizWaterDistributionPlanVO {
-  /** 数据 */
-  data?: null | BizWaterDistributionPlanVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizWaterEfficiencyRecordVO {
-  /** 数据 */
-  data?: null | BizWaterEfficiencyRecordVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBizYieldRecordVO {
-  /** 数据 */
-  data?: null | BizYieldRecordVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5562,23 +10086,23 @@ export interface FurionResultListBizYieldRecordVO {
 /** 全局返回结果 */
 export interface FurionResultListCommonStVO {
   /** 数据 */
-  data?: null | CommonStVO[];
+  data?: CommonStVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5589,23 +10113,104 @@ export interface FurionResultListCommonStVO {
 /** 全局返回结果 */
 export interface FurionResultListDataDictionaryVO {
   /** 数据 */
-  data?: null | DataDictionaryVO[];
+  data?: DataDictionaryVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEquipmentParamDdVO {
+  /** 数据 */
+  data?: EquipmentParamDdVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEquipmentParamHdVO {
+  /** 数据 */
+  data?: EquipmentParamHdVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEquipmentParamMdVO {
+  /** 数据 */
+  data?: EquipmentParamMdVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5616,23 +10221,23 @@ export interface FurionResultListDataDictionaryVO {
 /** 全局返回结果 */
 export interface FurionResultListEquipmentParamVO {
   /** 数据 */
-  data?: null | EquipmentParamVO[];
+  data?: EquipmentParamVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5643,23 +10248,968 @@ export interface FurionResultListEquipmentParamVO {
 /** 全局返回结果 */
 export interface FurionResultListEquipmentVO {
   /** 数据 */
-  data?: null | EquipmentVO[];
+  data?: EquipmentVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsAlarmRecordVO {
+  /** 数据 */
+  data?: EsAlarmRecordVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsFleetVO {
+  /** 数据 */
+  data?: EsFleetVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsGarbageCategoryVO {
+  /** 数据 */
+  data?: EsGarbageCategoryVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsGarbageTypeVO {
+  /** 数据 */
+  data?: EsGarbageTypeVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsGpsAlarmRecordFileVO {
+  /** 数据 */
+  data?: EsGpsAlarmRecordFileVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsGpsAlarmRecordVO {
+  /** 数据 */
+  data?: EsGpsAlarmRecordVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsSanitationFacilityTypeVO {
+  /** 数据 */
+  data?: EsSanitationFacilityTypeVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsSanitationFacilityVO {
+  /** 数据 */
+  data?: EsSanitationFacilityVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsShipRealtimeVO {
+  /** 数据 */
+  data?: EsShipRealtimeVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsShipVO {
+  /** 数据 */
+  data?: EsShipVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsVehicleCountByTypeVO {
+  /** 数据 */
+  data?: EsVehicleCountByTypeVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsVehicleDpRecordVO {
+  /** 数据 */
+  data?: EsVehicleDpRecordVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsVehicleLcRecordVO {
+  /** 数据 */
+  data?: EsVehicleLcRecordVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsVehicleRealtimeVO {
+  /** 数据 */
+  data?: EsVehicleRealtimeVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsVehicleRecordPoint {
+  /** 数据 */
+  data?: EsVehicleRecordPoint[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsVehicleStateStVO {
+  /** 数据 */
+  data?: EsVehicleStateStVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsVehicleVO {
+  /** 数据 */
+  data?: EsVehicleVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWeightRecordStVO {
+  /** 数据 */
+  data?: EsWeightRecordStVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWeightRecordVO {
+  /** 数据 */
+  data?: EsWeightRecordVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWorkPlanPwVO {
+  /** 数据 */
+  data?: EsWorkPlanPwVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWorkPlanStVO {
+  /** 数据 */
+  data?: EsWorkPlanStVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWorkPlanSwVO {
+  /** 数据 */
+  data?: EsWorkPlanSwVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWorkPlanVwVO {
+  /** 数据 */
+  data?: EsWorkPlanVwVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWorkRoutePointVO {
+  /** 数据 */
+  data?: EsWorkRoutePointVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWorkRouteVO {
+  /** 数据 */
+  data?: EsWorkRouteVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWorkRuleVO {
+  /** 数据 */
+  data?: EsWorkRuleVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWorkShiftPwVO {
+  /** 数据 */
+  data?: EsWorkShiftPwVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWorkShiftSwVO {
+  /** 数据 */
+  data?: EsWorkShiftSwVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWorkShiftVwVO {
+  /** 数据 */
+  data?: EsWorkShiftVwVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWorkWatercoursePointVO {
+  /** 数据 */
+  data?: EsWorkWatercoursePointVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWorkWatercourseVO {
+  /** 数据 */
+  data?: EsWorkWatercourseVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWtGeneralVO {
+  /** 数据 */
+  data?: EsWtGeneralVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWtShiftVO {
+  /** 数据 */
+  data?: EsWtShiftVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEsWtSpecificVO {
+  /** 数据 */
+  data?: EsWtSpecificVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListGpsAlarmStVO {
+  /** 数据 */
+  data?: GpsAlarmStVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5670,104 +11220,23 @@ export interface FurionResultListEquipmentVO {
 /** 全局返回结果 */
 export interface FurionResultListInt64 {
   /** 数据 */
-  data?: null | number[];
+  data?: number[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListKnowledgeCatalogueTreeNode {
-  /** 数据 */
-  data?: null | KnowledgeCatalogueTreeNode[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListKnowledgeFileVO {
-  /** 数据 */
-  data?: null | KnowledgeFileVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListKnowledgeTypeVO {
-  /** 数据 */
-  data?: null | KnowledgeTypeVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5778,23 +11247,23 @@ export interface FurionResultListKnowledgeTypeVO {
 /** 全局返回结果 */
 export interface FurionResultListLogaccessVO {
   /** 数据 */
-  data?: null | LogaccessVO[];
+  data?: LogaccessVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5805,23 +11274,23 @@ export interface FurionResultListLogaccessVO {
 /** 全局返回结果 */
 export interface FurionResultListLogerrorVO {
   /** 数据 */
-  data?: null | LogerrorVO[];
+  data?: LogerrorVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5832,50 +11301,23 @@ export interface FurionResultListLogerrorVO {
 /** 全局返回结果 */
 export interface FurionResultListLogoperationVO {
   /** 数据 */
-  data?: null | LogoperationVO[];
+  data?: LogoperationVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListMdRecord {
-  /** 数据 */
-  data?: null | MdRecord[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5886,23 +11328,212 @@ export interface FurionResultListMdRecord {
 /** 全局返回结果 */
 export interface FurionResultListMessageVO {
   /** 数据 */
-  data?: null | MessageVO[];
+  data?: MessageVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListMmInventoryVO {
+  /** 数据 */
+  data?: MmInventoryVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListMmMaterialCategoryVO {
+  /** 数据 */
+  data?: MmMaterialCategoryVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListMmMaterialVO {
+  /** 数据 */
+  data?: MmMaterialVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListMmRequisitionVO {
+  /** 数据 */
+  data?: MmRequisitionVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListMmStockInOutVO {
+  /** 数据 */
+  data?: MmStockInOutVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListMonthAndCount {
+  /** 数据 */
+  data?: MonthAndCount[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListNameCount {
+  /** 数据 */
+  data?: NameCount[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5913,77 +11544,23 @@ export interface FurionResultListMessageVO {
 /** 全局返回结果 */
 export interface FurionResultListOrganizationVO {
   /** 数据 */
-  data?: null | OrganizationVO[];
+  data?: OrganizationVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListPrealarmRecordVO {
-  /** 数据 */
-  data?: null | PrealarmRecordVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListPrealarmRuleVO {
-  /** 数据 */
-  data?: null | PrealarmRuleVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -5994,77 +11571,23 @@ export interface FurionResultListPrealarmRuleVO {
 /** 全局返回结果 */
 export interface FurionResultListRecordFile {
   /** 数据 */
-  data?: null | RecordFile[];
+  data?: RecordFile[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListRecordFileVO {
-  /** 数据 */
-  data?: null | RecordFileVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListRegionVO {
-  /** 数据 */
-  data?: null | RegionVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6075,23 +11598,23 @@ export interface FurionResultListRegionVO {
 /** 全局返回结果 */
 export interface FurionResultListResourceVO {
   /** 数据 */
-  data?: null | ResourceVO[];
+  data?: ResourceVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6102,23 +11625,23 @@ export interface FurionResultListResourceVO {
 /** 全局返回结果 */
 export interface FurionResultListRoleVO {
   /** 数据 */
-  data?: null | RoleVO[];
+  data?: RoleVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6129,23 +11652,23 @@ export interface FurionResultListRoleVO {
 /** 全局返回结果 */
 export interface FurionResultListString {
   /** 数据 */
-  data?: null | string[];
+  data?: string[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6154,25 +11677,25 @@ export interface FurionResultListString {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListTechnicsTypeVO {
+export interface FurionResultListSysNoticeVO {
   /** 数据 */
-  data?: null | TechnicsTypeVO[];
+  data?: SysNoticeVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6183,23 +11706,23 @@ export interface FurionResultListTechnicsTypeVO {
 /** 全局返回结果 */
 export interface FurionResultListTechnicsVO {
   /** 数据 */
-  data?: null | TechnicsVO[];
+  data?: TechnicsVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6210,23 +11733,23 @@ export interface FurionResultListTechnicsVO {
 /** 全局返回结果 */
 export interface FurionResultListTreeNode {
   /** 数据 */
-  data?: null | TreeNode[];
+  data?: TreeNode[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6235,25 +11758,25 @@ export interface FurionResultListTreeNode {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListTreeNodeKf {
+export interface FurionResultListTreeNodeKfSk {
   /** 数据 */
-  data?: null | TreeNodeKf[];
+  data?: TreeNodeKfSk[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6264,50 +11787,23 @@ export interface FurionResultListTreeNodeKf {
 /** 全局返回结果 */
 export interface FurionResultListUserMessageVO {
   /** 数据 */
-  data?: null | UserMessageVO[];
+  data?: UserMessageVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListUserRegionVO {
-  /** 数据 */
-  data?: null | UserRegionVO[];
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6318,23 +11814,23 @@ export interface FurionResultListUserRegionVO {
 /** 全局返回结果 */
 export interface FurionResultListUserVO {
   /** 数据 */
-  data?: null | UserVO[];
+  data?: UserVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6345,23 +11841,23 @@ export interface FurionResultListUserVO {
 /** 全局返回结果 */
 export interface FurionResultListUsergroupVO {
   /** 数据 */
-  data?: null | UsergroupVO[];
+  data?: UsergroupVO[] | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6371,24 +11867,23 @@ export interface FurionResultListUsergroupVO {
 
 /** 全局返回结果 */
 export interface FurionResultLogaccessVO {
-  /** 数据 */
   data?: LogaccessVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6398,24 +11893,23 @@ export interface FurionResultLogaccessVO {
 
 /** 全局返回结果 */
 export interface FurionResultLogerrorVO {
-  /** 数据 */
   data?: LogerrorVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6425,24 +11919,23 @@ export interface FurionResultLogerrorVO {
 
 /** 全局返回结果 */
 export interface FurionResultLoginResultUserAO {
-  /** 数据 */
   data?: LoginResultUserAO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6452,24 +11945,23 @@ export interface FurionResultLoginResultUserAO {
 
 /** 全局返回结果 */
 export interface FurionResultLoginResultVO {
-  /** 数据 */
   data?: LoginResultVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6479,24 +11971,23 @@ export interface FurionResultLoginResultVO {
 
 /** 全局返回结果 */
 export interface FurionResultLogoperationVO {
-  /** 数据 */
   data?: LogoperationVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6506,24 +11997,23 @@ export interface FurionResultLogoperationVO {
 
 /** 全局返回结果 */
 export interface FurionResultMessageStRes {
-  /** 数据 */
   data?: MessageStRes;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6533,24 +12023,158 @@ export interface FurionResultMessageStRes {
 
 /** 全局返回结果 */
 export interface FurionResultMessageVO {
-  /** 数据 */
   data?: MessageVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultMmInventoryVO {
+  /** 库存视图对象 */
+  data?: MmInventoryVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultMmMaterialCategoryVO {
+  /** 物料分类视图对象 */
+  data?: MmMaterialCategoryVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultMmMaterialVO {
+  /** 物料视图对象 */
+  data?: MmMaterialVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultMmRequisitionVO {
+  /** 领料申请视图对象 */
+  data?: MmRequisitionVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultMmStockInOutVO {
+  /** 出入库视图对象 */
+  data?: MmStockInOutVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6561,50 +12185,23 @@ export interface FurionResultMessageVO {
 /** 全局返回结果 */
 export interface FurionResultObject {
   /** 数据 */
-  data?: null;
+  data?: any;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultOnlineInfoVO {
-  /** 数据 */
-  data?: OnlineInfoVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6614,105 +12211,23 @@ export interface FurionResultOnlineInfoVO {
 
 /** 全局返回结果 */
 export interface FurionResultOrganizationVO {
-  /** 数据 */
   data?: OrganizationVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultPrealarmCount {
-  /** 数据 */
-  data?: PrealarmCount;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultPrealarmRecordVO {
-  /** 数据 */
-  data?: PrealarmRecordVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultPrealarmRuleVO {
-  /** 数据 */
-  data?: PrealarmRuleVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6722,78 +12237,23 @@ export interface FurionResultPrealarmRuleVO {
 
 /** 全局返回结果 */
 export interface FurionResultRecordFile {
-  /** 数据 */
   data?: RecordFile;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultRecordFileVO {
-  /** 数据 */
-  data?: RecordFileVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultRegionVO {
-  /** 数据 */
-  data?: RegionVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6803,24 +12263,23 @@ export interface FurionResultRegionVO {
 
 /** 全局返回结果 */
 export interface FurionResultResourceVO {
-  /** 数据 */
   data?: ResourceVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6830,24 +12289,23 @@ export interface FurionResultResourceVO {
 
 /** 全局返回结果 */
 export interface FurionResultRoleVO {
-  /** 数据 */
   data?: RoleVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6856,25 +12314,25 @@ export interface FurionResultRoleVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListAppVersionVO {
-  /** 数据 */
-  data?: SqlSugarPagedListAppVersionVO;
+export interface FurionResultSqlSugarPagedListAlarmRecordVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListAlarmRecordVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6883,25 +12341,25 @@ export interface FurionResultSqlSugarPagedListAppVersionVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizCropsTypeVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizCropsTypeVO;
+export interface FurionResultSqlSugarPagedListAmJobVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListAmJobVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -6910,349 +12368,25 @@ export interface FurionResultSqlSugarPagedListBizCropsTypeVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizCropsVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizCropsVO;
+export interface FurionResultSqlSugarPagedListAmPostVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListAmPostVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizDayTotalFlowVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizDayTotalFlowVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizGrowStageVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizGrowStageVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizGysDispatchDocVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizGysDispatchDocVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizGysDispatchRecordVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizGysDispatchRecordVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizIrrigationDistrictVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizIrrigationDistrictVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizPlantingPlanVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizPlantingPlanVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizPlantingSchemeVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizPlantingSchemeVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizPoliciyRegulationVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizPoliciyRegulationVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizWaterDemandPlanVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizWaterDemandPlanVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizWaterDistributionPlanVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizWaterDistributionPlanVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizWaterEfficiencyRecordVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizWaterEfficiencyRecordVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBizYieldRecordVO {
-  /** 数据 */
-  data?: SqlSugarPagedListBizYieldRecordVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7262,24 +12396,105 @@ export interface FurionResultSqlSugarPagedListBizYieldRecordVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListDataDictionaryVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListDataDictionaryVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEquipmentParamDdVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEquipmentParamDdVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEquipmentParamHdVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEquipmentParamHdVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEquipmentParamMdVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEquipmentParamMdVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7289,24 +12504,24 @@ export interface FurionResultSqlSugarPagedListDataDictionaryVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListEquipmentParamVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListEquipmentParamVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7316,24 +12531,24 @@ export interface FurionResultSqlSugarPagedListEquipmentParamVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListEquipmentVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListEquipmentVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7342,25 +12557,25 @@ export interface FurionResultSqlSugarPagedListEquipmentVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListKnowledgeBaseFileVO {
-  /** 数据 */
-  data?: SqlSugarPagedListKnowledgeBaseFileVO;
+export interface FurionResultSqlSugarPagedListEsAlarmRecordVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsAlarmRecordVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7369,25 +12584,25 @@ export interface FurionResultSqlSugarPagedListKnowledgeBaseFileVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListKnowledgeFileVO {
-  /** 数据 */
-  data?: SqlSugarPagedListKnowledgeFileVO;
+export interface FurionResultSqlSugarPagedListEsFleetVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsFleetVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7396,25 +12611,727 @@ export interface FurionResultSqlSugarPagedListKnowledgeFileVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListKnowledgeTypeVO {
-  /** 数据 */
-  data?: SqlSugarPagedListKnowledgeTypeVO;
+export interface FurionResultSqlSugarPagedListEsGarbageCategoryVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsGarbageCategoryVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsGarbageTypeVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsGarbageTypeVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsGpsAlarmRecordFileVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsGpsAlarmRecordFileVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsGpsAlarmRecordVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsGpsAlarmRecordVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsSanitationFacilityTypeVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsSanitationFacilityTypeVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsSanitationFacilityVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsSanitationFacilityVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsShipRealtimeVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsShipRealtimeVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsShipVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsShipVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsVehicleDpRecordVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsVehicleDpRecordVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsVehicleLcRecordVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsVehicleLcRecordVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsVehicleRealtimeVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsVehicleRealtimeVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsVehicleVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsVehicleVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWeightRecordVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWeightRecordVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWorkPlanPwVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWorkPlanPwVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWorkPlanSwVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWorkPlanSwVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWorkPlanVwVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWorkPlanVwVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWorkRoutePointVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWorkRoutePointVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWorkRouteVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWorkRouteVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWorkRuleVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWorkRuleVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWorkShiftPwVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWorkShiftPwVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWorkShiftSwVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWorkShiftSwVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWorkShiftVwVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWorkShiftVwVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWorkWatercoursePointVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWorkWatercoursePointVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWorkWatercourseVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWorkWatercourseVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWtGeneralVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWtGeneralVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWtShiftVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWtShiftVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEsWtSpecificVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEsWtSpecificVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7424,24 +13341,24 @@ export interface FurionResultSqlSugarPagedListKnowledgeTypeVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListLogaccessVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListLogaccessVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7451,24 +13368,24 @@ export interface FurionResultSqlSugarPagedListLogaccessVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListLogerrorVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListLogerrorVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7478,51 +13395,24 @@ export interface FurionResultSqlSugarPagedListLogerrorVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListLogoperationVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListLogoperationVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListMdRecord {
-  /** 数据 */
-  data?: SqlSugarPagedListMdRecord;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7532,24 +13422,159 @@ export interface FurionResultSqlSugarPagedListMdRecord {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListMessageVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListMessageVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListMmInventoryVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListMmInventoryVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListMmMaterialCategoryVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListMmMaterialCategoryVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListMmMaterialVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListMmMaterialVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListMmRequisitionVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListMmRequisitionVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListMmStockInOutVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListMmStockInOutVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7559,132 +13584,24 @@ export interface FurionResultSqlSugarPagedListMessageVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListOrganizationVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListOrganizationVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListPrealarmRecordVO {
-  /** 数据 */
-  data?: SqlSugarPagedListPrealarmRecordVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListPrealarmRuleVO {
-  /** 数据 */
-  data?: SqlSugarPagedListPrealarmRuleVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListRecordFileVO {
-  /** 数据 */
-  data?: SqlSugarPagedListRecordFileVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListRegionVO {
-  /** 数据 */
-  data?: SqlSugarPagedListRegionVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7694,24 +13611,24 @@ export interface FurionResultSqlSugarPagedListRegionVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListResourceVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListResourceVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7721,24 +13638,24 @@ export interface FurionResultSqlSugarPagedListResourceVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListRoleVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListRoleVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7747,25 +13664,25 @@ export interface FurionResultSqlSugarPagedListRoleVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListTechnicsTypeVO {
-  /** 数据 */
-  data?: SqlSugarPagedListTechnicsTypeVO;
+export interface FurionResultSqlSugarPagedListSysNoticeVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListSysNoticeVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7775,24 +13692,24 @@ export interface FurionResultSqlSugarPagedListTechnicsTypeVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListTechnicsVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListTechnicsVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7802,51 +13719,24 @@ export interface FurionResultSqlSugarPagedListTechnicsVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListUserMessageVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListUserMessageVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListUserRegionVO {
-  /** 数据 */
-  data?: SqlSugarPagedListUserRegionVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7856,24 +13746,51 @@ export interface FurionResultSqlSugarPagedListUserRegionVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListUserVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListUserVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListUserWpVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListUserWpVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7883,24 +13800,24 @@ export interface FurionResultSqlSugarPagedListUserVO {
 
 /** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListUsergroupVO {
-  /** 数据 */
+  /** 分页泛型集合 */
   data?: SqlSugarPagedListUsergroupVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7911,23 +13828,23 @@ export interface FurionResultSqlSugarPagedListUsergroupVO {
 /** 全局返回结果 */
 export interface FurionResultString {
   /** 数据 */
-  data?: null | string;
+  data?: string | null;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7936,25 +13853,24 @@ export interface FurionResultString {
 }
 
 /** 全局返回结果 */
-export interface FurionResultTechnicsTypeVO {
-  /** 数据 */
-  data?: TechnicsTypeVO;
+export interface FurionResultSysNoticeVO {
+  data?: SysNoticeVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7964,24 +13880,49 @@ export interface FurionResultTechnicsTypeVO {
 
 /** 全局返回结果 */
 export interface FurionResultTechnicsVO {
-  /** 数据 */
   data?: TechnicsVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultUserCountVO {
+  data?: UserCountVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -7991,51 +13932,23 @@ export interface FurionResultTechnicsVO {
 
 /** 全局返回结果 */
 export interface FurionResultUserMessageVO {
-  /** 数据 */
   data?: UserMessageVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultUserRegionVO {
-  /** 数据 */
-  data?: UserRegionVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: null | number;
-  /** 附加数据 */
-  extras?: null;
-  /** 错误信息 */
-  message?: null | string;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -8045,24 +13958,23 @@ export interface FurionResultUserRegionVO {
 
 /** 全局返回结果 */
 export interface FurionResultUserVO {
-  /** 数据 */
   data?: UserVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -8072,24 +13984,23 @@ export interface FurionResultUserVO {
 
 /** 全局返回结果 */
 export interface FurionResultUsergroupVO {
-  /** 数据 */
   data?: UsergroupVO;
   /**
    * 错误状态码
    * @format int32
    */
-  errorCode?: null | number;
+  errorCode?: number | null;
   /** 附加数据 */
-  extras?: null;
+  extras?: any;
   /** 错误信息 */
-  message?: null | string;
+  message?: string | null;
   /**
    * 状态码
    * @format int32
    */
   statusCode?: number;
   /** 类型success、warning、error */
-  succeeded?: null | string;
+  succeeded?: string | null;
   /**
    * 时间
    * @format int64
@@ -8097,7 +14008,56 @@ export interface FurionResultUsergroupVO {
   timestamp?: number;
 }
 
-export type IActionResult = object;
+/** 全局返回结果 */
+export interface FurionResultWrMainStVO {
+  data?: WrMainStVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+export interface GpsAlarmStQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime: string;
+  /** 车牌号 */
+  licence?: string | null;
+}
+
+export interface GpsAlarmStVO {
+  /**
+   * 数量
+   * @format double
+   */
+  count?: number | null;
+  /** 时间 */
+  label?: string | null;
+}
 
 export interface IdName {
   /**
@@ -8106,1244 +14066,44 @@ export interface IdName {
    */
   id?: number;
   /** Name */
-  name?: null | string;
-}
-
-export interface KnowledegUserCollectFO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 知识库文件id
-   * @format int64
-   */
-  fileId?: number;
-  fileIds?: null | number[];
-  /** @format int64 */
-  id?: number;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 用户id
-   * @format int64
-   */
-  userId?: number;
-}
-
-export interface KnowledegUserCollectPQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /**
-   * 知识库文件id
-   * @format int64
-   */
-  fileId?: number;
-  /** @format int64 */
-  id?: number;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 用户id
-   * @format int64
-   */
-  userId?: number;
-}
-
-export interface KnowledegUserCollectVO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 知识库文件id
-   * @format int64
-   */
-  fileId?: number;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 用户id
-   * @format int64
-   */
-  userId?: number;
-}
-
-/** 知识库文件 */
-export interface KnowledgeBaseFile {
-  /** 作者名称 */
-  authorName?: null | string;
-  /**
-   * 知识目录id
-   * @format int64
-   */
-  catalogueId?: number;
-  /**
-   * 收藏数量
-   * @format int32
-   */
-  collectCount?: number;
-  /** 内容描述 */
-  content?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  display?: boolean;
-  /**
-   * 下载数量
-   * @format int32
-   */
-  downloadCount?: number;
-  /** 文件名 */
-  fileName?: null | string;
-  /**
-   * 文件大小(Byte)
-   * @format int64
-   */
-  fileSize?: number;
-  /** @format int64 */
-  id?: number;
-  /** 文件路径 */
-  path?: null | string;
-  /** 关键词 */
-  primaryKey?: null | string;
-  /** 来源 */
-  source?: null | string;
-  /** 文件标题 */
-  title?: null | string;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /**
-   * 知识类型id
-   * @format int64
-   */
-  typeId?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface KnowledgeBaseFileDeleteQO {
-  /**
-   * 知识目录Id
-   * @format int64
-   */
-  catalogueId: number;
-  /**
-   * Id
-   * @format int64
-   */
-  id: number;
-}
-
-export interface KnowledgeBaseFileFO {
-  /** 作者名称 */
-  authorName?: null | string;
-  /**
-   * 知识目录id
-   * @format int64
-   */
-  catalogueId?: number;
-  /**
-   * 收藏数量
-   * @format int32
-   */
-  collectCount?: number;
-  /** 内容描述 */
-  content?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  display?: boolean;
-  /** true:批量显示 false:批量隐藏 */
-  displayType?: boolean;
-  /**
-   * 下载数量
-   * @format int32
-   */
-  downloadCount?: number;
-  /** 文件名 */
-  fileName?: null | string;
-  /**
-   * 文件大小(Byte)
-   * @format int64
-   */
-  fileSize?: number;
-  /** @format int64 */
-  id?: number;
-  /** 批量隐藏显示的id集合 */
-  ids?: null | number[];
-  /** 文件路径 */
-  path?: null | string;
-  /** 关键词 */
-  primaryKey?: null | string;
-  /** 来源 */
-  source?: null | string;
-  /** 文件标题 */
-  title?: null | string;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /**
-   * 知识类型id
-   * @format int64
-   */
-  typeId?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface KnowledgeBaseFilePQO {
-  /** 作者名称 */
-  authorName?: null | string;
-  /**
-   * 知识目录id
-   * @format int64
-   */
-  catalogueId?: number;
-  catalogueIds?: null | number[];
-  /**
-   * 收藏数量
-   * @format int32
-   */
-  collectCount?: number;
-  /** 内容描述 */
-  content?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  display?: boolean;
-  /**
-   * 下载数量
-   * @format int32
-   */
-  downloadCount?: number;
-  /** 排序字段 */
-  field?: null | string;
-  /** 文件名 */
-  fileName?: null | string;
-  /**
-   * 文件大小(Byte)
-   * @format int64
-   */
-  fileSize?: number;
-  /** @format int64 */
-  id?: number;
-  ids?: null | number[];
-  /** 搜索关键字内容 */
-  keyword?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** 文件路径 */
-  path?: null | string;
-  /** 关键词 */
-  primaryKey?: null | string;
-  /**
-   * 1:标题 2:内容 3:作者 4:关键词
-   * @format int32
-   */
-  queryType?: number;
-  /**
-   * 1:时间升序 2:时间降序 3:相关性升序  4:相关性降序
-   * @format int32
-   */
-  sort?: number;
-  /** 来源 */
-  source?: null | string;
-  /** 文件标题 */
-  title?: null | string;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /**
-   * 知识类型id
-   * @format int64
-   */
-  typeId?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface KnowledgeBaseFileQO {
-  /** 作者名称 */
-  authorName?: null | string;
-  /**
-   * 知识目录id
-   * @format int64
-   */
-  catalogueId?: number;
-  catalogueIds?: null | number[];
-  /**
-   * 收藏数量
-   * @format int32
-   */
-  collectCount?: number;
-  /** 内容描述 */
-  content?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  display?: boolean;
-  /**
-   * 下载数量
-   * @format int32
-   */
-  downloadCount?: number;
-  /** 文件名 */
-  fileName?: null | string;
-  /**
-   * 文件大小(Byte)
-   * @format int64
-   */
-  fileSize?: number;
-  /** @format int64 */
-  id?: number;
-  ids?: null | number[];
-  /** 搜索关键字内容 */
-  keyword?: null | string;
-  /** 文件路径 */
-  path?: null | string;
-  /** 关键词 */
-  primaryKey?: null | string;
-  /**
-   * 1:标题 2:内容 3:作者 4:关键词
-   * @format int32
-   */
-  queryType?: number;
-  /**
-   * 1:时间升序 2:时间降序 3:相关性升序  4:相关性降序
-   * @format int32
-   */
-  sort?: number;
-  /** 来源 */
-  source?: null | string;
-  /** 文件标题 */
-  title?: null | string;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /**
-   * 知识类型id
-   * @format int64
-   */
-  typeId?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface KnowledgeBaseFileVO {
-  /** 作者名称 */
-  authorName?: null | string;
-  /**
-   * 知识目录id
-   * @format int64
-   */
-  catalogueId?: number;
-  /**
-   * 收藏数量
-   * @format int32
-   */
-  collectCount?: number;
-  /** 内容描述 */
-  content?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  display?: boolean;
-  /**
-   * 下载数量
-   * @format int32
-   */
-  downloadCount?: number;
-  /** 文件名 */
-  fileName?: null | string;
-  /**
-   * 文件大小(Byte)
-   * @format int64
-   */
-  fileSize?: number;
-  /** @format int64 */
-  id?: number;
-  /** 是否收藏 */
-  isCollect?: boolean;
-  list?: null | KnowledgeBaseFile[];
-  /** 文件路径 */
-  path?: null | string;
-  /** 关键词 */
-  primaryKey?: null | string;
-  primaryKeyList?: null | string[];
-  /** 来源 */
-  source?: null | string;
-  /** 文件标题 */
-  title?: null | string;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /**
-   * 知识类型id
-   * @format int64
-   */
-  typeId?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /** @format date-time */
-  userCollectDateTime?: null | string;
-}
-
-export interface KnowledgeCatalogueDataDisplay {
-  display?: boolean;
-  /** @format int64 */
-  id?: number;
-}
-
-export interface KnowledgeCatalogueDataDisplayFO {
-  dataList?: null | KnowledgeCatalogueDataDisplay[];
-}
-
-export interface KnowledgeCatalogueDataSort {
-  /** @format int64 */
-  id?: number;
-  /** @format int32 */
-  sort?: number;
-}
-
-export interface KnowledgeCatalogueDataSortFO {
-  dataList?: null | KnowledgeCatalogueDataSort[];
-}
-
-export interface KnowledgeCatalogueFO {
-  /**
-   * 目录对应文件数量
-   * @format int32
-   */
-  count?: number;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 是否显示 */
-  display?: boolean;
-  /**
-   * id
-   * @format int64
-   */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 父级id
-   * @format int64
-   */
-  parentId?: number;
-  /**
-   * 排序号
-   * @format int32
-   */
-  sort?: number;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface KnowledgeCatalogueTreeFO {
-  /** @format int32 */
-  type?: number;
-}
-
-export interface KnowledgeCatalogueTreeNode {
-  children?: null | KnowledgeCatalogueTreeNode[];
-  /** @format int32 */
-  count?: number;
-  /** 是否显示 */
-  display?: boolean;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 父级id
-   * @format int64
-   */
-  parentId?: number;
-  /**
-   * 排序号
-   * @format int32
-   */
-  sort?: number;
-}
-
-export interface KnowledgeCatalogueVO {
-  /**
-   * 目录对应文件数量
-   * @format int32
-   */
-  count?: number;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 是否显示 */
-  display?: boolean;
-  /**
-   * id
-   * @format int64
-   */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /**
-   * 父级id
-   * @format int64
-   */
-  parentId?: number;
-  /**
-   * 排序号
-   * @format int32
-   */
-  sort?: number;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-/** 知识库文件 */
-export interface KnowledgeFile {
-  /**
-   * Desc:是否可以删除
-   * Default:1
-   * Nullable:True
-   */
-  canDelete?: null | boolean;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  createdAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  createdPerson?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  deleteAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  id?: number;
-  /**
-   * Desc:是否删除
-   * Default:0
-   * Nullable:True
-   */
-  isDelete?: null | boolean;
-  /**
-   * Desc:级别
-   * Default:
-   * Nullable:True
-   * @format int32
-   */
-  level?: null | number;
-  /**
-   * Desc:名称
-   * Default:
-   * Nullable:False
-   */
-  name?: null | string;
-  /**
-   * Desc:路径
-   * Default:
-   * Nullable:True
-   */
-  nestedpath?: null | string;
-  /**
-   * Desc:父级id
-   * Default:
-   * Nullable:True
-   * @format int64
-   */
-  parentId?: null | number;
-  /**
-   * Desc:路径key
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  pathkey?: number;
-  /**
-   * Desc:关联文件id
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  recordFileId?: number;
-  /**
-   * Desc:备注
-   * Default:
-   * Nullable:True
-   */
-  remark?: null | string;
-  /**
-   * Desc:类型(文件、文件夹)
-   * Default:
-   * Nullable:False
-   */
-  type?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  updatedAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  updatedPerson?: null | string;
-}
-
-export interface KnowledgeFilePQO {
-  /**
-   * Desc:是否可以删除
-   * Default:1
-   * Nullable:True
-   */
-  canDelete?: null | boolean;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  createdAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  createdPerson?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  deleteAt?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  id?: number;
-  /**
-   * Desc:是否删除
-   * Default:0
-   * Nullable:True
-   */
-  isDelete?: null | boolean;
-  /**
-   * Desc:级别
-   * Default:
-   * Nullable:True
-   * @format int32
-   */
-  level?: null | number;
-  /**
-   * Desc:名称
-   * Default:
-   * Nullable:False
-   */
-  name?: null | string;
-  /**
-   * Desc:路径
-   * Default:
-   * Nullable:True
-   */
-  nestedpath?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * Desc:父级id
-   * Default:
-   * Nullable:True
-   * @format int64
-   */
-  parentId?: null | number;
-  /**
-   * Desc:路径key
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  pathkey?: number;
-  /**
-   * Desc:关联文件id
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  recordFileId?: number;
-  /**
-   * Desc:备注
-   * Default:
-   * Nullable:True
-   */
-  remark?: null | string;
-  /**
-   * Desc:类型(文件、文件夹)
-   * Default:
-   * Nullable:False
-   */
-  type?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  updatedAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  updatedPerson?: null | string;
-}
-
-export interface KnowledgeFileQO {
-  /**
-   * Desc:是否可以删除
-   * Default:1
-   * Nullable:True
-   */
-  canDelete?: null | boolean;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  createdAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  createdPerson?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  deleteAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  id?: number;
-  /**
-   * Desc:是否删除
-   * Default:0
-   * Nullable:True
-   */
-  isDelete?: null | boolean;
-  /**
-   * Desc:级别
-   * Default:
-   * Nullable:True
-   * @format int32
-   */
-  level?: null | number;
-  /**
-   * Desc:名称
-   * Default:
-   * Nullable:False
-   */
-  name?: null | string;
-  /**
-   * Desc:路径
-   * Default:
-   * Nullable:True
-   */
-  nestedpath?: null | string;
-  /**
-   * Desc:父级id
-   * Default:
-   * Nullable:True
-   * @format int64
-   */
-  parentId?: null | number;
-  /**
-   * Desc:路径key
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  pathkey?: number;
-  /**
-   * Desc:关联文件id
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  recordFileId?: number;
-  /**
-   * Desc:备注
-   * Default:
-   * Nullable:True
-   */
-  remark?: null | string;
-  /**
-   * Desc:类型(文件、文件夹)
-   * Default:
-   * Nullable:False
-   */
-  type?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  updatedAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  updatedPerson?: null | string;
-}
-
-export interface KnowledgeFileVO {
-  /**
-   * Desc:是否可以删除
-   * Default:1
-   * Nullable:True
-   */
-  canDelete?: null | boolean;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  createdAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  createdPerson?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  deleteAt?: null | string;
-  /** 后缀名 */
-  extname?: null | string;
-  /** 文件标识 */
-  fileId?: null | string;
-  /** 文件名 */
-  fileName?: null | string;
-  /** 文件路径 */
-  filePath?: null | string;
-  /**
-   * 文件大小(Byte)
-   * @format int64
-   */
-  fileSize?: number;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  id?: number;
-  /**
-   * Desc:是否删除
-   * Default:0
-   * Nullable:True
-   */
-  isDelete?: null | boolean;
-  /**
-   * Desc:级别
-   * Default:
-   * Nullable:True
-   * @format int32
-   */
-  level?: null | number;
-  /**
-   * Desc:名称
-   * Default:
-   * Nullable:False
-   */
-  name?: null | string;
-  /**
-   * Desc:路径
-   * Default:
-   * Nullable:True
-   */
-  nestedpath?: null | string;
-  /**
-   * Desc:父级id
-   * Default:
-   * Nullable:True
-   * @format int64
-   */
-  parentId?: null | number;
-  /**
-   * Desc:路径key
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  pathkey?: number;
-  /**
-   * Desc:关联文件id
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  recordFileId?: number;
-  /**
-   * Desc:备注
-   * Default:
-   * Nullable:True
-   */
-  remark?: null | string;
-  /**
-   * Desc:类型(文件、文件夹)
-   * Default:
-   * Nullable:False
-   */
-  type?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  updatedAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  updatedPerson?: null | string;
-}
-
-export interface KnowledgeTypeFO {
-  /**
-   * 作者配置长度
-   * @format int32
-   */
-  authorLength?: null | number;
-  /** 内容模板 */
-  contentTemplate?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 时间格式配置 */
-  dateFormat?: null | string;
-  /**
-   * 目录id
-   * @format int64
-   */
-  directoryId?: null | number;
-  /** 文件格式配置 */
-  fileFormat?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 预设关键字 */
-  initKeywrods?: null | string;
-  /** 标题 */
-  title?: null | string;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /** 类别描述 */
-  typeRemark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface KnowledgeTypePQO {
-  /**
-   * 作者配置长度
-   * @format int32
-   */
-  authorLength?: null | number;
-  /** 内容模板 */
-  contentTemplate?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 时间格式配置 */
-  dateFormat?: null | string;
-  /**
-   * 目录id
-   * @format int64
-   */
-  directoryId?: null | number;
-  /** 排序字段 */
-  field?: null | string;
-  /** 文件格式配置 */
-  fileFormat?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 预设关键字 */
-  initKeywrods?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** 标题 */
-  title?: null | string;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /** 类别描述 */
-  typeRemark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface KnowledgeTypeQO {
-  /**
-   * 作者配置长度
-   * @format int32
-   */
-  authorLength?: null | number;
-  /** 内容模板 */
-  contentTemplate?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 时间格式配置 */
-  dateFormat?: null | string;
-  /**
-   * 目录id
-   * @format int64
-   */
-  directoryId?: null | number;
-  /** 文件格式配置 */
-  fileFormat?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 预设关键字 */
-  initKeywrods?: null | string;
-  /** 标题 */
-  title?: null | string;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /** 类别描述 */
-  typeRemark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface KnowledgeTypeVO {
-  /**
-   * 作者配置长度
-   * @format int32
-   */
-  authorLength?: null | number;
-  /** 内容模板 */
-  contentTemplate?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 时间格式配置 */
-  dateFormat?: null | string;
-  /**
-   * 目录id
-   * @format int64
-   */
-  directoryId?: null | number;
-  /** 文件格式配置 */
-  fileFormat?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 预设关键字 */
-  initKeywrods?: null | string;
-  /** 标题 */
-  title?: null | string;
-  /**
-   * 类型(1:灌区灌溉 2:防汛抗旱)
-   * @format int32
-   */
-  type?: number;
-  /** 类别描述 */
-  typeRemark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  name?: string | null;
 }
 
 export interface LogaccessFO {
   /** 登录名 */
-  authkey?: null | string;
+  authkey?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /** ip地址 */
-  ip?: null | string;
+  ip?: string | null;
   /** 是否异常 */
-  isException?: null | boolean;
+  isException?: boolean | null;
   /** 访问结果 */
-  result?: null | string;
+  result?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface LogaccessPQO {
   /** 登录名 */
-  authkey?: null | string;
-  /**
-   * 开始时间(访问时间)
-   * @format date-time
-   */
-  beginTime?: null | string;
-  /**
-   * 结束时间(访问时间)
-   * @format date-time
-   */
-  endTime?: null | string;
+  authkey?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
   /** @format int64 */
   id?: number;
   /** ip地址 */
-  ip?: null | string;
+  ip?: string | null;
   /** 是否异常 */
-  isException?: null | boolean;
+  isException?: boolean | null;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 当前页码
    * @format int32
@@ -9357,101 +14117,92 @@ export interface LogaccessPQO {
    */
   pageSize?: number;
   /** 访问结果 */
-  result?: null | string;
+  result?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface LogaccessQO {
   /** 登录名 */
-  authkey?: null | string;
-  /**
-   * 开始时间(访问时间)
-   * @format date-time
-   */
-  beginTime?: null | string;
-  /**
-   * 结束时间(访问时间)
-   * @format date-time
-   */
-  endTime?: null | string;
+  authkey?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /** ip地址 */
-  ip?: null | string;
+  ip?: string | null;
   /** 是否异常 */
-  isException?: null | boolean;
+  isException?: boolean | null;
   /** 访问结果 */
-  result?: null | string;
+  result?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface LogaccessVO {
   /** 登录名 */
-  authkey?: null | string;
+  authkey?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /** ip地址 */
-  ip?: null | string;
+  ip?: string | null;
   /** 是否异常 */
-  isException?: null | boolean;
+  isException?: boolean | null;
   /** 访问结果 */
-  result?: null | string;
+  result?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface LogerrorFO {
   /** action */
-  action?: null | string;
+  action?: string | null;
   /** controller */
-  controller?: null | string;
+  controller?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /** ip */
-  ip?: null | string;
+  ip?: string | null;
   /** 异常信息 */
-  message?: null | string;
+  message?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
   /**
    * 操作用户标识
    * @format int64
    */
-  userId?: null | number;
+  userId?: number | null;
 }
 
 export interface LogerrorPQO {
   /** action */
-  action?: null | string;
-  /**
-   * 开始时间(异常时间)
-   * @format date-time
-   */
-  beginTime?: null | string;
+  action?: string | null;
   /** controller */
-  controller?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 结束时间(异常时间)
-   * @format date-time
-   */
-  endTime?: null | string;
+  controller?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
   /** @format int64 */
   id?: number;
   /** ip */
-  ip?: null | string;
+  ip?: string | null;
   /** 异常信息 */
-  message?: null | string;
+  message?: string | null;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 当前页码
    * @format int32
@@ -9464,59 +14215,67 @@ export interface LogerrorPQO {
    * @max 100
    */
   pageSize?: number;
-}
-
-export interface LogerrorQO {
-  /** action */
-  action?: null | string;
-  /**
-   * 开始时间(异常时间)
-   * @format date-time
-   */
-  beginTime?: null | string;
-  /** controller */
-  controller?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 结束时间(异常时间)
-   * @format date-time
-   */
-  endTime?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** ip */
-  ip?: null | string;
-  /** 异常信息 */
-  message?: null | string;
-}
-
-export interface LogerrorVO {
-  /** action */
-  action?: null | string;
-  /** controller */
-  controller?: null | string;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** ip */
-  ip?: null | string;
-  /** 异常信息 */
-  message?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
   /**
    * 操作用户标识
    * @format int64
    */
-  userId?: null | number;
+  userId?: number | null;
+}
+
+export interface LogerrorQO {
+  /** action */
+  action?: string | null;
+  /** controller */
+  controller?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** ip */
+  ip?: string | null;
+  /** 异常信息 */
+  message?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 操作用户标识
+   * @format int64
+   */
+  userId?: number | null;
+}
+
+export interface LogerrorVO {
+  /** action */
+  action?: string | null;
+  /** controller */
+  controller?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** ip */
+  ip?: string | null;
+  /** 异常信息 */
+  message?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /**
+   * 操作用户标识
+   * @format int64
+   */
+  userId?: number | null;
 }
 
 export interface LoginQO {
   /** 用户名 */
-  authkey?: null | string;
+  authkey?: string | null;
   /**
    * 密码
    * @minLength 1
@@ -9528,95 +14287,87 @@ export interface LoginResultUserAO {
   /** @format int64 */
   id?: number;
   /** 登录名 */
-  loginname?: null | string;
+  loginname?: string | null;
   /** 手机号 */
-  mobile?: null | string;
+  mobile?: string | null;
   /** 姓名 */
-  name?: null | string;
+  name?: string | null;
   /**
    * 部门id
    * @format int64
    */
-  organizationId?: null | number;
+  organizationId?: number | null;
   /** 部门名称 */
-  organizationName?: null | string;
-  resources?: null | string[];
-  roles?: null | IdName[];
+  organizationName?: string | null;
+  resources?: string[] | null;
+  roles?: IdName[] | null;
   /** 性别 */
-  sex?: null | string;
+  sex?: string | null;
 }
 
 export interface LoginResultVO {
-  accessToken?: null | string;
-  refreshToken?: null | string;
+  accessToken?: string | null;
+  refreshToken?: string | null;
   user?: LoginResultUserAO;
 }
 
 export interface LogoperationFO {
   /** action */
-  action?: null | string;
+  action?: string | null;
   /** controller */
-  controller?: null | string;
+  controller?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** 环境 */
-  environment?: null | string;
+  environment?: string | null;
   /** @format int64 */
   id?: number;
   /** ip */
-  ip?: null | string;
+  ip?: string | null;
   /** 是否异常 */
-  isException?: null | boolean;
+  isException?: boolean | null;
   /** 参数 */
-  parameters?: null | string;
+  parameters?: string | null;
   /** 远程地址 */
-  refererUrl?: null | string;
+  refererUrl?: string | null;
   /** 请求地址 */
-  requestUrl?: null | string;
+  requestUrl?: string | null;
   /**
    * 操作时间(毫秒)
    * @format int64
    */
-  timeElapsed?: null | number;
+  timeElapsed?: number | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
   /**
    * 操作用户标识
    * @format int64
    */
-  userId?: null | number;
+  userId?: number | null;
 }
 
 export interface LogoperationPQO {
   /** action */
-  action?: null | string;
-  /**
-   * 开始时间(异常时间)
-   * @format date-time
-   */
-  beginTime?: null | string;
+  action?: string | null;
   /** controller */
-  controller?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 结束时间(异常时间)
-   * @format date-time
-   */
-  endTime?: null | string;
+  controller?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** 环境 */
-  environment?: null | string;
+  environment?: string | null;
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
   /** @format int64 */
   id?: number;
   /** ip */
-  ip?: null | string;
+  ip?: string | null;
   /** 是否异常 */
-  isException?: null | boolean;
+  isException?: boolean | null;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 当前页码
    * @format int32
@@ -9629,308 +14380,113 @@ export interface LogoperationPQO {
    * @max 100
    */
   pageSize?: number;
-  /** 远程地址 */
-  refererUrl?: null | string;
-  /** 请求地址 */
-  requestUrl?: null | string;
-}
-
-export interface LogoperationQO {
-  /** action */
-  action?: null | string;
-  /**
-   * 开始时间(异常时间)
-   * @format date-time
-   */
-  beginTime?: null | string;
-  /** controller */
-  controller?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 结束时间(异常时间)
-   * @format date-time
-   */
-  endTime?: null | string;
-  /** 环境 */
-  environment?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** ip */
-  ip?: null | string;
-  /** 是否异常 */
-  isException?: null | boolean;
-  /** 远程地址 */
-  refererUrl?: null | string;
-  /** 请求地址 */
-  requestUrl?: null | string;
-}
-
-export interface LogoperationVO {
-  /** action */
-  action?: null | string;
-  /** controller */
-  controller?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 环境 */
-  environment?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** ip */
-  ip?: null | string;
-  /** 是否异常 */
-  isException?: null | boolean;
   /** 参数 */
-  parameters?: null | string;
+  parameters?: string | null;
   /** 远程地址 */
-  refererUrl?: null | string;
+  refererUrl?: string | null;
   /** 请求地址 */
-  requestUrl?: null | string;
+  requestUrl?: string | null;
   /**
    * 操作时间(毫秒)
    * @format int64
    */
-  timeElapsed?: null | number;
+  timeElapsed?: number | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
   /**
    * 操作用户标识
    * @format int64
    */
-  userId?: null | number;
+  userId?: number | null;
 }
 
-/** 分钟数据表 */
-export interface MdRecord {
-  /** COMPOSITE KEY */
-  ck?: null | string;
+export interface LogoperationQO {
+  /** action */
+  action?: string | null;
+  /** controller */
+  controller?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 环境 */
+  environment?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** ip */
+  ip?: string | null;
+  /** 是否异常 */
+  isException?: boolean | null;
+  /** 参数 */
+  parameters?: string | null;
+  /** 远程地址 */
+  refererUrl?: string | null;
+  /** 请求地址 */
+  requestUrl?: string | null;
   /**
-   * 数据时间
-   * @format date-time
-   */
-  dataTime?: string;
-  /**
-   * 数据值
-   * @format double
-   */
-  dataValue?: null | number;
-  /**
-   * 设备id
+   * 操作时间(毫秒)
    * @format int64
    */
-  equipmentId?: null | number;
-  /** 设备名称 */
-  equipmentName?: null | string;
+  timeElapsed?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
   /**
-   * 监测因子id
+   * 操作用户标识
    * @format int64
    */
-  equipmentParamId?: null | number;
-  /** 监测因子名称 */
-  equipmentParamName?: null | string;
-  /**
-   * 灌区id
-   * @format int64
-   */
-  irrId?: null | number;
-  /** 灌区名称 */
-  irrName?: null | string;
-  /** 是否有效 */
-  isEffective?: null | boolean;
-  /**
-   * 获取方式（0-自动，1-手动）
-   * @format int32
-   */
-  receiveFlag?: null | number;
-  /**
-   * 区域id
-   * @format int64
-   */
-  regionId?: null | number;
-  /** 区域名称 */
-  regionName?: null | string;
-  /**
-   * 监测点位id
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** 监测点位名称 */
-  technicsName?: null | string;
-  /**
-   * 类型id
-   * @format int64
-   */
-  technicsTypeId?: null | number;
-  /** 类型名称 */
-  technicsTypeName?: null | string;
+  userId?: number | null;
 }
 
-export interface MdRecordPQO {
-  /** COMPOSITE KEY */
-  ck?: null | string;
+export interface LogoperationVO {
+  /** action */
+  action?: string | null;
+  /** controller */
+  controller?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 环境 */
+  environment?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** ip */
+  ip?: string | null;
+  /** 是否异常 */
+  isException?: boolean | null;
+  /** 参数 */
+  parameters?: string | null;
+  /** 远程地址 */
+  refererUrl?: string | null;
+  /** 请求地址 */
+  requestUrl?: string | null;
   /**
-   * 数据时间
-   * @format date-time
-   */
-  dataTime?: null | string;
-  /**
-   * 数据时间(结束)
-   * @format date-time
-   */
-  dataTimeEt?: null | string;
-  /**
-   * 数据时间(开始)
-   * @format date-time
-   */
-  dataTimeSt?: null | string;
-  /**
-   * 设备id
+   * 操作时间(毫秒)
    * @format int64
    */
-  equipmentId?: null | number;
-  /** 设备名称 */
-  equipmentName?: null | string;
+  timeElapsed?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
   /**
-   * 监测因子id
+   * 操作用户标识
    * @format int64
    */
-  equipmentParamId?: null | number;
-  /** 监测因子名称 */
-  equipmentParamName?: null | string;
-  /**
-   * 灌区id
-   * @format int64
-   */
-  irrId?: null | number;
-  /** 灌区名称 */
-  irrName?: null | string;
-  /** 是否有效 */
-  isEffective?: null | boolean;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 1000
-   */
-  pageSize?: number;
-  /**
-   * 获取方式（0-自动，1-手动）
-   * @format int32
-   */
-  receiveFlag?: null | number;
-  /**
-   * 区域id
-   * @format int64
-   */
-  regionId?: null | number;
-  /** 区域名称 */
-  regionName?: null | string;
-  /**
-   * 监测点位id
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** 监测点位名称 */
-  technicsName?: null | string;
-  /**
-   * 类型id
-   * @format int64
-   */
-  technicsTypeId?: null | number;
-  /** 类型名称 */
-  technicsTypeName?: null | string;
-}
-
-export interface MdRecordQO {
-  /** COMPOSITE KEY */
-  ck?: null | string;
-  /**
-   * 数据时间
-   * @format date-time
-   */
-  dataTime?: null | string;
-  /**
-   * 数据时间(结束)
-   * @format date-time
-   */
-  dataTimeEt?: null | string;
-  /**
-   * 数据时间(开始)
-   * @format date-time
-   */
-  dataTimeSt?: null | string;
-  /**
-   * 设备id
-   * @format int64
-   */
-  equipmentId?: null | number;
-  /** 设备名称 */
-  equipmentName?: null | string;
-  /**
-   * 监测因子id
-   * @format int64
-   */
-  equipmentParamId?: null | number;
-  /** 监测因子名称 */
-  equipmentParamName?: null | string;
-  /**
-   * 灌区id
-   * @format int64
-   */
-  irrId?: null | number;
-  /** 灌区名称 */
-  irrName?: null | string;
-  /** 是否有效 */
-  isEffective?: null | boolean;
-  /**
-   * 获取方式（0-自动，1-手动）
-   * @format int32
-   */
-  receiveFlag?: null | number;
-  /**
-   * 区域id
-   * @format int64
-   */
-  regionId?: null | number;
-  /** 区域名称 */
-  regionName?: null | string;
-  /**
-   * 监测点位id
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** 监测点位名称 */
-  technicsName?: null | string;
-  /**
-   * 类型id
-   * @format int64
-   */
-  technicsTypeId?: null | number;
-  /** 类型名称 */
-  technicsTypeName?: null | string;
+  userId?: number | null;
 }
 
 export interface MessagePQO {
   /** 内容 */
-  content?: null | string;
+  content?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** 排序字段 */
-  field?: null | string;
-  /** 流程引擎里的id */
-  ftwobpmId?: null | string;
+  field?: string | null;
   /** @format int64 */
   id?: number;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 当前页码
    * @format int32
@@ -9947,38 +14503,36 @@ export interface MessagePQO {
    * 实体id
    * @format int64
    */
-  recordId?: null | number;
+  recordId?: number | null;
   /** 标题 */
-  title?: null | string;
+  title?: string | null;
   /** 类型 */
-  type?: null | string;
+  type?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface MessageQO {
   /** 内容 */
-  content?: null | string;
+  content?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 流程引擎里的id */
-  ftwobpmId?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /**
    * 实体id
    * @format int64
    */
-  recordId?: null | number;
+  recordId?: number | null;
   /** 标题 */
-  title?: null | string;
+  title?: string | null;
   /** 类型 */
-  type?: null | string;
+  type?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface MessageStRes {
@@ -9992,29 +14546,1142 @@ export interface MessageStRes {
 
 export interface MessageVO {
   /** 内容 */
-  content?: null | string;
+  content?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 流程引擎里的id */
-  ftwobpmId?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /**
    * 实体id
    * @format int64
    */
-  recordId?: null | number;
+  recordId?: number | null;
   /** 标题 */
-  title?: null | string;
+  title?: string | null;
   /** 类型 */
-  type?: null | string;
+  type?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
-export type OnlineInfoVO = object;
+/** 库存分页查询参数类 */
+export interface MmInventoryPQO {
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /**
+   * 最后入库时间
+   * @format date-time
+   */
+  lastInTime?: string | null;
+  /**
+   * 最后出库时间
+   * @format date-time
+   */
+  lastOutTime?: string | null;
+  /**
+   * 锁定数量
+   * @format double
+   */
+  lockedQuantity?: number | null;
+  /** 物料编码 */
+  materialCode?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 库存数量
+   * @format double
+   */
+  stockQuantity?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+export interface MmInventoryQO {
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /**
+   * 最后入库时间
+   * @format date-time
+   */
+  lastInTime?: string | null;
+  /**
+   * 最后出库时间
+   * @format date-time
+   */
+  lastOutTime?: string | null;
+  /**
+   * 锁定数量
+   * @format double
+   */
+  lockedQuantity?: number | null;
+  /** 物料编码 */
+  materialCode?: string | null;
+  /**
+   * 库存数量
+   * @format double
+   */
+  stockQuantity?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 库存视图对象 */
+export interface MmInventoryVO {
+  /**
+   * 可用库存
+   * @format double
+   */
+  readonly availableQuantity?: number | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /**
+   * 最后入库时间
+   * @format date-time
+   */
+  lastInTime?: string | null;
+  /**
+   * 最后出库时间
+   * @format date-time
+   */
+  lastOutTime?: string | null;
+  /**
+   * 锁定数量
+   * @format double
+   */
+  lockedQuantity?: number | null;
+  /** 物料编码 */
+  materialCode?: string | null;
+  /** 物料名称 */
+  materialName?: string | null;
+  /** 物料规格 */
+  materialSpecification?: string | null;
+  /** 物料单位 */
+  materialUnit?: string | null;
+  /**
+   * 库存数量
+   * @format double
+   */
+  stockQuantity?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 物料分类表单对象 */
+export interface MmMaterialCategoryFO {
+  /**
+   * 分类编码
+   * @minLength 1
+   */
+  code: string;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number | null;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /**
+   * 分类名称
+   * @minLength 1
+   */
+  name: string;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+}
+
+/** 物料分类分页查询参数类 */
+export interface MmMaterialCategoryPQO {
+  /** 分类编码 */
+  code?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /** 分类名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+export interface MmMaterialCategoryQO {
+  /** 分类编码 */
+  code?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /** 分类名称 */
+  name?: string | null;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 物料分类视图对象 */
+export interface MmMaterialCategoryVO {
+  /** 分类编码 */
+  code?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /** 分类名称 */
+  name?: string | null;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 物料表单对象 */
+export interface MmMaterialFO {
+  /** @minLength 1 */
+  categoryCode: string;
+  /**
+   * 物料编码
+   * @minLength 1
+   */
+  code: string;
+  /** @format int64 */
+  id?: number | null;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /**
+   * 最大库存
+   * @format double
+   */
+  maxStock?: number | null;
+  /**
+   * 最小库存
+   * @format double
+   */
+  minStock?: number | null;
+  /**
+   * 物料名称
+   * @minLength 1
+   */
+  name: string;
+  /** 备注 */
+  remark?: string | null;
+  /** 规格型号 */
+  specification?: string | null;
+  /**
+   * 单位
+   * @minLength 1
+   */
+  unit: string;
+  /**
+   * 单价
+   * @format double
+   */
+  unitPrice?: number | null;
+}
+
+/** 物料分页查询参数类 */
+export interface MmMaterialPQO {
+  categoryCode?: string | null;
+  /** 物料编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /**
+   * 最大库存
+   * @format double
+   */
+  maxStock?: number | null;
+  /**
+   * 最小库存
+   * @format double
+   */
+  minStock?: number | null;
+  /** 物料名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** 规格型号 */
+  specification?: string | null;
+  /** 单位 */
+  unit?: string | null;
+  /**
+   * 单价
+   * @format double
+   */
+  unitPrice?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface MmMaterialQO {
+  categoryCode?: string | null;
+  /** 物料编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /**
+   * 最大库存
+   * @format double
+   */
+  maxStock?: number | null;
+  /**
+   * 最小库存
+   * @format double
+   */
+  minStock?: number | null;
+  /** 物料名称 */
+  name?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 规格型号 */
+  specification?: string | null;
+  /** 单位 */
+  unit?: string | null;
+  /**
+   * 单价
+   * @format double
+   */
+  unitPrice?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+/** 物料视图对象 */
+export interface MmMaterialVO {
+  categoryCode?: string | null;
+  /** 分类名称 */
+  categoryName?: string | null;
+  /** 物料编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /**
+   * 最大库存
+   * @format double
+   */
+  maxStock?: number | null;
+  /**
+   * 最小库存
+   * @format double
+   */
+  minStock?: number | null;
+  /** 物料名称 */
+  name?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 规格型号 */
+  specification?: string | null;
+  /** 单位 */
+  unit?: string | null;
+  /**
+   * 单价
+   * @format double
+   */
+  unitPrice?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+/** 领料申请表单对象 */
+export interface MmRequisitionFO {
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number | null;
+  /** 领料申请明细 */
+  items?: MmRequisitionItemFO[] | null;
+  /** 备注 */
+  remark?: string | null;
+}
+
+/** 领料申请表单对象 */
+export interface MmRequisitionItemFO {
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number | null;
+  /**
+   * 物料编码
+   * @minLength 1
+   */
+  materialCode: string;
+  /**
+   * 申请数量
+   * @format double
+   */
+  quantity: number;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 领料申请ID
+   * @format int64
+   */
+  requisitionId?: number | null;
+}
+
+/** 领料申请分页查询参数类 */
+export interface MmRequisitionPQO {
+  /**
+   * 申请人ID
+   * @format int64
+   */
+  applicantId?: number | null;
+  /**
+   * 申请时间
+   * @format date-time
+   */
+  applyTime?: string | null;
+  /**
+   * 结束时间(申请时间)
+   * @format date-time
+   */
+  applyTimeEnd?: string | null;
+  /**
+   * 开始时间(申请时间)
+   * @format date-time
+   */
+  applyTimeStart?: string | null;
+  /** 审批备注 */
+  approveRemark?: string | null;
+  /**
+   * 审批时间
+   * @format date-time
+   */
+  approveTime?: string | null;
+  /**
+   * 审批人ID
+   * @format int64
+   */
+  approverId?: number | null;
+  /** 单据编号 */
+  billNo?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否已生成出库记录 */
+  isStockOutGenerated?: boolean | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 出库操作人ID
+   * @format int64
+   */
+  outOperatorId?: number | null;
+  /**
+   * 出库时间
+   * @format date-time
+   */
+  outTime?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 状态(0:待审批 1:已通过 2:已拒绝 3:已出库)
+   * @format int32
+   */
+  status?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+export interface MmRequisitionQO {
+  /**
+   * 申请人ID
+   * @format int64
+   */
+  applicantId?: number | null;
+  /**
+   * 申请时间
+   * @format date-time
+   */
+  applyTime?: string | null;
+  /**
+   * 结束时间(申请时间)
+   * @format date-time
+   */
+  applyTimeEnd?: string | null;
+  /**
+   * 开始时间(申请时间)
+   * @format date-time
+   */
+  applyTimeStart?: string | null;
+  /** 审批备注 */
+  approveRemark?: string | null;
+  /**
+   * 审批时间
+   * @format date-time
+   */
+  approveTime?: string | null;
+  /**
+   * 审批人ID
+   * @format int64
+   */
+  approverId?: number | null;
+  /** 单据编号 */
+  billNo?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否已生成出库记录 */
+  isStockOutGenerated?: boolean | null;
+  /**
+   * 出库操作人ID
+   * @format int64
+   */
+  outOperatorId?: number | null;
+  /**
+   * 出库时间
+   * @format date-time
+   */
+  outTime?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 状态(0:待审批 1:已通过 2:已拒绝 3:已出库)
+   * @format int32
+   */
+  status?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 领料申请视图对象 */
+export interface MmRequisitionVO {
+  /**
+   * 申请人ID
+   * @format int64
+   */
+  applicantId?: number | null;
+  /** 申请人姓名 */
+  applicantName?: string | null;
+  /**
+   * 申请时间
+   * @format date-time
+   */
+  applyTime?: string | null;
+  /** 审批备注 */
+  approveRemark?: string | null;
+  /**
+   * 审批时间
+   * @format date-time
+   */
+  approveTime?: string | null;
+  /**
+   * 审批人ID
+   * @format int64
+   */
+  approverId?: number | null;
+  /** 审批人姓名 */
+  approverName?: string | null;
+  /** 单据编号 */
+  billNo?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否已生成出库记录 */
+  isStockOutGenerated?: boolean | null;
+  /**
+   * 出库操作人ID
+   * @format int64
+   */
+  outOperatorId?: number | null;
+  /**
+   * 出库时间
+   * @format date-time
+   */
+  outTime?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 状态(0:待审批 1:已通过 2:已拒绝 3:已出库)
+   * @format int32
+   */
+  status?: number | null;
+  /** 状态名称 */
+  readonly statusName?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 出入库表单对象 */
+export interface MmStockInOutFO {
+  /**
+   * 物料编码
+   * @minLength 1
+   */
+  materialCode: string;
+  /**
+   * 数量
+   * @format double
+   */
+  quantity: number;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 领料申请单ID
+   * @format int64
+   */
+  requisitionId?: number | null;
+  /**
+   * 类型(1:入库 2:出库)
+   * @format int32
+   */
+  type: number;
+  /**
+   * 单价(如果不传则使用物料标准单价)
+   * @format double
+   */
+  unitPrice?: number | null;
+}
+
+/** 出入库分页查询参数类 */
+export interface MmStockInOutPQO {
+  /** 审批备注 */
+  approveRemark?: string | null;
+  /**
+   * 审批时间
+   * @format date-time
+   */
+  approveTime?: string | null;
+  /**
+   * 审批人ID
+   * @format int64
+   */
+  approverId?: number | null;
+  /** 单据编号 */
+  billNo?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 物料编码 */
+  materialCode?: string | null;
+  /**
+   * 操作时间
+   * @format date-time
+   */
+  operationTime?: string | null;
+  /**
+   * 结束时间(操作时间)
+   * @format date-time
+   */
+  operationTimeEnd?: string | null;
+  /**
+   * 开始时间(操作时间)
+   * @format date-time
+   */
+  operationTimeStart?: string | null;
+  /**
+   * 操作人ID
+   * @format int64
+   */
+  operatorId?: number | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 数量
+   * @format double
+   */
+  quantity?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 领料申请单ID(关联mm_requisition.id)
+   * @format int64
+   */
+  requisitionId?: number | null;
+  /**
+   * 状态(0:待审批 1:已通过 2:已拒绝)
+   * @format int32
+   */
+  status?: number | null;
+  /**
+   * 总金额
+   * @format double
+   */
+  totalAmount?: number | null;
+  /**
+   * 类型(1:入库 2:出库)
+   * @format int32
+   */
+  type?: number | null;
+  /**
+   * 单价
+   * @format double
+   */
+  unitPrice?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+export interface MmStockInOutQO {
+  /** 审批备注 */
+  approveRemark?: string | null;
+  /**
+   * 审批时间
+   * @format date-time
+   */
+  approveTime?: string | null;
+  /**
+   * 审批人ID
+   * @format int64
+   */
+  approverId?: number | null;
+  /** 单据编号 */
+  billNo?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 物料编码 */
+  materialCode?: string | null;
+  /**
+   * 操作时间
+   * @format date-time
+   */
+  operationTime?: string | null;
+  /**
+   * 结束时间(操作时间)
+   * @format date-time
+   */
+  operationTimeEnd?: string | null;
+  /**
+   * 开始时间(操作时间)
+   * @format date-time
+   */
+  operationTimeStart?: string | null;
+  /**
+   * 操作人ID
+   * @format int64
+   */
+  operatorId?: number | null;
+  /**
+   * 数量
+   * @format double
+   */
+  quantity?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 领料申请单ID(关联mm_requisition.id)
+   * @format int64
+   */
+  requisitionId?: number | null;
+  /**
+   * 状态(0:待审批 1:已通过 2:已拒绝)
+   * @format int32
+   */
+  status?: number | null;
+  /**
+   * 总金额
+   * @format double
+   */
+  totalAmount?: number | null;
+  /**
+   * 类型(1:入库 2:出库)
+   * @format int32
+   */
+  type?: number | null;
+  /**
+   * 单价
+   * @format double
+   */
+  unitPrice?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 出入库视图对象 */
+export interface MmStockInOutVO {
+  /** 审批备注 */
+  approveRemark?: string | null;
+  /**
+   * 审批时间
+   * @format date-time
+   */
+  approveTime?: string | null;
+  /**
+   * 审批人ID
+   * @format int64
+   */
+  approverId?: number | null;
+  /** 审批人姓名 */
+  approverName?: string | null;
+  /** 单据编号 */
+  billNo?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 物料编码 */
+  materialCode?: string | null;
+  /** 物料名称 */
+  materialName?: string | null;
+  /** 物料规格 */
+  materialSpecification?: string | null;
+  /**
+   * 操作时间
+   * @format date-time
+   */
+  operationTime?: string | null;
+  /**
+   * 操作人ID
+   * @format int64
+   */
+  operatorId?: number | null;
+  /** 操作人姓名 */
+  operatorName?: string | null;
+  /**
+   * 数量
+   * @format double
+   */
+  quantity?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 领料申请单ID(关联mm_requisition.id)
+   * @format int64
+   */
+  requisitionId?: number | null;
+  /**
+   * 状态(0:待审批 1:已通过 2:已拒绝)
+   * @format int32
+   */
+  status?: number | null;
+  /** 状态名称 */
+  readonly statusName?: string | null;
+  /**
+   * 总金额
+   * @format double
+   */
+  totalAmount?: number | null;
+  /**
+   * 类型(1:入库 2:出库)
+   * @format int32
+   */
+  type?: number | null;
+  /** 类型名称 */
+  readonly typeName?: string | null;
+  /**
+   * 单价
+   * @format double
+   */
+  unitPrice?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+export interface MonthAndCount {
+  /**
+   * 数量
+   * @format int32
+   */
+  count?: number;
+  /**
+   * 年月
+   * @format date-time
+   */
+  month?: string | null;
+  /** 年月字符串 */
+  monthStr?: string | null;
+}
+
+export interface NameCount {
+  /**
+   * 总数
+   * @format int32
+   */
+  count?: number;
+  /** 名称 */
+  name?: string | null;
+}
 
 export interface OnlyIdQO {
   /**
@@ -10024,14 +15691,6 @@ export interface OnlyIdQO {
   id: number;
 }
 
-export interface OnlyIrrIdQO {
-  /**
-   * 灌区Id
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-}
-
 export interface OnlyMsgIdList {
   /** MessageIds */
   ids: number[];
@@ -10039,85 +15698,85 @@ export interface OnlyMsgIdList {
 
 export interface OrganizationForm {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /** 联系人 */
-  contactPerson?: null | string;
+  contactPerson?: string | null;
   /** 联系人联系方式 */
-  contactWay?: null | string;
+  contactWay?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否在地图中显示 */
-  isDisplayInmap?: null | boolean;
+  isDisplayInmap?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否包含视频 */
-  isVideo?: null | boolean;
+  isVideo?: boolean | null;
   /**
    * 纬度
    * @format double
    */
-  latitude?: null | number;
+  latitude?: number | null;
   /**
    * 经度
    * @format double
    */
-  longitude?: null | number;
+  longitude?: number | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /**
    * 父级
    * @format int64
    */
-  parentId?: null | number;
+  parentId?: number | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
 }
 
 export interface OrganizationPQO {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /** 联系人 */
-  contactPerson?: null | string;
+  contactPerson?: string | null;
   /** 联系人联系方式 */
-  contactWay?: null | string;
+  contactWay?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否在地图中显示 */
-  isDisplayInmap?: null | boolean;
+  isDisplayInmap?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否包含视频 */
-  isVideo?: null | boolean;
+  isVideo?: boolean | null;
   /**
    * 纬度
    * @format double
    */
-  latitude?: null | number;
+  latitude?: number | null;
   /**
    * 级别
    * @format int32
    */
-  level?: null | number;
+  level?: number | null;
   /**
    * 经度
    * @format double
    */
-  longitude?: null | number;
+  longitude?: number | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 路径 */
-  nestedpath?: null | string;
+  nestedpath?: string | null;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 当前页码
    * @format int32
@@ -10134,948 +15793,225 @@ export interface OrganizationPQO {
    * 父级
    * @format int64
    */
-  parentId?: null | number;
+  parentId?: number | null;
   /**
    * 路径key
    * @format int32
    */
   pathkey?: number;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface OrganizationQO {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /** 联系人 */
-  contactPerson?: null | string;
+  contactPerson?: string | null;
   /** 联系人联系方式 */
-  contactWay?: null | string;
+  contactWay?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否在地图中显示 */
-  isDisplayInmap?: null | boolean;
+  isDisplayInmap?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否包含视频 */
-  isVideo?: null | boolean;
+  isVideo?: boolean | null;
   /**
    * 纬度
    * @format double
    */
-  latitude?: null | number;
+  latitude?: number | null;
   /**
    * 级别
    * @format int32
    */
-  level?: null | number;
+  level?: number | null;
   /**
    * 经度
    * @format double
    */
-  longitude?: null | number;
+  longitude?: number | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 路径 */
-  nestedpath?: null | string;
+  nestedpath?: string | null;
   /**
    * 父级
    * @format int64
    */
-  parentId?: null | number;
+  parentId?: number | null;
   /**
    * 路径key
    * @format int32
    */
   pathkey?: number;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface OrganizationVO {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /** 联系人 */
-  contactPerson?: null | string;
+  contactPerson?: string | null;
   /** 联系人联系方式 */
-  contactWay?: null | string;
+  contactWay?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否在地图中显示 */
-  isDisplayInmap?: null | boolean;
+  isDisplayInmap?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否包含视频 */
-  isVideo?: null | boolean;
+  isVideo?: boolean | null;
   /**
    * 纬度
    * @format double
    */
-  latitude?: null | number;
+  latitude?: number | null;
   /**
    * 级别
    * @format int32
    */
-  level?: null | number;
+  level?: number | null;
   /**
    * 经度
    * @format double
    */
-  longitude?: null | number;
+  longitude?: number | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 路径 */
-  nestedpath?: null | string;
+  nestedpath?: string | null;
   /**
    * 父级
    * @format int64
    */
-  parentId?: null | number;
+  parentId?: number | null;
   /** 上级组织机构 */
-  parentName?: null | string;
+  parentName?: string | null;
   /**
    * 路径key
    * @format int32
    */
   pathkey?: number;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
-export interface PrealarmCount {
-  /** @format int32 */
-  complete?: number;
-  /** @format int32 */
-  sls?: number;
-  /** @format int32 */
-  total?: number;
-}
-
-export interface PrealarmRecordFO {
-  /**
-   * 上限还是下限(0上限1下限)
-   * @format int32
-   */
-  compareType?: null | number;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  createdAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  createdPerson?: null | string;
-  /**
-   * 数据值
-   * @format double
-   */
-  dataValue?: null | number;
-  /**
-   * Desc:预警时长
-   * Default:
-   * Nullable:True
-   * @format int64
-   */
-  duration?: null | number;
-  /** 结束原因 */
-  endReason?: null | string;
-  /**
-   * Desc:预警结束时间
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  endTime?: null | string;
-  /**
-   * 设备id
-   * @format int64
-   */
-  equipmentId?: null | number;
-  /** 设备名称 */
-  equipmentName?: null | string;
-  /**
-   * 监测指标id
-   * @format int64
-   */
-  equipmentParamId?: null | number;
-  /** 监测指标名称 */
-  equipmentParamName?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  id?: number;
-  /** 是否推送短信 */
-  isPush?: null | boolean;
-  /**
-   * 限值
-   * @format double
-   */
-  limitValue?: null | number;
-  /** 单位 */
-  measureUnit?: null | string;
-  /**
-   * Desc:预警信息
-   * Default:
-   * Nullable:True
-   */
-  prealarmInfo?: null | string;
-  /**
-   * Desc:关联预警规则
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  prealarmRuleId?: null | number;
-  /** 规则名称 */
-  prealarmRuleName?: null | string;
-  /**
-   * Desc:开始时间-日
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  sday?: number;
-  /** 是否发送短信 */
-  sendPhoneMsg?: null | boolean;
-  /**
-   * Desc:开始时间-小时
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  shour?: number;
-  /**
-   * Desc:开始时间-月
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  smonth?: number;
-  /**
-   * Desc:预警开始时间
-   * Default:
-   * Nullable:False
-   * @format date-time
-   */
-  startTime?: string;
-  /**
-   * Desc:开始时间-年
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * Desc:所属水库
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** 水库名称 */
-  technicsName?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  updatedAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  updatedPerson?: null | string;
-}
-
-export interface PrealarmRecordPQO {
-  /**
-   * 上限还是下限(0上限1下限)
-   * @format int32
-   */
-  compareType?: null | number;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  createdAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  createdPerson?: null | string;
-  /**
-   * 数据值
-   * @format double
-   */
-  dataValue?: null | number;
-  /**
-   * Desc:预警时长
-   * Default:
-   * Nullable:True
-   * @format int64
-   */
-  duration?: null | number;
-  /** 结束原因 */
-  endReason?: null | string;
-  /**
-   * Desc:预警结束时间
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  endTime?: null | string;
-  /**
-   * 设备id
-   * @format int64
-   */
-  equipmentId?: null | number;
-  /** 设备名称 */
-  equipmentName?: null | string;
-  /**
-   * 监测指标id
-   * @format int64
-   */
-  equipmentParamId?: null | number;
-  /** 监测指标名称 */
-  equipmentParamName?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  id?: number;
-  /** 是否推送短信 */
-  isPush?: null | boolean;
-  /**
-   * 限值
-   * @format double
-   */
-  limitValue?: null | number;
-  /** 单位 */
-  measureUnit?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * Desc:预警信息
-   * Default:
-   * Nullable:True
-   */
-  prealarmInfo?: null | string;
-  /**
-   * Desc:关联预警规则
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  prealarmRuleId?: null | number;
-  /** 规则名称 */
-  prealarmRuleName?: null | string;
-  /**
-   * Desc:开始时间-日
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  sday?: number;
-  /** 是否发送短信 */
-  sendPhoneMsg?: null | boolean;
-  /**
-   * Desc:开始时间-小时
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  shour?: number;
-  /**
-   * Desc:开始时间-月
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  smonth?: number;
-  /**
-   * Desc:预警开始时间
-   * Default:
-   * Nullable:False
-   * @format date-time
-   */
-  startTime?: string;
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  startTimeEt?: null | string;
+export interface PlaybackHlsUrlQO {
   /**
    * 开始时间
    * @format date-time
    */
-  startTimeSt?: null | string;
+  beginTime: string;
   /**
-   * Desc:开始时间-年
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * Desc:所属水库
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** 水库名称 */
-  technicsName?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  updatedAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  updatedPerson?: null | string;
-}
-
-export interface PrealarmRecordQO {
-  /**
-   * 上限还是下限(0上限1下限)
-   * @format int32
-   */
-  compareType?: null | number;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  createdAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  createdPerson?: null | string;
-  /**
-   * 数据值
-   * @format double
-   */
-  dataValue?: null | number;
-  /**
-   * Desc:预警时长
-   * Default:
-   * Nullable:True
-   * @format int64
-   */
-  duration?: null | number;
-  /** 结束原因 */
-  endReason?: null | string;
-  /**
-   * Desc:预警结束时间
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  endTime?: null | string;
-  /**
-   * 设备id
-   * @format int64
-   */
-  equipmentId?: null | number;
-  /** 设备名称 */
-  equipmentName?: null | string;
-  /**
-   * 监测指标id
-   * @format int64
-   */
-  equipmentParamId?: null | number;
-  /** 监测指标名称 */
-  equipmentParamName?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  id?: number;
-  /** 是否推送短信 */
-  isPush?: null | boolean;
-  /**
-   * 限值
-   * @format double
-   */
-  limitValue?: null | number;
-  /** 单位 */
-  measureUnit?: null | string;
-  /**
-   * Desc:预警信息
-   * Default:
-   * Nullable:True
-   */
-  prealarmInfo?: null | string;
-  /**
-   * Desc:关联预警规则
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  prealarmRuleId?: null | number;
-  /** 规则名称 */
-  prealarmRuleName?: null | string;
-  /**
-   * Desc:开始时间-日
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  sday?: number;
-  /** 是否发送短信 */
-  sendPhoneMsg?: null | boolean;
-  /**
-   * Desc:开始时间-小时
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  shour?: number;
-  /**
-   * Desc:开始时间-月
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  smonth?: number;
-  /**
-   * Desc:预警开始时间
-   * Default:
-   * Nullable:False
-   * @format date-time
-   */
-  startTime?: string;
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  startTimeEt?: null | string;
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  startTimeSt?: null | string;
-  /**
-   * Desc:开始时间-年
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * Desc:所属水库
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** 水库名称 */
-  technicsName?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  updatedAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  updatedPerson?: null | string;
-}
-
-export interface PrealarmRecordVO {
-  /**
-   * 上限还是下限(0上限1下限)
-   * @format int32
-   */
-  compareType?: null | number;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  createdAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  createdPerson?: null | string;
-  /**
-   * 数据值
-   * @format double
-   */
-  dataValue?: null | number;
-  /**
-   * Desc:预警时长
-   * Default:
-   * Nullable:True
-   * @format int64
-   */
-  duration?: null | number;
-  /** 结束原因 */
-  endReason?: null | string;
-  /**
-   * Desc:预警结束时间
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  endTime?: null | string;
-  /**
-   * 设备id
-   * @format int64
-   */
-  equipmentId?: null | number;
-  /** 设备名称 */
-  equipmentName?: null | string;
-  /**
-   * 监测指标id
-   * @format int64
-   */
-  equipmentParamId?: null | number;
-  /** 监测指标名称 */
-  equipmentParamName?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  id?: number;
-  /** 是否推送短信 */
-  isPush?: null | boolean;
-  /**
-   * 限值
-   * @format double
-   */
-  limitValue?: null | number;
-  /** 单位 */
-  measureUnit?: null | string;
-  /**
-   * Desc:预警信息
-   * Default:
-   * Nullable:True
-   */
-  prealarmInfo?: null | string;
-  /**
-   * Desc:关联预警规则
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  prealarmRuleId?: null | number;
-  /** 规则名称 */
-  prealarmRuleName?: null | string;
-  /**
-   * Desc:开始时间-日
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  sday?: number;
-  /** 是否发送短信 */
-  sendPhoneMsg?: null | boolean;
-  /**
-   * Desc:开始时间-小时
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  shour?: number;
-  /**
-   * Desc:开始时间-月
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  smonth?: number;
-  /**
-   * Desc:预警开始时间
-   * Default:
-   * Nullable:False
-   * @format date-time
-   */
-  startTime?: string;
-  /**
-   * Desc:开始时间-年
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * Desc:所属水库
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** 水库名称 */
-  technicsName?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  updatedAt?: null | string;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  updatedPerson?: null | string;
-}
-
-export interface PrealarmRuleFO {
-  /**
-   * 上限还是下限(0上限1下限)
-   * @format int32
-   */
-  compareType: number;
-  /**
-   * 监测指标id
-   * @format int64
-   */
-  equipmentParamId: number;
-  /** @format int64 */
-  id?: null | number;
-  /** 是否启用 */
-  isEnable?: null | boolean;
-  /**
-   * 限值
-   * @format double
-   */
-  limitValue: number;
-  /**
-   * 规则名称
+   * 摄像头标识
    * @minLength 1
    */
-  name: string;
-  /** 是否发送短信 */
-  sendPhoneMsg?: null | boolean;
+  cameraIndexCode: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime: string;
+  /** 内外网标识 */
+  inout?: string | null;
+  /** 取流协议 */
+  protocol?: string | null;
 }
 
-export interface PrealarmRulePQO {
+export interface PlaybackUrlQO {
   /**
-   * 上限还是下限(0上限1下限)
-   * @format int32
+   * 开始时间
+   * @format date-time
    */
-  compareType?: null | number;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  beginTime: string;
   /**
-   * 监测指标id
-   * @format int64
+   * 摄像头标识
+   * @minLength 1
    */
-  equipmentParamId?: null | number;
-  readonly equipmentParamName?: null;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 是否启用 */
-  isEnable?: null | boolean;
-  /** 是否预警 */
-  isPrealarm?: null | boolean;
+  cameraIndexCode: string;
   /**
-   * 限值
-   * @format double
+   * 结束时间
+   * @format date-time
    */
-  limitValue?: null | number;
-  /** 规则名称 */
-  name?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** 是否发送短信 */
-  sendPhoneMsg?: null | boolean;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  endTime: string;
+  /** 取流协议 */
+  protocol?: string | null;
 }
 
-export interface PrealarmRuleQO {
+export interface PreviewUrlQO {
   /**
-   * 上限还是下限(0上限1下限)
-   * @format int32
+   * 摄像头标识
+   * @minLength 1
    */
-  compareType?: null | number;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /**
-   * 监测指标id
-   * @format int64
-   */
-  equipmentParamId?: null | number;
-  readonly equipmentParamName?: null;
-  /** @format int64 */
-  id?: number;
-  /** 是否启用 */
-  isEnable?: null | boolean;
-  /** 是否预警 */
-  isPrealarm?: null | boolean;
-  /**
-   * 限值
-   * @format double
-   */
-  limitValue?: null | number;
-  /** 规则名称 */
-  name?: null | string;
-  /** 是否发送短信 */
-  sendPhoneMsg?: null | boolean;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  cameraIndexCode: string;
 }
 
-export interface PrealarmRuleVO {
+export interface PtzsControllingQO {
   /**
-   * 上限还是下限(0上限1下限)
+   * 0-开始 ，1-停止,注：GOTO_PRESET命令下填任意值均可转到预置点,建议填0即可
    * @format int32
    */
-  compareType?: null | number;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  action: number;
   /**
-   * 设备id
-   * @format int64
+   * 监控点编号
+   * @minLength 1
    */
-  equipmentId?: null | number;
-  /** 设备名称 */
-  equipmentName?: null | string;
+  cameraIndexCode: string;
   /**
-   * 监测指标id
-   * @format int64
+   * 命令
+   * @minLength 1
    */
-  equipmentParamId?: null | number;
-  /** 监测指标名称 */
-  equipmentParamName?: null | string;
-  /** @format int64 */
-  id?: number;
+  command: string;
   /**
-   * 灌区id
-   * @format int64
+   * 预置点编号，可通过查询预置点信息接口获取整数，通常在300以内
+   * @format int32
    */
-  irrigationDistrictId?: null | number;
-  /** 灌区名称 */
-  irrigationDistrictName?: null | string;
-  /** 是否启用 */
-  isEnable?: null | boolean;
-  /** 是否预警 */
-  isPrealarm?: null | boolean;
+  presetIndex?: number | null;
   /**
-   * 限值
-   * @format double
+   * 云台速度，取值范围为1-100，默认50
+   * @format int32
    */
-  limitValue?: null | number;
-  /** 规则名称 */
-  name?: null | string;
-  /** 是否发送短信 */
-  sendPhoneMsg?: null | boolean;
-  /**
-   * 监测点id
-   * @format int64
-   */
-  technicsId?: null | number;
-  /** 监测点名称 */
-  technicsName?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  speed?: number | null;
 }
 
 export interface RecordFile {
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** 后缀名 */
-  extname?: null | string;
+  extname?: string | null;
   /** 文件标识 */
-  fileId?: null | string;
+  fileId?: string | null;
   /** 文件名 */
-  fileName?: null | string;
+  fileName?: string | null;
   /** 原始文件名 */
-  fileNameOrigin?: null | string;
+  fileNameOrigin?: string | null;
   /** 文件路径 */
-  filePath?: null | string;
+  filePath?: string | null;
   /**
    * 文件大小(Byte)
    * @format int64
@@ -11089,222 +16025,8 @@ export interface RecordFile {
    */
   recordId?: number;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-/** 用户分页查询参数类 */
-export interface RecordFilePQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 后缀名 */
-  extname?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /** 文件标识 */
-  fileId?: null | string;
-  /** 文件名 */
-  fileName?: null | string;
-  /** 原始文件名 */
-  fileNameOrigin?: null | string;
-  /** 文件路径 */
-  filePath?: null | string;
-  /**
-   * 文件大小(Byte)
-   * @format int64
-   */
-  fileSize?: number;
-  /** @format int64 */
-  id?: number;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 实体标识
-   * @format int64
-   */
-  recordId?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface RecordFileQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 后缀名 */
-  extname?: null | string;
-  /** 文件标识 */
-  fileId?: null | string;
-  /** 文件名 */
-  fileName?: null | string;
-  /** 原始文件名 */
-  fileNameOrigin?: null | string;
-  /** 文件路径 */
-  filePath?: null | string;
-  /**
-   * 文件大小(Byte)
-   * @format int64
-   */
-  fileSize?: number;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 实体标识
-   * @format int64
-   */
-  recordId?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface RecordFileVO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 后缀名 */
-  extname?: null | string;
-  /** 文件标识 */
-  fileId?: null | string;
-  /** 文件名 */
-  fileName?: null | string;
-  /** 原始文件名 */
-  fileNameOrigin?: null | string;
-  /** 文件路径 */
-  filePath?: null | string;
-  /**
-   * 文件大小(Byte)
-   * @format int64
-   */
-  fileSize?: number;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 实体标识
-   * @format int64
-   */
-  recordId?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface RegionFO {
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  geojson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** @format int32 */
-  level?: null | number;
-  name?: null | string;
-  nestedpath?: null | string;
-  /** @format int64 */
-  parentId?: null | number;
-  /** @format int32 */
-  pathkey?: number;
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface RegionPQO {
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  geojson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** @format int32 */
-  level?: null | number;
-  name?: null | string;
-  nestedpath?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** @format int64 */
-  parentId?: null | number;
-  /** @format int32 */
-  pathkey?: number;
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface RegionQO {
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  geojson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** @format int32 */
-  level?: null | number;
-  name?: null | string;
-  nestedpath?: null | string;
-  /** @format int64 */
-  parentId?: null | number;
-  /** @format int32 */
-  pathkey?: number;
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface RegionVO {
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  geojson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** @format int32 */
-  level?: null | number;
-  name?: null | string;
-  nestedpath?: null | string;
-  /** @format int64 */
-  parentId?: null | number;
-  /** @format int32 */
-  pathkey?: number;
-  remark?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface RemoveMulQO {
@@ -11323,72 +16045,72 @@ export interface ReqIdsQO {
 
 export interface ResourceForm {
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否仅限管理员 */
-  isAdmin?: null | boolean;
+  isAdmin?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /**
    * 级别
    * @format int32
    */
-  level?: null | number;
+  level?: number | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 路径 */
-  nestedpath?: null | string;
+  nestedpath?: string | null;
   /**
    * 父级
    * @format int64
    */
-  parentId?: null | number;
+  parentId?: number | null;
   /**
    * 路径key
    * @format int32
    */
   pathkey?: number;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /** 路由名称列表 */
-  routeNames?: null | string[];
+  routeNames?: string[] | null;
   /** 类型 */
-  type?: null | string;
+  type?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 /** 用户分页查询参数类 */
 export interface ResourcePQO {
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否仅限管理员 */
-  isAdmin?: null | boolean;
+  isAdmin?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /**
    * 级别
    * @format int32
    */
-  level?: null | number;
+  level?: number | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 路径 */
-  nestedpath?: null | string;
+  nestedpath?: string | null;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 当前页码
    * @format int32
@@ -11405,65 +16127,65 @@ export interface ResourcePQO {
    * 父级
    * @format int64
    */
-  parentId?: null | number;
+  parentId?: number | null;
   /**
    * 路径key
    * @format int32
    */
   pathkey?: number;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /** 类型 */
-  type?: null | string;
+  type?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface ResourceQO {
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否仅限管理员 */
-  isAdmin?: null | boolean;
+  isAdmin?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /**
    * 级别
    * @format int32
    */
-  level?: null | number;
+  level?: number | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 路径 */
-  nestedpath?: null | string;
+  nestedpath?: string | null;
   /**
    * 父级
    * @format int64
    */
-  parentId?: null | number;
+  parentId?: number | null;
   /**
    * 路径key
    * @format int32
    */
   pathkey?: number;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /** 类型 */
-  type?: null | string;
+  type?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface ResourceRoute {
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /**
@@ -11472,41 +16194,41 @@ export interface ResourceRoute {
    */
   resourceId?: number;
   /** 后端路由名称 */
-  routeName?: null | string;
+  routeName?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface ResourceVO {
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否仅限管理员 */
-  isAdmin?: null | boolean;
+  isAdmin?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /**
    * 父级
    * @format int64
    */
-  parentId?: null | number;
+  parentId?: number | null;
   /** 备注 */
-  remark?: null | string;
-  resourceRoutes?: null | ResourceRoute[];
+  remark?: string | null;
+  resourceRoutes?: ResourceRoute[] | null;
   /** 路由名称列表 */
-  routeNames?: null | string[];
+  routeNames?: string[] | null;
   /** 类型 */
-  type?: null | string;
+  type?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface RoleAssignResourcesQO {
@@ -11517,8 +16239,8 @@ export interface RoleAssignResourcesQO {
 
 export interface RoleFO {
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /**
@@ -11527,22 +16249,22 @@ export interface RoleFO {
    */
   name: string;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 /** 用户分页查询参数类 */
 export interface RolePQO {
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
   /** @format int64 */
   id?: number;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 当前页码
    * @format int32
@@ -11558,16 +16280,20 @@ export interface RolePQO {
 }
 
 export interface RoleQO {
+  /** 排序字段 */
+  field?: string | null;
   /** @format int64 */
   id?: number;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
 }
 
 export interface RoleVO {
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /**
@@ -11576,20 +16302,20 @@ export interface RoleVO {
    */
   name: string;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListAppVersionVO {
+export interface SqlSugarPagedListAlarmRecordVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | AppVersionVO[];
+  items?: AlarmRecordVO[] | null;
   /**
    * 页码
    * @format int32
@@ -11613,13 +16339,13 @@ export interface SqlSugarPagedListAppVersionVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListBizCropsTypeVO {
+export interface SqlSugarPagedListAmJobVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | BizCropsTypeVO[];
+  items?: AmJobVO[] | null;
   /**
    * 页码
    * @format int32
@@ -11643,373 +16369,13 @@ export interface SqlSugarPagedListBizCropsTypeVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListBizCropsVO {
+export interface SqlSugarPagedListAmPostVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | BizCropsVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBizDayTotalFlowVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | BizDayTotalFlowVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBizGrowStageVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | BizGrowStageVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBizGysDispatchDocVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | BizGysDispatchDocVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBizGysDispatchRecordVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | BizGysDispatchRecordVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBizIrrigationDistrictVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | BizIrrigationDistrictVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBizPlantingPlanVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | BizPlantingPlanVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBizPlantingSchemeVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | BizPlantingSchemeVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBizPoliciyRegulationVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | BizPoliciyRegulationVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBizWaterDemandPlanVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | BizWaterDemandPlanVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBizWaterDistributionPlanVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | BizWaterDistributionPlanVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBizWaterEfficiencyRecordVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | BizWaterEfficiencyRecordVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBizYieldRecordVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | BizYieldRecordVO[];
+  items?: AmPostVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12039,7 +16405,97 @@ export interface SqlSugarPagedListDataDictionaryVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | DataDictionaryVO[];
+  items?: DataDictionaryVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEquipmentParamDdVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EquipmentParamDdVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEquipmentParamHdVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EquipmentParamHdVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEquipmentParamMdVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EquipmentParamMdVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12069,7 +16525,7 @@ export interface SqlSugarPagedListEquipmentParamVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | EquipmentParamVO[];
+  items?: EquipmentParamVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12099,7 +16555,7 @@ export interface SqlSugarPagedListEquipmentVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | EquipmentVO[];
+  items?: EquipmentVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12123,13 +16579,13 @@ export interface SqlSugarPagedListEquipmentVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListKnowledgeBaseFileVO {
+export interface SqlSugarPagedListEsAlarmRecordVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | KnowledgeBaseFileVO[];
+  items?: EsAlarmRecordVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12153,13 +16609,13 @@ export interface SqlSugarPagedListKnowledgeBaseFileVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListKnowledgeFileVO {
+export interface SqlSugarPagedListEsFleetVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | KnowledgeFileVO[];
+  items?: EsFleetVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12183,13 +16639,793 @@ export interface SqlSugarPagedListKnowledgeFileVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListKnowledgeTypeVO {
+export interface SqlSugarPagedListEsGarbageCategoryVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | KnowledgeTypeVO[];
+  items?: EsGarbageCategoryVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsGarbageTypeVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsGarbageTypeVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsGpsAlarmRecordFileVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsGpsAlarmRecordFileVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsGpsAlarmRecordVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsGpsAlarmRecordVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsSanitationFacilityTypeVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsSanitationFacilityTypeVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsSanitationFacilityVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsSanitationFacilityVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsShipRealtimeVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsShipRealtimeVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsShipVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsShipVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsVehicleDpRecordVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsVehicleDpRecordVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsVehicleLcRecordVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsVehicleLcRecordVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsVehicleRealtimeVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsVehicleRealtimeVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsVehicleVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsVehicleVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWeightRecordVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWeightRecordVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWorkPlanPwVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWorkPlanPwVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWorkPlanSwVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWorkPlanSwVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWorkPlanVwVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWorkPlanVwVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWorkRoutePointVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWorkRoutePointVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWorkRouteVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWorkRouteVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWorkRuleVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWorkRuleVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWorkShiftPwVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWorkShiftPwVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWorkShiftSwVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWorkShiftSwVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWorkShiftVwVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWorkShiftVwVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWorkWatercoursePointVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWorkWatercoursePointVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWorkWatercourseVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWorkWatercourseVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWtGeneralVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWtGeneralVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWtShiftVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWtShiftVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEsWtSpecificVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EsWtSpecificVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12219,7 +17455,7 @@ export interface SqlSugarPagedListLogaccessVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | LogaccessVO[];
+  items?: LogaccessVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12249,7 +17485,7 @@ export interface SqlSugarPagedListLogerrorVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | LogerrorVO[];
+  items?: LogerrorVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12279,37 +17515,7 @@ export interface SqlSugarPagedListLogoperationVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | LogoperationVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListMdRecord {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | MdRecord[];
+  items?: LogoperationVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12339,7 +17545,157 @@ export interface SqlSugarPagedListMessageVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | MessageVO[];
+  items?: MessageVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListMmInventoryVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: MmInventoryVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListMmMaterialCategoryVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: MmMaterialCategoryVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListMmMaterialVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: MmMaterialVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListMmRequisitionVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: MmRequisitionVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListMmStockInOutVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: MmStockInOutVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12369,127 +17725,7 @@ export interface SqlSugarPagedListOrganizationVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | OrganizationVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListPrealarmRecordVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | PrealarmRecordVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListPrealarmRuleVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | PrealarmRuleVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListRecordFileVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | RecordFileVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListRegionVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | RegionVO[];
+  items?: OrganizationVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12519,7 +17755,7 @@ export interface SqlSugarPagedListResourceVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | ResourceVO[];
+  items?: ResourceVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12549,7 +17785,7 @@ export interface SqlSugarPagedListRoleVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | RoleVO[];
+  items?: RoleVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12573,13 +17809,13 @@ export interface SqlSugarPagedListRoleVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListTechnicsTypeVO {
+export interface SqlSugarPagedListSysNoticeVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | TechnicsTypeVO[];
+  items?: SysNoticeVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12609,7 +17845,7 @@ export interface SqlSugarPagedListTechnicsVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | TechnicsVO[];
+  items?: TechnicsVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12639,37 +17875,7 @@ export interface SqlSugarPagedListUserMessageVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | UserMessageVO[];
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListUserRegionVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: null | UserRegionVO[];
+  items?: UserMessageVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12699,7 +17905,37 @@ export interface SqlSugarPagedListUserVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | UserVO[];
+  items?: UserVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListUserWpVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: UserWpVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12729,7 +17965,7 @@ export interface SqlSugarPagedListUsergroupVO {
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: null | UsergroupVO[];
+  items?: UsergroupVO[] | null;
   /**
    * 页码
    * @format int32
@@ -12752,107 +17988,197 @@ export interface SqlSugarPagedListUsergroupVO {
   totalPages?: number;
 }
 
+export interface StwpQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** 是否执行 */
+  isExe?: boolean | null;
+  /** 作业方式编码 */
+  wtGeneralCode?: string | null;
+  /** 作业类型编码 */
+  wtSpecificCode?: string | null;
+}
+
+/** 公共通知 */
+export interface SysNoticeFO {
+  /** 附件 */
+  attachments?: RecordFile[] | null;
+  /**
+   * 内容
+   * @minLength 1
+   */
+  content: string;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 标题
+   * @minLength 1
+   */
+  title: string;
+}
+
+export interface SysNoticePQO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface SysNoticeQO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface SysNoticeVO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
 export interface TechnicsFO {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /** 编号 */
-  code?: null | string;
-  /** @format int64 */
-  id?: null | number;
+  code?: string | null;
   /**
-   * 所属灌区
-   * @format int64
+   * 创建时间
+   * @format date-time
    */
-  irrigationDistrictId?: null | number;
-  /** 是否启用 */
-  isEnable?: null | boolean;
-  /** 是否启用监测 */
-  isMonitor?: null | boolean;
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否报警 */
+  isAlarm?: boolean | null;
+  /** 是否在线 */
+  isOnline?: boolean | null;
   /**
    * 纬度
    * @format double
    */
-  latitude?: null | number;
+  latitude?: number | null;
   /**
    * 经度
    * @format double
    */
-  longitude?: null | number;
+  longitude?: number | null;
+  /** 监测状态 */
+  monitorState?: string | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 备注 */
-  remark?: null | string;
-  /** 测站编码 */
-  stationCode?: null | string;
+  remark?: string | null;
+  /** 类型 */
+  typeCode?: string | null;
   /**
-   * 点位类型
-   * @format int64
+   * 更新时间
+   * @format date-time
    */
-  technicsTypeId?: null | number;
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
 }
 
 export interface TechnicsPQO {
   /** 地址 */
-  address?: null | string;
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  beginTime?: null | string;
+  address?: string | null;
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /**
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: null | string;
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  endTime?: null | string;
+  dataTime?: string | null;
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
   /** @format int64 */
   id?: number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /** 是否通讯 */
-  isConn?: null | boolean;
+  /** 是否报警 */
+  isAlarm?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
-  /** 是否启用监测 */
-  isMonitor?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否在线 */
-  isOnline?: null | boolean;
-  /** 是否预警 */
-  isPrealarm?: null | boolean;
+  isOnline?: boolean | null;
   /**
    * 纬度
    * @format double
    */
-  latitude?: null | number;
+  latitude?: number | null;
   /**
    * 经度
    * @format double
    */
-  longitude?: null | number;
+  longitude?: number | null;
   /** 监测状态 */
-  monitorState?: null | string;
+  monitorState?: string | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 当前页码
    * @format int32
@@ -12866,274 +18192,165 @@ export interface TechnicsPQO {
    */
   pageSize?: number;
   /** 备注 */
-  remark?: null | string;
-  /** 测站编码 */
-  stationCode?: null | string;
-  /**
-   * 点位类型
-   * @format int64
-   */
-  technicsTypeId?: null | number;
+  remark?: string | null;
+  /** 类型 */
+  typeCode?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface TechnicsQO {
   /** 地址 */
-  address?: null | string;
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  beginTime?: null | string;
+  address?: string | null;
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /**
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: null | string;
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  endTime?: null | string;
+  dataTime?: string | null;
   /** @format int64 */
   id?: number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /** 是否通讯 */
-  isConn?: null | boolean;
+  /** 是否报警 */
+  isAlarm?: boolean | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
-  /** 是否启用监测 */
-  isMonitor?: null | boolean;
+  isEnable?: boolean | null;
   /** 是否在线 */
-  isOnline?: null | boolean;
-  /** 是否预警 */
-  isPrealarm?: null | boolean;
+  isOnline?: boolean | null;
   /**
    * 纬度
    * @format double
    */
-  latitude?: null | number;
+  latitude?: number | null;
   /**
    * 经度
    * @format double
    */
-  longitude?: null | number;
+  longitude?: number | null;
   /** 监测状态 */
-  monitorState?: null | string;
+  monitorState?: string | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 备注 */
-  remark?: null | string;
-  /** 测站编码 */
-  stationCode?: null | string;
-  /**
-   * 点位类型
-   * @format int64
-   */
-  technicsTypeId?: null | number;
+  remark?: string | null;
+  /** 类型 */
+  typeCode?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
-}
-
-export interface TechnicsTypeFO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface TechnicsTypePQO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface TechnicsTypeQO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-}
-
-export interface TechnicsTypeVO {
-  /** 编码 */
-  code?: null | string;
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: null | string;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface TechnicsVO {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /**
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
+  /** 坝型 */
+  damType?: string | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: null | string;
+  dataTime?: string | null;
   /** @format int64 */
   id?: number;
-  /**
-   * 所属灌区
-   * @format int64
-   */
-  irrigationDistrictId?: null | number;
-  /** 所属灌区名称 */
-  irrigationDistrictName?: null | string;
-  /** 是否通讯 */
-  isConn?: null | boolean;
-  /** 是否启用 */
-  isEnable?: null | boolean;
-  /** 是否启用监测 */
-  isMonitor?: null | boolean;
+  /** 是否报警 */
+  isAlarm?: boolean | null;
   /** 是否在线 */
-  isOnline?: null | boolean;
-  /** 是否预警 */
-  isPrealarm?: null | boolean;
+  isOnline?: boolean | null;
   /**
    * 纬度
    * @format double
    */
-  latitude?: null | number;
+  latitude?: number | null;
   /**
    * 经度
    * @format double
    */
-  longitude?: null | number;
+  longitude?: number | null;
   /** 监测状态 */
-  monitorState?: null | string;
+  monitorState?: string | null;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
+  /** 工程规模 */
+  projectScale?: string | null;
   /** 备注 */
-  remark?: null | string;
-  /** 测站编码 */
-  stationCode?: null | string;
+  remark?: string | null;
   /**
-   * 点位类型
-   * @format int64
+   * 总库容  (万m3)
+   * @format double
    */
-  technicsTypeId?: null | number;
-  /** 类型名称 */
-  technicsTypeName?: null | string;
+  totalCapacity?: number | null;
+  /** 类型 */
+  typeCode?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
+  /** 乡镇 */
+  village?: string | null;
+}
+
+export interface TrackQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime: string;
+  /**
+   * 车牌号
+   * @minLength 1
+   */
+  licence: string;
 }
 
 export interface TreeNode {
-  children?: null | TreeNode[];
+  children?: TreeNode[] | null;
   /** @format int64 */
   id?: number;
-  name?: null | string;
+  name?: string | null;
 }
 
-export interface TreeNodeKf {
-  children?: null | TreeNodeKf[];
-  /** @format int64 */
-  id?: number;
-  name?: null | string;
-  type?: null | string;
-}
-
-export interface UpdateRpsQO {
-  /** @format int64 */
-  prealarmRuleId: number;
-  rps?: null | number[];
+export interface TreeNodeKfSk {
+  children?: TreeNodeKfSk[] | null;
+  code?: string | null;
+  name?: string | null;
+  type?: string | null;
 }
 
 export interface UserAssignRolesQO {
   roleIds: number[];
-  /** @format int64 */
-  userId: number;
-}
-
-export interface UserAssignTechnicsesQO {
-  technicsIds: number[];
   /** @format int64 */
   userId: number;
 }
@@ -13144,16 +18361,24 @@ export interface UserAssignUsergroupsQO {
   usergroupIds: number[];
 }
 
+export interface UserCountVO {
+  /**
+   * 用户数量
+   * @format int32
+   */
+  userCount?: number | null;
+}
+
 export interface UserForm {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /**
    * 出生日期
    * @format date-time
    */
-  birthday?: null | string;
+  birthday?: string | null;
   /** 是否可以登录 */
-  canLogin?: null | boolean;
+  canLogin?: boolean | null;
   /**
    * 编号
    * @minLength 0
@@ -13161,18 +18386,18 @@ export interface UserForm {
    */
   code: string;
   /** 邮箱 */
-  email?: null | string;
+  email?: string | null;
   /**
    * Id
    * @format int64
    */
   id?: number;
   /** 身份证号码 */
-  idcode?: null | string;
+  idcode?: string | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /** 手机号 */
-  mobile?: null | string;
+  mobile?: string | null;
   /**
    * 姓名
    * @minLength 0
@@ -13180,35 +18405,35 @@ export interface UserForm {
    */
   name: string;
   /** 民族 */
-  nation?: null | string;
+  nation?: string | null;
   /**
    * 组织机构
    * @format int64
    */
-  organizationId: number;
-  /** 所属区域列表(乡镇级) */
-  regionIdList?: null | number[];
+  organizationId?: number | null;
+  /** 岗位列表 */
+  postList?: number[] | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /** 性别 */
-  sex?: null | string;
-  typeCode?: null | string;
+  sex?: string | null;
+  typeCode?: string | null;
   /** 微信openid */
-  wxopenid?: null | string;
+  wxopenid?: string | null;
   /** 微信unionid */
-  wxunionid?: null | string;
+  wxunionid?: string | null;
 }
 
 export interface UserFormAdd {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /**
    * 出生日期
    * @format date-time
    */
-  birthday?: null | string;
+  birthday?: string | null;
   /** 是否可以登录 */
-  canLogin?: null | boolean;
+  canLogin?: boolean | null;
   /**
    * 编号
    * @minLength 0
@@ -13216,16 +18441,16 @@ export interface UserFormAdd {
    */
   code: string;
   /** 邮箱 */
-  email?: null | string;
+  email?: string | null;
   /**
    * Id
    * @format int64
    */
   id?: number;
   /** 身份证号码 */
-  idcode?: null | string;
+  idcode?: string | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /**
    * 登录名
    * @minLength 0
@@ -13233,7 +18458,7 @@ export interface UserFormAdd {
    */
   loginname: string;
   /** 手机号 */
-  mobile?: null | string;
+  mobile?: string | null;
   /**
    * 姓名
    * @minLength 0
@@ -13241,51 +18466,51 @@ export interface UserFormAdd {
    */
   name: string;
   /** 民族 */
-  nation?: null | string;
+  nation?: string | null;
   /**
    * 组织机构
    * @format int64
    */
-  organizationId: number;
+  organizationId?: number | null;
   /**
    * 密码
    * @minLength 1
    */
   password: string;
-  /** 所属区域列表(乡镇级) */
-  regionIdList?: null | number[];
+  /** 岗位列表 */
+  postList?: number[] | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /** 性别 */
-  sex?: null | string;
-  typeCode?: null | string;
+  sex?: string | null;
+  typeCode?: string | null;
   /** 微信openid */
-  wxopenid?: null | string;
+  wxopenid?: string | null;
   /** 微信unionid */
-  wxunionid?: null | string;
+  wxunionid?: string | null;
 }
 
 export interface UserMessagePQO {
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /**
    * 删除时间
    * @format date-time
    */
-  deleteTime?: null | string;
+  deleteTime?: string | null;
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否已删除 */
-  isDelete?: null | boolean;
+  isDelete?: boolean | null;
   /** 是否已读 */
-  isRead?: null | boolean;
+  isRead?: boolean | null;
   /** @format int64 */
   messageId?: number;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 当前页码
    * @format int32
@@ -13302,136 +18527,141 @@ export interface UserMessagePQO {
    * 读取时间
    * @format date-time
    */
-  readTime?: null | string;
+  readTime?: string | null;
   /** 标题 */
-  title?: null | string;
+  title?: string | null;
   /** 类型 */
-  type?: null | string;
+  type?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
   /** @format int64 */
   userId?: number;
 }
 
 export interface UserMessageQO {
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /**
    * 删除时间
    * @format date-time
    */
-  deleteTime?: null | string;
+  deleteTime?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否已删除 */
-  isDelete?: null | boolean;
+  isDelete?: boolean | null;
   /** 是否已读 */
-  isRead?: null | boolean;
+  isRead?: boolean | null;
   /** @format int64 */
   messageId?: number;
   /**
    * 读取时间
    * @format date-time
    */
-  readTime?: null | string;
+  readTime?: string | null;
   /** 标题 */
-  title?: null | string;
+  title?: string | null;
   /** 类型 */
-  type?: null | string;
+  type?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
   /** @format int64 */
   userId?: number;
 }
 
 export interface UserMessageVO {
   /** 内容 */
-  content?: null | string;
+  content?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /**
    * 删除时间
    * @format date-time
    */
-  deleteTime?: null | string;
+  deleteTime?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否已删除 */
-  isDelete?: null | boolean;
+  isDelete?: boolean | null;
   /** 是否已读 */
-  isRead?: null | boolean;
+  isRead?: boolean | null;
   /** @format int64 */
   messageId?: number;
   /**
    * 读取时间
    * @format date-time
    */
-  readTime?: null | string;
+  readTime?: string | null;
   /**
    * 实体id
    * @format int64
    */
-  recordId?: null | number;
+  recordId?: number | null;
   /** 标题 */
-  title?: null | string;
+  title?: string | null;
   /** 类型 */
-  type?: null | string;
+  type?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
   /** @format int64 */
   userId?: number;
+}
+
+export interface UserNameQO {
+  /** 用户名 */
+  userName?: string | null;
 }
 
 /** 用户分页查询参数类 */
 export interface UserPQO {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /**
    * 出生日期
    * @format date-time
    */
-  birthday?: null | string;
+  birthday?: string | null;
   /** 是否可以登录 */
-  canLogin?: null | boolean;
+  canLogin?: boolean | null;
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** 邮箱 */
-  email?: null | string;
+  email?: string | null;
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
   /** @format int64 */
   id?: number;
   /** 身份证号码 */
-  idcode?: null | string;
+  idcode?: string | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /**
    * 上次登录时间
    * @format date-time
    */
-  lastLoginTime?: null | string;
+  lastLoginTime?: string | null;
   /** 登录名 */
-  loginname?: null | string;
+  loginname?: string | null;
   /** @format int32 */
-  maxNos?: null | number;
+  maxNos?: number | null;
   /** 手机号 */
-  mobile?: null | string;
+  mobile?: string | null;
   /** 姓名 */
-  name?: null | string;
+  name?: string | null;
   /** 民族 */
-  nation?: null | string;
+  nation?: string | null;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /** @format int64 */
-  organizationId?: null | number;
+  organizationId?: number | null;
   /**
    * 当前页码
    * @format int32
@@ -13445,183 +18675,100 @@ export interface UserPQO {
    */
   pageSize?: number;
   /** 密码 */
-  password?: null | string;
-  remark?: null | string;
+  password?: string | null;
+  remark?: string | null;
   /** 性别 */
-  sex?: null | string;
+  sex?: string | null;
   /**
    * ssoid
    * @format int64
    */
-  ssoId?: null | number;
-  typeCode?: null | string;
+  ssoId?: number | null;
+  typeCode?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
   /** 微信openid */
-  wxopenid?: null | string;
+  wxopenid?: string | null;
   /** 微信unionid */
-  wxunionid?: null | string;
+  wxunionid?: string | null;
+}
+
+export interface UserPostDto {
+  /** 编码 */
+  code?: string | null;
+  /**
+   * 岗位id
+   * @format int64
+   */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 用户id
+   * @format int64
+   */
+  userId?: number;
 }
 
 export interface UserQO {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /**
    * 出生日期
    * @format date-time
    */
-  birthday?: null | string;
+  birthday?: string | null;
   /** 是否可以登录 */
-  canLogin?: null | boolean;
+  canLogin?: boolean | null;
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** 邮箱 */
-  email?: null | string;
+  email?: string | null;
   /** @format int64 */
   id?: number;
   /** 身份证号码 */
-  idcode?: null | string;
+  idcode?: string | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /**
    * 上次登录时间
    * @format date-time
    */
-  lastLoginTime?: null | string;
+  lastLoginTime?: string | null;
   /** 登录名 */
-  loginname?: null | string;
+  loginname?: string | null;
   /** @format int32 */
-  maxNos?: null | number;
+  maxNos?: number | null;
   /** 手机号 */
-  mobile?: null | string;
+  mobile?: string | null;
   /** 姓名 */
-  name?: null | string;
+  name?: string | null;
   /** 民族 */
-  nation?: null | string;
+  nation?: string | null;
   /** @format int64 */
-  organizationId?: null | number;
+  organizationId?: number | null;
   /** 密码 */
-  password?: null | string;
-  remark?: null | string;
+  password?: string | null;
+  remark?: string | null;
   /** 性别 */
-  sex?: null | string;
+  sex?: string | null;
   /**
    * ssoid
    * @format int64
    */
-  ssoId?: null | number;
-  typeCode?: null | string;
+  ssoId?: number | null;
+  typeCode?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
   /** 微信openid */
-  wxopenid?: null | string;
+  wxopenid?: string | null;
   /** 微信unionid */
-  wxunionid?: null | string;
-}
-
-export interface UserRegionFO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 区域id
-   * @format int64
-   */
-  regionId?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 用户id
-   * @format int64
-   */
-  userId?: number;
-}
-
-export interface UserRegionPQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** 排序字段 */
-  field?: null | string;
-  /** @format int64 */
-  id?: number;
-  /** 排序方向 */
-  order?: null | string;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 区域id
-   * @format int64
-   */
-  regionId?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 用户id
-   * @format int64
-   */
-  userId?: number;
-}
-
-export interface UserRegionQO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 区域id
-   * @format int64
-   */
-  regionId?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 用户id
-   * @format int64
-   */
-  userId?: number;
-}
-
-export interface UserRegionVO {
-  /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 区域id
-   * @format int64
-   */
-  regionId?: number;
-  /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
-  /**
-   * 用户id
-   * @format int64
-   */
-  userId?: number;
+  wxunionid?: string | null;
 }
 
 export interface UserResetPwdQO {
@@ -13639,18 +18786,18 @@ export interface UserResetPwdQO {
 
 export interface UserSelfForm {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /**
    * 出生日期
    * @format date-time
    */
-  birthday?: null | string;
+  birthday?: string | null;
   /** 邮箱 */
-  email?: null | string;
+  email?: string | null;
   /** 身份证号码 */
-  idcode?: null | string;
+  idcode?: string | null;
   /** 手机号 */
-  mobile?: null | string;
+  mobile?: string | null;
   /**
    * 姓名
    * @minLength 0
@@ -13658,73 +18805,137 @@ export interface UserSelfForm {
    */
   name: string;
   /** 民族 */
-  nation?: null | string;
+  nation?: string | null;
   /** 性别 */
-  sex?: null | string;
+  sex?: string | null;
 }
 
 export interface UserVO {
   /** 地址 */
-  address?: null | string;
+  address?: string | null;
   /**
    * 出生日期
    * @format date-time
    */
-  birthday?: null | string;
+  birthday?: string | null;
   /** 是否可以登录 */
-  canLogin?: null | boolean;
+  canLogin?: boolean | null;
   /** 编号 */
-  code?: null | string;
+  code?: string | null;
   /** @format date-time */
-  createdAt?: null | string;
-  createdPerson?: null | string;
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** 邮箱 */
-  email?: null | string;
+  email?: string | null;
   /** @format int64 */
   id?: number;
   /** 身份证号码 */
-  idcode?: null | string;
+  idcode?: string | null;
   /** 是否启用 */
-  isEnable?: null | boolean;
+  isEnable?: boolean | null;
   /**
    * 上次登录时间
    * @format date-time
    */
-  lastLoginTime?: null | string;
+  lastLoginTime?: string | null;
   /** 登录名 */
-  loginname?: null | string;
+  loginname?: string | null;
   /** @format int32 */
-  maxNos?: null | number;
+  maxNos?: number | null;
   /** 手机号 */
-  mobile?: null | string;
+  mobile?: string | null;
   /** 姓名 */
-  name?: null | string;
+  name?: string | null;
   /** 民族 */
-  nation?: null | string;
+  nation?: string | null;
   /** @format int64 */
-  organizationId?: null | number;
+  organizationId?: number | null;
   /** 组织机构名称 */
-  organizationName?: null | string;
+  organizationName?: string | null;
   /** 密码 */
-  password?: null | string;
-  /** 所属区域列表 */
-  regionIdList?: null | number[];
-  remark?: null | string;
+  password?: string | null;
+  remark?: string | null;
   /** 性别 */
-  sex?: null | string;
+  sex?: string | null;
   /**
    * ssoid
    * @format int64
    */
-  ssoId?: null | number;
-  typeCode?: null | string;
+  ssoId?: number | null;
+  typeCode?: string | null;
   /** @format date-time */
-  updatedAt?: null | string;
-  updatedPerson?: null | string;
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
   /** 微信openid */
-  wxopenid?: null | string;
+  wxopenid?: string | null;
   /** 微信unionid */
-  wxunionid?: null | string;
+  wxunionid?: string | null;
+}
+
+export interface UserWpVO {
+  /** 地址 */
+  address?: string | null;
+  /**
+   * 出生日期
+   * @format date-time
+   */
+  birthday?: string | null;
+  /** 是否可以登录 */
+  canLogin?: boolean | null;
+  /** 编号 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 邮箱 */
+  email?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 身份证号码 */
+  idcode?: string | null;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /**
+   * 上次登录时间
+   * @format date-time
+   */
+  lastLoginTime?: string | null;
+  /** 登录名 */
+  loginname?: string | null;
+  /** @format int32 */
+  maxNos?: number | null;
+  /** 手机号 */
+  mobile?: string | null;
+  /** 姓名 */
+  name?: string | null;
+  /** 民族 */
+  nation?: string | null;
+  /** @format int64 */
+  organizationId?: number | null;
+  /** 组织机构名称 */
+  organizationName?: string | null;
+  /** 密码 */
+  password?: string | null;
+  /** 岗位id列表 */
+  postList?: number[] | null;
+  /** 岗位列表 */
+  postObjList?: UserPostDto[] | null;
+  remark?: string | null;
+  /** 性别 */
+  sex?: string | null;
+  /**
+   * ssoid
+   * @format int64
+   */
+  ssoId?: number | null;
+  typeCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 微信openid */
+  wxopenid?: string | null;
+  /** 微信unionid */
+  wxunionid?: string | null;
 }
 
 export interface UsergroupAssignRolesQO {
@@ -13738,25 +18949,25 @@ export interface UsergroupFO {
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /**
    * Id
    * @format int64
    */
   id?: number;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface UsergroupPQO {
@@ -13764,20 +18975,20 @@ export interface UsergroupPQO {
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /** 排序字段 */
-  field?: null | string;
+  field?: string | null;
   /**
    * Id
    * @format int64
    */
   id?: number;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 排序方向 */
-  order?: null | string;
+  order?: string | null;
   /**
    * 当前页码
    * @format int32
@@ -13791,14 +19002,14 @@ export interface UsergroupPQO {
    */
   pageSize?: number;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface UsergroupQO {
@@ -13806,25 +19017,25 @@ export interface UsergroupQO {
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /**
    * Id
    * @format int64
    */
   id?: number;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
 export interface UsergroupVO {
@@ -13832,45 +19043,116 @@ export interface UsergroupVO {
    * 创建时间
    * @format date-time
    */
-  createdAt?: null | string;
+  createdAt?: string | null;
   /** 创建人 */
-  createdPerson?: null | string;
+  createdPerson?: string | null;
   /**
    * Id
    * @format int64
    */
   id?: number;
   /** 名称 */
-  name?: null | string;
+  name?: string | null;
   /** 备注 */
-  remark?: null | string;
+  remark?: string | null;
   /**
    * 更新时间
    * @format date-time
    */
-  updatedAt?: null | string;
+  updatedAt?: string | null;
   /** 更新人 */
-  updatedPerson?: null | string;
+  updatedPerson?: string | null;
 }
 
-export interface WaterSupplyStQO {
+export interface WpPwSaveFO {
   /**
-   * 开始时间
+   * 结束日期
    * @format date-time
    */
-  beginTime?: null | string;
+  endDate: string;
+  /** 数据列表 */
+  foList?: EsWorkPlanPwFO[] | null;
   /**
-   * 结束时间
+   * 开始日期
    * @format date-time
    */
-  endTime?: null | string;
-  /** @format int64 */
-  equipmentId?: null | number;
-  equipmentName?: null | string;
-  /** @format int64 */
-  equipmentParamId?: null | number;
-  equipmentParamName?: null | string;
-  /** @format int64 */
-  technicsId?: null | number;
-  technicsName?: null | string;
+  startDate: string;
+}
+
+export interface WpSwSaveFO {
+  /**
+   * 结束日期
+   * @format date-time
+   */
+  endDate: string;
+  /** 数据列表 */
+  foList?: EsWorkPlanSwFO[] | null;
+  /**
+   * 开始日期
+   * @format date-time
+   */
+  startDate: string;
+}
+
+export interface WpVwSaveFO {
+  /**
+   * 结束日期
+   * @format date-time
+   */
+  endDate: string;
+  /** 数据列表 */
+  foList?: EsWorkPlanVwFO[] | null;
+  /**
+   * 开始日期
+   * @format date-time
+   */
+  startDate: string;
+}
+
+export interface WrMainStQO {
+  /**
+   * 称重时间(结束)
+   * @format date-time
+   */
+  dataTimeEt?: string | null;
+  /**
+   * 称重时间(开始)
+   * @format date-time
+   */
+  dataTimeSt?: string | null;
+  /** 设备编号 */
+  equipmentCode?: string | null;
+  /** 车牌号 */
+  licence?: string | null;
+  /** 收货单位 */
+  receiver?: string | null;
+  /** 发货单位 */
+  sender?: string | null;
+  /** 垃圾来源 */
+  trashSource?: string | null;
+  /** 垃圾类型 */
+  trashType?: string | null;
+}
+
+export interface WrMainStVO {
+  /**
+   * 收集量(吨)
+   * @format double
+   */
+  collectAmount?: number;
+  /**
+   * 收集车次
+   * @format int64
+   */
+  collectCount?: number;
+  /**
+   * 转运箱数
+   * @format int64
+   */
+  transAmount?: number;
+  /**
+   * 转运车次
+   * @format int64
+   */
+  transCount?: number;
 }

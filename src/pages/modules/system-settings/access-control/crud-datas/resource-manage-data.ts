@@ -141,6 +141,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
           }
         },
       },
+      minWidth: 120,
     },
 
     {
@@ -153,6 +154,14 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       detail: true,
       span: 12,
       required: true,
+      minWidth: 120,
+      props: {
+        onChange(val: string) {
+          if (val && val.endsWith('-fo') && !crudRefData.form.genCrudPrefix) {
+            crudRefData.form.genCrudPrefix = '/' + val.replace('-fo', '')
+          }
+        },
+      },
     },
     {
       label: '类型',
@@ -220,6 +229,26 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       span: 8,
     },
     {
+      label: 'crud连接符',
+      prop: 'crudHyphen',
+      component: 'el-select',
+      add: true,
+      detail: true,
+      span: 8,
+      props: {
+        options: [
+          {
+            label: '-',
+            value: '-',
+          },
+          {
+            label: ':',
+            value: ':',
+          },
+        ],
+      },
+    },
+    {
       label: '备注',
       prop: 'remark',
       component: 'el-input',
@@ -245,7 +274,11 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
             list = (res.data || []).map((item) => ({ value: item }))
           })
           return (queryString: string, cb: any) => {
-            cb(list.filter((item) => item.value.includes(queryString)))
+            const arr = list.filter((item) => item.value.includes(queryString))
+            arr.push({
+              value: queryString,
+            })
+            cb(arr)
           }
         })(),
       },
@@ -297,7 +330,10 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
         // 按钮类型才可配置api路径
         return false
       }
-      if (item.prop === 'genCrudPrefix' && crudRefData.form?.type !== 'menu') {
+      if (
+        ['genCrudPrefix', 'crudHyphen'].includes(item.prop) &&
+        crudRefData.form?.type !== 'menu'
+      ) {
         return false
       }
       return true
@@ -352,7 +388,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       if (parentIdColumn && parentIdColumn.props) {
         parentIdColumn.props.data = crudRefData.tableData
       }
-
+      crudRefData.form.crudHyphen = '-'
       const actions = {
         edit: () => (crudRefData.form = row || {}),
         detail: () => (crudRefData.detail = row || {}),
@@ -392,7 +428,10 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       try {
         const res = await reqFunc(crudRefData.form)
         if (type === 'add' && (crudRefData.form as any).genCrudPrefix) {
-          await crudHandles._addCrudPermission(res.data as ResourceVO,(crudRefData.form as any).genCrudPrefix)
+          await crudHandles._addCrudPermission(
+            res.data as ResourceVO,
+            (crudRefData.form as any).genCrudPrefix,
+          )
         }
 
         ElMessage.success('操作成功')
@@ -443,6 +482,16 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
         const arrData = markRaw(get(res, 'data', []) as ResourceVO[])
         paginationRefData.total = arrData.length
 
+        arrData.forEach((item) => {
+          if (item.routeNames?.length) {
+            item.routeNames.forEach((route) => {
+              if (!(route + '').startsWith('/')) {
+                console.log(item, '路由api配置有误')
+              }
+            })
+          }
+        })
+
         const { treeData } = listToTree(arrData)
         crudRefData.tableData = treeData
       } catch (e) {
@@ -475,7 +524,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
         {
           code: 'query',
           label: '查看',
-          api:'paged-list,list'
+          api: 'paged-list,list',
         },
       ]
       const promises = crudPerms.map((perm) => {
@@ -484,7 +533,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
           parentId: parentData.id,
           type: 'button',
           name: perm.label,
-          code: `${parentData.code}:${perm.code}`,
+          code: `${parentData.code}${crudRefData.form.crudHyphen}${perm.code}`,
           isEnable: true,
           isAdmin: false,
         }
