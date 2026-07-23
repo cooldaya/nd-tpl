@@ -157,8 +157,8 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
       minWidth: 120,
       props: {
         onChange(val: string) {
-          if (val && val.endsWith('-fo') && !crudRefData.form.genCrudPrefix) {
-            crudRefData.form.genCrudPrefix = '/' + val.replace('-fo', '')
+          if (val && ['-fo', '-vo'].includes(val.slice(-3)) && !crudRefData.form.genCrudPrefix) {
+            crudRefData.form.genCrudPrefix = '/' + val.replace(/(\-fo|\-vo)/, '')
           }
         },
       },
