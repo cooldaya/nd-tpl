@@ -524,7 +524,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
         {
           code: 'query',
           label: '查看',
-          api: 'paged-list,list',
+          api: 'paged-list,list,show',
         },
       ]
       const promises = crudPerms.map((perm) => {

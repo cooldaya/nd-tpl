@@ -11,7 +11,7 @@ const projectConfig: ProjectConfig = {
   name: 'nd-tpl',
   title: '潼南',
   subTitle: '灌区',
-  backEndUrl: 'http://59.110.20.206:7177/netcore', //
+  backEndUrl: 'http://122.9.157.65:8826/netcore', //
   swaggerUrl: '',
   customAuthHeaderKey: 'authorization',
   // swaggerUrl: 'http://113.249.105.12:9931/netcore/swagger/Default/swagger.json',

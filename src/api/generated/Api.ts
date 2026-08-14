@@ -12,42 +12,127 @@
 
 import {
   AdminResetPwdQO,
-  AlarmRecordFO,
-  AlarmRecordPQO,
-  AlarmRecordQO,
-  AmJobFO,
-  AmJobPQO,
-  AmJobQO,
-  AmPostFO,
-  AmPostPQO,
-  AmPostQO,
-  ApiAlarmRecordAddPostData,
-  ApiAlarmRecordEditPostData,
-  ApiAlarmRecordListPostData,
-  ApiAlarmRecordPagedListPostData,
-  ApiAlarmRecordRemoveMulPostData,
-  ApiAlarmRecordRemovePostData,
-  ApiAlarmRecordShowPostData,
-  ApiAmJobAddPostData,
-  ApiAmJobEditPostData,
-  ApiAmJobListPostData,
-  ApiAmJobPagedListPostData,
-  ApiAmJobRemoveMulPostData,
-  ApiAmJobRemovePostData,
-  ApiAmJobShowPostData,
-  ApiAmPostAddPostData,
-  ApiAmPostCountByNamePostData,
-  ApiAmPostEditPostData,
-  ApiAmPostListPostData,
-  ApiAmPostPagedListPostData,
-  ApiAmPostRemoveMulPostData,
-  ApiAmPostRemovePostData,
-  ApiAmPostShowPostData,
+  AlarmPushQO,
+  ApiAlarmDetailJoinAlarmPostData,
+  ApiAlarmDetailPostData,
+  ApiAlarmEventPagePostData,
+  ApiAlarmEventStatisticsPostData,
+  ApiAlarmPushAlarmPostData,
+  ApiAlarmRepairDetailPostData,
+  ApiAlarmStatusMapPostData,
+  ApiAlarmStatusMapPostPayload,
+  ApiAlarmTaskDetailPostData,
+  ApiAppVersionLastVersionPostData,
+  ApiAppVersionListPostData,
+  ApiAppVersionPagedListPostData,
+  ApiAppVersionShowPostData,
+  ApiAppVersionUploadApkPostData,
+  ApiAppVersionUploadApkPostPayload,
   ApiAuthCheckloginPostData,
-  ApiAuthLoginByUserNamePostData,
   ApiAuthLoginPostData,
+  ApiAuthLoginSsoGetData,
+  ApiAuthLoginSsoGetParams,
   ApiAuthLogoutPostData,
+  ApiAuthMapTokenPostData,
   ApiAuthPkinfoPostData,
+  ApiAuthWvpLoginPostData,
+  ApiBsAlarmPipeLineAddPostData,
+  ApiBsAlarmPipeLineEditPostData,
+  ApiBsAlarmPipeLineListPostData,
+  ApiBsAlarmPipeLinePagedListPostData,
+  ApiBsAlarmPipeLineRemoveMulPostData,
+  ApiBsAlarmPipeLineRemovePostData,
+  ApiBsAlarmPipeLineShowPostData,
+  ApiBsCommunityAddPostData,
+  ApiBsCommunityEditPostData,
+  ApiBsCommunityListPostData,
+  ApiBsCommunityPagedListPostData,
+  ApiBsCommunityRemoveMulPostData,
+  ApiBsCommunityRemovePostData,
+  ApiBsCommunityShowPostData,
+  ApiBsCompanyAddPostData,
+  ApiBsCompanyEditPostData,
+  ApiBsCompanyListPostData,
+  ApiBsCompanyPagedListPostData,
+  ApiBsCompanyRemoveMulPostData,
+  ApiBsCompanyRemovePostData,
+  ApiBsCompanyShowPostData,
+  ApiBsOutletAddPostData,
+  ApiBsOutletEditPostData,
+  ApiBsOutletListPostData,
+  ApiBsOutletPagedListPostData,
+  ApiBsOutletRemovePostData,
+  ApiBsOutletShowPostData,
+  ApiBsPipeLineAddPostData,
+  ApiBsPipeLineEditPostData,
+  ApiBsPipeLineGetCommunityInfoByPrealarmPostData,
+  ApiBsPipeLineGetLineByStartAndEndPostData,
+  ApiBsPipeLineGetLineByStartPostData,
+  ApiBsPipeLineImportDataPostData,
+  ApiBsPipeLineLightQueryPostData,
+  ApiBsPipeLineLinesByEndPointPostData,
+  ApiBsPipeLineListPostData,
+  ApiBsPipeLinePagedListPostData,
+  ApiBsPipeLineRemoveMulPostData,
+  ApiBsPipeLineRemovePostData,
+  ApiBsPipeLineShowPostData,
+  ApiBsPipePointAddPostData,
+  ApiBsPipePointAlarmParameterAddPostData,
+  ApiBsPipePointAlarmParameterEditPostData,
+  ApiBsPipePointAlarmParameterListPostData,
+  ApiBsPipePointAlarmParameterPagedListPostData,
+  ApiBsPipePointAlarmParameterRemoveMulPostData,
+  ApiBsPipePointAlarmParameterRemovePostData,
+  ApiBsPipePointAlarmParameterShowPostData,
+  ApiBsPipePointAlarmRecordAddPostData,
+  ApiBsPipePointAlarmRecordEditPostData,
+  ApiBsPipePointAlarmRecordListPostData,
+  ApiBsPipePointAlarmRecordPagedListPostData,
+  ApiBsPipePointAlarmRecordRemoveMulPostData,
+  ApiBsPipePointAlarmRecordRemovePostData,
+  ApiBsPipePointAlarmRecordShowPostData,
+  ApiBsPipePointConvertCoordinatesToLaluPostData,
+  ApiBsPipePointCountGroupByAppendagePostData,
+  ApiBsPipePointEditPostData,
+  ApiBsPipePointImportDataPostData,
+  ApiBsPipePointListPostData,
+  ApiBsPipePointPagedListPostData,
+  ApiBsPipePointRemoveMulPostData,
+  ApiBsPipePointRemovePostData,
+  ApiBsPipePointShowPostData,
+  ApiBsPmcAddPostData,
+  ApiBsPmcEditPostData,
+  ApiBsPmcListPostData,
+  ApiBsPmcPagedListPostData,
+  ApiBsPmcRemoveMulPostData,
+  ApiBsPmcRemovePostData,
+  ApiBsPmcShowPostData,
+  ApiBsPollutionPermitInfoAddPostData,
+  ApiBsPollutionPermitInfoEditPostData,
+  ApiBsPollutionPermitInfoListPostData,
+  ApiBsPollutionPermitInfoPagedListPostData,
+  ApiBsPollutionPermitInfoRemovePostData,
+  ApiBsPollutionPermitInfoShowPostData,
+  ApiBsZoneAddPostData,
+  ApiBsZoneEditPostData,
+  ApiBsZoneListPostData,
+  ApiBsZonePagedListPostData,
+  ApiBsZoneRemovePostData,
+  ApiBsZoneShowPostData,
+  ApiBsZoneTreedataPostData,
+  ApiBsZoneTypedataPostData,
+  ApiBumenJscDetailJoinAlarmPostData,
+  ApiBumenJscDetailPostData,
+  ApiBumenJscEquipmentListPostData,
+  ApiBumenJscEventPagePostData,
+  ApiBumenJscEventStatisticsPostData,
+  ApiBumenJscPrealarmRecordListPostData,
+  ApiBumenJscRepairDetailPostData,
+  ApiBumenJscStatusMapPostData,
+  ApiBumenJscStatusMapPostPayload,
+  ApiBumenJscTaskDetailPostData,
+  ApiBumenJscTechnicsListPostData,
+  ApiBumenJscTsLastPrealarmRecordListPostData,
   ApiCommonFileDownloadGetData,
   ApiCommonFileDownloadGetParams,
   ApiCommonGenIdPostData,
@@ -64,6 +149,19 @@ import {
   ApiDataDictionaryShowPostData,
   ApiDataDictionaryTreedataPostData,
   ApiDataDictionaryTypedataPostData,
+  ApiDeviceInfoDeviceListByPositionGetData,
+  ApiDeviceInfoDeviceListByPositionScopeGetData,
+  ApiDeviceInfoMonitorByOrganizationPostData,
+  ApiDeviceInfoMonitorListByDeviceIdPostData,
+  ApiDeviceInfoOrganizationListPostData,
+  ApiEmergencyPlanAddPostData,
+  ApiEmergencyPlanAddPostPayload,
+  ApiEmergencyPlanEditPostData,
+  ApiEmergencyPlanEditPostPayload,
+  ApiEmergencyPlanListPostData,
+  ApiEmergencyPlanPagedListPostData,
+  ApiEmergencyPlanRemovePostData,
+  ApiEmergencyPlanShowPostData,
   ApiEquipmentAddPostData,
   ApiEquipmentEditPostData,
   ApiEquipmentListPostData,
@@ -77,6 +175,8 @@ import {
   ApiEquipmentParamDdRemovePostData,
   ApiEquipmentParamDdShowPostData,
   ApiEquipmentParamEditPostData,
+  ApiEquipmentParamEquipmentParamRainConditionPostData,
+  ApiEquipmentParamGetEquipmentParamByIdPostData,
   ApiEquipmentParamHdAddPostData,
   ApiEquipmentParamHdEditPostData,
   ApiEquipmentParamHdListPostData,
@@ -87,234 +187,66 @@ import {
   ApiEquipmentParamListPostData,
   ApiEquipmentParamMdAddPostData,
   ApiEquipmentParamMdEditPostData,
+  ApiEquipmentParamMdGetEquipmentParamMdListByIdPostData,
   ApiEquipmentParamMdListPostData,
   ApiEquipmentParamMdPagedListPostData,
+  ApiEquipmentParamMdQueryByWaterRainfallEigenvaluePostData,
+  ApiEquipmentParamMdQueryByWaterRainfallInformationPostData,
   ApiEquipmentParamMdRemoveMulPostData,
   ApiEquipmentParamMdRemovePostData,
   ApiEquipmentParamMdShowPostData,
   ApiEquipmentParamPagedListPostData,
+  ApiEquipmentParamRealTimeReportPostData,
   ApiEquipmentParamRemoveMulPostData,
   ApiEquipmentParamRemovePostData,
   ApiEquipmentParamShowPostData,
   ApiEquipmentRemoveMulPostData,
   ApiEquipmentRemovePostData,
   ApiEquipmentShowPostData,
-  ApiEsAlarmRecordAddPostData,
-  ApiEsAlarmRecordEditPostData,
-  ApiEsAlarmRecordGetCountByMonthPostData,
-  ApiEsAlarmRecordListPostData,
-  ApiEsAlarmRecordPagedListPostData,
-  ApiEsAlarmRecordRemoveMulPostData,
-  ApiEsAlarmRecordRemovePostData,
-  ApiEsAlarmRecordShowPostData,
-  ApiEsFleetAddPostData,
-  ApiEsFleetEditPostData,
-  ApiEsFleetListPostData,
-  ApiEsFleetPagedListPostData,
-  ApiEsFleetRemoveMulPostData,
-  ApiEsFleetRemovePostData,
-  ApiEsFleetShowPostData,
-  ApiEsGarbageCategoryListPostData,
-  ApiEsGarbageCategoryPagedListPostData,
-  ApiEsGarbageCategoryShowPostData,
-  ApiEsGarbageCategoryTreedataPostData,
-  ApiEsGarbageTypeListPostData,
-  ApiEsGarbageTypePagedListPostData,
-  ApiEsGarbageTypeShowPostData,
-  ApiEsGpsAlarmRecordAddPostData,
-  ApiEsGpsAlarmRecordEditPostData,
-  ApiEsGpsAlarmRecordFileAddPostData,
-  ApiEsGpsAlarmRecordFileEditPostData,
-  ApiEsGpsAlarmRecordFileListPostData,
-  ApiEsGpsAlarmRecordFilePagedListPostData,
-  ApiEsGpsAlarmRecordFileRemoveMulPostData,
-  ApiEsGpsAlarmRecordFileRemovePostData,
-  ApiEsGpsAlarmRecordFileShowPostData,
-  ApiEsGpsAlarmRecordGetGpsAlarmRecordPostData,
-  ApiEsGpsAlarmRecordGroupByDayPostData,
-  ApiEsGpsAlarmRecordGroupByLicencePostData,
-  ApiEsGpsAlarmRecordGroupByMonthPostData,
-  ApiEsGpsAlarmRecordGroupByYearPostData,
-  ApiEsGpsAlarmRecordListPostData,
-  ApiEsGpsAlarmRecordPagedListPostData,
-  ApiEsGpsAlarmRecordRemoveMulPostData,
-  ApiEsGpsAlarmRecordRemovePostData,
-  ApiEsGpsAlarmRecordShowPostData,
-  ApiEsSanitationFacilityAddPostData,
-  ApiEsSanitationFacilityEditPostData,
-  ApiEsSanitationFacilityListPostData,
-  ApiEsSanitationFacilityPagedListPostData,
-  ApiEsSanitationFacilityRemoveMulPostData,
-  ApiEsSanitationFacilityRemovePostData,
-  ApiEsSanitationFacilityShowPostData,
-  ApiEsSanitationFacilityTypeAddPostData,
-  ApiEsSanitationFacilityTypeEditPostData,
-  ApiEsSanitationFacilityTypeListPostData,
-  ApiEsSanitationFacilityTypePagedListPostData,
-  ApiEsSanitationFacilityTypeRemoveMulPostData,
-  ApiEsSanitationFacilityTypeRemovePostData,
-  ApiEsSanitationFacilityTypeShowPostData,
-  ApiEsShipAddPostData,
-  ApiEsShipEditPostData,
-  ApiEsShipListPostData,
-  ApiEsShipPagedListPostData,
-  ApiEsShipRealtimeAddPostData,
-  ApiEsShipRealtimeEditPostData,
-  ApiEsShipRealtimeListPostData,
-  ApiEsShipRealtimePagedListPostData,
-  ApiEsShipRealtimeRemoveMulPostData,
-  ApiEsShipRealtimeRemovePostData,
-  ApiEsShipRealtimeShowPostData,
-  ApiEsShipRemovePostData,
-  ApiEsShipShowPostData,
-  ApiEsVehicleAddPostData,
-  ApiEsVehicleDpRecordAddPostData,
-  ApiEsVehicleDpRecordEditPostData,
-  ApiEsVehicleDpRecordListPostData,
-  ApiEsVehicleDpRecordPagedListPostData,
-  ApiEsVehicleDpRecordShowPostData,
-  ApiEsVehicleEditPostData,
-  ApiEsVehicleGetVehicleCountByTypeNamePostData,
-  ApiEsVehicleGetVehicleCountByTypePostData,
-  ApiEsVehicleLcRecordAddPostData,
-  ApiEsVehicleLcRecordEditPostData,
-  ApiEsVehicleLcRecordGroupByDayPostData,
-  ApiEsVehicleLcRecordGroupByMonthPostData,
-  ApiEsVehicleLcRecordGroupByYearPostData,
-  ApiEsVehicleLcRecordListPostData,
-  ApiEsVehicleLcRecordPagedListPostData,
-  ApiEsVehicleLcRecordRemoveMulPostData,
-  ApiEsVehicleLcRecordRemovePostData,
-  ApiEsVehicleLcRecordShowPostData,
-  ApiEsVehicleListPostData,
-  ApiEsVehiclePagedListPostData,
-  ApiEsVehicleRealtimeAddPostData,
-  ApiEsVehicleRealtimeEditPostData,
-  ApiEsVehicleRealtimeListPostData,
-  ApiEsVehicleRealtimePagedListPostData,
-  ApiEsVehicleRealtimeRemoveMulPostData,
-  ApiEsVehicleRealtimeRemovePostData,
-  ApiEsVehicleRealtimeShowPostData,
-  ApiEsVehicleRealtimeVehicleStateStPostData,
-  ApiEsVehicleRemovePostData,
-  ApiEsVehicleShowPostData,
-  ApiEsVehicleTrackPostData,
-  ApiEsWeightRecordAddPostData,
-  ApiEsWeightRecordEditPostData,
-  ApiEsWeightRecordGroupByDayPostData,
-  ApiEsWeightRecordGroupByLicencePostData,
-  ApiEsWeightRecordGroupByMonthPostData,
-  ApiEsWeightRecordGroupByYearPostData,
-  ApiEsWeightRecordListPostData,
-  ApiEsWeightRecordMainStPostData,
-  ApiEsWeightRecordPagedListPostData,
-  ApiEsWeightRecordQueryStatisticsPostData,
-  ApiEsWeightRecordRemoveMulPostData,
-  ApiEsWeightRecordRemovePostData,
-  ApiEsWeightRecordShowPostData,
-  ApiEsWorkPlanPwAddPostData,
-  ApiEsWorkPlanPwEditPostData,
-  ApiEsWorkPlanPwGroupByDayPostData,
-  ApiEsWorkPlanPwGroupByMonthPostData,
-  ApiEsWorkPlanPwGroupByYearPostData,
-  ApiEsWorkPlanPwListPostData,
-  ApiEsWorkPlanPwPagedListPostData,
-  ApiEsWorkPlanPwRemovePostData,
-  ApiEsWorkPlanPwSaveListPostData,
-  ApiEsWorkPlanPwShowPostData,
-  ApiEsWorkPlanSwAddPostData,
-  ApiEsWorkPlanSwEditPostData,
-  ApiEsWorkPlanSwGroupByDayPostData,
-  ApiEsWorkPlanSwGroupByMonthPostData,
-  ApiEsWorkPlanSwGroupByYearPostData,
-  ApiEsWorkPlanSwListPostData,
-  ApiEsWorkPlanSwPagedListPostData,
-  ApiEsWorkPlanSwRemovePostData,
-  ApiEsWorkPlanSwSaveListPostData,
-  ApiEsWorkPlanSwShowPostData,
-  ApiEsWorkPlanVwAddPostData,
-  ApiEsWorkPlanVwEditPostData,
-  ApiEsWorkPlanVwGroupByDayPostData,
-  ApiEsWorkPlanVwGroupByMonthPostData,
-  ApiEsWorkPlanVwGroupByYearPostData,
-  ApiEsWorkPlanVwListPostData,
-  ApiEsWorkPlanVwPagedListPostData,
-  ApiEsWorkPlanVwRemovePostData,
-  ApiEsWorkPlanVwSaveListPostData,
-  ApiEsWorkPlanVwShowPostData,
-  ApiEsWorkRouteAddPostData,
-  ApiEsWorkRouteEditPostData,
-  ApiEsWorkRouteListPostData,
-  ApiEsWorkRoutePagedListPostData,
-  ApiEsWorkRoutePointListPostData,
-  ApiEsWorkRoutePointPagedListPostData,
-  ApiEsWorkRoutePointShowPostData,
-  ApiEsWorkRouteRemovePostData,
-  ApiEsWorkRouteShowPostData,
-  ApiEsWorkRuleAddPostData,
-  ApiEsWorkRuleEditPostData,
-  ApiEsWorkRuleListPostData,
-  ApiEsWorkRulePagedListPostData,
-  ApiEsWorkRuleRemovePostData,
-  ApiEsWorkRuleShowPostData,
-  ApiEsWorkShiftPwAddPostData,
-  ApiEsWorkShiftPwEditPostData,
-  ApiEsWorkShiftPwListPostData,
-  ApiEsWorkShiftPwPagedListPostData,
-  ApiEsWorkShiftPwRemoveMulPostData,
-  ApiEsWorkShiftPwRemovePostData,
-  ApiEsWorkShiftPwShowPostData,
-  ApiEsWorkShiftSwAddPostData,
-  ApiEsWorkShiftSwEditPostData,
-  ApiEsWorkShiftSwListPostData,
-  ApiEsWorkShiftSwPagedListPostData,
-  ApiEsWorkShiftSwRemoveMulPostData,
-  ApiEsWorkShiftSwRemovePostData,
-  ApiEsWorkShiftSwShowPostData,
-  ApiEsWorkShiftVwAddPostData,
-  ApiEsWorkShiftVwEditPostData,
-  ApiEsWorkShiftVwListPostData,
-  ApiEsWorkShiftVwPagedListPostData,
-  ApiEsWorkShiftVwRemoveMulPostData,
-  ApiEsWorkShiftVwRemovePostData,
-  ApiEsWorkShiftVwShowPostData,
-  ApiEsWorkWatercourseAddPostData,
-  ApiEsWorkWatercourseEditPostData,
-  ApiEsWorkWatercourseListPostData,
-  ApiEsWorkWatercoursePagedListPostData,
-  ApiEsWorkWatercoursePointAddPostData,
-  ApiEsWorkWatercoursePointEditPostData,
-  ApiEsWorkWatercoursePointListPostData,
-  ApiEsWorkWatercoursePointPagedListPostData,
-  ApiEsWorkWatercoursePointRemoveMulPostData,
-  ApiEsWorkWatercoursePointRemovePostData,
-  ApiEsWorkWatercoursePointShowPostData,
-  ApiEsWorkWatercourseRemovePostData,
-  ApiEsWorkWatercourseShowPostData,
-  ApiEsWtGeneralAddPostData,
-  ApiEsWtGeneralEditPostData,
-  ApiEsWtGeneralListPostData,
-  ApiEsWtGeneralPagedListPostData,
-  ApiEsWtGeneralRemoveMulPostData,
-  ApiEsWtGeneralRemovePostData,
-  ApiEsWtGeneralShowPostData,
-  ApiEsWtGeneralTreedataPostData,
-  ApiEsWtShiftListPostData,
-  ApiEsWtShiftPagedListPostData,
-  ApiEsWtShiftShowPostData,
-  ApiEsWtSpecificAddPostData,
-  ApiEsWtSpecificEditPostData,
-  ApiEsWtSpecificListPostData,
-  ApiEsWtSpecificPagedListPostData,
-  ApiEsWtSpecificRemoveMulPostData,
-  ApiEsWtSpecificRemovePostData,
-  ApiEsWtSpecificShowPostData,
-  ApiGpsGpsTokenPostData,
-  ApiHikCruiseRoutesControllingPostData,
+  ApiHikNmsCameraOnlinePostData,
   ApiHikPlaybackHlsUrlPostData,
   ApiHikPlaybackUrlPostData,
   ApiHikPreviewUrlPostData,
-  ApiHikPtzsControllingPostData,
+  ApiInspectionIssueEditPostData,
+  ApiInspectionIssueHandlePostData,
+  ApiInspectionIssueListPostData,
+  ApiInspectionIssuePagedListPostData,
+  ApiInspectionIssueRemovePostData,
+  ApiInspectionIssueReportPostData,
+  ApiInspectionIssueSeverityAddPostData,
+  ApiInspectionIssueSeverityEditPostData,
+  ApiInspectionIssueSeverityListPostData,
+  ApiInspectionIssueSeverityPagedListPostData,
+  ApiInspectionIssueSeverityRemovePostData,
+  ApiInspectionIssueSeverityShowPostData,
+  ApiInspectionIssueShowPostData,
+  ApiInspectionIssueTypeAddPostData,
+  ApiInspectionIssueTypeEditPostData,
+  ApiInspectionIssueTypeListPostData,
+  ApiInspectionIssueTypePagedListPostData,
+  ApiInspectionIssueTypeRemovePostData,
+  ApiInspectionIssueTypeShowPostData,
+  ApiInspectionRecordAppendTrackPostData,
+  ApiInspectionRecordListPostData,
+  ApiInspectionRecordPagedListPostData,
+  ApiInspectionRecordShowPostData,
+  ApiInspectionTaskDispatchPostData,
+  ApiInspectionTaskEditPostData,
+  ApiInspectionTaskEndPostData,
+  ApiInspectionTaskListPostData,
+  ApiInspectionTaskPagedListPostData,
+  ApiInspectionTaskRemovePostData,
+  ApiInspectionTaskShowPostData,
+  ApiInspectionTaskStartPostData,
+  ApiKnowledgeFileAddPostData,
+  ApiKnowledgeFileEditPostData,
+  ApiKnowledgeFileListPostData,
+  ApiKnowledgeFilePagedListPostData,
+  ApiKnowledgeFileRemovePostData,
+  ApiKnowledgeFileShowPostData,
+  ApiKnowledgeFileTreedataPostData,
+  ApiKnowledgeFileUploadPostData,
+  ApiKnowledgeFileUploadPostPayload,
   ApiLogaccessAddPostData,
   ApiLogaccessEditPostData,
   ApiLogaccessListPostData,
@@ -339,34 +271,6 @@ import {
   ApiMessageListPostData,
   ApiMessagePagedListPostData,
   ApiMessageShowPostData,
-  ApiMmInventoryListPostData,
-  ApiMmInventoryPagedListPostData,
-  ApiMmInventoryShowPostData,
-  ApiMmMaterialAddPostData,
-  ApiMmMaterialCategoryAddPostData,
-  ApiMmMaterialCategoryEditPostData,
-  ApiMmMaterialCategoryListPostData,
-  ApiMmMaterialCategoryPagedListPostData,
-  ApiMmMaterialCategoryRemovePostData,
-  ApiMmMaterialCategoryShowPostData,
-  ApiMmMaterialEditPostData,
-  ApiMmMaterialListPostData,
-  ApiMmMaterialPagedListPostData,
-  ApiMmMaterialRemovePostData,
-  ApiMmMaterialShowPostData,
-  ApiMmRequisitionApproveRequisitionPostData,
-  ApiMmRequisitionGenerateStockOutPostData,
-  ApiMmRequisitionListPostData,
-  ApiMmRequisitionPagedListPostData,
-  ApiMmRequisitionShowPostData,
-  ApiMmRequisitionSubmitRequisitionPostData,
-  ApiMmStockInOutApprovePostData,
-  ApiMmStockInOutListPostData,
-  ApiMmStockInOutPagedListPostData,
-  ApiMmStockInOutPendingApproveListPostData,
-  ApiMmStockInOutShowPostData,
-  ApiMmStockInOutStockInPostData,
-  ApiMmStockInOutStockOutPostData,
   ApiOrganizationAddPostData,
   ApiOrganizationEditPostData,
   ApiOrganizationListPostData,
@@ -374,10 +278,78 @@ import {
   ApiOrganizationRemovePostData,
   ApiOrganizationShowPostData,
   ApiOrganizationTreedataPostData,
-  ApiReportStwaGroupByDayPostData,
-  ApiReportStwaGroupByMonthPostData,
-  ApiReportStwaGroupByYearPostData,
-  ApiReportStwpGroupByGeneralPostData,
+  ApiPrealarmRecordAddPostData,
+  ApiPrealarmRecordEditPostData,
+  ApiPrealarmRecordListPostData,
+  ApiPrealarmRecordPagedListPostData,
+  ApiPrealarmRecordRemoveMulPostData,
+  ApiPrealarmRecordRemovePostData,
+  ApiPrealarmRecordRtPrealarmRecordPostData,
+  ApiPrealarmRecordShowPostData,
+  ApiPrealarmRuleAddPostData,
+  ApiPrealarmRuleEditPostData,
+  ApiPrealarmRuleGetRpsPostData,
+  ApiPrealarmRuleListPostData,
+  ApiPrealarmRulePagedListPostData,
+  ApiPrealarmRuleRemoveMulPostData,
+  ApiPrealarmRuleRemovePostData,
+  ApiPrealarmRuleShowPostData,
+  ApiPrealarmRuleUpdateRpsPostData,
+  ApiRecordFileListPostData,
+  ApiRecordFilePagedListPostData,
+  ApiRecordFileRemoveMulPostData,
+  ApiRecordFileRemovePostData,
+  ApiRecordFileShowPostData,
+  ApiReservoirCapacityAddBatchPostData,
+  ApiReservoirCapacityAddBatchPostPayload,
+  ApiReservoirCapacityAddPostData,
+  ApiReservoirCapacityDelBatchPostData,
+  ApiReservoirCapacityEditBatchPostData,
+  ApiReservoirCapacityEditBatchPostPayload,
+  ApiReservoirCapacityEditPostData,
+  ApiReservoirCapacityListPostData,
+  ApiReservoirCapacityPagedListPostData,
+  ApiReservoirCapacityRemoveMulPostData,
+  ApiReservoirCapacityRemovePostData,
+  ApiReservoirCapacityShowPostData,
+  ApiReservoirFlowAddBatchPostData,
+  ApiReservoirFlowAddBatchPostPayload,
+  ApiReservoirFlowAddPostData,
+  ApiReservoirFlowDelBatchPostData,
+  ApiReservoirFlowEditBatchPostData,
+  ApiReservoirFlowEditBatchPostPayload,
+  ApiReservoirFlowEditPostData,
+  ApiReservoirFlowListPostData,
+  ApiReservoirFlowPagedListPostData,
+  ApiReservoirFlowRemoveMulPostData,
+  ApiReservoirFlowRemovePostData,
+  ApiReservoirFlowShowPostData,
+  ApiReservoirProjectAddPostData,
+  ApiReservoirProjectEditPostData,
+  ApiReservoirProjectGetProjectTsFilePostData,
+  ApiReservoirProjectGetPtfPagedListPostData,
+  ApiReservoirProjectListPostData,
+  ApiReservoirProjectPagedListPostData,
+  ApiReservoirProjectRemoveMulPostData,
+  ApiReservoirProjectRemovePostData,
+  ApiReservoirProjectSaveProjectTsFilePostData,
+  ApiReservoirProjectShowPostData,
+  ApiReservoirRpAddPostData,
+  ApiReservoirRpEditPostData,
+  ApiReservoirRpListPostData,
+  ApiReservoirRpPagedListPostData,
+  ApiReservoirRpRemoveMulPostData,
+  ApiReservoirRpRemovePostData,
+  ApiReservoirRpShowPostData,
+  ApiReservoirVrAddPostData,
+  ApiReservoirVrAddPostPayload,
+  ApiReservoirVrEditPostData,
+  ApiReservoirVrEditPostPayload,
+  ApiReservoirVrListPostData,
+  ApiReservoirVrPagedListPostData,
+  ApiReservoirVrRemoveMulPostData,
+  ApiReservoirVrRemovePostData,
+  ApiReservoirVrShowPostData,
   ApiResourceAddPostData,
   ApiResourceEditPostData,
   ApiResourceGetResourcesPostData,
@@ -408,28 +380,33 @@ import {
   ApiSysCacheKeysByPrefixKeyPrefixkeyGetParams,
   ApiSysCacheValueKeyGetData,
   ApiSysCacheValueKeyGetParams,
-  ApiSysNoticeAddPostData,
-  ApiSysNoticeEditPostData,
-  ApiSysNoticeListPostData,
-  ApiSysNoticePagedListPostData,
-  ApiSysNoticeRemovePostData,
-  ApiSysNoticeShowPostData,
+  ApiTaskSourceAddPostData,
+  ApiTaskSourceEditPostData,
+  ApiTaskSourceListPostData,
+  ApiTaskSourcePagedListPostData,
+  ApiTaskSourceRemovePostData,
+  ApiTaskSourceShowPostData,
   ApiTechnicsAddPostData,
   ApiTechnicsEditPostData,
+  ApiTechnicsGetCoverNumByVillagePostData,
+  ApiTechnicsGetCoverNumPostData,
   ApiTechnicsListPostData,
   ApiTechnicsPagedListPostData,
+  ApiTechnicsQueryByConventionalWaterLevelReportPostData,
+  ApiTechnicsQueryByDailyWaterLevelReportPostData,
+  ApiTechnicsQueryByReservoirInfoPostData,
+  ApiTechnicsQueryByReservoirRpPostData,
+  ApiTechnicsQueryByReservoirStatusPostData,
   ApiTechnicsRemoveMulPostData,
   ApiTechnicsRemovePostData,
   ApiTechnicsShowPostData,
   ApiUserAddPostData,
   ApiUserAssignRolesPostData,
   ApiUserAssignUsergroupsPostData,
-  ApiUserCountByJobPostData,
   ApiUserEditPostData,
   ApiUserEditPwdPostData,
   ApiUserEditSelfPostData,
   ApiUserGetRolesPostData,
-  ApiUserGetUserCountPostData,
   ApiUserGetUsergroupsPostData,
   ApiUserListPostData,
   ApiUserMessageAmountstPostData,
@@ -440,7 +417,6 @@ import {
   ApiUserMessageReadMessagePostData,
   ApiUserMessageShowPostData,
   ApiUserPagedListPostData,
-  ApiUserPagedListWpPostData,
   ApiUserRemoveMulPostData,
   ApiUserRemovePostData,
   ApiUserResetPwdPostData,
@@ -456,13 +432,49 @@ import {
   ApiUsergroupRemovePostData,
   ApiUsergroupShowPostData,
   ApiWeatherWeatherTokenPostData,
-  ApproveRequisitionFO,
-  ApproveSioFO,
-  CruiseRoutesControllingQO,
+  AppVersionPQO,
+  AppVersionQO,
+  BsAlarmPipeLineFO,
+  BsAlarmPipeLinePQO,
+  BsAlarmPipeLineQO,
+  BsCommunityFO,
+  BsCommunityPQO,
+  BsCommunityQO,
+  BsCompanyFO,
+  BsCompanyPQO,
+  BsCompanyQO,
+  BsOutletFO,
+  BsOutletPQO,
+  BsOutletQO,
+  BsPipeLineFO,
+  BsPipeLinePQO,
+  BsPipeLineQO,
+  BsPipePointAlarmParameterFO,
+  BsPipePointAlarmParameterPQO,
+  BsPipePointAlarmParameterQO,
+  BsPipePointAlarmRecordFO,
+  BsPipePointAlarmRecordPQO,
+  BsPipePointAlarmRecordQO,
+  BsPipePointFO,
+  BsPipePointPQO,
+  BsPipePointQO,
+  BsPipePointStQO,
+  BsPmcFO,
+  BsPmcPQO,
+  BsPmcQO,
+  BsPollutionPermitInfoFO,
+  BsPollutionPermitInfoPQO,
+  BsPollutionPermitInfoQO,
+  BsZoneFO,
+  BsZonePQO,
+  BsZoneQO,
+  CaseQO,
   DataDictionaryFO,
   DataDictionaryPQO,
   DataDictionaryQO,
   DdTypedataQO,
+  EmergencyPlanPQO,
+  EmergencyPlanQO,
   EquipmentFO,
   EquipmentPQO,
   EquipmentParamDdFO,
@@ -477,97 +489,33 @@ import {
   EquipmentParamMdQO,
   EquipmentParamPQO,
   EquipmentParamQO,
+  EquipmentParamRainConditionQO,
   EquipmentQO,
-  EsAlarmRecordFO,
-  EsAlarmRecordPQO,
-  EsAlarmRecordQO,
-  EsFleetFO,
-  EsFleetPQO,
-  EsFleetQO,
-  EsGarbageCategoryPQO,
-  EsGarbageCategoryQO,
-  EsGarbageTypePQO,
-  EsGarbageTypeQO,
-  EsGpsAlarmRecordFO,
-  EsGpsAlarmRecordFileFO,
-  EsGpsAlarmRecordFilePQO,
-  EsGpsAlarmRecordFileQO,
-  EsGpsAlarmRecordPQO,
-  EsGpsAlarmRecordQO,
-  EsSanitationFacilityFO,
-  EsSanitationFacilityPQO,
-  EsSanitationFacilityQO,
-  EsSanitationFacilityTypeFO,
-  EsSanitationFacilityTypePQO,
-  EsSanitationFacilityTypeQO,
-  EsShipFO,
-  EsShipPQO,
-  EsShipQO,
-  EsShipRealtimeFO,
-  EsShipRealtimePQO,
-  EsShipRealtimeQO,
-  EsVehicleDpRecordFO,
-  EsVehicleDpRecordPQO,
-  EsVehicleDpRecordQO,
-  EsVehicleFO,
-  EsVehicleLcRecordFO,
-  EsVehicleLcRecordPQO,
-  EsVehicleLcRecordQO,
-  EsVehicleLcRecordStQO,
-  EsVehiclePQO,
-  EsVehicleQO,
-  EsVehicleRealtimeFO,
-  EsVehicleRealtimePQO,
-  EsVehicleRealtimeQO,
-  EsWeightRecordFO,
-  EsWeightRecordPQO,
-  EsWeightRecordQO,
-  EsWeightRecordStQO,
-  EsWorkPlanPwFO,
-  EsWorkPlanPwPQO,
-  EsWorkPlanPwQO,
-  EsWorkPlanPwStQO,
-  EsWorkPlanStQO,
-  EsWorkPlanSwFO,
-  EsWorkPlanSwPQO,
-  EsWorkPlanSwQO,
-  EsWorkPlanSwStQO,
-  EsWorkPlanVwFO,
-  EsWorkPlanVwPQO,
-  EsWorkPlanVwQO,
-  EsWorkPlanVwStQO,
-  EsWorkRouteFO,
-  EsWorkRoutePQO,
-  EsWorkRoutePointPQO,
-  EsWorkRoutePointQO,
-  EsWorkRouteQO,
-  EsWorkRuleFO,
-  EsWorkRulePQO,
-  EsWorkRuleQO,
-  EsWorkShiftPwFO,
-  EsWorkShiftPwPQO,
-  EsWorkShiftPwQO,
-  EsWorkShiftSwFO,
-  EsWorkShiftSwPQO,
-  EsWorkShiftSwQO,
-  EsWorkShiftVwFO,
-  EsWorkShiftVwPQO,
-  EsWorkShiftVwQO,
-  EsWorkWatercourseFO,
-  EsWorkWatercoursePQO,
-  EsWorkWatercoursePointFO,
-  EsWorkWatercoursePointPQO,
-  EsWorkWatercoursePointQO,
-  EsWorkWatercourseQO,
-  EsWtGeneralFO,
-  EsWtGeneralPQO,
-  EsWtGeneralQO,
-  EsWtShiftPQO,
-  EsWtShiftQO,
-  EsWtSpecificFO,
-  EsWtSpecificPQO,
-  EsWtSpecificQO,
-  GpsAlarmStQO,
+  EventStatisticsQO,
+  GetDeviceListByPositionQO,
+  GetDeviceListByPositionScopeQO,
+  GetMonitorByOrganizationQO,
+  GetMonitorListByDeviceIdQO,
+  GetOrganizationListQO,
+  InspectionIssueFO,
+  InspectionIssuePQO,
+  InspectionIssueQO,
+  InspectionIssueSeverityFO,
+  InspectionIssueSeverityPQO,
+  InspectionIssueSeverityQO,
+  InspectionIssueTypeFO,
+  InspectionIssueTypePQO,
+  InspectionIssueTypeQO,
+  InspectionRecordPQO,
+  InspectionRecordQO,
+  InspectionTaskFO,
+  InspectionTaskPQO,
+  InspectionTaskQO,
+  IssueHandleFO,
+  KnowledgeFilePQO,
+  KnowledgeFileQO,
+  LineByStartAndEndQO,
+  LinesByEndPointQO,
   LogaccessFO,
   LogaccessPQO,
   LogaccessQO,
@@ -580,20 +528,7 @@ import {
   LogoperationQO,
   MessagePQO,
   MessageQO,
-  MmInventoryPQO,
-  MmInventoryQO,
-  MmMaterialCategoryFO,
-  MmMaterialCategoryPQO,
-  MmMaterialCategoryQO,
-  MmMaterialFO,
-  MmMaterialPQO,
-  MmMaterialQO,
-  MmRequisitionFO,
-  MmRequisitionPQO,
-  MmRequisitionQO,
-  MmStockInOutFO,
-  MmStockInOutPQO,
-  MmStockInOutQO,
+  NmsCameraOnlineQO,
   OnlyIdQO,
   OnlyMsgIdList,
   OrganizationForm,
@@ -601,10 +536,38 @@ import {
   OrganizationQO,
   PlaybackHlsUrlQO,
   PlaybackUrlQO,
+  PrealarmCommunityInfoQO,
+  PrealarmRecordFO,
+  PrealarmRecordPQO,
+  PrealarmRecordQO,
+  PrealarmRuleFO,
+  PrealarmRulePQO,
+  PrealarmRuleQO,
   PreviewUrlQO,
-  PtzsControllingQO,
+  ProcessEventPageQO,
+  ProjectTsFileSaveFO,
+  PtfPQO,
+  PtfQO,
+  RealTimeReportQO,
+  RecordFilePQO,
+  RecordFileQO,
   RemoveMulQO,
   ReqIdsQO,
+  ReservoirCapacityFO,
+  ReservoirCapacityPQO,
+  ReservoirCapacityQO,
+  ReservoirFlowFO,
+  ReservoirFlowPQO,
+  ReservoirFlowQO,
+  ReservoirProjectFO,
+  ReservoirProjectPQO,
+  ReservoirProjectQO,
+  ReservoirRpFO,
+  ReservoirRpPQO,
+  ReservoirRpQO,
+  ReservoirVrPQO,
+  ReservoirVrQO,
+  ReservoirVrRemoveMulQO,
   ResourceForm,
   ResourcePQO,
   ResourceQO,
@@ -612,21 +575,23 @@ import {
   RoleFO,
   RolePQO,
   RoleQO,
-  StwpQO,
-  SysNoticeFO,
-  SysNoticePQO,
-  SysNoticeQO,
+  RtPrealarmRecordQO,
+  TaskSourceFO,
+  TaskSourcePQO,
+  TaskSourceQO,
   TechnicsFO,
   TechnicsPQO,
   TechnicsQO,
-  TrackQO,
+  TimeAndIdQO,
+  TrackReportFO,
+  TsLastPrealarmRecordQO,
+  UpdateRpsQO,
   UserAssignRolesQO,
   UserAssignUsergroupsQO,
   UserForm,
   UserFormAdd,
   UserMessagePQO,
   UserMessageQO,
-  UserNameQO,
   UserPQO,
   UserQO,
   UserResetPwdQO,
@@ -635,10 +600,6 @@ import {
   UsergroupFO,
   UsergroupPQO,
   UsergroupQO,
-  WpPwSaveFO,
-  WpSwSaveFO,
-  WpVwSaveFO,
-  WrMainStQO,
 } from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
@@ -652,15 +613,15 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags alarm-record
-   * @name ApiAlarmRecordAddPost
-   * @summary 新增数据
-   * @request POST:/api/alarm-record/add
+   * @tags alarm
+   * @name ApiAlarmDetailJoinAlarmPost
+   * @summary 查询详情(关联报警信息)
+   * @request POST:/api/alarm/detail-join-alarm
    * @secure
    */
-  apiAlarmRecordAddPost = (data: AlarmRecordFO, params: RequestParams = {}) =>
-    this.http.request<ApiAlarmRecordAddPostData, any>({
-      path: `/api/alarm-record/add`,
+  apiAlarmDetailJoinAlarmPost = (data: CaseQO, params: RequestParams = {}) =>
+    this.http.request<ApiAlarmDetailJoinAlarmPostData, any>({
+      path: `/api/alarm/detail-join-alarm`,
       method: "POST",
       body: data,
       secure: true,
@@ -671,15 +632,15 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags alarm-record
-   * @name ApiAlarmRecordEditPost
-   * @summary 编辑数据
-   * @request POST:/api/alarm-record/edit
+   * @tags alarm
+   * @name ApiAlarmDetailPost
+   * @summary 查询详情
+   * @request POST:/api/alarm/detail
    * @secure
    */
-  apiAlarmRecordEditPost = (data: AlarmRecordFO, params: RequestParams = {}) =>
-    this.http.request<ApiAlarmRecordEditPostData, any>({
-      path: `/api/alarm-record/edit`,
+  apiAlarmDetailPost = (data: CaseQO, params: RequestParams = {}) =>
+    this.http.request<ApiAlarmDetailPostData, any>({
+      path: `/api/alarm/detail`,
       method: "POST",
       body: data,
       secure: true,
@@ -690,37 +651,18 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags alarm-record
-   * @name ApiAlarmRecordListPost
-   * @summary 查询全部对象
-   * @request POST:/api/alarm-record/list
+   * @tags alarm
+   * @name ApiAlarmEventPagePost
+   * @summary 分页查询
+   * @request POST:/api/alarm/event-page
    * @secure
    */
-  apiAlarmRecordListPost = (data: AlarmRecordQO, params: RequestParams = {}) =>
-    this.http.request<ApiAlarmRecordListPostData, any>({
-      path: `/api/alarm-record/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags alarm-record
-   * @name ApiAlarmRecordPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/alarm-record/paged-list
-   * @secure
-   */
-  apiAlarmRecordPagedListPost = (
-    data: AlarmRecordPQO,
+  apiAlarmEventPagePost = (
+    data: ProcessEventPageQO,
     params: RequestParams = {},
   ) =>
-    this.http.request<ApiAlarmRecordPagedListPostData, any>({
-      path: `/api/alarm-record/paged-list`,
+    this.http.request<ApiAlarmEventPagePostData, any>({
+      path: `/api/alarm/event-page`,
       method: "POST",
       body: data,
       secure: true,
@@ -731,18 +673,18 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags alarm-record
-   * @name ApiAlarmRecordRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/alarm-record/remove-mul
+   * @tags alarm
+   * @name ApiAlarmEventStatisticsPost
+   * @summary 统计查询
+   * @request POST:/api/alarm/event-statistics
    * @secure
    */
-  apiAlarmRecordRemoveMulPost = (
-    data: RemoveMulQO,
+  apiAlarmEventStatisticsPost = (
+    data: EventStatisticsQO,
     params: RequestParams = {},
   ) =>
-    this.http.request<ApiAlarmRecordRemoveMulPostData, any>({
-      path: `/api/alarm-record/remove-mul`,
+    this.http.request<ApiAlarmEventStatisticsPostData, any>({
+      path: `/api/alarm/event-statistics`,
       method: "POST",
       body: data,
       secure: true,
@@ -753,15 +695,15 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags alarm-record
-   * @name ApiAlarmRecordRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/alarm-record/remove
+   * @tags alarm
+   * @name ApiAlarmPushAlarmPost
+   * @summary 推送报警信息
+   * @request POST:/api/alarm/push-alarm
    * @secure
    */
-  apiAlarmRecordRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiAlarmRecordRemovePostData, any>({
-      path: `/api/alarm-record/remove`,
+  apiAlarmPushAlarmPost = (data: AlarmPushQO, params: RequestParams = {}) =>
+    this.http.request<ApiAlarmPushAlarmPostData, any>({
+      path: `/api/alarm/push-alarm`,
       method: "POST",
       body: data,
       secure: true,
@@ -772,15 +714,15 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags alarm-record
-   * @name ApiAlarmRecordShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/alarm-record/show
+   * @tags alarm
+   * @name ApiAlarmRepairDetailPost
+   * @summary 查询流程图片路径
+   * @request POST:/api/alarm/repair-detail
    * @secure
    */
-  apiAlarmRecordShowPost = (data: AlarmRecordQO, params: RequestParams = {}) =>
-    this.http.request<ApiAlarmRecordShowPostData, any>({
-      path: `/api/alarm-record/show`,
+  apiAlarmRepairDetailPost = (data: CaseQO, params: RequestParams = {}) =>
+    this.http.request<ApiAlarmRepairDetailPostData, any>({
+      path: `/api/alarm/repair-detail`,
       method: "POST",
       body: data,
       secure: true,
@@ -791,15 +733,18 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags am-job
-   * @name ApiAmJobAddPost
-   * @summary 新增数据
-   * @request POST:/api/am-job/add
+   * @tags alarm
+   * @name ApiAlarmStatusMapPost
+   * @summary 批量查询状态
+   * @request POST:/api/alarm/status-map
    * @secure
    */
-  apiAmJobAddPost = (data: AmJobFO, params: RequestParams = {}) =>
-    this.http.request<ApiAmJobAddPostData, any>({
-      path: `/api/am-job/add`,
+  apiAlarmStatusMapPost = (
+    data: ApiAlarmStatusMapPostPayload,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiAlarmStatusMapPostData, any>({
+      path: `/api/alarm/status-map`,
       method: "POST",
       body: data,
       secure: true,
@@ -810,15 +755,15 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags am-job
-   * @name ApiAmJobEditPost
-   * @summary 编辑数据
-   * @request POST:/api/am-job/edit
+   * @tags alarm
+   * @name ApiAlarmTaskDetailPost
+   * @summary 查询流程信息
+   * @request POST:/api/alarm/task-detail
    * @secure
    */
-  apiAmJobEditPost = (data: AmJobFO, params: RequestParams = {}) =>
-    this.http.request<ApiAmJobEditPostData, any>({
-      path: `/api/am-job/edit`,
+  apiAlarmTaskDetailPost = (data: CaseQO, params: RequestParams = {}) =>
+    this.http.request<ApiAlarmTaskDetailPostData, any>({
+      path: `/api/alarm/task-detail`,
       method: "POST",
       body: data,
       secure: true,
@@ -829,15 +774,32 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags am-job
-   * @name ApiAmJobListPost
+   * @tags app-version
+   * @name ApiAppVersionLastVersionPost
+   * @summary 查询最新版本
+   * @request POST:/api/app-version/last-version
+   * @secure
+   */
+  apiAppVersionLastVersionPost = (params: RequestParams = {}) =>
+    this.http.request<ApiAppVersionLastVersionPostData, any>({
+      path: `/api/app-version/last-version`,
+      method: "POST",
+      secure: true,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags app-version
+   * @name ApiAppVersionListPost
    * @summary 查询全部对象
-   * @request POST:/api/am-job/list
+   * @request POST:/api/app-version/list
    * @secure
    */
-  apiAmJobListPost = (data: AmJobQO, params: RequestParams = {}) =>
-    this.http.request<ApiAmJobListPostData, any>({
-      path: `/api/am-job/list`,
+  apiAppVersionListPost = (data: AppVersionQO, params: RequestParams = {}) =>
+    this.http.request<ApiAppVersionListPostData, any>({
+      path: `/api/app-version/list`,
       method: "POST",
       body: data,
       secure: true,
@@ -848,15 +810,18 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags am-job
-   * @name ApiAmJobPagedListPost
+   * @tags app-version
+   * @name ApiAppVersionPagedListPost
    * @summary 查询分页数据
-   * @request POST:/api/am-job/paged-list
+   * @request POST:/api/app-version/paged-list
    * @secure
    */
-  apiAmJobPagedListPost = (data: AmJobPQO, params: RequestParams = {}) =>
-    this.http.request<ApiAmJobPagedListPostData, any>({
-      path: `/api/am-job/paged-list`,
+  apiAppVersionPagedListPost = (
+    data: AppVersionPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiAppVersionPagedListPostData, any>({
+      path: `/api/app-version/paged-list`,
       method: "POST",
       body: data,
       secure: true,
@@ -867,53 +832,15 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags am-job
-   * @name ApiAmJobRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/am-job/remove-mul
-   * @secure
-   */
-  apiAmJobRemoveMulPost = (data: RemoveMulQO, params: RequestParams = {}) =>
-    this.http.request<ApiAmJobRemoveMulPostData, any>({
-      path: `/api/am-job/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags am-job
-   * @name ApiAmJobRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/am-job/remove
-   * @secure
-   */
-  apiAmJobRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiAmJobRemovePostData, any>({
-      path: `/api/am-job/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags am-job
-   * @name ApiAmJobShowPost
+   * @tags app-version
+   * @name ApiAppVersionShowPost
    * @summary 查询1个对象
-   * @request POST:/api/am-job/show
+   * @request POST:/api/app-version/show
    * @secure
    */
-  apiAmJobShowPost = (data: AmJobQO, params: RequestParams = {}) =>
-    this.http.request<ApiAmJobShowPostData, any>({
-      path: `/api/am-job/show`,
+  apiAppVersionShowPost = (data: AppVersionQO, params: RequestParams = {}) =>
+    this.http.request<ApiAppVersionShowPostData, any>({
+      path: `/api/app-version/show`,
       method: "POST",
       body: data,
       secure: true,
@@ -924,150 +851,22 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags am-post
-   * @name ApiAmPostAddPost
-   * @summary 新增数据
-   * @request POST:/api/am-post/add
+   * @tags app-version
+   * @name ApiAppVersionUploadApkPost
+   * @summary 上传apk
+   * @request POST:/api/app-version/upload-apk
    * @secure
    */
-  apiAmPostAddPost = (data: AmPostFO, params: RequestParams = {}) =>
-    this.http.request<ApiAmPostAddPostData, any>({
-      path: `/api/am-post/add`,
+  apiAppVersionUploadApkPost = (
+    data: ApiAppVersionUploadApkPostPayload,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiAppVersionUploadApkPostData, any>({
+      path: `/api/app-version/upload-apk`,
       method: "POST",
       body: data,
       secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags am-post
-   * @name ApiAmPostCountByNamePost
-   * @summary 查询数量统计
-   * @request POST:/api/am-post/count-by-name
-   * @secure
-   */
-  apiAmPostCountByNamePost = (params: RequestParams = {}) =>
-    this.http.request<ApiAmPostCountByNamePostData, any>({
-      path: `/api/am-post/count-by-name`,
-      method: "POST",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags am-post
-   * @name ApiAmPostEditPost
-   * @summary 编辑数据
-   * @request POST:/api/am-post/edit
-   * @secure
-   */
-  apiAmPostEditPost = (data: AmPostFO, params: RequestParams = {}) =>
-    this.http.request<ApiAmPostEditPostData, any>({
-      path: `/api/am-post/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags am-post
-   * @name ApiAmPostListPost
-   * @summary 查询全部对象
-   * @request POST:/api/am-post/list
-   * @secure
-   */
-  apiAmPostListPost = (data: AmPostQO, params: RequestParams = {}) =>
-    this.http.request<ApiAmPostListPostData, any>({
-      path: `/api/am-post/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags am-post
-   * @name ApiAmPostPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/am-post/paged-list
-   * @secure
-   */
-  apiAmPostPagedListPost = (data: AmPostPQO, params: RequestParams = {}) =>
-    this.http.request<ApiAmPostPagedListPostData, any>({
-      path: `/api/am-post/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags am-post
-   * @name ApiAmPostRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/am-post/remove-mul
-   * @secure
-   */
-  apiAmPostRemoveMulPost = (data: RemoveMulQO, params: RequestParams = {}) =>
-    this.http.request<ApiAmPostRemoveMulPostData, any>({
-      path: `/api/am-post/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags am-post
-   * @name ApiAmPostRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/am-post/remove
-   * @secure
-   */
-  apiAmPostRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiAmPostRemovePostData, any>({
-      path: `/api/am-post/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags am-post
-   * @name ApiAmPostShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/am-post/show
-   * @secure
-   */
-  apiAmPostShowPost = (data: AmPostQO, params: RequestParams = {}) =>
-    this.http.request<ApiAmPostShowPostData, any>({
-      path: `/api/am-post/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
+      type: ContentType.FormData,
       format: "json",
       ...params,
     });
@@ -1085,25 +884,6 @@ export class Api<SecurityDataType = unknown> {
       path: `/api/auth/checklogin`,
       method: "POST",
       secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags auth
-   * @name ApiAuthLoginByUserNamePost
-   * @summary 用户名登录
-   * @request POST:/api/auth/login-by-user-name
-   * @secure
-   */
-  apiAuthLoginByUserNamePost = (data: UserNameQO, params: RequestParams = {}) =>
-    this.http.request<ApiAuthLoginByUserNamePostData, any>({
-      path: `/api/auth/login-by-user-name`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
       format: "json",
       ...params,
     });
@@ -1130,6 +910,27 @@ export class Api<SecurityDataType = unknown> {
    * No description
    *
    * @tags auth
+   * @name ApiAuthLoginSsoGet
+   * @summary 单点登录
+   * @request GET:/api/auth/login-sso
+   * @secure
+   */
+  apiAuthLoginSsoGet = (
+    query: ApiAuthLoginSsoGetParams,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiAuthLoginSsoGetData, any>({
+      path: `/api/auth/login-sso`,
+      method: "GET",
+      query: query,
+      secure: true,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags auth
    * @name ApiAuthLogoutPost
    * @summary 退出登录
    * @request POST:/api/auth/logout
@@ -1146,6 +947,23 @@ export class Api<SecurityDataType = unknown> {
    * No description
    *
    * @tags auth
+   * @name ApiAuthMapTokenPost
+   * @summary 获取地图Token
+   * @request POST:/api/auth/map-token
+   * @secure
+   */
+  apiAuthMapTokenPost = (params: RequestParams = {}) =>
+    this.http.request<ApiAuthMapTokenPostData, any>({
+      path: `/api/auth/map-token`,
+      method: "POST",
+      secure: true,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags auth
    * @name ApiAuthPkinfoPost
    * @summary 获取加密公钥
    * @request POST:/api/auth/pkinfo
@@ -1156,6 +974,1979 @@ export class Api<SecurityDataType = unknown> {
       path: `/api/auth/pkinfo`,
       method: "POST",
       secure: true,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags auth
+   * @name ApiAuthWvpLoginPost
+   * @summary wvp平台登录
+   * @request POST:/api/auth/wvp-login
+   * @secure
+   */
+  apiAuthWvpLoginPost = (params: RequestParams = {}) =>
+    this.http.request<ApiAuthWvpLoginPostData, any>({
+      path: `/api/auth/wvp-login`,
+      method: "POST",
+      secure: true,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-alarm-pipe-line
+   * @name ApiBsAlarmPipeLineAddPost
+   * @summary 新增数据
+   * @request POST:/api/bs-alarm-pipe-line/add
+   * @secure
+   */
+  apiBsAlarmPipeLineAddPost = (
+    data: BsAlarmPipeLineFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsAlarmPipeLineAddPostData, any>({
+      path: `/api/bs-alarm-pipe-line/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-alarm-pipe-line
+   * @name ApiBsAlarmPipeLineEditPost
+   * @summary 编辑数据
+   * @request POST:/api/bs-alarm-pipe-line/edit
+   * @secure
+   */
+  apiBsAlarmPipeLineEditPost = (
+    data: BsAlarmPipeLineFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsAlarmPipeLineEditPostData, any>({
+      path: `/api/bs-alarm-pipe-line/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-alarm-pipe-line
+   * @name ApiBsAlarmPipeLineListPost
+   * @summary 查询全部对象
+   * @request POST:/api/bs-alarm-pipe-line/list
+   * @secure
+   */
+  apiBsAlarmPipeLineListPost = (
+    data: BsAlarmPipeLineQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsAlarmPipeLineListPostData, any>({
+      path: `/api/bs-alarm-pipe-line/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-alarm-pipe-line
+   * @name ApiBsAlarmPipeLinePagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/bs-alarm-pipe-line/paged-list
+   * @secure
+   */
+  apiBsAlarmPipeLinePagedListPost = (
+    data: BsAlarmPipeLinePQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsAlarmPipeLinePagedListPostData, any>({
+      path: `/api/bs-alarm-pipe-line/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-alarm-pipe-line
+   * @name ApiBsAlarmPipeLineRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/bs-alarm-pipe-line/remove-mul
+   * @secure
+   */
+  apiBsAlarmPipeLineRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsAlarmPipeLineRemoveMulPostData, any>({
+      path: `/api/bs-alarm-pipe-line/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-alarm-pipe-line
+   * @name ApiBsAlarmPipeLineRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/bs-alarm-pipe-line/remove
+   * @secure
+   */
+  apiBsAlarmPipeLineRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsAlarmPipeLineRemovePostData, any>({
+      path: `/api/bs-alarm-pipe-line/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-alarm-pipe-line
+   * @name ApiBsAlarmPipeLineShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/bs-alarm-pipe-line/show
+   * @secure
+   */
+  apiBsAlarmPipeLineShowPost = (
+    data: BsAlarmPipeLineQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsAlarmPipeLineShowPostData, any>({
+      path: `/api/bs-alarm-pipe-line/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-community
+   * @name ApiBsCommunityAddPost
+   * @summary 新增数据
+   * @request POST:/api/bs-community/add
+   * @secure
+   */
+  apiBsCommunityAddPost = (data: BsCommunityFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsCommunityAddPostData, any>({
+      path: `/api/bs-community/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-community
+   * @name ApiBsCommunityEditPost
+   * @summary 编辑数据
+   * @request POST:/api/bs-community/edit
+   * @secure
+   */
+  apiBsCommunityEditPost = (data: BsCommunityFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsCommunityEditPostData, any>({
+      path: `/api/bs-community/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-community
+   * @name ApiBsCommunityListPost
+   * @summary 查询全部对象
+   * @request POST:/api/bs-community/list
+   * @secure
+   */
+  apiBsCommunityListPost = (data: BsCommunityQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsCommunityListPostData, any>({
+      path: `/api/bs-community/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-community
+   * @name ApiBsCommunityPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/bs-community/paged-list
+   * @secure
+   */
+  apiBsCommunityPagedListPost = (
+    data: BsCommunityPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsCommunityPagedListPostData, any>({
+      path: `/api/bs-community/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-community
+   * @name ApiBsCommunityRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/bs-community/remove-mul
+   * @secure
+   */
+  apiBsCommunityRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsCommunityRemoveMulPostData, any>({
+      path: `/api/bs-community/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-community
+   * @name ApiBsCommunityRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/bs-community/remove
+   * @secure
+   */
+  apiBsCommunityRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsCommunityRemovePostData, any>({
+      path: `/api/bs-community/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-community
+   * @name ApiBsCommunityShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/bs-community/show
+   * @secure
+   */
+  apiBsCommunityShowPost = (data: BsCommunityQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsCommunityShowPostData, any>({
+      path: `/api/bs-community/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-company
+   * @name ApiBsCompanyAddPost
+   * @summary 新增数据
+   * @request POST:/api/bs-company/add
+   * @secure
+   */
+  apiBsCompanyAddPost = (data: BsCompanyFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsCompanyAddPostData, any>({
+      path: `/api/bs-company/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-company
+   * @name ApiBsCompanyEditPost
+   * @summary 编辑数据
+   * @request POST:/api/bs-company/edit
+   * @secure
+   */
+  apiBsCompanyEditPost = (data: BsCompanyFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsCompanyEditPostData, any>({
+      path: `/api/bs-company/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-company
+   * @name ApiBsCompanyListPost
+   * @summary 查询全部对象
+   * @request POST:/api/bs-company/list
+   * @secure
+   */
+  apiBsCompanyListPost = (data: BsCompanyQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsCompanyListPostData, any>({
+      path: `/api/bs-company/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-company
+   * @name ApiBsCompanyPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/bs-company/paged-list
+   * @secure
+   */
+  apiBsCompanyPagedListPost = (
+    data: BsCompanyPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsCompanyPagedListPostData, any>({
+      path: `/api/bs-company/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-company
+   * @name ApiBsCompanyRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/bs-company/remove-mul
+   * @secure
+   */
+  apiBsCompanyRemoveMulPost = (data: RemoveMulQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsCompanyRemoveMulPostData, any>({
+      path: `/api/bs-company/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-company
+   * @name ApiBsCompanyRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/bs-company/remove
+   * @secure
+   */
+  apiBsCompanyRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsCompanyRemovePostData, any>({
+      path: `/api/bs-company/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-company
+   * @name ApiBsCompanyShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/bs-company/show
+   * @secure
+   */
+  apiBsCompanyShowPost = (data: BsCompanyQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsCompanyShowPostData, any>({
+      path: `/api/bs-company/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-outlet
+   * @name ApiBsOutletAddPost
+   * @summary 新增数据
+   * @request POST:/api/bs-outlet/add
+   * @secure
+   */
+  apiBsOutletAddPost = (data: BsOutletFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsOutletAddPostData, any>({
+      path: `/api/bs-outlet/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-outlet
+   * @name ApiBsOutletEditPost
+   * @summary 编辑数据
+   * @request POST:/api/bs-outlet/edit
+   * @secure
+   */
+  apiBsOutletEditPost = (data: BsOutletFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsOutletEditPostData, any>({
+      path: `/api/bs-outlet/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-outlet
+   * @name ApiBsOutletListPost
+   * @summary 查询全部对象
+   * @request POST:/api/bs-outlet/list
+   * @secure
+   */
+  apiBsOutletListPost = (data: BsOutletQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsOutletListPostData, any>({
+      path: `/api/bs-outlet/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-outlet
+   * @name ApiBsOutletPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/bs-outlet/paged-list
+   * @secure
+   */
+  apiBsOutletPagedListPost = (data: BsOutletPQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsOutletPagedListPostData, any>({
+      path: `/api/bs-outlet/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-outlet
+   * @name ApiBsOutletRemovePost
+   * @summary 删除数据
+   * @request POST:/api/bs-outlet/remove
+   * @secure
+   */
+  apiBsOutletRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsOutletRemovePostData, any>({
+      path: `/api/bs-outlet/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-outlet
+   * @name ApiBsOutletShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/bs-outlet/show
+   * @secure
+   */
+  apiBsOutletShowPost = (data: BsOutletQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsOutletShowPostData, any>({
+      path: `/api/bs-outlet/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLineAddPost
+   * @summary 新增数据
+   * @request POST:/api/bs-pipe-line/add
+   * @secure
+   */
+  apiBsPipeLineAddPost = (data: BsPipeLineFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPipeLineAddPostData, any>({
+      path: `/api/bs-pipe-line/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLineEditPost
+   * @summary 编辑数据
+   * @request POST:/api/bs-pipe-line/edit
+   * @secure
+   */
+  apiBsPipeLineEditPost = (data: BsPipeLineFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPipeLineEditPostData, any>({
+      path: `/api/bs-pipe-line/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLineGetCommunityInfoByPrealarmPost
+   * @summary 根据报警信息获取小区的权重
+   * @request POST:/api/bs-pipe-line/get-community-info-by-prealarm
+   * @secure
+   */
+  apiBsPipeLineGetCommunityInfoByPrealarmPost = (
+    data: PrealarmCommunityInfoQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipeLineGetCommunityInfoByPrealarmPostData, any>({
+      path: `/api/bs-pipe-line/get-community-info-by-prealarm`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLineGetLineByStartAndEndPost
+   * @summary 根据起点和终点获取管线
+   * @request POST:/api/bs-pipe-line/get-line-by-start-and-end
+   * @secure
+   */
+  apiBsPipeLineGetLineByStartAndEndPost = (
+    data: LineByStartAndEndQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipeLineGetLineByStartAndEndPostData, any>({
+      path: `/api/bs-pipe-line/get-line-by-start-and-end`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLineGetLineByStartPost
+   * @summary 根据起点获取管线
+   * @request POST:/api/bs-pipe-line/get-line-by-start
+   * @secure
+   */
+  apiBsPipeLineGetLineByStartPost = (
+    data: LineByStartAndEndQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipeLineGetLineByStartPostData, any>({
+      path: `/api/bs-pipe-line/get-line-by-start`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLineImportDataPost
+   * @summary 导入管线数据
+   * @request POST:/api/bs-pipe-line/import-data
+   * @secure
+   */
+  apiBsPipeLineImportDataPost = (params: RequestParams = {}) =>
+    this.http.request<ApiBsPipeLineImportDataPostData, any>({
+      path: `/api/bs-pipe-line/import-data`,
+      method: "POST",
+      secure: true,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLineLightQueryPost
+   * @summary 精简查询所有管线
+   * @request POST:/api/bs-pipe-line/light-query
+   * @secure
+   */
+  apiBsPipeLineLightQueryPost = (
+    data: BsPipeLineQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipeLineLightQueryPostData, any>({
+      path: `/api/bs-pipe-line/light-query`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLineLinesByEndPointPost
+   * @summary 根据终点编号查询所有路线的管线
+   * @request POST:/api/bs-pipe-line/lines-by-end-point
+   * @secure
+   */
+  apiBsPipeLineLinesByEndPointPost = (
+    data: LinesByEndPointQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipeLineLinesByEndPointPostData, any>({
+      path: `/api/bs-pipe-line/lines-by-end-point`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLineListPost
+   * @summary 查询全部对象
+   * @request POST:/api/bs-pipe-line/list
+   * @secure
+   */
+  apiBsPipeLineListPost = (data: BsPipeLineQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPipeLineListPostData, any>({
+      path: `/api/bs-pipe-line/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLinePagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/bs-pipe-line/paged-list
+   * @secure
+   */
+  apiBsPipeLinePagedListPost = (
+    data: BsPipeLinePQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipeLinePagedListPostData, any>({
+      path: `/api/bs-pipe-line/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLineRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/bs-pipe-line/remove-mul
+   * @secure
+   */
+  apiBsPipeLineRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipeLineRemoveMulPostData, any>({
+      path: `/api/bs-pipe-line/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLineRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/bs-pipe-line/remove
+   * @secure
+   */
+  apiBsPipeLineRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPipeLineRemovePostData, any>({
+      path: `/api/bs-pipe-line/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-line
+   * @name ApiBsPipeLineShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/bs-pipe-line/show
+   * @secure
+   */
+  apiBsPipeLineShowPost = (data: BsPipeLineQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPipeLineShowPostData, any>({
+      path: `/api/bs-pipe-line/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point
+   * @name ApiBsPipePointAddPost
+   * @summary 新增数据
+   * @request POST:/api/bs-pipe-point/add
+   * @secure
+   */
+  apiBsPipePointAddPost = (data: BsPipePointFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPipePointAddPostData, any>({
+      path: `/api/bs-pipe-point/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-parameter
+   * @name ApiBsPipePointAlarmParameterAddPost
+   * @summary 新增数据
+   * @request POST:/api/bs-pipe-point-alarm-parameter/add
+   * @secure
+   */
+  apiBsPipePointAlarmParameterAddPost = (
+    data: BsPipePointAlarmParameterFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmParameterAddPostData, any>({
+      path: `/api/bs-pipe-point-alarm-parameter/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-parameter
+   * @name ApiBsPipePointAlarmParameterEditPost
+   * @summary 编辑数据
+   * @request POST:/api/bs-pipe-point-alarm-parameter/edit
+   * @secure
+   */
+  apiBsPipePointAlarmParameterEditPost = (
+    data: BsPipePointAlarmParameterFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmParameterEditPostData, any>({
+      path: `/api/bs-pipe-point-alarm-parameter/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-parameter
+   * @name ApiBsPipePointAlarmParameterListPost
+   * @summary 查询全部对象
+   * @request POST:/api/bs-pipe-point-alarm-parameter/list
+   * @secure
+   */
+  apiBsPipePointAlarmParameterListPost = (
+    data: BsPipePointAlarmParameterQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmParameterListPostData, any>({
+      path: `/api/bs-pipe-point-alarm-parameter/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-parameter
+   * @name ApiBsPipePointAlarmParameterPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/bs-pipe-point-alarm-parameter/paged-list
+   * @secure
+   */
+  apiBsPipePointAlarmParameterPagedListPost = (
+    data: BsPipePointAlarmParameterPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmParameterPagedListPostData, any>({
+      path: `/api/bs-pipe-point-alarm-parameter/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-parameter
+   * @name ApiBsPipePointAlarmParameterRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/bs-pipe-point-alarm-parameter/remove-mul
+   * @secure
+   */
+  apiBsPipePointAlarmParameterRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmParameterRemoveMulPostData, any>({
+      path: `/api/bs-pipe-point-alarm-parameter/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-parameter
+   * @name ApiBsPipePointAlarmParameterRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/bs-pipe-point-alarm-parameter/remove
+   * @secure
+   */
+  apiBsPipePointAlarmParameterRemovePost = (
+    data: OnlyIdQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmParameterRemovePostData, any>({
+      path: `/api/bs-pipe-point-alarm-parameter/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-parameter
+   * @name ApiBsPipePointAlarmParameterShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/bs-pipe-point-alarm-parameter/show
+   * @secure
+   */
+  apiBsPipePointAlarmParameterShowPost = (
+    data: BsPipePointAlarmParameterQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmParameterShowPostData, any>({
+      path: `/api/bs-pipe-point-alarm-parameter/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-record
+   * @name ApiBsPipePointAlarmRecordAddPost
+   * @summary 新增数据
+   * @request POST:/api/bs-pipe-point-alarm-record/add
+   * @secure
+   */
+  apiBsPipePointAlarmRecordAddPost = (
+    data: BsPipePointAlarmRecordFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmRecordAddPostData, any>({
+      path: `/api/bs-pipe-point-alarm-record/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-record
+   * @name ApiBsPipePointAlarmRecordEditPost
+   * @summary 编辑数据
+   * @request POST:/api/bs-pipe-point-alarm-record/edit
+   * @secure
+   */
+  apiBsPipePointAlarmRecordEditPost = (
+    data: BsPipePointAlarmRecordFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmRecordEditPostData, any>({
+      path: `/api/bs-pipe-point-alarm-record/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-record
+   * @name ApiBsPipePointAlarmRecordListPost
+   * @summary 查询全部对象
+   * @request POST:/api/bs-pipe-point-alarm-record/list
+   * @secure
+   */
+  apiBsPipePointAlarmRecordListPost = (
+    data: BsPipePointAlarmRecordQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmRecordListPostData, any>({
+      path: `/api/bs-pipe-point-alarm-record/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-record
+   * @name ApiBsPipePointAlarmRecordPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/bs-pipe-point-alarm-record/paged-list
+   * @secure
+   */
+  apiBsPipePointAlarmRecordPagedListPost = (
+    data: BsPipePointAlarmRecordPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmRecordPagedListPostData, any>({
+      path: `/api/bs-pipe-point-alarm-record/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-record
+   * @name ApiBsPipePointAlarmRecordRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/bs-pipe-point-alarm-record/remove-mul
+   * @secure
+   */
+  apiBsPipePointAlarmRecordRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmRecordRemoveMulPostData, any>({
+      path: `/api/bs-pipe-point-alarm-record/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-record
+   * @name ApiBsPipePointAlarmRecordRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/bs-pipe-point-alarm-record/remove
+   * @secure
+   */
+  apiBsPipePointAlarmRecordRemovePost = (
+    data: OnlyIdQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmRecordRemovePostData, any>({
+      path: `/api/bs-pipe-point-alarm-record/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point-alarm-record
+   * @name ApiBsPipePointAlarmRecordShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/bs-pipe-point-alarm-record/show
+   * @secure
+   */
+  apiBsPipePointAlarmRecordShowPost = (
+    data: BsPipePointAlarmRecordQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointAlarmRecordShowPostData, any>({
+      path: `/api/bs-pipe-point-alarm-record/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point
+   * @name ApiBsPipePointConvertCoordinatesToLaluPost
+   * @summary 坐标转换为经纬度
+   * @request POST:/api/bs-pipe-point/convert-coordinates-to-lalu
+   * @secure
+   */
+  apiBsPipePointConvertCoordinatesToLaluPost = (params: RequestParams = {}) =>
+    this.http.request<ApiBsPipePointConvertCoordinatesToLaluPostData, any>({
+      path: `/api/bs-pipe-point/convert-coordinates-to-lalu`,
+      method: "POST",
+      secure: true,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point
+   * @name ApiBsPipePointCountGroupByAppendagePost
+   * @summary 附属物分类统计
+   * @request POST:/api/bs-pipe-point/count-group-by-appendage
+   * @secure
+   */
+  apiBsPipePointCountGroupByAppendagePost = (
+    data: BsPipePointStQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointCountGroupByAppendagePostData, any>({
+      path: `/api/bs-pipe-point/count-group-by-appendage`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point
+   * @name ApiBsPipePointEditPost
+   * @summary 编辑数据
+   * @request POST:/api/bs-pipe-point/edit
+   * @secure
+   */
+  apiBsPipePointEditPost = (data: BsPipePointFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPipePointEditPostData, any>({
+      path: `/api/bs-pipe-point/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point
+   * @name ApiBsPipePointImportDataPost
+   * @summary 导入数据
+   * @request POST:/api/bs-pipe-point/import-data
+   * @secure
+   */
+  apiBsPipePointImportDataPost = (params: RequestParams = {}) =>
+    this.http.request<ApiBsPipePointImportDataPostData, any>({
+      path: `/api/bs-pipe-point/import-data`,
+      method: "POST",
+      secure: true,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point
+   * @name ApiBsPipePointListPost
+   * @summary 查询全部对象
+   * @request POST:/api/bs-pipe-point/list
+   * @secure
+   */
+  apiBsPipePointListPost = (data: BsPipePointQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPipePointListPostData, any>({
+      path: `/api/bs-pipe-point/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point
+   * @name ApiBsPipePointPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/bs-pipe-point/paged-list
+   * @secure
+   */
+  apiBsPipePointPagedListPost = (
+    data: BsPipePointPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointPagedListPostData, any>({
+      path: `/api/bs-pipe-point/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point
+   * @name ApiBsPipePointRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/bs-pipe-point/remove-mul
+   * @secure
+   */
+  apiBsPipePointRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPipePointRemoveMulPostData, any>({
+      path: `/api/bs-pipe-point/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point
+   * @name ApiBsPipePointRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/bs-pipe-point/remove
+   * @secure
+   */
+  apiBsPipePointRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPipePointRemovePostData, any>({
+      path: `/api/bs-pipe-point/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pipe-point
+   * @name ApiBsPipePointShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/bs-pipe-point/show
+   * @secure
+   */
+  apiBsPipePointShowPost = (data: BsPipePointQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPipePointShowPostData, any>({
+      path: `/api/bs-pipe-point/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pmc
+   * @name ApiBsPmcAddPost
+   * @summary 新增数据
+   * @request POST:/api/bs-pmc/add
+   * @secure
+   */
+  apiBsPmcAddPost = (data: BsPmcFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPmcAddPostData, any>({
+      path: `/api/bs-pmc/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pmc
+   * @name ApiBsPmcEditPost
+   * @summary 编辑数据
+   * @request POST:/api/bs-pmc/edit
+   * @secure
+   */
+  apiBsPmcEditPost = (data: BsPmcFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPmcEditPostData, any>({
+      path: `/api/bs-pmc/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pmc
+   * @name ApiBsPmcListPost
+   * @summary 查询全部对象
+   * @request POST:/api/bs-pmc/list
+   * @secure
+   */
+  apiBsPmcListPost = (data: BsPmcQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPmcListPostData, any>({
+      path: `/api/bs-pmc/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pmc
+   * @name ApiBsPmcPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/bs-pmc/paged-list
+   * @secure
+   */
+  apiBsPmcPagedListPost = (data: BsPmcPQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPmcPagedListPostData, any>({
+      path: `/api/bs-pmc/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pmc
+   * @name ApiBsPmcRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/bs-pmc/remove-mul
+   * @secure
+   */
+  apiBsPmcRemoveMulPost = (data: RemoveMulQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPmcRemoveMulPostData, any>({
+      path: `/api/bs-pmc/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pmc
+   * @name ApiBsPmcRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/bs-pmc/remove
+   * @secure
+   */
+  apiBsPmcRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPmcRemovePostData, any>({
+      path: `/api/bs-pmc/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pmc
+   * @name ApiBsPmcShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/bs-pmc/show
+   * @secure
+   */
+  apiBsPmcShowPost = (data: BsPmcQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsPmcShowPostData, any>({
+      path: `/api/bs-pmc/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pollution-permit-info
+   * @name ApiBsPollutionPermitInfoAddPost
+   * @summary 新增数据
+   * @request POST:/api/bs-pollution-permit-info/add
+   * @secure
+   */
+  apiBsPollutionPermitInfoAddPost = (
+    data: BsPollutionPermitInfoFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPollutionPermitInfoAddPostData, any>({
+      path: `/api/bs-pollution-permit-info/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pollution-permit-info
+   * @name ApiBsPollutionPermitInfoEditPost
+   * @summary 编辑数据
+   * @request POST:/api/bs-pollution-permit-info/edit
+   * @secure
+   */
+  apiBsPollutionPermitInfoEditPost = (
+    data: BsPollutionPermitInfoFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPollutionPermitInfoEditPostData, any>({
+      path: `/api/bs-pollution-permit-info/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pollution-permit-info
+   * @name ApiBsPollutionPermitInfoListPost
+   * @summary 查询全部对象
+   * @request POST:/api/bs-pollution-permit-info/list
+   * @secure
+   */
+  apiBsPollutionPermitInfoListPost = (
+    data: BsPollutionPermitInfoQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPollutionPermitInfoListPostData, any>({
+      path: `/api/bs-pollution-permit-info/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pollution-permit-info
+   * @name ApiBsPollutionPermitInfoPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/bs-pollution-permit-info/paged-list
+   * @secure
+   */
+  apiBsPollutionPermitInfoPagedListPost = (
+    data: BsPollutionPermitInfoPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPollutionPermitInfoPagedListPostData, any>({
+      path: `/api/bs-pollution-permit-info/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pollution-permit-info
+   * @name ApiBsPollutionPermitInfoRemovePost
+   * @summary 删除数据
+   * @request POST:/api/bs-pollution-permit-info/remove
+   * @secure
+   */
+  apiBsPollutionPermitInfoRemovePost = (
+    data: OnlyIdQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPollutionPermitInfoRemovePostData, any>({
+      path: `/api/bs-pollution-permit-info/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-pollution-permit-info
+   * @name ApiBsPollutionPermitInfoShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/bs-pollution-permit-info/show
+   * @secure
+   */
+  apiBsPollutionPermitInfoShowPost = (
+    data: BsPollutionPermitInfoQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBsPollutionPermitInfoShowPostData, any>({
+      path: `/api/bs-pollution-permit-info/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-zone
+   * @name ApiBsZoneAddPost
+   * @summary 新增数据
+   * @request POST:/api/bs-zone/add
+   * @secure
+   */
+  apiBsZoneAddPost = (data: BsZoneFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsZoneAddPostData, any>({
+      path: `/api/bs-zone/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-zone
+   * @name ApiBsZoneEditPost
+   * @summary 编辑数据
+   * @request POST:/api/bs-zone/edit
+   * @secure
+   */
+  apiBsZoneEditPost = (data: BsZoneFO, params: RequestParams = {}) =>
+    this.http.request<ApiBsZoneEditPostData, any>({
+      path: `/api/bs-zone/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-zone
+   * @name ApiBsZoneListPost
+   * @summary 查询全部对象
+   * @request POST:/api/bs-zone/list
+   * @secure
+   */
+  apiBsZoneListPost = (data: BsZoneQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsZoneListPostData, any>({
+      path: `/api/bs-zone/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-zone
+   * @name ApiBsZonePagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/bs-zone/paged-list
+   * @secure
+   */
+  apiBsZonePagedListPost = (data: BsZonePQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsZonePagedListPostData, any>({
+      path: `/api/bs-zone/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-zone
+   * @name ApiBsZoneRemovePost
+   * @summary 删除数据
+   * @request POST:/api/bs-zone/remove
+   * @secure
+   */
+  apiBsZoneRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsZoneRemovePostData, any>({
+      path: `/api/bs-zone/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-zone
+   * @name ApiBsZoneShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/bs-zone/show
+   * @secure
+   */
+  apiBsZoneShowPost = (data: BsZoneQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsZoneShowPostData, any>({
+      path: `/api/bs-zone/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-zone
+   * @name ApiBsZoneTreedataPost
+   * @summary 获取树形结构数据
+   * @request POST:/api/bs-zone/treedata
+   * @secure
+   */
+  apiBsZoneTreedataPost = (data: BsZoneQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsZoneTreedataPostData, any>({
+      path: `/api/bs-zone/treedata`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bs-zone
+   * @name ApiBsZoneTypedataPost
+   * @summary 按父级编码获取数据
+   * @request POST:/api/bs-zone/typedata
+   * @secure
+   */
+  apiBsZoneTypedataPost = (data: DdTypedataQO, params: RequestParams = {}) =>
+    this.http.request<ApiBsZoneTypedataPostData, any>({
+      path: `/api/bs-zone/typedata`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bumen-jsc
+   * @name ApiBumenJscDetailJoinAlarmPost
+   * @summary 查询详情(关联报警信息)
+   * @request POST:/api/bumen-jsc/detail-join-alarm
+   * @secure
+   */
+  apiBumenJscDetailJoinAlarmPost = (data: CaseQO, params: RequestParams = {}) =>
+    this.http.request<ApiBumenJscDetailJoinAlarmPostData, any>({
+      path: `/api/bumen-jsc/detail-join-alarm`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bumen-jsc
+   * @name ApiBumenJscDetailPost
+   * @summary 查询详情
+   * @request POST:/api/bumen-jsc/detail
+   * @secure
+   */
+  apiBumenJscDetailPost = (data: CaseQO, params: RequestParams = {}) =>
+    this.http.request<ApiBumenJscDetailPostData, any>({
+      path: `/api/bumen-jsc/detail`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bumen-jsc
+   * @name ApiBumenJscEquipmentListPost
+   * @summary 设备列表
+   * @request POST:/api/bumen-jsc/equipment-list
+   * @secure
+   */
+  apiBumenJscEquipmentListPost = (
+    data: EquipmentQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBumenJscEquipmentListPostData, any>({
+      path: `/api/bumen-jsc/equipment-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bumen-jsc
+   * @name ApiBumenJscEventPagePost
+   * @summary 分页查询
+   * @request POST:/api/bumen-jsc/event-page
+   * @secure
+   */
+  apiBumenJscEventPagePost = (
+    data: ProcessEventPageQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBumenJscEventPagePostData, any>({
+      path: `/api/bumen-jsc/event-page`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bumen-jsc
+   * @name ApiBumenJscEventStatisticsPost
+   * @summary 统计查询
+   * @request POST:/api/bumen-jsc/event-statistics
+   * @secure
+   */
+  apiBumenJscEventStatisticsPost = (
+    data: EventStatisticsQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBumenJscEventStatisticsPostData, any>({
+      path: `/api/bumen-jsc/event-statistics`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bumen-jsc
+   * @name ApiBumenJscPrealarmRecordListPost
+   * @summary 报警记录列表
+   * @request POST:/api/bumen-jsc/prealarm-record-list
+   * @secure
+   */
+  apiBumenJscPrealarmRecordListPost = (
+    data: PrealarmRecordQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBumenJscPrealarmRecordListPostData, any>({
+      path: `/api/bumen-jsc/prealarm-record-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bumen-jsc
+   * @name ApiBumenJscRepairDetailPost
+   * @summary 查询流程图片路径
+   * @request POST:/api/bumen-jsc/repair-detail
+   * @secure
+   */
+  apiBumenJscRepairDetailPost = (data: CaseQO, params: RequestParams = {}) =>
+    this.http.request<ApiBumenJscRepairDetailPostData, any>({
+      path: `/api/bumen-jsc/repair-detail`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bumen-jsc
+   * @name ApiBumenJscStatusMapPost
+   * @summary 批量查询状态
+   * @request POST:/api/bumen-jsc/status-map
+   * @secure
+   */
+  apiBumenJscStatusMapPost = (
+    data: ApiBumenJscStatusMapPostPayload,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBumenJscStatusMapPostData, any>({
+      path: `/api/bumen-jsc/status-map`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bumen-jsc
+   * @name ApiBumenJscTaskDetailPost
+   * @summary 查询流程信息
+   * @request POST:/api/bumen-jsc/task-detail
+   * @secure
+   */
+  apiBumenJscTaskDetailPost = (data: CaseQO, params: RequestParams = {}) =>
+    this.http.request<ApiBumenJscTaskDetailPostData, any>({
+      path: `/api/bumen-jsc/task-detail`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bumen-jsc
+   * @name ApiBumenJscTechnicsListPost
+   * @summary 监测点位列表
+   * @request POST:/api/bumen-jsc/technics-list
+   * @secure
+   */
+  apiBumenJscTechnicsListPost = (
+    data: TechnicsQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBumenJscTechnicsListPostData, any>({
+      path: `/api/bumen-jsc/technics-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags bumen-jsc
+   * @name ApiBumenJscTsLastPrealarmRecordListPost
+   * @summary 最新报警记录列表,按technicsId分组
+   * @request POST:/api/bumen-jsc/ts-last-prealarm-record-list
+   * @secure
+   */
+  apiBumenJscTsLastPrealarmRecordListPost = (
+    data: TsLastPrealarmRecordQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiBumenJscTsLastPrealarmRecordListPostData, any>({
+      path: `/api/bumen-jsc/ts-last-prealarm-record-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
       format: "json",
       ...params,
     });
@@ -1424,6 +3215,245 @@ export class Api<SecurityDataType = unknown> {
   ) =>
     this.http.request<ApiDataDictionaryTypedataPostData, any>({
       path: `/api/data-dictionary/typedata`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags device-info
+   * @name ApiDeviceInfoDeviceListByPositionGet
+   * @summary 根据起始和结束经纬度获取监控资源
+   * @request GET:/api/device-info/device-list-by-position
+   * @secure
+   */
+  apiDeviceInfoDeviceListByPositionGet = (
+    data: GetDeviceListByPositionQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiDeviceInfoDeviceListByPositionGetData, any>({
+      path: `/api/device-info/device-list-by-position`,
+      method: "GET",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags device-info
+   * @name ApiDeviceInfoDeviceListByPositionScopeGet
+   * @summary 根据经纬度及范围查询监控资源
+   * @request GET:/api/device-info/device-list-by-position-scope
+   * @secure
+   */
+  apiDeviceInfoDeviceListByPositionScopeGet = (
+    data: GetDeviceListByPositionScopeQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiDeviceInfoDeviceListByPositionScopeGetData, any>({
+      path: `/api/device-info/device-list-by-position-scope`,
+      method: "GET",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags device-info
+   * @name ApiDeviceInfoMonitorByOrganizationPost
+   * @summary 获取监控资源列表
+   * @request POST:/api/device-info/monitor-by-organization
+   * @secure
+   */
+  apiDeviceInfoMonitorByOrganizationPost = (
+    data: GetMonitorByOrganizationQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiDeviceInfoMonitorByOrganizationPostData, any>({
+      path: `/api/device-info/monitor-by-organization`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags device-info
+   * @name ApiDeviceInfoMonitorListByDeviceIdPost
+   * @summary 根据监控国标编码获取监控信息
+   * @request POST:/api/device-info/monitor-list-by-device-id
+   * @secure
+   */
+  apiDeviceInfoMonitorListByDeviceIdPost = (
+    data: GetMonitorListByDeviceIdQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiDeviceInfoMonitorListByDeviceIdPostData, any>({
+      path: `/api/device-info/monitor-list-by-device-id`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags device-info
+   * @name ApiDeviceInfoOrganizationListPost
+   * @summary 获取目录信息
+   * @request POST:/api/device-info/organization-list
+   * @secure
+   */
+  apiDeviceInfoOrganizationListPost = (
+    data: GetOrganizationListQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiDeviceInfoOrganizationListPostData, any>({
+      path: `/api/device-info/organization-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags emergency-plan
+   * @name ApiEmergencyPlanAddPost
+   * @summary 新增数据
+   * @request POST:/api/emergency-plan/add
+   * @secure
+   */
+  apiEmergencyPlanAddPost = (
+    data: ApiEmergencyPlanAddPostPayload,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEmergencyPlanAddPostData, any>({
+      path: `/api/emergency-plan/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.FormData,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags emergency-plan
+   * @name ApiEmergencyPlanEditPost
+   * @summary 编辑数据
+   * @request POST:/api/emergency-plan/edit
+   * @secure
+   */
+  apiEmergencyPlanEditPost = (
+    data: ApiEmergencyPlanEditPostPayload,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEmergencyPlanEditPostData, any>({
+      path: `/api/emergency-plan/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.FormData,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags emergency-plan
+   * @name ApiEmergencyPlanListPost
+   * @summary 查询全部对象
+   * @request POST:/api/emergency-plan/list
+   * @secure
+   */
+  apiEmergencyPlanListPost = (
+    data: EmergencyPlanQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEmergencyPlanListPostData, any>({
+      path: `/api/emergency-plan/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags emergency-plan
+   * @name ApiEmergencyPlanPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/emergency-plan/paged-list
+   * @secure
+   */
+  apiEmergencyPlanPagedListPost = (
+    data: EmergencyPlanPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEmergencyPlanPagedListPostData, any>({
+      path: `/api/emergency-plan/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags emergency-plan
+   * @name ApiEmergencyPlanRemovePost
+   * @summary 删除数据
+   * @request POST:/api/emergency-plan/remove
+   * @secure
+   */
+  apiEmergencyPlanRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiEmergencyPlanRemovePostData, any>({
+      path: `/api/emergency-plan/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags emergency-plan
+   * @name ApiEmergencyPlanShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/emergency-plan/show
+   * @secure
+   */
+  apiEmergencyPlanShowPost = (
+    data: EmergencyPlanQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEmergencyPlanShowPostData, any>({
+      path: `/api/emergency-plan/show`,
       method: "POST",
       body: data,
       secure: true,
@@ -1711,6 +3741,53 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
+   * @tags equipment-param
+   * @name ApiEquipmentParamEquipmentParamRainConditionPost
+   * @summary 实时雨水情数据
+   * @request POST:/api/equipment-param/equipment-param-rain-condition
+   * @secure
+   */
+  apiEquipmentParamEquipmentParamRainConditionPost = (
+    data: EquipmentParamRainConditionQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<
+      ApiEquipmentParamEquipmentParamRainConditionPostData,
+      any
+    >({
+      path: `/api/equipment-param/equipment-param-rain-condition`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param
+   * @name ApiEquipmentParamGetEquipmentParamByIdPost
+   * @summary 根据监测因子ID获取监测因子详情
+   * @request POST:/api/equipment-param/get-equipment-param-by-id
+   * @secure
+   */
+  apiEquipmentParamGetEquipmentParamByIdPost = (
+    data: OnlyIdQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEquipmentParamGetEquipmentParamByIdPostData, any>({
+      path: `/api/equipment-param/get-equipment-param-by-id`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
    * @tags equipment-param-hd
    * @name ApiEquipmentParamHdAddPost
    * @summary 新增数据
@@ -1932,6 +4009,31 @@ export class Api<SecurityDataType = unknown> {
    * No description
    *
    * @tags equipment-param-md
+   * @name ApiEquipmentParamMdGetEquipmentParamMdListByIdPost
+   * @summary 根据因子获取分钟数据
+   * @request POST:/api/equipment-param-md/get-equipment-param-md-list-by-id
+   * @secure
+   */
+  apiEquipmentParamMdGetEquipmentParamMdListByIdPost = (
+    data: TimeAndIdQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<
+      ApiEquipmentParamMdGetEquipmentParamMdListByIdPostData,
+      any
+    >({
+      path: `/api/equipment-param-md/get-equipment-param-md-list-by-id`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param-md
    * @name ApiEquipmentParamMdListPost
    * @summary 查询全部对象
    * @request POST:/api/equipment-param-md/list
@@ -1965,6 +4067,56 @@ export class Api<SecurityDataType = unknown> {
   ) =>
     this.http.request<ApiEquipmentParamMdPagedListPostData, any>({
       path: `/api/equipment-param-md/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param-md
+   * @name ApiEquipmentParamMdQueryByWaterRainfallEigenvaluePost
+   * @summary 雨水情最新及特征测值
+   * @request POST:/api/equipment-param-md/query-by-water-rainfall-eigenvalue
+   * @secure
+   */
+  apiEquipmentParamMdQueryByWaterRainfallEigenvaluePost = (
+    data: EquipmentParamMdPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<
+      ApiEquipmentParamMdQueryByWaterRainfallEigenvaluePostData,
+      any
+    >({
+      path: `/api/equipment-param-md/query-by-water-rainfall-eigenvalue`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param-md
+   * @name ApiEquipmentParamMdQueryByWaterRainfallInformationPost
+   * @summary 雨水情统计
+   * @request POST:/api/equipment-param-md/query-by-water-rainfall-information
+   * @secure
+   */
+  apiEquipmentParamMdQueryByWaterRainfallInformationPost = (
+    data: EquipmentParamMdPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<
+      ApiEquipmentParamMdQueryByWaterRainfallInformationPostData,
+      any
+    >({
+      path: `/api/equipment-param-md/query-by-water-rainfall-information`,
       method: "POST",
       body: data,
       secure: true,
@@ -2053,6 +4205,28 @@ export class Api<SecurityDataType = unknown> {
   ) =>
     this.http.request<ApiEquipmentParamPagedListPostData, any>({
       path: `/api/equipment-param/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param
+   * @name ApiEquipmentParamRealTimeReportPost
+   * @summary 实时数据报表
+   * @request POST:/api/equipment-param/real-time-report
+   * @secure
+   */
+  apiEquipmentParamRealTimeReportPost = (
+    data: RealTimeReportQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEquipmentParamRealTimeReportPostData, any>({
+      path: `/api/equipment-param/real-time-report`,
       method: "POST",
       body: data,
       secure: true,
@@ -2183,4477 +4357,18 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags es-alarm-record
-   * @name ApiEsAlarmRecordAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-alarm-record/add
-   * @secure
-   */
-  apiEsAlarmRecordAddPost = (
-    data: EsAlarmRecordFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsAlarmRecordAddPostData, any>({
-      path: `/api/es-alarm-record/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-alarm-record
-   * @name ApiEsAlarmRecordEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-alarm-record/edit
-   * @secure
-   */
-  apiEsAlarmRecordEditPost = (
-    data: EsAlarmRecordFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsAlarmRecordEditPostData, any>({
-      path: `/api/es-alarm-record/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-alarm-record
-   * @name ApiEsAlarmRecordGetCountByMonthPost
-   * @summary 报警记录统计
-   * @request POST:/api/es-alarm-record/get-count-by-month
-   * @secure
-   */
-  apiEsAlarmRecordGetCountByMonthPost = (params: RequestParams = {}) =>
-    this.http.request<ApiEsAlarmRecordGetCountByMonthPostData, any>({
-      path: `/api/es-alarm-record/get-count-by-month`,
-      method: "POST",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-alarm-record
-   * @name ApiEsAlarmRecordListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-alarm-record/list
-   * @secure
-   */
-  apiEsAlarmRecordListPost = (
-    data: EsAlarmRecordQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsAlarmRecordListPostData, any>({
-      path: `/api/es-alarm-record/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-alarm-record
-   * @name ApiEsAlarmRecordPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-alarm-record/paged-list
-   * @secure
-   */
-  apiEsAlarmRecordPagedListPost = (
-    data: EsAlarmRecordPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsAlarmRecordPagedListPostData, any>({
-      path: `/api/es-alarm-record/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-alarm-record
-   * @name ApiEsAlarmRecordRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-alarm-record/remove-mul
-   * @secure
-   */
-  apiEsAlarmRecordRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsAlarmRecordRemoveMulPostData, any>({
-      path: `/api/es-alarm-record/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-alarm-record
-   * @name ApiEsAlarmRecordRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-alarm-record/remove
-   * @secure
-   */
-  apiEsAlarmRecordRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsAlarmRecordRemovePostData, any>({
-      path: `/api/es-alarm-record/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-alarm-record
-   * @name ApiEsAlarmRecordShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-alarm-record/show
-   * @secure
-   */
-  apiEsAlarmRecordShowPost = (
-    data: EsAlarmRecordQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsAlarmRecordShowPostData, any>({
-      path: `/api/es-alarm-record/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-fleet
-   * @name ApiEsFleetAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-fleet/add
-   * @secure
-   */
-  apiEsFleetAddPost = (data: EsFleetFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsFleetAddPostData, any>({
-      path: `/api/es-fleet/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-fleet
-   * @name ApiEsFleetEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-fleet/edit
-   * @secure
-   */
-  apiEsFleetEditPost = (data: EsFleetFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsFleetEditPostData, any>({
-      path: `/api/es-fleet/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-fleet
-   * @name ApiEsFleetListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-fleet/list
-   * @secure
-   */
-  apiEsFleetListPost = (data: EsFleetQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsFleetListPostData, any>({
-      path: `/api/es-fleet/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-fleet
-   * @name ApiEsFleetPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-fleet/paged-list
-   * @secure
-   */
-  apiEsFleetPagedListPost = (data: EsFleetPQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsFleetPagedListPostData, any>({
-      path: `/api/es-fleet/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-fleet
-   * @name ApiEsFleetRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-fleet/remove-mul
-   * @secure
-   */
-  apiEsFleetRemoveMulPost = (data: RemoveMulQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsFleetRemoveMulPostData, any>({
-      path: `/api/es-fleet/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-fleet
-   * @name ApiEsFleetRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-fleet/remove
-   * @secure
-   */
-  apiEsFleetRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsFleetRemovePostData, any>({
-      path: `/api/es-fleet/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-fleet
-   * @name ApiEsFleetShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-fleet/show
-   * @secure
-   */
-  apiEsFleetShowPost = (data: EsFleetQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsFleetShowPostData, any>({
-      path: `/api/es-fleet/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-garbage-category
-   * @name ApiEsGarbageCategoryListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-garbage-category/list
-   * @secure
-   */
-  apiEsGarbageCategoryListPost = (
-    data: EsGarbageCategoryQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGarbageCategoryListPostData, any>({
-      path: `/api/es-garbage-category/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-garbage-category
-   * @name ApiEsGarbageCategoryPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-garbage-category/paged-list
-   * @secure
-   */
-  apiEsGarbageCategoryPagedListPost = (
-    data: EsGarbageCategoryPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGarbageCategoryPagedListPostData, any>({
-      path: `/api/es-garbage-category/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-garbage-category
-   * @name ApiEsGarbageCategoryShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-garbage-category/show
-   * @secure
-   */
-  apiEsGarbageCategoryShowPost = (
-    data: EsGarbageCategoryQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGarbageCategoryShowPostData, any>({
-      path: `/api/es-garbage-category/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-garbage-category
-   * @name ApiEsGarbageCategoryTreedataPost
-   * @summary 获取树形结构数据
-   * @request POST:/api/es-garbage-category/treedata
-   * @secure
-   */
-  apiEsGarbageCategoryTreedataPost = (params: RequestParams = {}) =>
-    this.http.request<ApiEsGarbageCategoryTreedataPostData, any>({
-      path: `/api/es-garbage-category/treedata`,
-      method: "POST",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-garbage-type
-   * @name ApiEsGarbageTypeListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-garbage-type/list
-   * @secure
-   */
-  apiEsGarbageTypeListPost = (
-    data: EsGarbageTypeQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGarbageTypeListPostData, any>({
-      path: `/api/es-garbage-type/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-garbage-type
-   * @name ApiEsGarbageTypePagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-garbage-type/paged-list
-   * @secure
-   */
-  apiEsGarbageTypePagedListPost = (
-    data: EsGarbageTypePQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGarbageTypePagedListPostData, any>({
-      path: `/api/es-garbage-type/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-garbage-type
-   * @name ApiEsGarbageTypeShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-garbage-type/show
-   * @secure
-   */
-  apiEsGarbageTypeShowPost = (
-    data: EsGarbageTypeQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGarbageTypeShowPostData, any>({
-      path: `/api/es-garbage-type/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record
-   * @name ApiEsGpsAlarmRecordAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-gps-alarm-record/add
-   * @secure
-   */
-  apiEsGpsAlarmRecordAddPost = (
-    data: EsGpsAlarmRecordFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordAddPostData, any>({
-      path: `/api/es-gps-alarm-record/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record
-   * @name ApiEsGpsAlarmRecordEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-gps-alarm-record/edit
-   * @secure
-   */
-  apiEsGpsAlarmRecordEditPost = (
-    data: EsGpsAlarmRecordFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordEditPostData, any>({
-      path: `/api/es-gps-alarm-record/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record-file
-   * @name ApiEsGpsAlarmRecordFileAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-gps-alarm-record-file/add
-   * @secure
-   */
-  apiEsGpsAlarmRecordFileAddPost = (
-    data: EsGpsAlarmRecordFileFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordFileAddPostData, any>({
-      path: `/api/es-gps-alarm-record-file/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record-file
-   * @name ApiEsGpsAlarmRecordFileEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-gps-alarm-record-file/edit
-   * @secure
-   */
-  apiEsGpsAlarmRecordFileEditPost = (
-    data: EsGpsAlarmRecordFileFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordFileEditPostData, any>({
-      path: `/api/es-gps-alarm-record-file/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record-file
-   * @name ApiEsGpsAlarmRecordFileListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-gps-alarm-record-file/list
-   * @secure
-   */
-  apiEsGpsAlarmRecordFileListPost = (
-    data: EsGpsAlarmRecordFileQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordFileListPostData, any>({
-      path: `/api/es-gps-alarm-record-file/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record-file
-   * @name ApiEsGpsAlarmRecordFilePagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-gps-alarm-record-file/paged-list
-   * @secure
-   */
-  apiEsGpsAlarmRecordFilePagedListPost = (
-    data: EsGpsAlarmRecordFilePQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordFilePagedListPostData, any>({
-      path: `/api/es-gps-alarm-record-file/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record-file
-   * @name ApiEsGpsAlarmRecordFileRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-gps-alarm-record-file/remove-mul
-   * @secure
-   */
-  apiEsGpsAlarmRecordFileRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordFileRemoveMulPostData, any>({
-      path: `/api/es-gps-alarm-record-file/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record-file
-   * @name ApiEsGpsAlarmRecordFileRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-gps-alarm-record-file/remove
-   * @secure
-   */
-  apiEsGpsAlarmRecordFileRemovePost = (
-    data: OnlyIdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordFileRemovePostData, any>({
-      path: `/api/es-gps-alarm-record-file/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record-file
-   * @name ApiEsGpsAlarmRecordFileShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-gps-alarm-record-file/show
-   * @secure
-   */
-  apiEsGpsAlarmRecordFileShowPost = (
-    data: EsGpsAlarmRecordFileQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordFileShowPostData, any>({
-      path: `/api/es-gps-alarm-record-file/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record
-   * @name ApiEsGpsAlarmRecordGetGpsAlarmRecordPost
-   * @summary 获取GPS报警记录
-   * @request POST:/api/es-gps-alarm-record/get-gps-alarm-record
-   * @secure
-   */
-  apiEsGpsAlarmRecordGetGpsAlarmRecordPost = (
-    data: EsGpsAlarmRecordPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordGetGpsAlarmRecordPostData, any>({
-      path: `/api/es-gps-alarm-record/get-gps-alarm-record`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record
-   * @name ApiEsGpsAlarmRecordGroupByDayPost
-   * @summary 按日统计
-   * @request POST:/api/es-gps-alarm-record/group-by-day
-   * @secure
-   */
-  apiEsGpsAlarmRecordGroupByDayPost = (
-    data: GpsAlarmStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordGroupByDayPostData, any>({
-      path: `/api/es-gps-alarm-record/group-by-day`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record
-   * @name ApiEsGpsAlarmRecordGroupByLicencePost
-   * @summary 按车牌号统计
-   * @request POST:/api/es-gps-alarm-record/group-by-licence
-   * @secure
-   */
-  apiEsGpsAlarmRecordGroupByLicencePost = (
-    data: GpsAlarmStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordGroupByLicencePostData, any>({
-      path: `/api/es-gps-alarm-record/group-by-licence`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record
-   * @name ApiEsGpsAlarmRecordGroupByMonthPost
-   * @summary 按月统计
-   * @request POST:/api/es-gps-alarm-record/group-by-month
-   * @secure
-   */
-  apiEsGpsAlarmRecordGroupByMonthPost = (
-    data: GpsAlarmStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordGroupByMonthPostData, any>({
-      path: `/api/es-gps-alarm-record/group-by-month`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record
-   * @name ApiEsGpsAlarmRecordGroupByYearPost
-   * @summary 按年统计
-   * @request POST:/api/es-gps-alarm-record/group-by-year
-   * @secure
-   */
-  apiEsGpsAlarmRecordGroupByYearPost = (
-    data: GpsAlarmStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordGroupByYearPostData, any>({
-      path: `/api/es-gps-alarm-record/group-by-year`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record
-   * @name ApiEsGpsAlarmRecordListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-gps-alarm-record/list
-   * @secure
-   */
-  apiEsGpsAlarmRecordListPost = (
-    data: EsGpsAlarmRecordQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordListPostData, any>({
-      path: `/api/es-gps-alarm-record/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record
-   * @name ApiEsGpsAlarmRecordPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-gps-alarm-record/paged-list
-   * @secure
-   */
-  apiEsGpsAlarmRecordPagedListPost = (
-    data: EsGpsAlarmRecordPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordPagedListPostData, any>({
-      path: `/api/es-gps-alarm-record/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record
-   * @name ApiEsGpsAlarmRecordRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-gps-alarm-record/remove-mul
-   * @secure
-   */
-  apiEsGpsAlarmRecordRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordRemoveMulPostData, any>({
-      path: `/api/es-gps-alarm-record/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record
-   * @name ApiEsGpsAlarmRecordRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-gps-alarm-record/remove
-   * @secure
-   */
-  apiEsGpsAlarmRecordRemovePost = (
-    data: OnlyIdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordRemovePostData, any>({
-      path: `/api/es-gps-alarm-record/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-gps-alarm-record
-   * @name ApiEsGpsAlarmRecordShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-gps-alarm-record/show
-   * @secure
-   */
-  apiEsGpsAlarmRecordShowPost = (
-    data: EsGpsAlarmRecordQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsGpsAlarmRecordShowPostData, any>({
-      path: `/api/es-gps-alarm-record/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility
-   * @name ApiEsSanitationFacilityAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-sanitation-facility/add
-   * @secure
-   */
-  apiEsSanitationFacilityAddPost = (
-    data: EsSanitationFacilityFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityAddPostData, any>({
-      path: `/api/es-sanitation-facility/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility
-   * @name ApiEsSanitationFacilityEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-sanitation-facility/edit
-   * @secure
-   */
-  apiEsSanitationFacilityEditPost = (
-    data: EsSanitationFacilityFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityEditPostData, any>({
-      path: `/api/es-sanitation-facility/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility
-   * @name ApiEsSanitationFacilityListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-sanitation-facility/list
-   * @secure
-   */
-  apiEsSanitationFacilityListPost = (
-    data: EsSanitationFacilityQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityListPostData, any>({
-      path: `/api/es-sanitation-facility/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility
-   * @name ApiEsSanitationFacilityPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-sanitation-facility/paged-list
-   * @secure
-   */
-  apiEsSanitationFacilityPagedListPost = (
-    data: EsSanitationFacilityPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityPagedListPostData, any>({
-      path: `/api/es-sanitation-facility/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility
-   * @name ApiEsSanitationFacilityRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-sanitation-facility/remove-mul
-   * @secure
-   */
-  apiEsSanitationFacilityRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityRemoveMulPostData, any>({
-      path: `/api/es-sanitation-facility/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility
-   * @name ApiEsSanitationFacilityRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-sanitation-facility/remove
-   * @secure
-   */
-  apiEsSanitationFacilityRemovePost = (
-    data: OnlyIdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityRemovePostData, any>({
-      path: `/api/es-sanitation-facility/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility
-   * @name ApiEsSanitationFacilityShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-sanitation-facility/show
-   * @secure
-   */
-  apiEsSanitationFacilityShowPost = (
-    data: EsSanitationFacilityQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityShowPostData, any>({
-      path: `/api/es-sanitation-facility/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility-type
-   * @name ApiEsSanitationFacilityTypeAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-sanitation-facility-type/add
-   * @secure
-   */
-  apiEsSanitationFacilityTypeAddPost = (
-    data: EsSanitationFacilityTypeFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityTypeAddPostData, any>({
-      path: `/api/es-sanitation-facility-type/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility-type
-   * @name ApiEsSanitationFacilityTypeEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-sanitation-facility-type/edit
-   * @secure
-   */
-  apiEsSanitationFacilityTypeEditPost = (
-    data: EsSanitationFacilityTypeFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityTypeEditPostData, any>({
-      path: `/api/es-sanitation-facility-type/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility-type
-   * @name ApiEsSanitationFacilityTypeListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-sanitation-facility-type/list
-   * @secure
-   */
-  apiEsSanitationFacilityTypeListPost = (
-    data: EsSanitationFacilityTypeQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityTypeListPostData, any>({
-      path: `/api/es-sanitation-facility-type/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility-type
-   * @name ApiEsSanitationFacilityTypePagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-sanitation-facility-type/paged-list
-   * @secure
-   */
-  apiEsSanitationFacilityTypePagedListPost = (
-    data: EsSanitationFacilityTypePQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityTypePagedListPostData, any>({
-      path: `/api/es-sanitation-facility-type/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility-type
-   * @name ApiEsSanitationFacilityTypeRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-sanitation-facility-type/remove-mul
-   * @secure
-   */
-  apiEsSanitationFacilityTypeRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityTypeRemoveMulPostData, any>({
-      path: `/api/es-sanitation-facility-type/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility-type
-   * @name ApiEsSanitationFacilityTypeRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-sanitation-facility-type/remove
-   * @secure
-   */
-  apiEsSanitationFacilityTypeRemovePost = (
-    data: OnlyIdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityTypeRemovePostData, any>({
-      path: `/api/es-sanitation-facility-type/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-sanitation-facility-type
-   * @name ApiEsSanitationFacilityTypeShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-sanitation-facility-type/show
-   * @secure
-   */
-  apiEsSanitationFacilityTypeShowPost = (
-    data: EsSanitationFacilityTypeQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsSanitationFacilityTypeShowPostData, any>({
-      path: `/api/es-sanitation-facility-type/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship
-   * @name ApiEsShipAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-ship/add
-   * @secure
-   */
-  apiEsShipAddPost = (data: EsShipFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsShipAddPostData, any>({
-      path: `/api/es-ship/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship
-   * @name ApiEsShipEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-ship/edit
-   * @secure
-   */
-  apiEsShipEditPost = (data: EsShipFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsShipEditPostData, any>({
-      path: `/api/es-ship/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship
-   * @name ApiEsShipListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-ship/list
-   * @secure
-   */
-  apiEsShipListPost = (data: EsShipQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsShipListPostData, any>({
-      path: `/api/es-ship/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship
-   * @name ApiEsShipPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-ship/paged-list
-   * @secure
-   */
-  apiEsShipPagedListPost = (data: EsShipPQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsShipPagedListPostData, any>({
-      path: `/api/es-ship/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship-realtime
-   * @name ApiEsShipRealtimeAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-ship-realtime/add
-   * @secure
-   */
-  apiEsShipRealtimeAddPost = (
-    data: EsShipRealtimeFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsShipRealtimeAddPostData, any>({
-      path: `/api/es-ship-realtime/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship-realtime
-   * @name ApiEsShipRealtimeEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-ship-realtime/edit
-   * @secure
-   */
-  apiEsShipRealtimeEditPost = (
-    data: EsShipRealtimeFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsShipRealtimeEditPostData, any>({
-      path: `/api/es-ship-realtime/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship-realtime
-   * @name ApiEsShipRealtimeListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-ship-realtime/list
-   * @secure
-   */
-  apiEsShipRealtimeListPost = (
-    data: EsShipRealtimeQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsShipRealtimeListPostData, any>({
-      path: `/api/es-ship-realtime/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship-realtime
-   * @name ApiEsShipRealtimePagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-ship-realtime/paged-list
-   * @secure
-   */
-  apiEsShipRealtimePagedListPost = (
-    data: EsShipRealtimePQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsShipRealtimePagedListPostData, any>({
-      path: `/api/es-ship-realtime/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship-realtime
-   * @name ApiEsShipRealtimeRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-ship-realtime/remove-mul
-   * @secure
-   */
-  apiEsShipRealtimeRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsShipRealtimeRemoveMulPostData, any>({
-      path: `/api/es-ship-realtime/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship-realtime
-   * @name ApiEsShipRealtimeRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-ship-realtime/remove
-   * @secure
-   */
-  apiEsShipRealtimeRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsShipRealtimeRemovePostData, any>({
-      path: `/api/es-ship-realtime/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship-realtime
-   * @name ApiEsShipRealtimeShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-ship-realtime/show
-   * @secure
-   */
-  apiEsShipRealtimeShowPost = (
-    data: EsShipRealtimeQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsShipRealtimeShowPostData, any>({
-      path: `/api/es-ship-realtime/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship
-   * @name ApiEsShipRemovePost
-   * @summary 删除数据
-   * @request POST:/api/es-ship/remove
-   * @secure
-   */
-  apiEsShipRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsShipRemovePostData, any>({
-      path: `/api/es-ship/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-ship
-   * @name ApiEsShipShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-ship/show
-   * @secure
-   */
-  apiEsShipShowPost = (data: EsShipQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsShipShowPostData, any>({
-      path: `/api/es-ship/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle
-   * @name ApiEsVehicleAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-vehicle/add
-   * @secure
-   */
-  apiEsVehicleAddPost = (data: EsVehicleFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsVehicleAddPostData, any>({
-      path: `/api/es-vehicle/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-dp-record
-   * @name ApiEsVehicleDpRecordAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-vehicle-dp-record/add
-   * @secure
-   */
-  apiEsVehicleDpRecordAddPost = (
-    data: EsVehicleDpRecordFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleDpRecordAddPostData, any>({
-      path: `/api/es-vehicle-dp-record/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-dp-record
-   * @name ApiEsVehicleDpRecordEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-vehicle-dp-record/edit
-   * @secure
-   */
-  apiEsVehicleDpRecordEditPost = (
-    data: EsVehicleDpRecordFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleDpRecordEditPostData, any>({
-      path: `/api/es-vehicle-dp-record/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-dp-record
-   * @name ApiEsVehicleDpRecordListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-vehicle-dp-record/list
-   * @secure
-   */
-  apiEsVehicleDpRecordListPost = (
-    data: EsVehicleDpRecordQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleDpRecordListPostData, any>({
-      path: `/api/es-vehicle-dp-record/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-dp-record
-   * @name ApiEsVehicleDpRecordPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-vehicle-dp-record/paged-list
-   * @secure
-   */
-  apiEsVehicleDpRecordPagedListPost = (
-    data: EsVehicleDpRecordPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleDpRecordPagedListPostData, any>({
-      path: `/api/es-vehicle-dp-record/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-dp-record
-   * @name ApiEsVehicleDpRecordShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-vehicle-dp-record/show
-   * @secure
-   */
-  apiEsVehicleDpRecordShowPost = (
-    data: EsVehicleDpRecordQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleDpRecordShowPostData, any>({
-      path: `/api/es-vehicle-dp-record/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle
-   * @name ApiEsVehicleEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-vehicle/edit
-   * @secure
-   */
-  apiEsVehicleEditPost = (data: EsVehicleFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsVehicleEditPostData, any>({
-      path: `/api/es-vehicle/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle
-   * @name ApiEsVehicleGetVehicleCountByTypeNamePost
-   * @summary 获取车辆类型数量
-   * @request POST:/api/es-vehicle/get-vehicle-count-by-type-name
-   * @secure
-   */
-  apiEsVehicleGetVehicleCountByTypeNamePost = (params: RequestParams = {}) =>
-    this.http.request<ApiEsVehicleGetVehicleCountByTypeNamePostData, any>({
-      path: `/api/es-vehicle/get-vehicle-count-by-type-name`,
-      method: "POST",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle
-   * @name ApiEsVehicleGetVehicleCountByTypePost
-   * @summary 获取车辆类型数量
-   * @request POST:/api/es-vehicle/get-vehicle-count-by-type
-   * @secure
-   */
-  apiEsVehicleGetVehicleCountByTypePost = (params: RequestParams = {}) =>
-    this.http.request<ApiEsVehicleGetVehicleCountByTypePostData, any>({
-      path: `/api/es-vehicle/get-vehicle-count-by-type`,
-      method: "POST",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-lc-record
-   * @name ApiEsVehicleLcRecordAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-vehicle-lc-record/add
-   * @secure
-   */
-  apiEsVehicleLcRecordAddPost = (
-    data: EsVehicleLcRecordFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleLcRecordAddPostData, any>({
-      path: `/api/es-vehicle-lc-record/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-lc-record
-   * @name ApiEsVehicleLcRecordEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-vehicle-lc-record/edit
-   * @secure
-   */
-  apiEsVehicleLcRecordEditPost = (
-    data: EsVehicleLcRecordFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleLcRecordEditPostData, any>({
-      path: `/api/es-vehicle-lc-record/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-lc-record
-   * @name ApiEsVehicleLcRecordGroupByDayPost
-   * @summary 按日统计
-   * @request POST:/api/es-vehicle-lc-record/group-by-day
-   * @secure
-   */
-  apiEsVehicleLcRecordGroupByDayPost = (
-    data: EsVehicleLcRecordStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleLcRecordGroupByDayPostData, any>({
-      path: `/api/es-vehicle-lc-record/group-by-day`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-lc-record
-   * @name ApiEsVehicleLcRecordGroupByMonthPost
-   * @summary 按月统计
-   * @request POST:/api/es-vehicle-lc-record/group-by-month
-   * @secure
-   */
-  apiEsVehicleLcRecordGroupByMonthPost = (
-    data: EsVehicleLcRecordStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleLcRecordGroupByMonthPostData, any>({
-      path: `/api/es-vehicle-lc-record/group-by-month`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-lc-record
-   * @name ApiEsVehicleLcRecordGroupByYearPost
-   * @summary 按年统计
-   * @request POST:/api/es-vehicle-lc-record/group-by-year
-   * @secure
-   */
-  apiEsVehicleLcRecordGroupByYearPost = (
-    data: EsVehicleLcRecordStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleLcRecordGroupByYearPostData, any>({
-      path: `/api/es-vehicle-lc-record/group-by-year`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-lc-record
-   * @name ApiEsVehicleLcRecordListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-vehicle-lc-record/list
-   * @secure
-   */
-  apiEsVehicleLcRecordListPost = (
-    data: EsVehicleLcRecordQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleLcRecordListPostData, any>({
-      path: `/api/es-vehicle-lc-record/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-lc-record
-   * @name ApiEsVehicleLcRecordPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-vehicle-lc-record/paged-list
-   * @secure
-   */
-  apiEsVehicleLcRecordPagedListPost = (
-    data: EsVehicleLcRecordPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleLcRecordPagedListPostData, any>({
-      path: `/api/es-vehicle-lc-record/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-lc-record
-   * @name ApiEsVehicleLcRecordRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-vehicle-lc-record/remove-mul
-   * @secure
-   */
-  apiEsVehicleLcRecordRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleLcRecordRemoveMulPostData, any>({
-      path: `/api/es-vehicle-lc-record/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-lc-record
-   * @name ApiEsVehicleLcRecordRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-vehicle-lc-record/remove
-   * @secure
-   */
-  apiEsVehicleLcRecordRemovePost = (
-    data: OnlyIdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleLcRecordRemovePostData, any>({
-      path: `/api/es-vehicle-lc-record/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-lc-record
-   * @name ApiEsVehicleLcRecordShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-vehicle-lc-record/show
-   * @secure
-   */
-  apiEsVehicleLcRecordShowPost = (
-    data: EsVehicleLcRecordQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleLcRecordShowPostData, any>({
-      path: `/api/es-vehicle-lc-record/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle
-   * @name ApiEsVehicleListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-vehicle/list
-   * @secure
-   */
-  apiEsVehicleListPost = (data: EsVehicleQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsVehicleListPostData, any>({
-      path: `/api/es-vehicle/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle
-   * @name ApiEsVehiclePagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-vehicle/paged-list
-   * @secure
-   */
-  apiEsVehiclePagedListPost = (
-    data: EsVehiclePQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehiclePagedListPostData, any>({
-      path: `/api/es-vehicle/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-realtime
-   * @name ApiEsVehicleRealtimeAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-vehicle-realtime/add
-   * @secure
-   */
-  apiEsVehicleRealtimeAddPost = (
-    data: EsVehicleRealtimeFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleRealtimeAddPostData, any>({
-      path: `/api/es-vehicle-realtime/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-realtime
-   * @name ApiEsVehicleRealtimeEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-vehicle-realtime/edit
-   * @secure
-   */
-  apiEsVehicleRealtimeEditPost = (
-    data: EsVehicleRealtimeFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleRealtimeEditPostData, any>({
-      path: `/api/es-vehicle-realtime/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-realtime
-   * @name ApiEsVehicleRealtimeListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-vehicle-realtime/list
-   * @secure
-   */
-  apiEsVehicleRealtimeListPost = (
-    data: EsVehicleRealtimeQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleRealtimeListPostData, any>({
-      path: `/api/es-vehicle-realtime/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-realtime
-   * @name ApiEsVehicleRealtimePagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-vehicle-realtime/paged-list
-   * @secure
-   */
-  apiEsVehicleRealtimePagedListPost = (
-    data: EsVehicleRealtimePQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleRealtimePagedListPostData, any>({
-      path: `/api/es-vehicle-realtime/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-realtime
-   * @name ApiEsVehicleRealtimeRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-vehicle-realtime/remove-mul
-   * @secure
-   */
-  apiEsVehicleRealtimeRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleRealtimeRemoveMulPostData, any>({
-      path: `/api/es-vehicle-realtime/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-realtime
-   * @name ApiEsVehicleRealtimeRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-vehicle-realtime/remove
-   * @secure
-   */
-  apiEsVehicleRealtimeRemovePost = (
-    data: OnlyIdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleRealtimeRemovePostData, any>({
-      path: `/api/es-vehicle-realtime/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-realtime
-   * @name ApiEsVehicleRealtimeShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-vehicle-realtime/show
-   * @secure
-   */
-  apiEsVehicleRealtimeShowPost = (
-    data: EsVehicleRealtimeQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleRealtimeShowPostData, any>({
-      path: `/api/es-vehicle-realtime/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle-realtime
-   * @name ApiEsVehicleRealtimeVehicleStateStPost
-   * @summary 获取车辆状态统计
-   * @request POST:/api/es-vehicle-realtime/vehicle-state-st
-   * @secure
-   */
-  apiEsVehicleRealtimeVehicleStateStPost = (
-    data: EsVehicleRealtimeQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsVehicleRealtimeVehicleStateStPostData, any>({
-      path: `/api/es-vehicle-realtime/vehicle-state-st`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle
-   * @name ApiEsVehicleRemovePost
-   * @summary 删除数据
-   * @request POST:/api/es-vehicle/remove
-   * @secure
-   */
-  apiEsVehicleRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsVehicleRemovePostData, any>({
-      path: `/api/es-vehicle/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle
-   * @name ApiEsVehicleShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-vehicle/show
-   * @secure
-   */
-  apiEsVehicleShowPost = (data: EsVehicleQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsVehicleShowPostData, any>({
-      path: `/api/es-vehicle/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-vehicle
-   * @name ApiEsVehicleTrackPost
-   * @summary 查询轨迹
-   * @request POST:/api/es-vehicle/track
-   * @secure
-   */
-  apiEsVehicleTrackPost = (data: TrackQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsVehicleTrackPostData, any>({
-      path: `/api/es-vehicle/track`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-weight-record/add
-   * @secure
-   */
-  apiEsWeightRecordAddPost = (
-    data: EsWeightRecordFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWeightRecordAddPostData, any>({
-      path: `/api/es-weight-record/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-weight-record/edit
-   * @secure
-   */
-  apiEsWeightRecordEditPost = (
-    data: EsWeightRecordFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWeightRecordEditPostData, any>({
-      path: `/api/es-weight-record/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordGroupByDayPost
-   * @summary 按日统计
-   * @request POST:/api/es-weight-record/group-by-day
-   * @secure
-   */
-  apiEsWeightRecordGroupByDayPost = (
-    data: EsWeightRecordStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWeightRecordGroupByDayPostData, any>({
-      path: `/api/es-weight-record/group-by-day`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordGroupByLicencePost
-   * @summary 按车牌号统计
-   * @request POST:/api/es-weight-record/group-by-licence
-   * @secure
-   */
-  apiEsWeightRecordGroupByLicencePost = (
-    data: EsWeightRecordStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWeightRecordGroupByLicencePostData, any>({
-      path: `/api/es-weight-record/group-by-licence`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordGroupByMonthPost
-   * @summary 按月统计
-   * @request POST:/api/es-weight-record/group-by-month
-   * @secure
-   */
-  apiEsWeightRecordGroupByMonthPost = (
-    data: EsWeightRecordStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWeightRecordGroupByMonthPostData, any>({
-      path: `/api/es-weight-record/group-by-month`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordGroupByYearPost
-   * @summary 按年统计
-   * @request POST:/api/es-weight-record/group-by-year
-   * @secure
-   */
-  apiEsWeightRecordGroupByYearPost = (
-    data: EsWeightRecordStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWeightRecordGroupByYearPostData, any>({
-      path: `/api/es-weight-record/group-by-year`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-weight-record/list
-   * @secure
-   */
-  apiEsWeightRecordListPost = (
-    data: EsWeightRecordQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWeightRecordListPostData, any>({
-      path: `/api/es-weight-record/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordMainStPost
-   * @summary 综合数据总览
-   * @request POST:/api/es-weight-record/main-st
-   * @secure
-   */
-  apiEsWeightRecordMainStPost = (
-    data: WrMainStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWeightRecordMainStPostData, any>({
-      path: `/api/es-weight-record/main-st`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-weight-record/paged-list
-   * @secure
-   */
-  apiEsWeightRecordPagedListPost = (
-    data: EsWeightRecordPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWeightRecordPagedListPostData, any>({
-      path: `/api/es-weight-record/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordQueryStatisticsPost
-   * @summary 进站情况统计
-   * @request POST:/api/es-weight-record/query-statistics
-   * @secure
-   */
-  apiEsWeightRecordQueryStatisticsPost = (
-    data: EsWeightRecordQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWeightRecordQueryStatisticsPostData, any>({
-      path: `/api/es-weight-record/query-statistics`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-weight-record/remove-mul
-   * @secure
-   */
-  apiEsWeightRecordRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWeightRecordRemoveMulPostData, any>({
-      path: `/api/es-weight-record/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-weight-record/remove
-   * @secure
-   */
-  apiEsWeightRecordRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWeightRecordRemovePostData, any>({
-      path: `/api/es-weight-record/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-weight-record
-   * @name ApiEsWeightRecordShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-weight-record/show
-   * @secure
-   */
-  apiEsWeightRecordShowPost = (
-    data: EsWeightRecordQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWeightRecordShowPostData, any>({
-      path: `/api/es-weight-record/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-pw
-   * @name ApiEsWorkPlanPwAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-work-plan-pw/add
-   * @secure
-   */
-  apiEsWorkPlanPwAddPost = (data: EsWorkPlanPwFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkPlanPwAddPostData, any>({
-      path: `/api/es-work-plan-pw/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-pw
-   * @name ApiEsWorkPlanPwEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-work-plan-pw/edit
-   * @secure
-   */
-  apiEsWorkPlanPwEditPost = (
-    data: EsWorkPlanPwFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanPwEditPostData, any>({
-      path: `/api/es-work-plan-pw/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-pw
-   * @name ApiEsWorkPlanPwGroupByDayPost
-   * @summary 按日统计
-   * @request POST:/api/es-work-plan-pw/group-by-day
-   * @secure
-   */
-  apiEsWorkPlanPwGroupByDayPost = (
-    data: EsWorkPlanPwStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanPwGroupByDayPostData, any>({
-      path: `/api/es-work-plan-pw/group-by-day`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-pw
-   * @name ApiEsWorkPlanPwGroupByMonthPost
-   * @summary 按月统计
-   * @request POST:/api/es-work-plan-pw/group-by-month
-   * @secure
-   */
-  apiEsWorkPlanPwGroupByMonthPost = (
-    data: EsWorkPlanPwStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanPwGroupByMonthPostData, any>({
-      path: `/api/es-work-plan-pw/group-by-month`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-pw
-   * @name ApiEsWorkPlanPwGroupByYearPost
-   * @summary 按年统计
-   * @request POST:/api/es-work-plan-pw/group-by-year
-   * @secure
-   */
-  apiEsWorkPlanPwGroupByYearPost = (
-    data: EsWorkPlanPwStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanPwGroupByYearPostData, any>({
-      path: `/api/es-work-plan-pw/group-by-year`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-pw
-   * @name ApiEsWorkPlanPwListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-work-plan-pw/list
-   * @secure
-   */
-  apiEsWorkPlanPwListPost = (
-    data: EsWorkPlanPwQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanPwListPostData, any>({
-      path: `/api/es-work-plan-pw/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-pw
-   * @name ApiEsWorkPlanPwPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-work-plan-pw/paged-list
-   * @secure
-   */
-  apiEsWorkPlanPwPagedListPost = (
-    data: EsWorkPlanPwPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanPwPagedListPostData, any>({
-      path: `/api/es-work-plan-pw/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-pw
-   * @name ApiEsWorkPlanPwRemovePost
-   * @summary 删除数据
-   * @request POST:/api/es-work-plan-pw/remove
-   * @secure
-   */
-  apiEsWorkPlanPwRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkPlanPwRemovePostData, any>({
-      path: `/api/es-work-plan-pw/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-pw
-   * @name ApiEsWorkPlanPwSaveListPost
-   * @summary 保存数据
-   * @request POST:/api/es-work-plan-pw/save-list
-   * @secure
-   */
-  apiEsWorkPlanPwSaveListPost = (
-    data: WpPwSaveFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanPwSaveListPostData, any>({
-      path: `/api/es-work-plan-pw/save-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-pw
-   * @name ApiEsWorkPlanPwShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-work-plan-pw/show
-   * @secure
-   */
-  apiEsWorkPlanPwShowPost = (
-    data: EsWorkPlanPwQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanPwShowPostData, any>({
-      path: `/api/es-work-plan-pw/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-sw
-   * @name ApiEsWorkPlanSwAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-work-plan-sw/add
-   * @secure
-   */
-  apiEsWorkPlanSwAddPost = (data: EsWorkPlanSwFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkPlanSwAddPostData, any>({
-      path: `/api/es-work-plan-sw/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-sw
-   * @name ApiEsWorkPlanSwEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-work-plan-sw/edit
-   * @secure
-   */
-  apiEsWorkPlanSwEditPost = (
-    data: EsWorkPlanSwFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanSwEditPostData, any>({
-      path: `/api/es-work-plan-sw/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-sw
-   * @name ApiEsWorkPlanSwGroupByDayPost
-   * @summary 按日统计
-   * @request POST:/api/es-work-plan-sw/group-by-day
-   * @secure
-   */
-  apiEsWorkPlanSwGroupByDayPost = (
-    data: EsWorkPlanSwStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanSwGroupByDayPostData, any>({
-      path: `/api/es-work-plan-sw/group-by-day`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-sw
-   * @name ApiEsWorkPlanSwGroupByMonthPost
-   * @summary 按月统计
-   * @request POST:/api/es-work-plan-sw/group-by-month
-   * @secure
-   */
-  apiEsWorkPlanSwGroupByMonthPost = (
-    data: EsWorkPlanSwStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanSwGroupByMonthPostData, any>({
-      path: `/api/es-work-plan-sw/group-by-month`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-sw
-   * @name ApiEsWorkPlanSwGroupByYearPost
-   * @summary 按年统计
-   * @request POST:/api/es-work-plan-sw/group-by-year
-   * @secure
-   */
-  apiEsWorkPlanSwGroupByYearPost = (
-    data: EsWorkPlanSwStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanSwGroupByYearPostData, any>({
-      path: `/api/es-work-plan-sw/group-by-year`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-sw
-   * @name ApiEsWorkPlanSwListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-work-plan-sw/list
-   * @secure
-   */
-  apiEsWorkPlanSwListPost = (
-    data: EsWorkPlanSwQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanSwListPostData, any>({
-      path: `/api/es-work-plan-sw/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-sw
-   * @name ApiEsWorkPlanSwPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-work-plan-sw/paged-list
-   * @secure
-   */
-  apiEsWorkPlanSwPagedListPost = (
-    data: EsWorkPlanSwPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanSwPagedListPostData, any>({
-      path: `/api/es-work-plan-sw/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-sw
-   * @name ApiEsWorkPlanSwRemovePost
-   * @summary 删除数据
-   * @request POST:/api/es-work-plan-sw/remove
-   * @secure
-   */
-  apiEsWorkPlanSwRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkPlanSwRemovePostData, any>({
-      path: `/api/es-work-plan-sw/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-sw
-   * @name ApiEsWorkPlanSwSaveListPost
-   * @summary 保存数据
-   * @request POST:/api/es-work-plan-sw/save-list
-   * @secure
-   */
-  apiEsWorkPlanSwSaveListPost = (
-    data: WpSwSaveFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanSwSaveListPostData, any>({
-      path: `/api/es-work-plan-sw/save-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-sw
-   * @name ApiEsWorkPlanSwShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-work-plan-sw/show
-   * @secure
-   */
-  apiEsWorkPlanSwShowPost = (
-    data: EsWorkPlanSwQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanSwShowPostData, any>({
-      path: `/api/es-work-plan-sw/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-vw
-   * @name ApiEsWorkPlanVwAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-work-plan-vw/add
-   * @secure
-   */
-  apiEsWorkPlanVwAddPost = (data: EsWorkPlanVwFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkPlanVwAddPostData, any>({
-      path: `/api/es-work-plan-vw/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-vw
-   * @name ApiEsWorkPlanVwEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-work-plan-vw/edit
-   * @secure
-   */
-  apiEsWorkPlanVwEditPost = (
-    data: EsWorkPlanVwFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanVwEditPostData, any>({
-      path: `/api/es-work-plan-vw/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-vw
-   * @name ApiEsWorkPlanVwGroupByDayPost
-   * @summary 按日统计
-   * @request POST:/api/es-work-plan-vw/group-by-day
-   * @secure
-   */
-  apiEsWorkPlanVwGroupByDayPost = (
-    data: EsWorkPlanVwStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanVwGroupByDayPostData, any>({
-      path: `/api/es-work-plan-vw/group-by-day`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-vw
-   * @name ApiEsWorkPlanVwGroupByMonthPost
-   * @summary 按月统计
-   * @request POST:/api/es-work-plan-vw/group-by-month
-   * @secure
-   */
-  apiEsWorkPlanVwGroupByMonthPost = (
-    data: EsWorkPlanVwStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanVwGroupByMonthPostData, any>({
-      path: `/api/es-work-plan-vw/group-by-month`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-vw
-   * @name ApiEsWorkPlanVwGroupByYearPost
-   * @summary 按年统计
-   * @request POST:/api/es-work-plan-vw/group-by-year
-   * @secure
-   */
-  apiEsWorkPlanVwGroupByYearPost = (
-    data: EsWorkPlanVwStQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanVwGroupByYearPostData, any>({
-      path: `/api/es-work-plan-vw/group-by-year`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-vw
-   * @name ApiEsWorkPlanVwListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-work-plan-vw/list
-   * @secure
-   */
-  apiEsWorkPlanVwListPost = (
-    data: EsWorkPlanVwQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanVwListPostData, any>({
-      path: `/api/es-work-plan-vw/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-vw
-   * @name ApiEsWorkPlanVwPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-work-plan-vw/paged-list
-   * @secure
-   */
-  apiEsWorkPlanVwPagedListPost = (
-    data: EsWorkPlanVwPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanVwPagedListPostData, any>({
-      path: `/api/es-work-plan-vw/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-vw
-   * @name ApiEsWorkPlanVwRemovePost
-   * @summary 删除数据
-   * @request POST:/api/es-work-plan-vw/remove
-   * @secure
-   */
-  apiEsWorkPlanVwRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkPlanVwRemovePostData, any>({
-      path: `/api/es-work-plan-vw/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-vw
-   * @name ApiEsWorkPlanVwSaveListPost
-   * @summary 保存数据
-   * @request POST:/api/es-work-plan-vw/save-list
-   * @secure
-   */
-  apiEsWorkPlanVwSaveListPost = (
-    data: WpVwSaveFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanVwSaveListPostData, any>({
-      path: `/api/es-work-plan-vw/save-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-plan-vw
-   * @name ApiEsWorkPlanVwShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-work-plan-vw/show
-   * @secure
-   */
-  apiEsWorkPlanVwShowPost = (
-    data: EsWorkPlanVwQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkPlanVwShowPostData, any>({
-      path: `/api/es-work-plan-vw/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-route
-   * @name ApiEsWorkRouteAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-work-route/add
-   * @secure
-   */
-  apiEsWorkRouteAddPost = (data: EsWorkRouteFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkRouteAddPostData, any>({
-      path: `/api/es-work-route/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-route
-   * @name ApiEsWorkRouteEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-work-route/edit
-   * @secure
-   */
-  apiEsWorkRouteEditPost = (data: EsWorkRouteFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkRouteEditPostData, any>({
-      path: `/api/es-work-route/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-route
-   * @name ApiEsWorkRouteListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-work-route/list
-   * @secure
-   */
-  apiEsWorkRouteListPost = (data: EsWorkRouteQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkRouteListPostData, any>({
-      path: `/api/es-work-route/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-route
-   * @name ApiEsWorkRoutePagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-work-route/paged-list
-   * @secure
-   */
-  apiEsWorkRoutePagedListPost = (
-    data: EsWorkRoutePQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkRoutePagedListPostData, any>({
-      path: `/api/es-work-route/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-route-point
-   * @name ApiEsWorkRoutePointListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-work-route-point/list
-   * @secure
-   */
-  apiEsWorkRoutePointListPost = (
-    data: EsWorkRoutePointQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkRoutePointListPostData, any>({
-      path: `/api/es-work-route-point/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-route-point
-   * @name ApiEsWorkRoutePointPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-work-route-point/paged-list
-   * @secure
-   */
-  apiEsWorkRoutePointPagedListPost = (
-    data: EsWorkRoutePointPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkRoutePointPagedListPostData, any>({
-      path: `/api/es-work-route-point/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-route-point
-   * @name ApiEsWorkRoutePointShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-work-route-point/show
-   * @secure
-   */
-  apiEsWorkRoutePointShowPost = (
-    data: EsWorkRoutePointQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkRoutePointShowPostData, any>({
-      path: `/api/es-work-route-point/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-route
-   * @name ApiEsWorkRouteRemovePost
-   * @summary 删除数据
-   * @request POST:/api/es-work-route/remove
-   * @secure
-   */
-  apiEsWorkRouteRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkRouteRemovePostData, any>({
-      path: `/api/es-work-route/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-route
-   * @name ApiEsWorkRouteShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-work-route/show
-   * @secure
-   */
-  apiEsWorkRouteShowPost = (data: EsWorkRouteQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkRouteShowPostData, any>({
-      path: `/api/es-work-route/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-rule
-   * @name ApiEsWorkRuleAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-work-rule/add
-   * @secure
-   */
-  apiEsWorkRuleAddPost = (data: EsWorkRuleFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkRuleAddPostData, any>({
-      path: `/api/es-work-rule/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-rule
-   * @name ApiEsWorkRuleEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-work-rule/edit
-   * @secure
-   */
-  apiEsWorkRuleEditPost = (data: EsWorkRuleFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkRuleEditPostData, any>({
-      path: `/api/es-work-rule/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-rule
-   * @name ApiEsWorkRuleListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-work-rule/list
-   * @secure
-   */
-  apiEsWorkRuleListPost = (data: EsWorkRuleQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkRuleListPostData, any>({
-      path: `/api/es-work-rule/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-rule
-   * @name ApiEsWorkRulePagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-work-rule/paged-list
-   * @secure
-   */
-  apiEsWorkRulePagedListPost = (
-    data: EsWorkRulePQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkRulePagedListPostData, any>({
-      path: `/api/es-work-rule/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-rule
-   * @name ApiEsWorkRuleRemovePost
-   * @summary 删除数据
-   * @request POST:/api/es-work-rule/remove
-   * @secure
-   */
-  apiEsWorkRuleRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkRuleRemovePostData, any>({
-      path: `/api/es-work-rule/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-rule
-   * @name ApiEsWorkRuleShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-work-rule/show
-   * @secure
-   */
-  apiEsWorkRuleShowPost = (data: EsWorkRuleQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkRuleShowPostData, any>({
-      path: `/api/es-work-rule/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-pw
-   * @name ApiEsWorkShiftPwAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-work-shift-pw/add
-   * @secure
-   */
-  apiEsWorkShiftPwAddPost = (
-    data: EsWorkShiftPwFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftPwAddPostData, any>({
-      path: `/api/es-work-shift-pw/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-pw
-   * @name ApiEsWorkShiftPwEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-work-shift-pw/edit
-   * @secure
-   */
-  apiEsWorkShiftPwEditPost = (
-    data: EsWorkShiftPwFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftPwEditPostData, any>({
-      path: `/api/es-work-shift-pw/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-pw
-   * @name ApiEsWorkShiftPwListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-work-shift-pw/list
-   * @secure
-   */
-  apiEsWorkShiftPwListPost = (
-    data: EsWorkShiftPwQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftPwListPostData, any>({
-      path: `/api/es-work-shift-pw/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-pw
-   * @name ApiEsWorkShiftPwPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-work-shift-pw/paged-list
-   * @secure
-   */
-  apiEsWorkShiftPwPagedListPost = (
-    data: EsWorkShiftPwPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftPwPagedListPostData, any>({
-      path: `/api/es-work-shift-pw/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-pw
-   * @name ApiEsWorkShiftPwRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-work-shift-pw/remove-mul
-   * @secure
-   */
-  apiEsWorkShiftPwRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftPwRemoveMulPostData, any>({
-      path: `/api/es-work-shift-pw/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-pw
-   * @name ApiEsWorkShiftPwRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-work-shift-pw/remove
-   * @secure
-   */
-  apiEsWorkShiftPwRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkShiftPwRemovePostData, any>({
-      path: `/api/es-work-shift-pw/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-pw
-   * @name ApiEsWorkShiftPwShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-work-shift-pw/show
-   * @secure
-   */
-  apiEsWorkShiftPwShowPost = (
-    data: EsWorkShiftPwQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftPwShowPostData, any>({
-      path: `/api/es-work-shift-pw/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-sw
-   * @name ApiEsWorkShiftSwAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-work-shift-sw/add
-   * @secure
-   */
-  apiEsWorkShiftSwAddPost = (
-    data: EsWorkShiftSwFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftSwAddPostData, any>({
-      path: `/api/es-work-shift-sw/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-sw
-   * @name ApiEsWorkShiftSwEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-work-shift-sw/edit
-   * @secure
-   */
-  apiEsWorkShiftSwEditPost = (
-    data: EsWorkShiftSwFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftSwEditPostData, any>({
-      path: `/api/es-work-shift-sw/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-sw
-   * @name ApiEsWorkShiftSwListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-work-shift-sw/list
-   * @secure
-   */
-  apiEsWorkShiftSwListPost = (
-    data: EsWorkShiftSwQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftSwListPostData, any>({
-      path: `/api/es-work-shift-sw/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-sw
-   * @name ApiEsWorkShiftSwPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-work-shift-sw/paged-list
-   * @secure
-   */
-  apiEsWorkShiftSwPagedListPost = (
-    data: EsWorkShiftSwPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftSwPagedListPostData, any>({
-      path: `/api/es-work-shift-sw/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-sw
-   * @name ApiEsWorkShiftSwRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-work-shift-sw/remove-mul
-   * @secure
-   */
-  apiEsWorkShiftSwRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftSwRemoveMulPostData, any>({
-      path: `/api/es-work-shift-sw/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-sw
-   * @name ApiEsWorkShiftSwRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-work-shift-sw/remove
-   * @secure
-   */
-  apiEsWorkShiftSwRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkShiftSwRemovePostData, any>({
-      path: `/api/es-work-shift-sw/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-sw
-   * @name ApiEsWorkShiftSwShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-work-shift-sw/show
-   * @secure
-   */
-  apiEsWorkShiftSwShowPost = (
-    data: EsWorkShiftSwQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftSwShowPostData, any>({
-      path: `/api/es-work-shift-sw/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-vw
-   * @name ApiEsWorkShiftVwAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-work-shift-vw/add
-   * @secure
-   */
-  apiEsWorkShiftVwAddPost = (
-    data: EsWorkShiftVwFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftVwAddPostData, any>({
-      path: `/api/es-work-shift-vw/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-vw
-   * @name ApiEsWorkShiftVwEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-work-shift-vw/edit
-   * @secure
-   */
-  apiEsWorkShiftVwEditPost = (
-    data: EsWorkShiftVwFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftVwEditPostData, any>({
-      path: `/api/es-work-shift-vw/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-vw
-   * @name ApiEsWorkShiftVwListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-work-shift-vw/list
-   * @secure
-   */
-  apiEsWorkShiftVwListPost = (
-    data: EsWorkShiftVwQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftVwListPostData, any>({
-      path: `/api/es-work-shift-vw/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-vw
-   * @name ApiEsWorkShiftVwPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-work-shift-vw/paged-list
-   * @secure
-   */
-  apiEsWorkShiftVwPagedListPost = (
-    data: EsWorkShiftVwPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftVwPagedListPostData, any>({
-      path: `/api/es-work-shift-vw/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-vw
-   * @name ApiEsWorkShiftVwRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-work-shift-vw/remove-mul
-   * @secure
-   */
-  apiEsWorkShiftVwRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftVwRemoveMulPostData, any>({
-      path: `/api/es-work-shift-vw/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-vw
-   * @name ApiEsWorkShiftVwRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-work-shift-vw/remove
-   * @secure
-   */
-  apiEsWorkShiftVwRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWorkShiftVwRemovePostData, any>({
-      path: `/api/es-work-shift-vw/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-shift-vw
-   * @name ApiEsWorkShiftVwShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-work-shift-vw/show
-   * @secure
-   */
-  apiEsWorkShiftVwShowPost = (
-    data: EsWorkShiftVwQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkShiftVwShowPostData, any>({
-      path: `/api/es-work-shift-vw/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse
-   * @name ApiEsWorkWatercourseAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-work-watercourse/add
-   * @secure
-   */
-  apiEsWorkWatercourseAddPost = (
-    data: EsWorkWatercourseFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercourseAddPostData, any>({
-      path: `/api/es-work-watercourse/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse
-   * @name ApiEsWorkWatercourseEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-work-watercourse/edit
-   * @secure
-   */
-  apiEsWorkWatercourseEditPost = (
-    data: EsWorkWatercourseFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercourseEditPostData, any>({
-      path: `/api/es-work-watercourse/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse
-   * @name ApiEsWorkWatercourseListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-work-watercourse/list
-   * @secure
-   */
-  apiEsWorkWatercourseListPost = (
-    data: EsWorkWatercourseQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercourseListPostData, any>({
-      path: `/api/es-work-watercourse/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse
-   * @name ApiEsWorkWatercoursePagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-work-watercourse/paged-list
-   * @secure
-   */
-  apiEsWorkWatercoursePagedListPost = (
-    data: EsWorkWatercoursePQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercoursePagedListPostData, any>({
-      path: `/api/es-work-watercourse/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse-point
-   * @name ApiEsWorkWatercoursePointAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-work-watercourse-point/add
-   * @secure
-   */
-  apiEsWorkWatercoursePointAddPost = (
-    data: EsWorkWatercoursePointFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercoursePointAddPostData, any>({
-      path: `/api/es-work-watercourse-point/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse-point
-   * @name ApiEsWorkWatercoursePointEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-work-watercourse-point/edit
-   * @secure
-   */
-  apiEsWorkWatercoursePointEditPost = (
-    data: EsWorkWatercoursePointFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercoursePointEditPostData, any>({
-      path: `/api/es-work-watercourse-point/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse-point
-   * @name ApiEsWorkWatercoursePointListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-work-watercourse-point/list
-   * @secure
-   */
-  apiEsWorkWatercoursePointListPost = (
-    data: EsWorkWatercoursePointQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercoursePointListPostData, any>({
-      path: `/api/es-work-watercourse-point/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse-point
-   * @name ApiEsWorkWatercoursePointPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-work-watercourse-point/paged-list
-   * @secure
-   */
-  apiEsWorkWatercoursePointPagedListPost = (
-    data: EsWorkWatercoursePointPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercoursePointPagedListPostData, any>({
-      path: `/api/es-work-watercourse-point/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse-point
-   * @name ApiEsWorkWatercoursePointRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-work-watercourse-point/remove-mul
-   * @secure
-   */
-  apiEsWorkWatercoursePointRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercoursePointRemoveMulPostData, any>({
-      path: `/api/es-work-watercourse-point/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse-point
-   * @name ApiEsWorkWatercoursePointRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-work-watercourse-point/remove
-   * @secure
-   */
-  apiEsWorkWatercoursePointRemovePost = (
-    data: OnlyIdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercoursePointRemovePostData, any>({
-      path: `/api/es-work-watercourse-point/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse-point
-   * @name ApiEsWorkWatercoursePointShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-work-watercourse-point/show
-   * @secure
-   */
-  apiEsWorkWatercoursePointShowPost = (
-    data: EsWorkWatercoursePointQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercoursePointShowPostData, any>({
-      path: `/api/es-work-watercourse-point/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse
-   * @name ApiEsWorkWatercourseRemovePost
-   * @summary 删除数据
-   * @request POST:/api/es-work-watercourse/remove
-   * @secure
-   */
-  apiEsWorkWatercourseRemovePost = (
-    data: OnlyIdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercourseRemovePostData, any>({
-      path: `/api/es-work-watercourse/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-work-watercourse
-   * @name ApiEsWorkWatercourseShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-work-watercourse/show
-   * @secure
-   */
-  apiEsWorkWatercourseShowPost = (
-    data: EsWorkWatercourseQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWorkWatercourseShowPostData, any>({
-      path: `/api/es-work-watercourse/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-general
-   * @name ApiEsWtGeneralAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-wt-general/add
-   * @secure
-   */
-  apiEsWtGeneralAddPost = (data: EsWtGeneralFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWtGeneralAddPostData, any>({
-      path: `/api/es-wt-general/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-general
-   * @name ApiEsWtGeneralEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-wt-general/edit
-   * @secure
-   */
-  apiEsWtGeneralEditPost = (data: EsWtGeneralFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWtGeneralEditPostData, any>({
-      path: `/api/es-wt-general/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-general
-   * @name ApiEsWtGeneralListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-wt-general/list
-   * @secure
-   */
-  apiEsWtGeneralListPost = (data: EsWtGeneralQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWtGeneralListPostData, any>({
-      path: `/api/es-wt-general/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-general
-   * @name ApiEsWtGeneralPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-wt-general/paged-list
-   * @secure
-   */
-  apiEsWtGeneralPagedListPost = (
-    data: EsWtGeneralPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWtGeneralPagedListPostData, any>({
-      path: `/api/es-wt-general/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-general
-   * @name ApiEsWtGeneralRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-wt-general/remove-mul
-   * @secure
-   */
-  apiEsWtGeneralRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWtGeneralRemoveMulPostData, any>({
-      path: `/api/es-wt-general/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-general
-   * @name ApiEsWtGeneralRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-wt-general/remove
-   * @secure
-   */
-  apiEsWtGeneralRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWtGeneralRemovePostData, any>({
-      path: `/api/es-wt-general/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-general
-   * @name ApiEsWtGeneralShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-wt-general/show
-   * @secure
-   */
-  apiEsWtGeneralShowPost = (data: EsWtGeneralQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWtGeneralShowPostData, any>({
-      path: `/api/es-wt-general/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-general
-   * @name ApiEsWtGeneralTreedataPost
-   * @summary 获取树形结构数据
-   * @request POST:/api/es-wt-general/treedata
-   * @secure
-   */
-  apiEsWtGeneralTreedataPost = (params: RequestParams = {}) =>
-    this.http.request<ApiEsWtGeneralTreedataPostData, any>({
-      path: `/api/es-wt-general/treedata`,
-      method: "POST",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-shift
-   * @name ApiEsWtShiftListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-wt-shift/list
-   * @secure
-   */
-  apiEsWtShiftListPost = (data: EsWtShiftQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWtShiftListPostData, any>({
-      path: `/api/es-wt-shift/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-shift
-   * @name ApiEsWtShiftPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-wt-shift/paged-list
-   * @secure
-   */
-  apiEsWtShiftPagedListPost = (
-    data: EsWtShiftPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWtShiftPagedListPostData, any>({
-      path: `/api/es-wt-shift/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-shift
-   * @name ApiEsWtShiftShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-wt-shift/show
-   * @secure
-   */
-  apiEsWtShiftShowPost = (data: EsWtShiftQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWtShiftShowPostData, any>({
-      path: `/api/es-wt-shift/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-specific
-   * @name ApiEsWtSpecificAddPost
-   * @summary 新增数据
-   * @request POST:/api/es-wt-specific/add
-   * @secure
-   */
-  apiEsWtSpecificAddPost = (data: EsWtSpecificFO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWtSpecificAddPostData, any>({
-      path: `/api/es-wt-specific/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-specific
-   * @name ApiEsWtSpecificEditPost
-   * @summary 编辑数据
-   * @request POST:/api/es-wt-specific/edit
-   * @secure
-   */
-  apiEsWtSpecificEditPost = (
-    data: EsWtSpecificFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWtSpecificEditPostData, any>({
-      path: `/api/es-wt-specific/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-specific
-   * @name ApiEsWtSpecificListPost
-   * @summary 查询全部对象
-   * @request POST:/api/es-wt-specific/list
-   * @secure
-   */
-  apiEsWtSpecificListPost = (
-    data: EsWtSpecificQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWtSpecificListPostData, any>({
-      path: `/api/es-wt-specific/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-specific
-   * @name ApiEsWtSpecificPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/es-wt-specific/paged-list
-   * @secure
-   */
-  apiEsWtSpecificPagedListPost = (
-    data: EsWtSpecificPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWtSpecificPagedListPostData, any>({
-      path: `/api/es-wt-specific/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-specific
-   * @name ApiEsWtSpecificRemoveMulPost
-   * @summary 删除多条数据
-   * @request POST:/api/es-wt-specific/remove-mul
-   * @secure
-   */
-  apiEsWtSpecificRemoveMulPost = (
-    data: RemoveMulQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWtSpecificRemoveMulPostData, any>({
-      path: `/api/es-wt-specific/remove-mul`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-specific
-   * @name ApiEsWtSpecificRemovePost
-   * @summary 删除1条数据
-   * @request POST:/api/es-wt-specific/remove
-   * @secure
-   */
-  apiEsWtSpecificRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiEsWtSpecificRemovePostData, any>({
-      path: `/api/es-wt-specific/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags es-wt-specific
-   * @name ApiEsWtSpecificShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/es-wt-specific/show
-   * @secure
-   */
-  apiEsWtSpecificShowPost = (
-    data: EsWtSpecificQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiEsWtSpecificShowPostData, any>({
-      path: `/api/es-wt-specific/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags gps
-   * @name ApiGpsGpsTokenPost
-   * @summary 获取gps token
-   * @request POST:/api/gps/gps-token
-   * @secure
-   */
-  apiGpsGpsTokenPost = (params: RequestParams = {}) =>
-    this.http.request<ApiGpsGpsTokenPostData, any>({
-      path: `/api/gps/gps-token`,
-      method: "POST",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
    * @tags hik
-   * @name ApiHikCruiseRoutesControllingPost
-   * @summary 本接口用于进行巡航路径控制，包括开始、停止巡航两种操作。
-   * @request POST:/api/hik/cruise-routes-controlling
+   * @name ApiHikNmsCameraOnlinePost
+   * @summary 获取设备在线情况
+   * @request POST:/api/hik/nms-camera-online
    * @secure
    */
-  apiHikCruiseRoutesControllingPost = (
-    data: CruiseRoutesControllingQO,
+  apiHikNmsCameraOnlinePost = (
+    data: NmsCameraOnlineQO,
     params: RequestParams = {},
   ) =>
-    this.http.request<ApiHikCruiseRoutesControllingPostData, any>({
-      path: `/api/hik/cruise-routes-controlling`,
+    this.http.request<ApiHikNmsCameraOnlinePostData, any>({
+      path: `/api/hik/nms-camera-online`,
       method: "POST",
       body: data,
       secure: true,
@@ -6724,22 +4439,839 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags hik
-   * @name ApiHikPtzsControllingPost
-   * @summary 根据监控点编号进行云台操作
-   * @request POST:/api/hik/ptzs-controlling
+   * @tags inspection-issue
+   * @name ApiInspectionIssueEditPost
+   * @summary 修改问题
+   * @request POST:/api/inspection-issue/edit
    * @secure
    */
-  apiHikPtzsControllingPost = (
-    data: PtzsControllingQO,
+  apiInspectionIssueEditPost = (
+    data: InspectionIssueFO,
     params: RequestParams = {},
   ) =>
-    this.http.request<ApiHikPtzsControllingPostData, any>({
-      path: `/api/hik/ptzs-controlling`,
+    this.http.request<ApiInspectionIssueEditPostData, any>({
+      path: `/api/inspection-issue/edit`,
       method: "POST",
       body: data,
       secure: true,
       type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue
+   * @name ApiInspectionIssueHandlePost
+   * @summary 问题处理
+   * @request POST:/api/inspection-issue/handle
+   * @secure
+   */
+  apiInspectionIssueHandlePost = (
+    data: IssueHandleFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueHandlePostData, any>({
+      path: `/api/inspection-issue/handle`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue
+   * @name ApiInspectionIssueListPost
+   * @summary 查询全部对象
+   * @request POST:/api/inspection-issue/list
+   * @secure
+   */
+  apiInspectionIssueListPost = (
+    data: InspectionIssueQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueListPostData, any>({
+      path: `/api/inspection-issue/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue
+   * @name ApiInspectionIssuePagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/inspection-issue/paged-list
+   * @secure
+   */
+  apiInspectionIssuePagedListPost = (
+    data: InspectionIssuePQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssuePagedListPostData, any>({
+      path: `/api/inspection-issue/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue
+   * @name ApiInspectionIssueRemovePost
+   * @summary 删除问题（逻辑删除）
+   * @request POST:/api/inspection-issue/remove
+   * @secure
+   */
+  apiInspectionIssueRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiInspectionIssueRemovePostData, any>({
+      path: `/api/inspection-issue/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue
+   * @name ApiInspectionIssueReportPost
+   * @summary 问题上报
+   * @request POST:/api/inspection-issue/report
+   * @secure
+   */
+  apiInspectionIssueReportPost = (
+    data: InspectionIssueFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueReportPostData, any>({
+      path: `/api/inspection-issue/report`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue-severity
+   * @name ApiInspectionIssueSeverityAddPost
+   * @summary 新增数据
+   * @request POST:/api/inspection-issue-severity/add
+   * @secure
+   */
+  apiInspectionIssueSeverityAddPost = (
+    data: InspectionIssueSeverityFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueSeverityAddPostData, any>({
+      path: `/api/inspection-issue-severity/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue-severity
+   * @name ApiInspectionIssueSeverityEditPost
+   * @summary 编辑数据
+   * @request POST:/api/inspection-issue-severity/edit
+   * @secure
+   */
+  apiInspectionIssueSeverityEditPost = (
+    data: InspectionIssueSeverityFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueSeverityEditPostData, any>({
+      path: `/api/inspection-issue-severity/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue-severity
+   * @name ApiInspectionIssueSeverityListPost
+   * @summary 查询全部对象
+   * @request POST:/api/inspection-issue-severity/list
+   * @secure
+   */
+  apiInspectionIssueSeverityListPost = (
+    data: InspectionIssueSeverityQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueSeverityListPostData, any>({
+      path: `/api/inspection-issue-severity/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue-severity
+   * @name ApiInspectionIssueSeverityPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/inspection-issue-severity/paged-list
+   * @secure
+   */
+  apiInspectionIssueSeverityPagedListPost = (
+    data: InspectionIssueSeverityPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueSeverityPagedListPostData, any>({
+      path: `/api/inspection-issue-severity/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue-severity
+   * @name ApiInspectionIssueSeverityRemovePost
+   * @summary 删除数据
+   * @request POST:/api/inspection-issue-severity/remove
+   * @secure
+   */
+  apiInspectionIssueSeverityRemovePost = (
+    data: OnlyIdQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueSeverityRemovePostData, any>({
+      path: `/api/inspection-issue-severity/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue-severity
+   * @name ApiInspectionIssueSeverityShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/inspection-issue-severity/show
+   * @secure
+   */
+  apiInspectionIssueSeverityShowPost = (
+    data: InspectionIssueSeverityQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueSeverityShowPostData, any>({
+      path: `/api/inspection-issue-severity/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue
+   * @name ApiInspectionIssueShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/inspection-issue/show
+   * @secure
+   */
+  apiInspectionIssueShowPost = (
+    data: InspectionIssueQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueShowPostData, any>({
+      path: `/api/inspection-issue/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue-type
+   * @name ApiInspectionIssueTypeAddPost
+   * @summary 新增数据
+   * @request POST:/api/inspection-issue-type/add
+   * @secure
+   */
+  apiInspectionIssueTypeAddPost = (
+    data: InspectionIssueTypeFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueTypeAddPostData, any>({
+      path: `/api/inspection-issue-type/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue-type
+   * @name ApiInspectionIssueTypeEditPost
+   * @summary 编辑数据
+   * @request POST:/api/inspection-issue-type/edit
+   * @secure
+   */
+  apiInspectionIssueTypeEditPost = (
+    data: InspectionIssueTypeFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueTypeEditPostData, any>({
+      path: `/api/inspection-issue-type/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue-type
+   * @name ApiInspectionIssueTypeListPost
+   * @summary 查询全部对象
+   * @request POST:/api/inspection-issue-type/list
+   * @secure
+   */
+  apiInspectionIssueTypeListPost = (
+    data: InspectionIssueTypeQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueTypeListPostData, any>({
+      path: `/api/inspection-issue-type/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue-type
+   * @name ApiInspectionIssueTypePagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/inspection-issue-type/paged-list
+   * @secure
+   */
+  apiInspectionIssueTypePagedListPost = (
+    data: InspectionIssueTypePQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueTypePagedListPostData, any>({
+      path: `/api/inspection-issue-type/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue-type
+   * @name ApiInspectionIssueTypeRemovePost
+   * @summary 删除数据
+   * @request POST:/api/inspection-issue-type/remove
+   * @secure
+   */
+  apiInspectionIssueTypeRemovePost = (
+    data: OnlyIdQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueTypeRemovePostData, any>({
+      path: `/api/inspection-issue-type/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-issue-type
+   * @name ApiInspectionIssueTypeShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/inspection-issue-type/show
+   * @secure
+   */
+  apiInspectionIssueTypeShowPost = (
+    data: InspectionIssueTypeQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionIssueTypeShowPostData, any>({
+      path: `/api/inspection-issue-type/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-record
+   * @name ApiInspectionRecordAppendTrackPost
+   * @summary 轨迹上报（追加模式）
+   * @request POST:/api/inspection-record/append-track
+   * @secure
+   */
+  apiInspectionRecordAppendTrackPost = (
+    data: TrackReportFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionRecordAppendTrackPostData, any>({
+      path: `/api/inspection-record/append-track`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-record
+   * @name ApiInspectionRecordListPost
+   * @summary 查询全部对象
+   * @request POST:/api/inspection-record/list
+   * @secure
+   */
+  apiInspectionRecordListPost = (
+    data: InspectionRecordQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionRecordListPostData, any>({
+      path: `/api/inspection-record/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-record
+   * @name ApiInspectionRecordPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/inspection-record/paged-list
+   * @secure
+   */
+  apiInspectionRecordPagedListPost = (
+    data: InspectionRecordPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionRecordPagedListPostData, any>({
+      path: `/api/inspection-record/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-record
+   * @name ApiInspectionRecordShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/inspection-record/show
+   * @secure
+   */
+  apiInspectionRecordShowPost = (
+    data: InspectionRecordQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionRecordShowPostData, any>({
+      path: `/api/inspection-record/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-task
+   * @name ApiInspectionTaskDispatchPost
+   * @summary 派发任务
+   * @request POST:/api/inspection-task/dispatch
+   * @secure
+   */
+  apiInspectionTaskDispatchPost = (
+    data: InspectionTaskFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionTaskDispatchPostData, any>({
+      path: `/api/inspection-task/dispatch`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-task
+   * @name ApiInspectionTaskEditPost
+   * @summary 修改任务
+   * @request POST:/api/inspection-task/edit
+   * @secure
+   */
+  apiInspectionTaskEditPost = (
+    data: InspectionTaskFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionTaskEditPostData, any>({
+      path: `/api/inspection-task/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-task
+   * @name ApiInspectionTaskEndPost
+   * @summary 结束任务
+   * @request POST:/api/inspection-task/end
+   * @secure
+   */
+  apiInspectionTaskEndPost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiInspectionTaskEndPostData, any>({
+      path: `/api/inspection-task/end`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-task
+   * @name ApiInspectionTaskListPost
+   * @summary 查询全部对象
+   * @request POST:/api/inspection-task/list
+   * @secure
+   */
+  apiInspectionTaskListPost = (
+    data: InspectionTaskQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionTaskListPostData, any>({
+      path: `/api/inspection-task/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-task
+   * @name ApiInspectionTaskPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/inspection-task/paged-list
+   * @secure
+   */
+  apiInspectionTaskPagedListPost = (
+    data: InspectionTaskPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionTaskPagedListPostData, any>({
+      path: `/api/inspection-task/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-task
+   * @name ApiInspectionTaskRemovePost
+   * @summary 删除任务
+   * @request POST:/api/inspection-task/remove
+   * @secure
+   */
+  apiInspectionTaskRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiInspectionTaskRemovePostData, any>({
+      path: `/api/inspection-task/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-task
+   * @name ApiInspectionTaskShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/inspection-task/show
+   * @secure
+   */
+  apiInspectionTaskShowPost = (
+    data: InspectionTaskQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiInspectionTaskShowPostData, any>({
+      path: `/api/inspection-task/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags inspection-task
+   * @name ApiInspectionTaskStartPost
+   * @summary 开始任务
+   * @request POST:/api/inspection-task/start
+   * @secure
+   */
+  apiInspectionTaskStartPost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiInspectionTaskStartPostData, any>({
+      path: `/api/inspection-task/start`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags knowledge-file
+   * @name ApiKnowledgeFileAddPost
+   * @summary 新增数据
+   * @request POST:/api/knowledge-file/add
+   * @secure
+   */
+  apiKnowledgeFileAddPost = (
+    data: KnowledgeFileQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiKnowledgeFileAddPostData, any>({
+      path: `/api/knowledge-file/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags knowledge-file
+   * @name ApiKnowledgeFileEditPost
+   * @summary 编辑数据
+   * @request POST:/api/knowledge-file/edit
+   * @secure
+   */
+  apiKnowledgeFileEditPost = (
+    data: KnowledgeFileQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiKnowledgeFileEditPostData, any>({
+      path: `/api/knowledge-file/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags knowledge-file
+   * @name ApiKnowledgeFileListPost
+   * @summary 查询全部对象
+   * @request POST:/api/knowledge-file/list
+   * @secure
+   */
+  apiKnowledgeFileListPost = (
+    data: KnowledgeFileQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiKnowledgeFileListPostData, any>({
+      path: `/api/knowledge-file/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags knowledge-file
+   * @name ApiKnowledgeFilePagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/knowledge-file/paged-list
+   * @secure
+   */
+  apiKnowledgeFilePagedListPost = (
+    data: KnowledgeFilePQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiKnowledgeFilePagedListPostData, any>({
+      path: `/api/knowledge-file/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags knowledge-file
+   * @name ApiKnowledgeFileRemovePost
+   * @summary 删除数据
+   * @request POST:/api/knowledge-file/remove
+   * @secure
+   */
+  apiKnowledgeFileRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiKnowledgeFileRemovePostData, any>({
+      path: `/api/knowledge-file/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags knowledge-file
+   * @name ApiKnowledgeFileShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/knowledge-file/show
+   * @secure
+   */
+  apiKnowledgeFileShowPost = (
+    data: KnowledgeFileQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiKnowledgeFileShowPostData, any>({
+      path: `/api/knowledge-file/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags knowledge-file
+   * @name ApiKnowledgeFileTreedataPost
+   * @summary 获取树形结构数据
+   * @request POST:/api/knowledge-file/treedata
+   * @secure
+   */
+  apiKnowledgeFileTreedataPost = (
+    data: KnowledgeFileQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiKnowledgeFileTreedataPostData, any>({
+      path: `/api/knowledge-file/treedata`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags knowledge-file
+   * @name ApiKnowledgeFileUploadPost
+   * @summary 上传文件
+   * @request POST:/api/knowledge-file/upload
+   * @secure
+   */
+  apiKnowledgeFileUploadPost = (
+    data: ApiKnowledgeFileUploadPostPayload,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiKnowledgeFileUploadPostData, any>({
+      path: `/api/knowledge-file/upload`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.FormData,
       format: "json",
       ...params,
     });
@@ -7220,601 +5752,6 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags mm-inventory
-   * @name ApiMmInventoryListPost
-   * @summary 查询全部对象
-   * @request POST:/api/mm-inventory/list
-   * @secure
-   */
-  apiMmInventoryListPost = (data: MmInventoryQO, params: RequestParams = {}) =>
-    this.http.request<ApiMmInventoryListPostData, any>({
-      path: `/api/mm-inventory/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-inventory
-   * @name ApiMmInventoryPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/mm-inventory/paged-list
-   * @secure
-   */
-  apiMmInventoryPagedListPost = (
-    data: MmInventoryPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmInventoryPagedListPostData, any>({
-      path: `/api/mm-inventory/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-inventory
-   * @name ApiMmInventoryShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/mm-inventory/show
-   * @secure
-   */
-  apiMmInventoryShowPost = (data: MmInventoryQO, params: RequestParams = {}) =>
-    this.http.request<ApiMmInventoryShowPostData, any>({
-      path: `/api/mm-inventory/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-material
-   * @name ApiMmMaterialAddPost
-   * @summary 新增数据
-   * @request POST:/api/mm-material/add
-   * @secure
-   */
-  apiMmMaterialAddPost = (data: MmMaterialFO, params: RequestParams = {}) =>
-    this.http.request<ApiMmMaterialAddPostData, any>({
-      path: `/api/mm-material/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-material-category
-   * @name ApiMmMaterialCategoryAddPost
-   * @summary 新增数据
-   * @request POST:/api/mm-material-category/add
-   * @secure
-   */
-  apiMmMaterialCategoryAddPost = (
-    data: MmMaterialCategoryFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmMaterialCategoryAddPostData, any>({
-      path: `/api/mm-material-category/add`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-material-category
-   * @name ApiMmMaterialCategoryEditPost
-   * @summary 编辑数据
-   * @request POST:/api/mm-material-category/edit
-   * @secure
-   */
-  apiMmMaterialCategoryEditPost = (
-    data: MmMaterialCategoryFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmMaterialCategoryEditPostData, any>({
-      path: `/api/mm-material-category/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-material-category
-   * @name ApiMmMaterialCategoryListPost
-   * @summary 查询全部对象
-   * @request POST:/api/mm-material-category/list
-   * @secure
-   */
-  apiMmMaterialCategoryListPost = (
-    data: MmMaterialCategoryQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmMaterialCategoryListPostData, any>({
-      path: `/api/mm-material-category/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-material-category
-   * @name ApiMmMaterialCategoryPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/mm-material-category/paged-list
-   * @secure
-   */
-  apiMmMaterialCategoryPagedListPost = (
-    data: MmMaterialCategoryPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmMaterialCategoryPagedListPostData, any>({
-      path: `/api/mm-material-category/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-material-category
-   * @name ApiMmMaterialCategoryRemovePost
-   * @summary 删除数据
-   * @request POST:/api/mm-material-category/remove
-   * @secure
-   */
-  apiMmMaterialCategoryRemovePost = (
-    data: OnlyIdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmMaterialCategoryRemovePostData, any>({
-      path: `/api/mm-material-category/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-material-category
-   * @name ApiMmMaterialCategoryShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/mm-material-category/show
-   * @secure
-   */
-  apiMmMaterialCategoryShowPost = (
-    data: MmMaterialCategoryQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmMaterialCategoryShowPostData, any>({
-      path: `/api/mm-material-category/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-material
-   * @name ApiMmMaterialEditPost
-   * @summary 编辑数据
-   * @request POST:/api/mm-material/edit
-   * @secure
-   */
-  apiMmMaterialEditPost = (data: MmMaterialFO, params: RequestParams = {}) =>
-    this.http.request<ApiMmMaterialEditPostData, any>({
-      path: `/api/mm-material/edit`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-material
-   * @name ApiMmMaterialListPost
-   * @summary 查询全部对象
-   * @request POST:/api/mm-material/list
-   * @secure
-   */
-  apiMmMaterialListPost = (data: MmMaterialQO, params: RequestParams = {}) =>
-    this.http.request<ApiMmMaterialListPostData, any>({
-      path: `/api/mm-material/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-material
-   * @name ApiMmMaterialPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/mm-material/paged-list
-   * @secure
-   */
-  apiMmMaterialPagedListPost = (
-    data: MmMaterialPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmMaterialPagedListPostData, any>({
-      path: `/api/mm-material/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-material
-   * @name ApiMmMaterialRemovePost
-   * @summary 删除数据
-   * @request POST:/api/mm-material/remove
-   * @secure
-   */
-  apiMmMaterialRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiMmMaterialRemovePostData, any>({
-      path: `/api/mm-material/remove`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-material
-   * @name ApiMmMaterialShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/mm-material/show
-   * @secure
-   */
-  apiMmMaterialShowPost = (data: MmMaterialQO, params: RequestParams = {}) =>
-    this.http.request<ApiMmMaterialShowPostData, any>({
-      path: `/api/mm-material/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-requisition
-   * @name ApiMmRequisitionApproveRequisitionPost
-   * @summary 审批领料申请
-   * @request POST:/api/mm-requisition/approve-requisition
-   * @secure
-   */
-  apiMmRequisitionApproveRequisitionPost = (
-    data: ApproveRequisitionFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmRequisitionApproveRequisitionPostData, any>({
-      path: `/api/mm-requisition/approve-requisition`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-requisition
-   * @name ApiMmRequisitionGenerateStockOutPost
-   * @summary 根据申请单生成出库记录
-   * @request POST:/api/mm-requisition/generate-stock-out
-   * @secure
-   */
-  apiMmRequisitionGenerateStockOutPost = (
-    data: OnlyIdQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmRequisitionGenerateStockOutPostData, any>({
-      path: `/api/mm-requisition/generate-stock-out`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-requisition
-   * @name ApiMmRequisitionListPost
-   * @summary 查询全部对象
-   * @request POST:/api/mm-requisition/list
-   * @secure
-   */
-  apiMmRequisitionListPost = (
-    data: MmRequisitionQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmRequisitionListPostData, any>({
-      path: `/api/mm-requisition/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-requisition
-   * @name ApiMmRequisitionPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/mm-requisition/paged-list
-   * @secure
-   */
-  apiMmRequisitionPagedListPost = (
-    data: MmRequisitionPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmRequisitionPagedListPostData, any>({
-      path: `/api/mm-requisition/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-requisition
-   * @name ApiMmRequisitionShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/mm-requisition/show
-   * @secure
-   */
-  apiMmRequisitionShowPost = (
-    data: MmRequisitionQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmRequisitionShowPostData, any>({
-      path: `/api/mm-requisition/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-requisition
-   * @name ApiMmRequisitionSubmitRequisitionPost
-   * @summary 提交领料申请
-   * @request POST:/api/mm-requisition/submit-requisition
-   * @secure
-   */
-  apiMmRequisitionSubmitRequisitionPost = (
-    data: MmRequisitionFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmRequisitionSubmitRequisitionPostData, any>({
-      path: `/api/mm-requisition/submit-requisition`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-stock-in-out
-   * @name ApiMmStockInOutApprovePost
-   * @summary 审批出入库
-   * @request POST:/api/mm-stock-in-out/approve
-   * @secure
-   */
-  apiMmStockInOutApprovePost = (
-    data: ApproveSioFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmStockInOutApprovePostData, any>({
-      path: `/api/mm-stock-in-out/approve`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-stock-in-out
-   * @name ApiMmStockInOutListPost
-   * @summary 查询全部对象
-   * @request POST:/api/mm-stock-in-out/list
-   * @secure
-   */
-  apiMmStockInOutListPost = (
-    data: MmStockInOutQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmStockInOutListPostData, any>({
-      path: `/api/mm-stock-in-out/list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-stock-in-out
-   * @name ApiMmStockInOutPagedListPost
-   * @summary 查询分页数据
-   * @request POST:/api/mm-stock-in-out/paged-list
-   * @secure
-   */
-  apiMmStockInOutPagedListPost = (
-    data: MmStockInOutPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmStockInOutPagedListPostData, any>({
-      path: `/api/mm-stock-in-out/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-stock-in-out
-   * @name ApiMmStockInOutPendingApproveListPost
-   * @summary 获取待审批列表
-   * @request POST:/api/mm-stock-in-out/pending-approve-list
-   * @secure
-   */
-  apiMmStockInOutPendingApproveListPost = (
-    data: MmStockInOutPQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmStockInOutPendingApproveListPostData, any>({
-      path: `/api/mm-stock-in-out/pending-approve-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-stock-in-out
-   * @name ApiMmStockInOutShowPost
-   * @summary 查询1个对象
-   * @request POST:/api/mm-stock-in-out/show
-   * @secure
-   */
-  apiMmStockInOutShowPost = (
-    data: MmStockInOutQO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmStockInOutShowPostData, any>({
-      path: `/api/mm-stock-in-out/show`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-stock-in-out
-   * @name ApiMmStockInOutStockInPost
-   * @summary 入库申请
-   * @request POST:/api/mm-stock-in-out/stock-in
-   * @secure
-   */
-  apiMmStockInOutStockInPost = (
-    data: MmStockInOutFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmStockInOutStockInPostData, any>({
-      path: `/api/mm-stock-in-out/stock-in`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags mm-stock-in-out
-   * @name ApiMmStockInOutStockOutPost
-   * @summary 出库申请
-   * @request POST:/api/mm-stock-in-out/stock-out
-   * @secure
-   */
-  apiMmStockInOutStockOutPost = (
-    data: MmStockInOutFO,
-    params: RequestParams = {},
-  ) =>
-    this.http.request<ApiMmStockInOutStockOutPostData, any>({
-      path: `/api/mm-stock-in-out/stock-out`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
    * @tags organization
    * @name ApiOrganizationAddPost
    * @summary 新增数据
@@ -7966,18 +5903,18 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags report
-   * @name ApiReportStwaGroupByDayPost
-   * @summary 按日统计作业面积
-   * @request POST:/api/report/stwa-group-by-day
+   * @tags prealarm-record
+   * @name ApiPrealarmRecordAddPost
+   * @summary 新增数据
+   * @request POST:/api/prealarm-record/add
    * @secure
    */
-  apiReportStwaGroupByDayPost = (
-    data: EsWorkPlanStQO,
+  apiPrealarmRecordAddPost = (
+    data: PrealarmRecordFO,
     params: RequestParams = {},
   ) =>
-    this.http.request<ApiReportStwaGroupByDayPostData, any>({
-      path: `/api/report/stwa-group-by-day`,
+    this.http.request<ApiPrealarmRecordAddPostData, any>({
+      path: `/api/prealarm-record/add`,
       method: "POST",
       body: data,
       secure: true,
@@ -7988,18 +5925,18 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags report
-   * @name ApiReportStwaGroupByMonthPost
-   * @summary 按月统计作业面积
-   * @request POST:/api/report/stwa-group-by-month
+   * @tags prealarm-record
+   * @name ApiPrealarmRecordEditPost
+   * @summary 编辑数据
+   * @request POST:/api/prealarm-record/edit
    * @secure
    */
-  apiReportStwaGroupByMonthPost = (
-    data: EsWorkPlanStQO,
+  apiPrealarmRecordEditPost = (
+    data: PrealarmRecordFO,
     params: RequestParams = {},
   ) =>
-    this.http.request<ApiReportStwaGroupByMonthPostData, any>({
-      path: `/api/report/stwa-group-by-month`,
+    this.http.request<ApiPrealarmRecordEditPostData, any>({
+      path: `/api/prealarm-record/edit`,
       method: "POST",
       body: data,
       secure: true,
@@ -8010,18 +5947,18 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags report
-   * @name ApiReportStwaGroupByYearPost
-   * @summary 按年统计作业面积
-   * @request POST:/api/report/stwa-group-by-year
+   * @tags prealarm-record
+   * @name ApiPrealarmRecordListPost
+   * @summary 查询全部对象
+   * @request POST:/api/prealarm-record/list
    * @secure
    */
-  apiReportStwaGroupByYearPost = (
-    data: EsWorkPlanStQO,
+  apiPrealarmRecordListPost = (
+    data: PrealarmRecordQO,
     params: RequestParams = {},
   ) =>
-    this.http.request<ApiReportStwaGroupByYearPostData, any>({
-      path: `/api/report/stwa-group-by-year`,
+    this.http.request<ApiPrealarmRecordListPostData, any>({
+      path: `/api/prealarm-record/list`,
       method: "POST",
       body: data,
       secure: true,
@@ -8032,18 +5969,1334 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags report
-   * @name ApiReportStwpGroupByGeneralPost
-   * @summary 按作业方式统计排班记录数量
-   * @request POST:/api/report/stwp-group-by-general
+   * @tags prealarm-record
+   * @name ApiPrealarmRecordPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/prealarm-record/paged-list
    * @secure
    */
-  apiReportStwpGroupByGeneralPost = (
-    data: StwpQO,
+  apiPrealarmRecordPagedListPost = (
+    data: PrealarmRecordPQO,
     params: RequestParams = {},
   ) =>
-    this.http.request<ApiReportStwpGroupByGeneralPostData, any>({
-      path: `/api/report/stwp-group-by-general`,
+    this.http.request<ApiPrealarmRecordPagedListPostData, any>({
+      path: `/api/prealarm-record/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-record
+   * @name ApiPrealarmRecordRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/prealarm-record/remove-mul
+   * @secure
+   */
+  apiPrealarmRecordRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRecordRemoveMulPostData, any>({
+      path: `/api/prealarm-record/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-record
+   * @name ApiPrealarmRecordRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/prealarm-record/remove
+   * @secure
+   */
+  apiPrealarmRecordRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiPrealarmRecordRemovePostData, any>({
+      path: `/api/prealarm-record/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-record
+   * @name ApiPrealarmRecordRtPrealarmRecordPost
+   * @summary 查询实时的预警记录
+   * @request POST:/api/prealarm-record/rt-prealarm-record
+   * @secure
+   */
+  apiPrealarmRecordRtPrealarmRecordPost = (
+    data: RtPrealarmRecordQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRecordRtPrealarmRecordPostData, any>({
+      path: `/api/prealarm-record/rt-prealarm-record`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-record
+   * @name ApiPrealarmRecordShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/prealarm-record/show
+   * @secure
+   */
+  apiPrealarmRecordShowPost = (
+    data: PrealarmRecordQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRecordShowPostData, any>({
+      path: `/api/prealarm-record/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleAddPost
+   * @summary 新增数据
+   * @request POST:/api/prealarm-rule/add
+   * @secure
+   */
+  apiPrealarmRuleAddPost = (data: PrealarmRuleFO, params: RequestParams = {}) =>
+    this.http.request<ApiPrealarmRuleAddPostData, any>({
+      path: `/api/prealarm-rule/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleEditPost
+   * @summary 编辑数据
+   * @request POST:/api/prealarm-rule/edit
+   * @secure
+   */
+  apiPrealarmRuleEditPost = (
+    data: PrealarmRuleFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRuleEditPostData, any>({
+      path: `/api/prealarm-rule/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleGetRpsPost
+   * @summary 查询关联的责任人
+   * @request POST:/api/prealarm-rule/get-rps
+   * @secure
+   */
+  apiPrealarmRuleGetRpsPost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiPrealarmRuleGetRpsPostData, any>({
+      path: `/api/prealarm-rule/get-rps`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleListPost
+   * @summary 查询全部对象
+   * @request POST:/api/prealarm-rule/list
+   * @secure
+   */
+  apiPrealarmRuleListPost = (
+    data: PrealarmRuleQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRuleListPostData, any>({
+      path: `/api/prealarm-rule/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRulePagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/prealarm-rule/paged-list
+   * @secure
+   */
+  apiPrealarmRulePagedListPost = (
+    data: PrealarmRulePQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRulePagedListPostData, any>({
+      path: `/api/prealarm-rule/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/prealarm-rule/remove-mul
+   * @secure
+   */
+  apiPrealarmRuleRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRuleRemoveMulPostData, any>({
+      path: `/api/prealarm-rule/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/prealarm-rule/remove
+   * @secure
+   */
+  apiPrealarmRuleRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiPrealarmRuleRemovePostData, any>({
+      path: `/api/prealarm-rule/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/prealarm-rule/show
+   * @secure
+   */
+  apiPrealarmRuleShowPost = (
+    data: PrealarmRuleQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRuleShowPostData, any>({
+      path: `/api/prealarm-rule/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags prealarm-rule
+   * @name ApiPrealarmRuleUpdateRpsPost
+   * @summary 查询关联的责任人
+   * @request POST:/api/prealarm-rule/update-rps
+   * @secure
+   */
+  apiPrealarmRuleUpdateRpsPost = (
+    data: UpdateRpsQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiPrealarmRuleUpdateRpsPostData, any>({
+      path: `/api/prealarm-rule/update-rps`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags record-file
+   * @name ApiRecordFileListPost
+   * @summary 查询全部对象
+   * @request POST:/api/record-file/list
+   * @secure
+   */
+  apiRecordFileListPost = (data: RecordFileQO, params: RequestParams = {}) =>
+    this.http.request<ApiRecordFileListPostData, any>({
+      path: `/api/record-file/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags record-file
+   * @name ApiRecordFilePagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/record-file/paged-list
+   * @secure
+   */
+  apiRecordFilePagedListPost = (
+    data: RecordFilePQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiRecordFilePagedListPostData, any>({
+      path: `/api/record-file/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags record-file
+   * @name ApiRecordFileRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/record-file/remove-mul
+   * @secure
+   */
+  apiRecordFileRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiRecordFileRemoveMulPostData, any>({
+      path: `/api/record-file/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags record-file
+   * @name ApiRecordFileRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/record-file/remove
+   * @secure
+   */
+  apiRecordFileRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiRecordFileRemovePostData, any>({
+      path: `/api/record-file/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags record-file
+   * @name ApiRecordFileShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/record-file/show
+   * @secure
+   */
+  apiRecordFileShowPost = (data: RecordFileQO, params: RequestParams = {}) =>
+    this.http.request<ApiRecordFileShowPostData, any>({
+      path: `/api/record-file/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-capacity
+   * @name ApiReservoirCapacityAddBatchPost
+   * @summary 批量新增
+   * @request POST:/api/reservoir-capacity/add-batch
+   * @secure
+   */
+  apiReservoirCapacityAddBatchPost = (
+    data: ApiReservoirCapacityAddBatchPostPayload,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirCapacityAddBatchPostData, any>({
+      path: `/api/reservoir-capacity/add-batch`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-capacity
+   * @name ApiReservoirCapacityAddPost
+   * @summary 新增数据
+   * @request POST:/api/reservoir-capacity/add
+   * @secure
+   */
+  apiReservoirCapacityAddPost = (
+    data: ReservoirCapacityFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirCapacityAddPostData, any>({
+      path: `/api/reservoir-capacity/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-capacity
+   * @name ApiReservoirCapacityDelBatchPost
+   * @summary 批量删除
+   * @request POST:/api/reservoir-capacity/del-batch
+   * @secure
+   */
+  apiReservoirCapacityDelBatchPost = (
+    data: ReservoirCapacityQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirCapacityDelBatchPostData, any>({
+      path: `/api/reservoir-capacity/del-batch`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-capacity
+   * @name ApiReservoirCapacityEditBatchPost
+   * @summary 批量修改
+   * @request POST:/api/reservoir-capacity/edit-batch
+   * @secure
+   */
+  apiReservoirCapacityEditBatchPost = (
+    data: ApiReservoirCapacityEditBatchPostPayload,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirCapacityEditBatchPostData, any>({
+      path: `/api/reservoir-capacity/edit-batch`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-capacity
+   * @name ApiReservoirCapacityEditPost
+   * @summary 编辑数据
+   * @request POST:/api/reservoir-capacity/edit
+   * @secure
+   */
+  apiReservoirCapacityEditPost = (
+    data: ReservoirCapacityFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirCapacityEditPostData, any>({
+      path: `/api/reservoir-capacity/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-capacity
+   * @name ApiReservoirCapacityListPost
+   * @summary 查询全部对象
+   * @request POST:/api/reservoir-capacity/list
+   * @secure
+   */
+  apiReservoirCapacityListPost = (
+    data: ReservoirCapacityQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirCapacityListPostData, any>({
+      path: `/api/reservoir-capacity/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-capacity
+   * @name ApiReservoirCapacityPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/reservoir-capacity/paged-list
+   * @secure
+   */
+  apiReservoirCapacityPagedListPost = (
+    data: ReservoirCapacityPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirCapacityPagedListPostData, any>({
+      path: `/api/reservoir-capacity/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-capacity
+   * @name ApiReservoirCapacityRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/reservoir-capacity/remove-mul
+   * @secure
+   */
+  apiReservoirCapacityRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirCapacityRemoveMulPostData, any>({
+      path: `/api/reservoir-capacity/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-capacity
+   * @name ApiReservoirCapacityRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/reservoir-capacity/remove
+   * @secure
+   */
+  apiReservoirCapacityRemovePost = (
+    data: OnlyIdQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirCapacityRemovePostData, any>({
+      path: `/api/reservoir-capacity/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-capacity
+   * @name ApiReservoirCapacityShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/reservoir-capacity/show
+   * @secure
+   */
+  apiReservoirCapacityShowPost = (
+    data: ReservoirCapacityQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirCapacityShowPostData, any>({
+      path: `/api/reservoir-capacity/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-flow
+   * @name ApiReservoirFlowAddBatchPost
+   * @summary 批量新增
+   * @request POST:/api/reservoir-flow/add-batch
+   * @secure
+   */
+  apiReservoirFlowAddBatchPost = (
+    data: ApiReservoirFlowAddBatchPostPayload,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirFlowAddBatchPostData, any>({
+      path: `/api/reservoir-flow/add-batch`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-flow
+   * @name ApiReservoirFlowAddPost
+   * @summary 新增数据
+   * @request POST:/api/reservoir-flow/add
+   * @secure
+   */
+  apiReservoirFlowAddPost = (
+    data: ReservoirFlowFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirFlowAddPostData, any>({
+      path: `/api/reservoir-flow/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-flow
+   * @name ApiReservoirFlowDelBatchPost
+   * @summary 批量删除
+   * @request POST:/api/reservoir-flow/del-batch
+   * @secure
+   */
+  apiReservoirFlowDelBatchPost = (
+    data: ReservoirFlowQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirFlowDelBatchPostData, any>({
+      path: `/api/reservoir-flow/del-batch`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-flow
+   * @name ApiReservoirFlowEditBatchPost
+   * @summary 批量修改
+   * @request POST:/api/reservoir-flow/edit-batch
+   * @secure
+   */
+  apiReservoirFlowEditBatchPost = (
+    data: ApiReservoirFlowEditBatchPostPayload,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirFlowEditBatchPostData, any>({
+      path: `/api/reservoir-flow/edit-batch`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-flow
+   * @name ApiReservoirFlowEditPost
+   * @summary 编辑数据
+   * @request POST:/api/reservoir-flow/edit
+   * @secure
+   */
+  apiReservoirFlowEditPost = (
+    data: ReservoirFlowFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirFlowEditPostData, any>({
+      path: `/api/reservoir-flow/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-flow
+   * @name ApiReservoirFlowListPost
+   * @summary 查询全部对象
+   * @request POST:/api/reservoir-flow/list
+   * @secure
+   */
+  apiReservoirFlowListPost = (
+    data: ReservoirFlowQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirFlowListPostData, any>({
+      path: `/api/reservoir-flow/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-flow
+   * @name ApiReservoirFlowPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/reservoir-flow/paged-list
+   * @secure
+   */
+  apiReservoirFlowPagedListPost = (
+    data: ReservoirFlowPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirFlowPagedListPostData, any>({
+      path: `/api/reservoir-flow/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-flow
+   * @name ApiReservoirFlowRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/reservoir-flow/remove-mul
+   * @secure
+   */
+  apiReservoirFlowRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirFlowRemoveMulPostData, any>({
+      path: `/api/reservoir-flow/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-flow
+   * @name ApiReservoirFlowRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/reservoir-flow/remove
+   * @secure
+   */
+  apiReservoirFlowRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiReservoirFlowRemovePostData, any>({
+      path: `/api/reservoir-flow/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-flow
+   * @name ApiReservoirFlowShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/reservoir-flow/show
+   * @secure
+   */
+  apiReservoirFlowShowPost = (
+    data: ReservoirFlowQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirFlowShowPostData, any>({
+      path: `/api/reservoir-flow/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-project
+   * @name ApiReservoirProjectAddPost
+   * @summary 新增数据
+   * @request POST:/api/reservoir-project/add
+   * @secure
+   */
+  apiReservoirProjectAddPost = (
+    data: ReservoirProjectFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirProjectAddPostData, any>({
+      path: `/api/reservoir-project/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-project
+   * @name ApiReservoirProjectEditPost
+   * @summary 编辑数据
+   * @request POST:/api/reservoir-project/edit
+   * @secure
+   */
+  apiReservoirProjectEditPost = (
+    data: ReservoirProjectFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirProjectEditPostData, any>({
+      path: `/api/reservoir-project/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-project
+   * @name ApiReservoirProjectGetProjectTsFilePost
+   * @summary 查询逃生相关图片和文件
+   * @request POST:/api/reservoir-project/get-project-ts-file
+   * @secure
+   */
+  apiReservoirProjectGetProjectTsFilePost = (
+    data: PtfQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirProjectGetProjectTsFilePostData, any>({
+      path: `/api/reservoir-project/get-project-ts-file`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-project
+   * @name ApiReservoirProjectGetPtfPagedListPost
+   * @summary 分页查询水库逃生相关图片和文件
+   * @request POST:/api/reservoir-project/get-ptf-paged-list
+   * @secure
+   */
+  apiReservoirProjectGetPtfPagedListPost = (
+    data: PtfPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirProjectGetPtfPagedListPostData, any>({
+      path: `/api/reservoir-project/get-ptf-paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-project
+   * @name ApiReservoirProjectListPost
+   * @summary 查询全部对象
+   * @request POST:/api/reservoir-project/list
+   * @secure
+   */
+  apiReservoirProjectListPost = (
+    data: ReservoirProjectQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirProjectListPostData, any>({
+      path: `/api/reservoir-project/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-project
+   * @name ApiReservoirProjectPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/reservoir-project/paged-list
+   * @secure
+   */
+  apiReservoirProjectPagedListPost = (
+    data: ReservoirProjectPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirProjectPagedListPostData, any>({
+      path: `/api/reservoir-project/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-project
+   * @name ApiReservoirProjectRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/reservoir-project/remove-mul
+   * @secure
+   */
+  apiReservoirProjectRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirProjectRemoveMulPostData, any>({
+      path: `/api/reservoir-project/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-project
+   * @name ApiReservoirProjectRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/reservoir-project/remove
+   * @secure
+   */
+  apiReservoirProjectRemovePost = (
+    data: OnlyIdQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirProjectRemovePostData, any>({
+      path: `/api/reservoir-project/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-project
+   * @name ApiReservoirProjectSaveProjectTsFilePost
+   * @summary 保存逃生相关图片和文件
+   * @request POST:/api/reservoir-project/save-project-ts-file
+   * @secure
+   */
+  apiReservoirProjectSaveProjectTsFilePost = (
+    data: ProjectTsFileSaveFO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirProjectSaveProjectTsFilePostData, any>({
+      path: `/api/reservoir-project/save-project-ts-file`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-project
+   * @name ApiReservoirProjectShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/reservoir-project/show
+   * @secure
+   */
+  apiReservoirProjectShowPost = (
+    data: ReservoirProjectQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirProjectShowPostData, any>({
+      path: `/api/reservoir-project/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-rp
+   * @name ApiReservoirRpAddPost
+   * @summary 新增数据
+   * @request POST:/api/reservoir-rp/add
+   * @secure
+   */
+  apiReservoirRpAddPost = (data: ReservoirRpFO, params: RequestParams = {}) =>
+    this.http.request<ApiReservoirRpAddPostData, any>({
+      path: `/api/reservoir-rp/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-rp
+   * @name ApiReservoirRpEditPost
+   * @summary 编辑数据
+   * @request POST:/api/reservoir-rp/edit
+   * @secure
+   */
+  apiReservoirRpEditPost = (data: ReservoirRpFO, params: RequestParams = {}) =>
+    this.http.request<ApiReservoirRpEditPostData, any>({
+      path: `/api/reservoir-rp/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-rp
+   * @name ApiReservoirRpListPost
+   * @summary 查询全部对象
+   * @request POST:/api/reservoir-rp/list
+   * @secure
+   */
+  apiReservoirRpListPost = (data: ReservoirRpQO, params: RequestParams = {}) =>
+    this.http.request<ApiReservoirRpListPostData, any>({
+      path: `/api/reservoir-rp/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-rp
+   * @name ApiReservoirRpPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/reservoir-rp/paged-list
+   * @secure
+   */
+  apiReservoirRpPagedListPost = (
+    data: ReservoirRpPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirRpPagedListPostData, any>({
+      path: `/api/reservoir-rp/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-rp
+   * @name ApiReservoirRpRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/reservoir-rp/remove-mul
+   * @secure
+   */
+  apiReservoirRpRemoveMulPost = (
+    data: RemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirRpRemoveMulPostData, any>({
+      path: `/api/reservoir-rp/remove-mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-rp
+   * @name ApiReservoirRpRemovePost
+   * @summary 删除1条数据
+   * @request POST:/api/reservoir-rp/remove
+   * @secure
+   */
+  apiReservoirRpRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiReservoirRpRemovePostData, any>({
+      path: `/api/reservoir-rp/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-rp
+   * @name ApiReservoirRpShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/reservoir-rp/show
+   * @secure
+   */
+  apiReservoirRpShowPost = (data: ReservoirRpQO, params: RequestParams = {}) =>
+    this.http.request<ApiReservoirRpShowPostData, any>({
+      path: `/api/reservoir-rp/show`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-vr
+   * @name ApiReservoirVrAddPost
+   * @summary 新增数据
+   * @request POST:/api/reservoir-vr/add
+   * @secure
+   */
+  apiReservoirVrAddPost = (
+    data: ApiReservoirVrAddPostPayload,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirVrAddPostData, any>({
+      path: `/api/reservoir-vr/add`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.FormData,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-vr
+   * @name ApiReservoirVrEditPost
+   * @summary 编辑数据
+   * @request POST:/api/reservoir-vr/edit
+   * @secure
+   */
+  apiReservoirVrEditPost = (
+    data: ApiReservoirVrEditPostPayload,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirVrEditPostData, any>({
+      path: `/api/reservoir-vr/edit`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.FormData,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-vr
+   * @name ApiReservoirVrListPost
+   * @summary 查询全部对象
+   * @request POST:/api/reservoir-vr/list
+   * @secure
+   */
+  apiReservoirVrListPost = (data: ReservoirVrQO, params: RequestParams = {}) =>
+    this.http.request<ApiReservoirVrListPostData, any>({
+      path: `/api/reservoir-vr/list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-vr
+   * @name ApiReservoirVrPagedListPost
+   * @summary 查询分页数据
+   * @request POST:/api/reservoir-vr/paged-list
+   * @secure
+   */
+  apiReservoirVrPagedListPost = (
+    data: ReservoirVrPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirVrPagedListPostData, any>({
+      path: `/api/reservoir-vr/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-vr
+   * @name ApiReservoirVrRemoveMulPost
+   * @summary 删除多条数据
+   * @request POST:/api/reservoir-vr/remove_mul
+   * @secure
+   */
+  apiReservoirVrRemoveMulPost = (
+    data: ReservoirVrRemoveMulQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiReservoirVrRemoveMulPostData, any>({
+      path: `/api/reservoir-vr/remove_mul`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-vr
+   * @name ApiReservoirVrRemovePost
+   * @summary 删除数据
+   * @request POST:/api/reservoir-vr/remove
+   * @secure
+   */
+  apiReservoirVrRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiReservoirVrRemovePostData, any>({
+      path: `/api/reservoir-vr/remove`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags reservoir-vr
+   * @name ApiReservoirVrShowPost
+   * @summary 查询1个对象
+   * @request POST:/api/reservoir-vr/show
+   * @secure
+   */
+  apiReservoirVrShowPost = (data: ReservoirVrQO, params: RequestParams = {}) =>
+    this.http.request<ApiReservoirVrShowPostData, any>({
+      path: `/api/reservoir-vr/show`,
       method: "POST",
       body: data,
       secure: true,
@@ -8516,15 +7769,15 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags sys-notice
-   * @name ApiSysNoticeAddPost
+   * @tags task-source
+   * @name ApiTaskSourceAddPost
    * @summary 新增数据
-   * @request POST:/api/sys-notice/add
+   * @request POST:/api/task-source/add
    * @secure
    */
-  apiSysNoticeAddPost = (data: SysNoticeFO, params: RequestParams = {}) =>
-    this.http.request<ApiSysNoticeAddPostData, any>({
-      path: `/api/sys-notice/add`,
+  apiTaskSourceAddPost = (data: TaskSourceFO, params: RequestParams = {}) =>
+    this.http.request<ApiTaskSourceAddPostData, any>({
+      path: `/api/task-source/add`,
       method: "POST",
       body: data,
       secure: true,
@@ -8535,15 +7788,15 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags sys-notice
-   * @name ApiSysNoticeEditPost
+   * @tags task-source
+   * @name ApiTaskSourceEditPost
    * @summary 编辑数据
-   * @request POST:/api/sys-notice/edit
+   * @request POST:/api/task-source/edit
    * @secure
    */
-  apiSysNoticeEditPost = (data: SysNoticeFO, params: RequestParams = {}) =>
-    this.http.request<ApiSysNoticeEditPostData, any>({
-      path: `/api/sys-notice/edit`,
+  apiTaskSourceEditPost = (data: TaskSourceFO, params: RequestParams = {}) =>
+    this.http.request<ApiTaskSourceEditPostData, any>({
+      path: `/api/task-source/edit`,
       method: "POST",
       body: data,
       secure: true,
@@ -8554,15 +7807,15 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags sys-notice
-   * @name ApiSysNoticeListPost
+   * @tags task-source
+   * @name ApiTaskSourceListPost
    * @summary 查询全部对象
-   * @request POST:/api/sys-notice/list
+   * @request POST:/api/task-source/list
    * @secure
    */
-  apiSysNoticeListPost = (data: SysNoticeQO, params: RequestParams = {}) =>
-    this.http.request<ApiSysNoticeListPostData, any>({
-      path: `/api/sys-notice/list`,
+  apiTaskSourceListPost = (data: TaskSourceQO, params: RequestParams = {}) =>
+    this.http.request<ApiTaskSourceListPostData, any>({
+      path: `/api/task-source/list`,
       method: "POST",
       body: data,
       secure: true,
@@ -8573,18 +7826,18 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags sys-notice
-   * @name ApiSysNoticePagedListPost
+   * @tags task-source
+   * @name ApiTaskSourcePagedListPost
    * @summary 查询分页数据
-   * @request POST:/api/sys-notice/paged-list
+   * @request POST:/api/task-source/paged-list
    * @secure
    */
-  apiSysNoticePagedListPost = (
-    data: SysNoticePQO,
+  apiTaskSourcePagedListPost = (
+    data: TaskSourcePQO,
     params: RequestParams = {},
   ) =>
-    this.http.request<ApiSysNoticePagedListPostData, any>({
-      path: `/api/sys-notice/paged-list`,
+    this.http.request<ApiTaskSourcePagedListPostData, any>({
+      path: `/api/task-source/paged-list`,
       method: "POST",
       body: data,
       secure: true,
@@ -8595,15 +7848,15 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags sys-notice
-   * @name ApiSysNoticeRemovePost
+   * @tags task-source
+   * @name ApiTaskSourceRemovePost
    * @summary 删除数据
-   * @request POST:/api/sys-notice/remove
+   * @request POST:/api/task-source/remove
    * @secure
    */
-  apiSysNoticeRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
-    this.http.request<ApiSysNoticeRemovePostData, any>({
-      path: `/api/sys-notice/remove`,
+  apiTaskSourceRemovePost = (data: OnlyIdQO, params: RequestParams = {}) =>
+    this.http.request<ApiTaskSourceRemovePostData, any>({
+      path: `/api/task-source/remove`,
       method: "POST",
       body: data,
       secure: true,
@@ -8614,15 +7867,15 @@ export class Api<SecurityDataType = unknown> {
   /**
    * No description
    *
-   * @tags sys-notice
-   * @name ApiSysNoticeShowPost
+   * @tags task-source
+   * @name ApiTaskSourceShowPost
    * @summary 查询1个对象
-   * @request POST:/api/sys-notice/show
+   * @request POST:/api/task-source/show
    * @secure
    */
-  apiSysNoticeShowPost = (data: SysNoticeQO, params: RequestParams = {}) =>
-    this.http.request<ApiSysNoticeShowPostData, any>({
-      path: `/api/sys-notice/show`,
+  apiTaskSourceShowPost = (data: TaskSourceQO, params: RequestParams = {}) =>
+    this.http.request<ApiTaskSourceShowPostData, any>({
+      path: `/api/task-source/show`,
       method: "POST",
       body: data,
       secure: true,
@@ -8672,6 +7925,47 @@ export class Api<SecurityDataType = unknown> {
    * No description
    *
    * @tags technics
+   * @name ApiTechnicsGetCoverNumByVillagePost
+   * @summary 乡镇分组查询设备覆盖率
+   * @request POST:/api/technics/get-cover-num-by-village
+   * @secure
+   */
+  apiTechnicsGetCoverNumByVillagePost = (
+    data: TechnicsQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsGetCoverNumByVillagePostData, any>({
+      path: `/api/technics/get-cover-num-by-village`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsGetCoverNumPost
+   * @summary 查询设备覆盖率
+   * @request POST:/api/technics/get-cover-num
+   * @secure
+   */
+  apiTechnicsGetCoverNumPost = (data: TechnicsQO, params: RequestParams = {}) =>
+    this.http.request<ApiTechnicsGetCoverNumPostData, any>({
+      path: `/api/technics/get-cover-num`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
    * @name ApiTechnicsListPost
    * @summary 查询全部对象
    * @request POST:/api/technics/list
@@ -8699,6 +7993,119 @@ export class Api<SecurityDataType = unknown> {
   apiTechnicsPagedListPost = (data: TechnicsPQO, params: RequestParams = {}) =>
     this.http.request<ApiTechnicsPagedListPostData, any>({
       path: `/api/technics/paged-list`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsQueryByConventionalWaterLevelReportPost
+   * @summary 常规水位报表
+   * @request POST:/api/technics/query-by-conventional-water-level-report
+   * @secure
+   */
+  apiTechnicsQueryByConventionalWaterLevelReportPost = (
+    data: TechnicsPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<
+      ApiTechnicsQueryByConventionalWaterLevelReportPostData,
+      any
+    >({
+      path: `/api/technics/query-by-conventional-water-level-report`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsQueryByDailyWaterLevelReportPost
+   * @summary 水位日报表
+   * @request POST:/api/technics/query-by-daily-water-level-report
+   * @secure
+   */
+  apiTechnicsQueryByDailyWaterLevelReportPost = (
+    data: TechnicsPQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsQueryByDailyWaterLevelReportPostData, any>({
+      path: `/api/technics/query-by-daily-water-level-report`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsQueryByReservoirInfoPost
+   * @summary 水库报表接口（实时溢洪道泄流量报表）
+   * @request POST:/api/technics/query-by-reservoir-info
+   * @secure
+   */
+  apiTechnicsQueryByReservoirInfoPost = (
+    data: TechnicsQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsQueryByReservoirInfoPostData, any>({
+      path: `/api/technics/query-by-reservoir-info`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsQueryByReservoirRpPost
+   * @summary 查询水库责任人落实情况
+   * @request POST:/api/technics/query-by-reservoir-rp
+   * @secure
+   */
+  apiTechnicsQueryByReservoirRpPost = (
+    data: TechnicsQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsQueryByReservoirRpPostData, any>({
+      path: `/api/technics/query-by-reservoir-rp`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags technics
+   * @name ApiTechnicsQueryByReservoirStatusPost
+   * @summary 查询水库概况
+   * @request POST:/api/technics/query-by-reservoir-status
+   * @secure
+   */
+  apiTechnicsQueryByReservoirStatusPost = (
+    data: TechnicsQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiTechnicsQueryByReservoirStatusPostData, any>({
+      path: `/api/technics/query-by-reservoir-status`,
       method: "POST",
       body: data,
       secure: true,
@@ -8828,23 +8235,6 @@ export class Api<SecurityDataType = unknown> {
    * No description
    *
    * @tags user
-   * @name ApiUserCountByJobPost
-   * @summary 根据职务统计
-   * @request POST:/api/user/count-by-job
-   * @secure
-   */
-  apiUserCountByJobPost = (params: RequestParams = {}) =>
-    this.http.request<ApiUserCountByJobPostData, any>({
-      path: `/api/user/count-by-job`,
-      method: "POST",
-      secure: true,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags user
    * @name ApiUserEditPost
    * @summary 编辑数据
    * @request POST:/api/user/edit
@@ -8913,23 +8303,6 @@ export class Api<SecurityDataType = unknown> {
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags user
-   * @name ApiUserGetUserCountPost
-   * @summary 获取用户数量
-   * @request POST:/api/user/get-user-count
-   * @secure
-   */
-  apiUserGetUserCountPost = (params: RequestParams = {}) =>
-    this.http.request<ApiUserGetUserCountPostData, any>({
-      path: `/api/user/get-user-count`,
-      method: "POST",
-      secure: true,
       format: "json",
       ...params,
     });
@@ -9297,25 +8670,6 @@ export class Api<SecurityDataType = unknown> {
   apiUserPagedListPost = (data: UserPQO, params: RequestParams = {}) =>
     this.http.request<ApiUserPagedListPostData, any>({
       path: `/api/user/paged-list`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
-  /**
-   * No description
-   *
-   * @tags user
-   * @name ApiUserPagedListWpPost
-   * @summary 获取分页列表,带岗位
-   * @request POST:/api/user/paged-list-wp
-   * @secure
-   */
-  apiUserPagedListWpPost = (data: UserPQO, params: RequestParams = {}) =>
-    this.http.request<ApiUserPagedListWpPostData, any>({
-      path: `/api/user/paged-list-wp`,
       method: "POST",
       body: data,
       secure: true,
