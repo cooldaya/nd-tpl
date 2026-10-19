@@ -23,54 +23,6 @@ export interface AdminResetPwdQO {
   userId: number;
 }
 
-export interface AlarmPushQO {
-  /** 上报地址 */
-  address?: string | null;
-  /**
-   * 报警等级
-   * @format int32
-   */
-  alarmLevel?: number | null;
-  /** 联系人 */
-  contact?: string | null;
-  /** 描述 */
-  description?: string | null;
-  /** 上报纬度 */
-  lat?: string | null;
-  /** 上报经度 */
-  lng?: string | null;
-  /** 联系电话 */
-  phone?: string | null;
-  /** 设施权属方唯一编号 */
-  stationCode?: string | null;
-  /** 任务名称 */
-  stationDesc?: string | null;
-  /** 监测点类型编码 */
-  stationTypeCode?: string | null;
-  /** 监测点类型名称 */
-  stationTypeDesc?: string | null;
-}
-
-export type ApiAlarmDetailJoinAlarmPostData =
-  FurionResultProcessInspectionCaseAlarmVO;
-
-export type ApiAlarmDetailPostData = FurionResultProcessInspectionCaseVO;
-
-export type ApiAlarmEventPagePostData =
-  FurionResultOpenApiPageResultProcessInspectionCaseVO;
-
-export type ApiAlarmEventStatisticsPostData = FurionResultString;
-
-export type ApiAlarmPushAlarmPostData = FurionResultString;
-
-export type ApiAlarmRepairDetailPostData = FurionResultRepairDetailVO;
-
-export type ApiAlarmStatusMapPostData = FurionResultString;
-
-export type ApiAlarmStatusMapPostPayload = string[];
-
-export type ApiAlarmTaskDetailPostData = FurionResultTaskDetailVO;
-
 export type ApiAppVersionLastVersionPostData = FurionResultAppVersionVO;
 
 export type ApiAppVersionListPostData = FurionResultListAppVersionVO;
@@ -104,41 +56,7 @@ export interface ApiAuthLoginSsoGetParams {
 
 export type ApiAuthLogoutPostData = any;
 
-export type ApiAuthMapTokenPostData = FurionResultString;
-
 export type ApiAuthPkinfoPostData = FurionResultString;
-
-export type ApiAuthWvpLoginPostData = FurionResultJObject;
-
-export type ApiBsAlarmPipeLineAddPostData = FurionResultBsAlarmPipeLineVO;
-
-export type ApiBsAlarmPipeLineEditPostData = FurionResultBsAlarmPipeLineVO;
-
-export type ApiBsAlarmPipeLineListPostData = FurionResultListBsAlarmPipeLineVO;
-
-export type ApiBsAlarmPipeLinePagedListPostData =
-  FurionResultSqlSugarPagedListBsAlarmPipeLineVO;
-
-export type ApiBsAlarmPipeLineRemoveMulPostData = FurionResultListInt64;
-
-export type ApiBsAlarmPipeLineRemovePostData = FurionResultInt64;
-
-export type ApiBsAlarmPipeLineShowPostData = FurionResultBsAlarmPipeLineVO;
-
-export type ApiBsCommunityAddPostData = FurionResultBsCommunityVO;
-
-export type ApiBsCommunityEditPostData = FurionResultBsCommunityVO;
-
-export type ApiBsCommunityListPostData = FurionResultListBsCommunityVO;
-
-export type ApiBsCommunityPagedListPostData =
-  FurionResultSqlSugarPagedListBsCommunityVO;
-
-export type ApiBsCommunityRemoveMulPostData = FurionResultListInt64;
-
-export type ApiBsCommunityRemovePostData = FurionResultInt64;
-
-export type ApiBsCommunityShowPostData = FurionResultBsCommunityVO;
 
 export type ApiBsCompanyAddPostData = FurionResultBsCompanyVO;
 
@@ -155,122 +73,95 @@ export type ApiBsCompanyRemovePostData = FurionResultInt64;
 
 export type ApiBsCompanyShowPostData = FurionResultBsCompanyVO;
 
-export type ApiBsOutletAddPostData = FurionResultBsOutletVO;
+export type ApiBsEventLevelAddPostData = FurionResultBsEventLevelVO;
 
-export type ApiBsOutletEditPostData = FurionResultBsOutletVO;
+export type ApiBsEventLevelEditPostData = FurionResultBsEventLevelVO;
 
-export type ApiBsOutletListPostData = FurionResultListBsOutletVO;
+export type ApiBsEventLevelListPostData = FurionResultListBsEventLevelVO;
 
-export type ApiBsOutletPagedListPostData =
-  FurionResultSqlSugarPagedListBsOutletVO;
+export type ApiBsEventLevelPagedListPostData =
+  FurionResultSqlSugarPagedListBsEventLevelVO;
 
-export type ApiBsOutletRemovePostData = FurionResultInt64;
+export type ApiBsEventLevelRemoveMulPostData = FurionResultListInt64;
 
-export type ApiBsOutletShowPostData = FurionResultBsOutletVO;
+export type ApiBsEventLevelRemovePostData = FurionResultInt64;
 
-export type ApiBsPipeLineAddPostData = FurionResultBsPipeLineVO;
+export type ApiBsEventLevelShowPostData = FurionResultBsEventLevelVO;
 
-export type ApiBsPipeLineEditPostData = FurionResultBsPipeLineVO;
+export type ApiBsEventTypeAddPostData = FurionResultBsEventTypeVO;
 
-export type ApiBsPipeLineGetCommunityInfoByPrealarmPostData =
-  FurionResultListPrealarmCommunityInfoVO;
+export type ApiBsEventTypeEditPostData = FurionResultBsEventTypeVO;
 
-export type ApiBsPipeLineGetLineByStartAndEndPostData =
-  FurionResultListBsPipeLine;
+export type ApiBsEventTypeListPostData = FurionResultListBsEventTypeVO;
 
-export type ApiBsPipeLineGetLineByStartPostData = FurionResultListBsPipeLine;
+export type ApiBsEventTypePagedListPostData =
+  FurionResultSqlSugarPagedListBsEventTypeVO;
 
-export type ApiBsPipeLineImportDataPostData = FurionResultString;
+export type ApiBsEventTypeRemoveMulPostData = FurionResultListInt64;
 
-export type ApiBsPipeLineLightQueryPostData = FurionResultListLightPipeLine;
+export type ApiBsEventTypeRemovePostData = FurionResultInt64;
 
-export type ApiBsPipeLineLinesByEndPointPostData = FurionResultListBsPipeLineVO;
+export type ApiBsEventTypeShowPostData = FurionResultBsEventTypeVO;
 
-export type ApiBsPipeLineListPostData = FurionResultListBsPipeLineVO;
+export type ApiBsInformationAddPostData = FurionResultBsInformationVO;
 
-export type ApiBsPipeLinePagedListPostData =
-  FurionResultSqlSugarPagedListBsPipeLineVO;
+export type ApiBsInformationEditPostData = FurionResultBsInformationVO;
 
-export type ApiBsPipeLineRemoveMulPostData = FurionResultListInt64;
+export type ApiBsInformationListPostData = FurionResultListBsInformationVO;
 
-export type ApiBsPipeLineRemovePostData = FurionResultInt64;
+export type ApiBsInformationPagedListPostData =
+  FurionResultSqlSugarPagedListBsInformationVO;
 
-export type ApiBsPipeLineShowPostData = FurionResultBsPipeLineVO;
+export type ApiBsInformationRemoveMulPostData = FurionResultListInt64;
 
-export type ApiBsPipePointAddPostData = FurionResultBsPipePointVO;
+export type ApiBsInformationRemovePostData = FurionResultInt64;
 
-export type ApiBsPipePointAlarmParameterAddPostData =
-  FurionResultBsPipePointAlarmParameterVO;
+export type ApiBsInformationShowPostData = FurionResultBsInformationVO;
 
-export type ApiBsPipePointAlarmParameterEditPostData =
-  FurionResultBsPipePointAlarmParameterVO;
+export type ApiBsNewsAddPostData = FurionResultBsNewsVO;
 
-export type ApiBsPipePointAlarmParameterListPostData =
-  FurionResultListBsPipePointAlarmParameterVO;
+export type ApiBsNewsEditPostData = FurionResultBsNewsVO;
 
-export type ApiBsPipePointAlarmParameterPagedListPostData =
-  FurionResultSqlSugarPagedListBsPipePointAlarmParameterVO;
+export type ApiBsNewsListPostData = FurionResultListBsNewsVO;
 
-export type ApiBsPipePointAlarmParameterRemoveMulPostData =
-  FurionResultListInt64;
+export type ApiBsNewsPagedListPostData = FurionResultSqlSugarPagedListBsNewsVO;
 
-export type ApiBsPipePointAlarmParameterRemovePostData = FurionResultInt64;
+export type ApiBsNewsRemoveMulPostData = FurionResultListInt64;
 
-export type ApiBsPipePointAlarmParameterShowPostData =
-  FurionResultBsPipePointAlarmParameterVO;
+export type ApiBsNewsRemovePostData = FurionResultInt64;
 
-export type ApiBsPipePointAlarmRecordAddPostData =
-  FurionResultBsPipePointAlarmRecordVO;
+export type ApiBsNewsShowPostData = FurionResultBsNewsVO;
 
-export type ApiBsPipePointAlarmRecordEditPostData =
-  FurionResultBsPipePointAlarmRecordVO;
+export type ApiBsOutletCategoryAddPostData = FurionResultBsOutletCategoryVO;
 
-export type ApiBsPipePointAlarmRecordListPostData =
-  FurionResultListBsPipePointAlarmRecordVO;
+export type ApiBsOutletCategoryEditPostData = FurionResultBsOutletCategoryVO;
 
-export type ApiBsPipePointAlarmRecordPagedListPostData =
-  FurionResultSqlSugarPagedListBsPipePointAlarmRecordVO;
+export type ApiBsOutletCategoryListPostData =
+  FurionResultListBsOutletCategoryVO;
 
-export type ApiBsPipePointAlarmRecordRemoveMulPostData = FurionResultListInt64;
+export type ApiBsOutletCategoryPagedListPostData =
+  FurionResultSqlSugarPagedListBsOutletCategoryVO;
 
-export type ApiBsPipePointAlarmRecordRemovePostData = FurionResultInt64;
+export type ApiBsOutletCategoryRemoveMulPostData = FurionResultListInt64;
 
-export type ApiBsPipePointAlarmRecordShowPostData =
-  FurionResultBsPipePointAlarmRecordVO;
+export type ApiBsOutletCategoryRemovePostData = FurionResultInt64;
 
-export type ApiBsPipePointConvertCoordinatesToLaluPostData = FurionResultString;
+export type ApiBsOutletCategoryShowPostData = FurionResultBsOutletCategoryVO;
 
-export type ApiBsPipePointCountGroupByAppendagePostData =
-  FurionResultListNameCount;
+export type ApiBsOutletTypeAddPostData = FurionResultBsOutletTypeVO;
 
-export type ApiBsPipePointEditPostData = FurionResultBsPipePointVO;
+export type ApiBsOutletTypeEditPostData = FurionResultBsOutletTypeVO;
 
-export type ApiBsPipePointImportDataPostData = FurionResultString;
+export type ApiBsOutletTypeListPostData = FurionResultListBsOutletTypeVO;
 
-export type ApiBsPipePointListPostData = FurionResultListBsPipePointVO;
+export type ApiBsOutletTypePagedListPostData =
+  FurionResultSqlSugarPagedListBsOutletTypeVO;
 
-export type ApiBsPipePointPagedListPostData =
-  FurionResultSqlSugarPagedListBsPipePointVO;
+export type ApiBsOutletTypeRemoveMulPostData = FurionResultListInt64;
 
-export type ApiBsPipePointRemoveMulPostData = FurionResultListInt64;
+export type ApiBsOutletTypeRemovePostData = FurionResultInt64;
 
-export type ApiBsPipePointRemovePostData = FurionResultInt64;
-
-export type ApiBsPipePointShowPostData = FurionResultBsPipePointVO;
-
-export type ApiBsPmcAddPostData = FurionResultBsPmcVO;
-
-export type ApiBsPmcEditPostData = FurionResultBsPmcVO;
-
-export type ApiBsPmcListPostData = FurionResultListBsPmcVO;
-
-export type ApiBsPmcPagedListPostData = FurionResultSqlSugarPagedListBsPmcVO;
-
-export type ApiBsPmcRemoveMulPostData = FurionResultListInt64;
-
-export type ApiBsPmcRemovePostData = FurionResultInt64;
-
-export type ApiBsPmcShowPostData = FurionResultBsPmcVO;
+export type ApiBsOutletTypeShowPostData = FurionResultBsOutletTypeVO;
 
 export type ApiBsPollutionPermitInfoAddPostData =
   FurionResultBsPollutionPermitInfoVO;
@@ -289,49 +180,35 @@ export type ApiBsPollutionPermitInfoRemovePostData = FurionResultInt64;
 export type ApiBsPollutionPermitInfoShowPostData =
   FurionResultBsPollutionPermitInfoVO;
 
-export type ApiBsZoneAddPostData = FurionResultBsZoneVO;
+export type ApiBsRiverAddPostData = FurionResultBsRiverVO;
 
-export type ApiBsZoneEditPostData = FurionResultBsZoneVO;
+export type ApiBsRiverEditPostData = FurionResultBsRiverVO;
 
-export type ApiBsZoneListPostData = FurionResultListBsZoneVO;
+export type ApiBsRiverListPostData = FurionResultListBsRiverVO;
 
-export type ApiBsZonePagedListPostData = FurionResultSqlSugarPagedListBsZoneVO;
+export type ApiBsRiverPagedListPostData =
+  FurionResultSqlSugarPagedListBsRiverVO;
 
-export type ApiBsZoneRemovePostData = FurionResultListInt64;
+export type ApiBsRiverRemoveMulPostData = FurionResultListInt64;
 
-export type ApiBsZoneShowPostData = FurionResultBsZoneVO;
+export type ApiBsRiverRemovePostData = FurionResultInt64;
 
-export type ApiBsZoneTreedataPostData = FurionResultListTreeNode;
+export type ApiBsRiverShowPostData = FurionResultBsRiverVO;
 
-export type ApiBsZoneTypedataPostData = FurionResultListTreeNode;
+export type ApiBsVillageAddPostData = FurionResultBsVillageVO;
 
-export type ApiBumenJscDetailJoinAlarmPostData =
-  FurionResultProcessInspectionCaseAlarmVO;
+export type ApiBsVillageEditPostData = FurionResultBsVillageVO;
 
-export type ApiBumenJscDetailPostData = FurionResultProcessInspectionCaseVO;
+export type ApiBsVillageListPostData = FurionResultListBsVillageVO;
 
-export type ApiBumenJscEquipmentListPostData = FurionResultListEquipmentVO;
+export type ApiBsVillagePagedListPostData =
+  FurionResultSqlSugarPagedListBsVillageVO;
 
-export type ApiBumenJscEventPagePostData =
-  FurionResultOpenApiPageResultProcessInspectionCaseVO;
+export type ApiBsVillageRemoveMulPostData = FurionResultListInt64;
 
-export type ApiBumenJscEventStatisticsPostData = FurionResultString;
+export type ApiBsVillageRemovePostData = FurionResultInt64;
 
-export type ApiBumenJscPrealarmRecordListPostData =
-  FurionResultListPrealarmRecordVO;
-
-export type ApiBumenJscRepairDetailPostData = FurionResultRepairDetailVO;
-
-export type ApiBumenJscStatusMapPostData = FurionResultString;
-
-export type ApiBumenJscStatusMapPostPayload = string[];
-
-export type ApiBumenJscTaskDetailPostData = FurionResultTaskDetailVO;
-
-export type ApiBumenJscTechnicsListPostData = FurionResultListTechnicsVO;
-
-export type ApiBumenJscTsLastPrealarmRecordListPostData =
-  FurionResultListPrealarmRecordVO;
+export type ApiBsVillageShowPostData = FurionResultBsVillageVO;
 
 export type ApiCommonFileDownloadGetData = any;
 
@@ -344,6 +221,12 @@ export type ApiCommonGenIdPostData = FurionResultInt64;
 
 export type ApiCommonGenIdsPostData = FurionResultListInt64;
 
+export type ApiCommonGetEnumsPostData = FurionResultListEnumGroupDto;
+
+export type ApiCommonGetFilesPostData = FurionResultListRecordFile;
+
+export type ApiCommonRemoveFilePostData = FurionResultString;
+
 export type ApiCommonUploadFilePostData = FurionResultRecordFile;
 
 export interface ApiCommonUploadFilePostPayload {
@@ -352,6 +235,11 @@ export interface ApiCommonUploadFilePostPayload {
    * @format binary
    */
   File?: File;
+  /**
+   * 文件id
+   * @format int64
+   */
+  Id?: number;
   /** 是否静态 */
   IsStatic?: boolean;
   /** 模块 */
@@ -366,6 +254,21 @@ export interface ApiCommonUploadFilePostPayload {
 export type ApiCommonUploadFilesPostData = FurionResultListRecordFile;
 
 export interface ApiCommonUploadFilesPostPayload {
+  Files?: File[];
+  /** 是否静态 */
+  IsStatic?: boolean;
+  /** 模块 */
+  ModelName?: string;
+  /**
+   * 业务对象id
+   * @format int64
+   */
+  RecordId: number;
+}
+
+export type ApiCommonUploadImgsPostData = FurionResultListRecordFile;
+
+export interface ApiCommonUploadImgsPostPayload {
   Files?: File[];
   /** 是否静态 */
   IsStatic?: boolean;
@@ -395,126 +298,55 @@ export type ApiDataDictionaryTreedataPostData = FurionResultListTreeNode;
 
 export type ApiDataDictionaryTypedataPostData = FurionResultListTreeNode;
 
-export type ApiDeviceInfoDeviceListByPositionGetData =
-  FurionResultListDevicePositionInfo;
-
-export type ApiDeviceInfoDeviceListByPositionScopeGetData =
-  FurionResultListDevicePositionScopeInfo;
-
-export type ApiDeviceInfoMonitorByOrganizationPostData =
-  FurionResultMonitorByOrganizationResult;
-
-export type ApiDeviceInfoMonitorListByDeviceIdPostData =
-  FurionResultListMonitorDetailInfo;
-
-export type ApiDeviceInfoOrganizationListPostData =
-  FurionResultOrganizationListResult;
-
-export type ApiEmergencyPlanAddPostData = FurionResultEmergencyPlanVO;
-
-export interface ApiEmergencyPlanAddPostPayload {
-  /** 审批部门 */
-  ApprovalDepartment?: string;
-  /** 审批文号 */
-  ApprovalNumber?: string;
-  /** 应急联系电话 */
-  ContactPhone: string;
-  /**
-   * 文件
-   * @format binary
-   */
-  File?: File;
-  /** @format int64 */
-  Id?: number;
-  /** 是否静态 */
-  IsStatic?: boolean;
-  /** 模块 */
-  ModelName?: string;
-  /** 名称 */
-  Name: string;
-  /** 编制单位 */
-  PrepareOrg?: string;
-  /**
-   * 发布时间
-   * @format date-time
-   */
-  PublishTime?: string;
-  /**
-   * 业务对象id
-   * @format int64
-   */
-  RecordId?: number;
-  /**
-   * 水库id
-   * @format int64
-   */
-  TechnicsId: number;
-}
-
-export type ApiEmergencyPlanEditPostData = FurionResultEmergencyPlanVO;
-
-export interface ApiEmergencyPlanEditPostPayload {
-  /** 审批部门 */
-  ApprovalDepartment?: string;
-  /** 审批文号 */
-  ApprovalNumber?: string;
-  /** 应急联系电话 */
-  ContactPhone: string;
-  /**
-   * 文件
-   * @format binary
-   */
-  File?: File;
-  /** @format int64 */
-  Id?: number;
-  /** 是否静态 */
-  IsStatic?: boolean;
-  /** 模块 */
-  ModelName?: string;
-  /** 名称 */
-  Name: string;
-  /** 编制单位 */
-  PrepareOrg?: string;
-  /**
-   * 发布时间
-   * @format date-time
-   */
-  PublishTime?: string;
-  /**
-   * 业务对象id
-   * @format int64
-   */
-  RecordId?: number;
-  /**
-   * 水库id
-   * @format int64
-   */
-  TechnicsId: number;
-}
-
-export type ApiEmergencyPlanListPostData = FurionResultListEmergencyPlanVO;
-
-export type ApiEmergencyPlanPagedListPostData =
-  FurionResultSqlSugarPagedListEmergencyPlanVO;
-
-export type ApiEmergencyPlanRemovePostData = FurionResultInt64;
-
-export type ApiEmergencyPlanShowPostData = FurionResultEmergencyPlanVO;
-
 export type ApiEquipmentAddPostData = FurionResultEquipmentVO;
 
 export type ApiEquipmentEditPostData = FurionResultEquipmentVO;
 
 export type ApiEquipmentListPostData = FurionResultListEquipmentVO;
 
+export type ApiEquipmentOnlineInfoPostData = FurionResultOnlineInfoVO;
+
 export type ApiEquipmentPagedListPostData =
   FurionResultSqlSugarPagedListEquipmentVO;
 
 export type ApiEquipmentParamAddPostData = FurionResultEquipmentParamVO;
 
-export type ApiEquipmentParamDdAddPostData = FurionResultEquipmentParamDdVO;
+export type ApiEquipmentParamDailyRateListPostData =
+  FurionResultListEquipmentParamDailyRateVO;
 
-export type ApiEquipmentParamDdEditPostData = FurionResultEquipmentParamDdVO;
+export type ApiEquipmentParamDailyRatePagedListPostData =
+  FurionResultSqlSugarPagedListEquipmentParamDailyRateVO;
+
+export type ApiEquipmentParamDailyRateRecalcPostData = FurionResultInt32;
+
+export type ApiEquipmentParamDailyRateShowPostData =
+  FurionResultEquipmentParamDailyRateVO;
+
+export type ApiEquipmentParamDailyRateStByParamPostData =
+  FurionResultListDataTransferRateVO;
+
+export type ApiEquipmentParamDailyRateStByTechnicsPostData =
+  FurionResultListDataTransferRateByTechnicesVO;
+
+export type ApiEquipmentParamDdAddPostData = FurionResultEquipmentParamDd;
+
+export type ApiEquipmentParamDdBatchExportExcelPostData =
+  FurionResultIActionResult;
+
+export type ApiEquipmentParamDdEditFlagPostData = FurionResultBoolean;
+
+export type ApiEquipmentParamDdExportExcelPostData = FurionResultIActionResult;
+
+export type ApiEquipmentParamDdFixDataPostData = FurionResultMtDataFixLog;
+
+export type ApiEquipmentParamDdGroupByDayAndFactorPostData =
+  FurionResultListEpStDataStVO;
+
+export type ApiEquipmentParamDdGroupByMonthAndFactorPostData =
+  FurionResultListEpStDataStVO;
+
+export type ApiEquipmentParamDdGroupByYearAndFactorPostData =
+  FurionResultListEpStDataStVO;
 
 export type ApiEquipmentParamDdListPostData =
   FurionResultListEquipmentParamDdVO;
@@ -522,23 +354,25 @@ export type ApiEquipmentParamDdListPostData =
 export type ApiEquipmentParamDdPagedListPostData =
   FurionResultSqlSugarPagedListEquipmentParamDdVO;
 
-export type ApiEquipmentParamDdRemoveMulPostData = FurionResultListInt64;
-
-export type ApiEquipmentParamDdRemovePostData = FurionResultInt64;
-
 export type ApiEquipmentParamDdShowPostData = FurionResultEquipmentParamDdVO;
 
 export type ApiEquipmentParamEditPostData = FurionResultEquipmentParamVO;
 
-export type ApiEquipmentParamEquipmentParamRainConditionPostData =
-  FurionResultSqlSugarPagedListEquipmentParamRainConditionVO;
+export type ApiEquipmentParamEpnListPostData = FurionResultListString;
 
-export type ApiEquipmentParamGetEquipmentParamByIdPostData =
-  FurionResultListEquipmentParamVO;
+export type ApiEquipmentParamHdAddPostData = FurionResultEquipmentParamHd;
 
-export type ApiEquipmentParamHdAddPostData = FurionResultEquipmentParamHdVO;
+export type ApiEquipmentParamHdBatchExportExcelPostData =
+  FurionResultIActionResult;
 
-export type ApiEquipmentParamHdEditPostData = FurionResultEquipmentParamHdVO;
+export type ApiEquipmentParamHdEditFlagPostData = FurionResultBoolean;
+
+export type ApiEquipmentParamHdExportExcelPostData = FurionResultIActionResult;
+
+export type ApiEquipmentParamHdFixDataPostData = FurionResultMtDataFixLog;
+
+export type ApiEquipmentParamHdGroupByHourAndFactorPostData =
+  FurionResultListEpStDataStVO;
 
 export type ApiEquipmentParamHdListPostData =
   FurionResultListEquipmentParamHdVO;
@@ -546,20 +380,33 @@ export type ApiEquipmentParamHdListPostData =
 export type ApiEquipmentParamHdPagedListPostData =
   FurionResultSqlSugarPagedListEquipmentParamHdVO;
 
-export type ApiEquipmentParamHdRemoveMulPostData = FurionResultListInt64;
-
-export type ApiEquipmentParamHdRemovePostData = FurionResultInt64;
-
 export type ApiEquipmentParamHdShowPostData = FurionResultEquipmentParamHdVO;
+
+export type ApiEquipmentParamInfoAddPostData = FurionResultEquipmentParamInfoVO;
+
+export type ApiEquipmentParamInfoEditPostData =
+  FurionResultEquipmentParamInfoVO;
+
+export type ApiEquipmentParamInfoListPostData =
+  FurionResultListEquipmentParamInfoVO;
+
+export type ApiEquipmentParamInfoPagedListPostData =
+  FurionResultSqlSugarPagedListEquipmentParamInfoVO;
+
+export type ApiEquipmentParamInfoRemoveMulPostData = FurionResultListInt64;
+
+export type ApiEquipmentParamInfoRemovePostData = FurionResultInt64;
+
+export type ApiEquipmentParamInfoShowPostData =
+  FurionResultEquipmentParamInfoVO;
 
 export type ApiEquipmentParamListPostData = FurionResultListEquipmentParamVO;
 
-export type ApiEquipmentParamMdAddPostData = FurionResultEquipmentParamMdVO;
+export type ApiEquipmentParamMdAddPostData = FurionResultEquipmentParamMd;
 
-export type ApiEquipmentParamMdEditPostData = FurionResultEquipmentParamMdVO;
+export type ApiEquipmentParamMdEditFlagPostData = FurionResultBoolean;
 
-export type ApiEquipmentParamMdGetEquipmentParamMdListByIdPostData =
-  FurionResultListEquipmentParamMd;
+export type ApiEquipmentParamMdFixDataPostData = FurionResultMtDataFixLog;
 
 export type ApiEquipmentParamMdListPostData =
   FurionResultListEquipmentParamMdVO;
@@ -567,35 +414,59 @@ export type ApiEquipmentParamMdListPostData =
 export type ApiEquipmentParamMdPagedListPostData =
   FurionResultSqlSugarPagedListEquipmentParamMdVO;
 
-export type ApiEquipmentParamMdQueryByWaterRainfallEigenvaluePostData =
-  FurionResultListWaterRainfallEigenvalue;
-
-export type ApiEquipmentParamMdQueryByWaterRainfallInformationPostData =
-  FurionResultSqlSugarPagedListWaterRainfallInformation;
-
-export type ApiEquipmentParamMdRemoveMulPostData = FurionResultListInt64;
-
-export type ApiEquipmentParamMdRemovePostData = FurionResultInt64;
-
 export type ApiEquipmentParamMdShowPostData = FurionResultEquipmentParamMdVO;
 
 export type ApiEquipmentParamPagedListPostData =
   FurionResultSqlSugarPagedListEquipmentParamVO;
 
+export type ApiEquipmentParamRdAddPostData = FurionResultEquipmentParamRd;
+
+export type ApiEquipmentParamRdEditFlagPostData = FurionResultBoolean;
+
+export type ApiEquipmentParamRdFixDataPostData = FurionResultMtDataFixLog;
+
+export type ApiEquipmentParamRdListPostData =
+  FurionResultListEquipmentParamRdVO;
+
+export type ApiEquipmentParamRdPagedListPostData =
+  FurionResultSqlSugarPagedListEquipmentParamRdVO;
+
+export type ApiEquipmentParamRdShowPostData = FurionResultEquipmentParamRdVO;
+
 export type ApiEquipmentParamRealTimeReportPostData =
   FurionResultListRealTimeReportVO;
-
-export type ApiEquipmentParamRemoveMulPostData = FurionResultListInt64;
 
 export type ApiEquipmentParamRemovePostData = FurionResultInt64;
 
 export type ApiEquipmentParamShowPostData = FurionResultEquipmentParamVO;
 
-export type ApiEquipmentRemoveMulPostData = FurionResultListInt64;
+export type ApiEquipmentParamStopPeriodAddPostData =
+  FurionResultEquipmentParamStopPeriodVO;
+
+export type ApiEquipmentParamStopPeriodEditPostData =
+  FurionResultEquipmentParamStopPeriodVO;
+
+export type ApiEquipmentParamStopPeriodListPostData =
+  FurionResultListEquipmentParamStopPeriodVO;
+
+export type ApiEquipmentParamStopPeriodPagedListPostData =
+  FurionResultSqlSugarPagedListEquipmentParamStopPeriodVO;
+
+export type ApiEquipmentParamStopPeriodRemoveMulPostData =
+  FurionResultListInt64;
+
+export type ApiEquipmentParamStopPeriodRemovePostData = FurionResultInt64;
+
+export type ApiEquipmentParamStopPeriodShowPostData =
+  FurionResultEquipmentParamStopPeriodVO;
 
 export type ApiEquipmentRemovePostData = FurionResultInt64;
 
 export type ApiEquipmentShowPostData = FurionResultEquipmentVO;
+
+export type ApiEquipmentStateStPostData = FurionResultStateStVO;
+
+export type ApiHikHikControllingPostData = FurionResultString;
 
 export type ApiHikNmsCameraOnlinePostData = FurionResultNmsCameraOnlineResData;
 
@@ -605,120 +476,25 @@ export type ApiHikPlaybackUrlPostData = FurionResultString;
 
 export type ApiHikPreviewUrlPostData = FurionResultString;
 
-export type ApiInspectionIssueEditPostData = FurionResultInspectionIssueVO;
+export type ApiHjCommandRecordCp3012PostData = FurionResultHjCommandRecordVO;
 
-export type ApiInspectionIssueHandlePostData = any;
+export type ApiHjCommandRecordListPostData = FurionResultListHjCommandRecordVO;
 
-export type ApiInspectionIssueListPostData = FurionResultListInspectionIssueVO;
+export type ApiHjCommandRecordPagedListPostData =
+  FurionResultSqlSugarPagedListHjCommandRecordVO;
 
-export type ApiInspectionIssuePagedListPostData =
-  FurionResultSqlSugarPagedListInspectionIssueVO;
+export type ApiHjCommandRecordRemovePostData = FurionResultInt64;
 
-export type ApiInspectionIssueRemovePostData = FurionResultInt64;
+export type ApiHjCommandRecordShowPostData = FurionResultHjCommandRecordVO;
 
-export type ApiInspectionIssueReportPostData = FurionResultInspectionIssueVO;
+export type ApiHjCommandRecordUnlockPostData = FurionResultHjCommandRecordVO;
 
-export type ApiInspectionIssueSeverityAddPostData =
-  FurionResultInspectionIssueSeverityVO;
+export type ApiHjmessageLogListPostData = FurionResultListHjmessageLogVO;
 
-export type ApiInspectionIssueSeverityEditPostData =
-  FurionResultInspectionIssueSeverityVO;
+export type ApiHjmessageLogPagedListPostData =
+  FurionResultSqlSugarPagedListHjmessageLogVO;
 
-export type ApiInspectionIssueSeverityListPostData =
-  FurionResultListInspectionIssueSeverityVO;
-
-export type ApiInspectionIssueSeverityPagedListPostData =
-  FurionResultSqlSugarPagedListInspectionIssueSeverityVO;
-
-export type ApiInspectionIssueSeverityRemovePostData = FurionResultInt64;
-
-export type ApiInspectionIssueSeverityShowPostData =
-  FurionResultInspectionIssueSeverityVO;
-
-export type ApiInspectionIssueShowPostData = FurionResultInspectionIssueVO;
-
-export type ApiInspectionIssueTypeAddPostData =
-  FurionResultInspectionIssueTypeVO;
-
-export type ApiInspectionIssueTypeEditPostData =
-  FurionResultInspectionIssueTypeVO;
-
-export type ApiInspectionIssueTypeListPostData =
-  FurionResultListInspectionIssueTypeVO;
-
-export type ApiInspectionIssueTypePagedListPostData =
-  FurionResultSqlSugarPagedListInspectionIssueTypeVO;
-
-export type ApiInspectionIssueTypeRemovePostData = FurionResultInt64;
-
-export type ApiInspectionIssueTypeShowPostData =
-  FurionResultInspectionIssueTypeVO;
-
-export type ApiInspectionRecordAppendTrackPostData = any;
-
-export type ApiInspectionRecordListPostData =
-  FurionResultListInspectionRecordVO;
-
-export type ApiInspectionRecordPagedListPostData =
-  FurionResultSqlSugarPagedListInspectionRecordVO;
-
-export type ApiInspectionRecordShowPostData = FurionResultInspectionRecordVO;
-
-export type ApiInspectionTaskDispatchPostData = FurionResultInspectionTaskVO;
-
-export type ApiInspectionTaskEditPostData = FurionResultInspectionTaskVO;
-
-export type ApiInspectionTaskEndPostData = any;
-
-export type ApiInspectionTaskListPostData = FurionResultListInspectionTaskVO;
-
-export type ApiInspectionTaskPagedListPostData =
-  FurionResultSqlSugarPagedListInspectionTaskVO;
-
-export type ApiInspectionTaskRemovePostData = FurionResultInt64;
-
-export type ApiInspectionTaskShowPostData = FurionResultInspectionTaskVO;
-
-export type ApiInspectionTaskStartPostData = any;
-
-export type ApiKnowledgeFileAddPostData = FurionResultKnowledgeFileVO;
-
-export type ApiKnowledgeFileEditPostData = FurionResultKnowledgeFileVO;
-
-export type ApiKnowledgeFileListPostData = FurionResultListKnowledgeFileVO;
-
-export type ApiKnowledgeFilePagedListPostData =
-  FurionResultSqlSugarPagedListKnowledgeFileVO;
-
-export type ApiKnowledgeFileRemovePostData = FurionResultListInt64;
-
-export type ApiKnowledgeFileShowPostData = FurionResultKnowledgeFileVO;
-
-export type ApiKnowledgeFileTreedataPostData = FurionResultListTreeNodeKf;
-
-export type ApiKnowledgeFileUploadPostData = FurionResultKnowledgeFile;
-
-export interface ApiKnowledgeFileUploadPostPayload {
-  /**
-   * 文件
-   * @format binary
-   */
-  File?: File;
-  /** 是否静态 */
-  IsStatic?: boolean;
-  /** 模块 */
-  ModelName?: string;
-  /**
-   * ParentId
-   * @format int64
-   */
-  ParentId?: number;
-  /**
-   * 业务对象id
-   * @format int64
-   */
-  RecordId: number;
-}
+export type ApiHjmessageLogShowPostData = FurionResultHjmessageLogVO;
 
 export type ApiLogaccessAddPostData = FurionResultLogaccessVO;
 
@@ -772,6 +548,51 @@ export type ApiMessagePagedListPostData =
 
 export type ApiMessageShowPostData = FurionResultMessageVO;
 
+export type ApiMsgnoticeAddPostData = FurionResultMsgnoticeVO;
+
+export type ApiMsgnoticeEditPostData = FurionResultMsgnoticeVO;
+
+export type ApiMsgnoticeListPostData = FurionResultListMsgnoticeVO;
+
+export type ApiMsgnoticePagedListPostData =
+  FurionResultSqlSugarPagedListMsgnoticeVO;
+
+export type ApiMsgnoticeRemoveMulPostData = FurionResultListInt64;
+
+export type ApiMsgnoticeRemovePostData = FurionResultInt64;
+
+export type ApiMsgnoticeShowPostData = FurionResultMsgnoticeVO;
+
+export type ApiMtDataFixLogAddPostData = FurionResultMtDataFixLogVO;
+
+export type ApiMtDataFixLogEditPostData = FurionResultMtDataFixLogVO;
+
+export type ApiMtDataFixLogListPostData = FurionResultListMtDataFixLogVO;
+
+export type ApiMtDataFixLogPagedListPostData =
+  FurionResultSqlSugarPagedListMtDataFixLogVO;
+
+export type ApiMtDataFixLogRemoveMulPostData = FurionResultListInt64;
+
+export type ApiMtDataFixLogRemovePostData = FurionResultInt64;
+
+export type ApiMtDataFixLogShowPostData = FurionResultMtDataFixLogVO;
+
+export type ApiMtEditFlagLogAddPostData = FurionResultMtEditFlagLogVO;
+
+export type ApiMtEditFlagLogEditPostData = FurionResultMtEditFlagLogVO;
+
+export type ApiMtEditFlagLogListPostData = FurionResultListMtEditFlagLogVO;
+
+export type ApiMtEditFlagLogPagedListPostData =
+  FurionResultSqlSugarPagedListMtEditFlagLogVO;
+
+export type ApiMtEditFlagLogRemoveMulPostData = FurionResultListInt64;
+
+export type ApiMtEditFlagLogRemovePostData = FurionResultInt64;
+
+export type ApiMtEditFlagLogShowPostData = FurionResultMtEditFlagLogVO;
+
 export type ApiOrganizationAddPostData = FurionResultOrganizationVO;
 
 export type ApiOrganizationEditPostData = FurionResultOrganizationVO;
@@ -787,11 +608,175 @@ export type ApiOrganizationShowPostData = FurionResultOrganizationVO;
 
 export type ApiOrganizationTreedataPostData = FurionResultListTreeNode;
 
+export type ApiOutfallEventHandleGetByEventPostData =
+  FurionResultListOutfallEventHandleVO;
+
+export type ApiOutfallEventHandleListPostData =
+  FurionResultListOutfallEventHandleVO;
+
+export type ApiOutfallEventHandlePagedListPostData =
+  FurionResultSqlSugarPagedListOutfallEventHandleVO;
+
+export type ApiOutfallEventHandleRemovePostData = FurionResultInt64;
+
+export type ApiOutfallEventHandleShowPostData =
+  FurionResultOutfallEventHandleVO;
+
+export type ApiOutfallEventInfoAddPostData = FurionResultOutfallEventInfoVO;
+
+export type ApiOutfallEventInfoAuditHandlePostData =
+  FurionResultOutfallEventInfoVO;
+
+export type ApiOutfallEventInfoAuditPostData = FurionResultOutfallEventInfoVO;
+
+export type ApiOutfallEventInfoCountPostData = FurionResultInt64;
+
+export type ApiOutfallEventInfoDetailPostData = FurionResultOutfallEventInfoVO;
+
+export type ApiOutfallEventInfoDispatchPostData =
+  FurionResultOutfallEventInfoVO;
+
+export type ApiOutfallEventInfoFromPrealarmPostData =
+  FurionResultOutfallEventInfoVO;
+
+export type ApiOutfallEventInfoHandlePostData = FurionResultOutfallEventInfoVO;
+
+export type ApiOutfallEventInfoListPostData =
+  FurionResultListOutfallEventInfoVO;
+
+export type ApiOutfallEventInfoPagedListPostData =
+  FurionResultSqlSugarPagedListOutfallEventInfoVO;
+
+export type ApiOutfallEventInfoRemovePostData = FurionResultInt64;
+
+export type ApiOutfallEventInfoShowPostData = FurionResultOutfallEventInfoVO;
+
+export type ApiOutfallEventInfoStByOutfallPostData = FurionResultListCommonStVO;
+
+export type ApiOutfallEventInfoStByStatusPostData = FurionResultListCommonStVO;
+
+export type ApiOutfallEventInfoStByTypePostData = FurionResultListCommonStVO;
+
+export type ApiOutfallInspectionPlanAddPostData =
+  FurionResultOutfallInspectionPlanVO;
+
+export type ApiOutfallInspectionPlanChangeStatusPostData =
+  FurionResultOutfallInspectionPlanVO;
+
+export type ApiOutfallInspectionPlanEditPostData =
+  FurionResultOutfallInspectionPlanVO;
+
+export type ApiOutfallInspectionPlanGenerateTaskPostData = FurionResultInt32;
+
+export type ApiOutfallInspectionPlanListPostData =
+  FurionResultListOutfallInspectionPlanVO;
+
+export type ApiOutfallInspectionPlanPagedListPostData =
+  FurionResultSqlSugarPagedListOutfallInspectionPlanVO;
+
+export type ApiOutfallInspectionPlanRemovePostData = FurionResultInt64;
+
+export type ApiOutfallInspectionPlanShowPostData =
+  FurionResultOutfallInspectionPlanVO;
+
+export type ApiOutfallInspectionPlanStByStatusPostData =
+  FurionResultListCommonStVO;
+
+export type ApiOutfallInspectionRecordAddPostData =
+  FurionResultOutfallInspectionRecordVO;
+
+export type ApiOutfallInspectionRecordCheckOutPostData =
+  FurionResultOutfallInspectionRecordVO;
+
+export type ApiOutfallInspectionRecordDetailPostData =
+  FurionResultOutfallInspectionRecordVO;
+
+export type ApiOutfallInspectionRecordListPostData =
+  FurionResultListOutfallInspectionRecordVO;
+
+export type ApiOutfallInspectionRecordPagedListPostData =
+  FurionResultSqlSugarPagedListOutfallInspectionRecordVO;
+
+export type ApiOutfallInspectionRecordRemovePostData = FurionResultInt64;
+
+export type ApiOutfallInspectionRecordShowPostData =
+  FurionResultOutfallInspectionRecordVO;
+
+export type ApiOutfallInspectionRecordStByAbnormalPostData =
+  FurionResultListCommonStVO;
+
+export type ApiOutfallInspectionRecordStByPersonPostData =
+  FurionResultListCommonStVO;
+
+export type ApiOutfallInspectionTaskAddPostData =
+  FurionResultOutfallInspectionTaskVO;
+
+export type ApiOutfallInspectionTaskCancelPostData =
+  FurionResultOutfallInspectionTaskVO;
+
+export type ApiOutfallInspectionTaskEditPostData =
+  FurionResultOutfallInspectionTaskVO;
+
+export type ApiOutfallInspectionTaskFinishPostData =
+  FurionResultOutfallInspectionTaskVO;
+
+export type ApiOutfallInspectionTaskGenerateTaskPostData = FurionResultInt32;
+
+export type ApiOutfallInspectionTaskListPostData =
+  FurionResultListOutfallInspectionTaskVO;
+
+export type ApiOutfallInspectionTaskPagedListPostData =
+  FurionResultSqlSugarPagedListOutfallInspectionTaskVO;
+
+export type ApiOutfallInspectionTaskRemovePostData = FurionResultInt64;
+
+export type ApiOutfallInspectionTaskShowPostData =
+  FurionResultOutfallInspectionTaskVO;
+
+export type ApiOutfallInspectionTaskStByOutfallPostData =
+  FurionResultListCommonStVO;
+
+export type ApiOutfallInspectionTaskStByStatusPostData =
+  FurionResultListCommonStVO;
+
+export type ApiOutfallInspectionTaskStartPostData =
+  FurionResultOutfallInspectionTaskVO;
+
+export type ApiOutfallInspectionTrackAddPostData =
+  FurionResultOutfallInspectionTrackVO;
+
+export type ApiOutfallInspectionTrackGetByRecordPostData =
+  FurionResultListOutfallInspectionTrackVO;
+
+export type ApiOutfallInspectionTrackListPostData =
+  FurionResultListOutfallInspectionTrackVO;
+
+export type ApiOutfallInspectionTrackPagedListPostData =
+  FurionResultSqlSugarPagedListOutfallInspectionTrackVO;
+
+export type ApiOutfallInspectionTrackRemovePostData = FurionResultInt64;
+
+export type ApiOutfallInspectionTrackShowPostData =
+  FurionResultOutfallInspectionTrackVO;
+
+export type ApiOutfallInspectionTrackUploadTracksPostData =
+  FurionResultListInt64;
+
 export type ApiPrealarmRecordAddPostData = FurionResultPrealarmRecordVO;
+
+export type ApiPrealarmRecordAppPushPostData = FurionResultString;
 
 export type ApiPrealarmRecordEditPostData = FurionResultPrealarmRecordVO;
 
-export type ApiPrealarmRecordListPostData = FurionResultListPrealarmRecordVO;
+export type ApiPrealarmRecordGroupByDayPostData = FurionResultListPrealarmStVO;
+
+export type ApiPrealarmRecordGroupByMonthPostData =
+  FurionResultListPrealarmStVO;
+
+export type ApiPrealarmRecordGroupByOutfallPostData =
+  FurionResultListPrealarmStVO;
+
+export type ApiPrealarmRecordGroupByYearPostData = FurionResultListPrealarmStVO;
 
 export type ApiPrealarmRecordPagedListPostData =
   FurionResultSqlSugarPagedListPrealarmRecordVO;
@@ -800,29 +785,20 @@ export type ApiPrealarmRecordRemoveMulPostData = FurionResultListInt64;
 
 export type ApiPrealarmRecordRemovePostData = FurionResultInt64;
 
-export type ApiPrealarmRecordRtPrealarmRecordPostData =
-  FurionResultPrealarmRecordVO;
+export type ApiPrealarmRecordShowOnePostData = FurionResultPrealarmRecordVO;
 
-export type ApiPrealarmRecordShowPostData = FurionResultPrealarmRecordVO;
+export type ApiPrealarmRecordWhitePagedListPostData =
+  FurionResultSqlSugarPagedListPrealarmRecordVO;
 
-export type ApiPrealarmRuleAddPostData = FurionResultPrealarmRuleVO;
+export type ApiPrealarmRecordWhitelistPostData =
+  FurionResultListPrealarmRecordVO;
 
-export type ApiPrealarmRuleEditPostData = FurionResultPrealarmRuleVO;
+export type ApiPrealarmRuleEditMulByEpnPostData = FurionResultInt32;
 
-export type ApiPrealarmRuleGetRpsPostData = FurionResultListInt64;
+export type ApiPrealarmRuleEditMulPostData = any;
 
-export type ApiPrealarmRuleListPostData = FurionResultListPrealarmRuleVO;
-
-export type ApiPrealarmRulePagedListPostData =
-  FurionResultSqlSugarPagedListPrealarmRuleVO;
-
-export type ApiPrealarmRuleRemoveMulPostData = FurionResultListInt64;
-
-export type ApiPrealarmRuleRemovePostData = FurionResultInt64;
-
-export type ApiPrealarmRuleShowPostData = FurionResultPrealarmRuleVO;
-
-export type ApiPrealarmRuleUpdateRpsPostData = FurionResultBoolean;
+export type ApiPrealarmRuleGetByTechnicsPostData =
+  FurionResultListPrealarmRuleVO;
 
 export type ApiRecordFileListPostData = FurionResultListRecordFileVO;
 
@@ -834,82 +810,6 @@ export type ApiRecordFileRemoveMulPostData = FurionResultListInt64;
 export type ApiRecordFileRemovePostData = FurionResultInt64;
 
 export type ApiRecordFileShowPostData = FurionResultRecordFileVO;
-
-export type ApiReservoirCapacityAddBatchPostData = FurionResultIActionResult;
-
-export type ApiReservoirCapacityAddBatchPostPayload = ReservoirCapacity[];
-
-export type ApiReservoirCapacityAddPostData = FurionResultReservoirCapacityVO;
-
-export type ApiReservoirCapacityDelBatchPostData = FurionResultIActionResult;
-
-export type ApiReservoirCapacityEditBatchPostData = FurionResultIActionResult;
-
-export type ApiReservoirCapacityEditBatchPostPayload = ReservoirCapacityQO[];
-
-export type ApiReservoirCapacityEditPostData = FurionResultReservoirCapacityVO;
-
-export type ApiReservoirCapacityListPostData =
-  FurionResultListReservoirCapacityVO;
-
-export type ApiReservoirCapacityPagedListPostData =
-  FurionResultSqlSugarPagedListReservoirCapacityVO;
-
-export type ApiReservoirCapacityRemoveMulPostData = FurionResultListInt64;
-
-export type ApiReservoirCapacityRemovePostData = FurionResultInt64;
-
-export type ApiReservoirCapacityShowPostData = FurionResultReservoirCapacityVO;
-
-export type ApiReservoirFlowAddBatchPostData = FurionResultIActionResult;
-
-export type ApiReservoirFlowAddBatchPostPayload = ReservoirFlow[];
-
-export type ApiReservoirFlowAddPostData = FurionResultReservoirFlowVO;
-
-export type ApiReservoirFlowDelBatchPostData = FurionResultIActionResult;
-
-export type ApiReservoirFlowEditBatchPostData = FurionResultIActionResult;
-
-export type ApiReservoirFlowEditBatchPostPayload = ReservoirFlowQO[];
-
-export type ApiReservoirFlowEditPostData = FurionResultReservoirFlowVO;
-
-export type ApiReservoirFlowListPostData = FurionResultListReservoirFlowVO;
-
-export type ApiReservoirFlowPagedListPostData =
-  FurionResultSqlSugarPagedListReservoirFlowVO;
-
-export type ApiReservoirFlowRemoveMulPostData = FurionResultListInt64;
-
-export type ApiReservoirFlowRemovePostData = FurionResultInt64;
-
-export type ApiReservoirFlowShowPostData = FurionResultReservoirFlowVO;
-
-export type ApiReservoirProjectAddPostData = FurionResultReservoirProjectVO;
-
-export type ApiReservoirProjectEditPostData = FurionResultReservoirProjectVO;
-
-export type ApiReservoirProjectGetProjectTsFilePostData =
-  FurionResultProjectTsFileVO;
-
-export type ApiReservoirProjectGetPtfPagedListPostData =
-  FurionResultSqlSugarPagedListProjectTsFileVO;
-
-export type ApiReservoirProjectListPostData =
-  FurionResultListReservoirProjectVO;
-
-export type ApiReservoirProjectPagedListPostData =
-  FurionResultSqlSugarPagedListReservoirProjectVO;
-
-export type ApiReservoirProjectRemoveMulPostData = FurionResultListInt64;
-
-export type ApiReservoirProjectRemovePostData = FurionResultInt64;
-
-export type ApiReservoirProjectSaveProjectTsFilePostData =
-  FurionResultProjectTsFileSaveFO;
-
-export type ApiReservoirProjectShowPostData = FurionResultReservoirProjectVO;
 
 export type ApiReservoirRpAddPostData = FurionResultReservoirRpVO;
 
@@ -925,93 +825,6 @@ export type ApiReservoirRpRemoveMulPostData = FurionResultListInt64;
 export type ApiReservoirRpRemovePostData = FurionResultInt64;
 
 export type ApiReservoirRpShowPostData = FurionResultReservoirRpVO;
-
-export type ApiReservoirVrAddPostData = FurionResultReservoirVrVO;
-
-export interface ApiReservoirVrAddPostPayload {
-  /** 编码 */
-  Code: string;
-  /** @format date-time */
-  CreatedAt?: string;
-  CreatedPerson?: string;
-  /**
-   * 文件
-   * @format binary
-   */
-  File?: File;
-  /** @format int64 */
-  Id?: number;
-  /** 初始位置pitch */
-  InitPitch?: string;
-  /** 初始位置yaw */
-  InitYaw?: string;
-  /** 是否静态 */
-  IsStatic?: boolean;
-  /** 模块 */
-  ModelName?: string;
-  /**
-   * 业务对象id
-   * @format int64
-   */
-  RecordId: number;
-  /**
-   * 水库id
-   * @format int64
-   */
-  TechnicsId: number;
-  /** @format date-time */
-  UpdatedAt?: string;
-  UpdatedPerson?: string;
-}
-
-export type ApiReservoirVrEditPostData = FurionResultReservoirVrVO;
-
-export interface ApiReservoirVrEditPostPayload {
-  /** 编码 */
-  Code: string;
-  /** @format date-time */
-  CreatedAt?: string;
-  CreatedPerson?: string;
-  /**
-   * 文件
-   * @format binary
-   */
-  File?: File;
-  /** @format int64 */
-  Id?: number;
-  /** 初始位置pitch */
-  InitPitch?: string;
-  /** 初始位置yaw */
-  InitYaw?: string;
-  /** 是否静态 */
-  IsStatic?: boolean;
-  /** 模块 */
-  ModelName?: string;
-  /**
-   * 业务对象id
-   * @format int64
-   */
-  RecordId: number;
-  /**
-   * 水库id
-   * @format int64
-   */
-  TechnicsId: number;
-  /** @format date-time */
-  UpdatedAt?: string;
-  UpdatedPerson?: string;
-}
-
-export type ApiReservoirVrListPostData = FurionResultListReservoirVrVO;
-
-export type ApiReservoirVrPagedListPostData =
-  FurionResultSqlSugarPagedListReservoirVrVO;
-
-export type ApiReservoirVrRemoveMulPostData = FurionResultListInt64;
-
-export type ApiReservoirVrRemovePostData = FurionResultInt64;
-
-export type ApiReservoirVrShowPostData = FurionResultReservoirVrVO;
 
 export type ApiResourceAddPostData = FurionResultResourceVO;
 
@@ -1031,6 +844,33 @@ export type ApiResourceRoutePathsPostData = FurionResultListString;
 export type ApiResourceShowPostData = FurionResultResourceVO;
 
 export type ApiResourceTreedataPostData = FurionResultListTreeNode;
+
+export type ApiRiverSewageOutfallAddPostData = FurionResultRiverSewageOutfallVO;
+
+export type ApiRiverSewageOutfallDptopstPostData = FurionResultListLabelValue;
+
+export type ApiRiverSewageOutfallEditPostData =
+  FurionResultRiverSewageOutfallVO;
+
+export type ApiRiverSewageOutfallListPostData =
+  FurionResultListRiverSewageOutfallVO;
+
+export type ApiRiverSewageOutfallMapListPostData = FurionResultListOutfallMapVO;
+
+export type ApiRiverSewageOutfallMpstPostData = FurionResultMpstVO;
+
+export type ApiRiverSewageOutfallPagedListPostData =
+  FurionResultSqlSugarPagedListRiverSewageOutfallVO;
+
+export type ApiRiverSewageOutfallRemovePostData = FurionResultInt64;
+
+export type ApiRiverSewageOutfallShowPostData =
+  FurionResultRiverSewageOutfallVO;
+
+export type ApiRiverSewageOutfallStbyCategoryPostData =
+  FurionResultListCommonStVO;
+
+export type ApiRiverSewageOutfallStbyRiverPostData = FurionResultListCommonStVO;
 
 export type ApiRoleAddPostData = FurionResultRoleVO;
 
@@ -1088,54 +928,24 @@ export interface ApiSysCacheValueKeyGetParams {
   key: string;
 }
 
-export type ApiTaskSourceAddPostData = FurionResultTaskSourceVO;
-
-export type ApiTaskSourceEditPostData = FurionResultTaskSourceVO;
-
-export type ApiTaskSourceListPostData = FurionResultListTaskSourceVO;
-
-export type ApiTaskSourcePagedListPostData =
-  FurionResultSqlSugarPagedListTaskSourceVO;
-
-export type ApiTaskSourceRemovePostData = FurionResultInt64;
-
-export type ApiTaskSourceShowPostData = FurionResultTaskSourceVO;
-
 export type ApiTechnicsAddPostData = FurionResultTechnicsVO;
 
 export type ApiTechnicsEditPostData = FurionResultTechnicsVO;
 
-export type ApiTechnicsGetCoverNumByVillagePostData =
-  FurionResultListGetCoverNum;
-
-export type ApiTechnicsGetCoverNumPostData = FurionResultGetCoverNum;
+export type ApiTechnicsGetRecordFilesPostData = FurionResultListRecordFileVO;
 
 export type ApiTechnicsListPostData = FurionResultListTechnicsVO;
 
 export type ApiTechnicsPagedListPostData =
   FurionResultSqlSugarPagedListTechnicsVO;
 
-export type ApiTechnicsQueryByConventionalWaterLevelReportPostData =
-  FurionResultListConventionalWaterLevelReport;
-
-export type ApiTechnicsQueryByDailyWaterLevelReportPostData =
-  FurionResultListDailyWaterLevelReport;
-
-export type ApiTechnicsQueryByReservoirInfoPostData =
-  FurionResultListReservoirInfo;
-
-export type ApiTechnicsQueryByReservoirRpPostData = FurionResultReservoirRPNum;
-
-export type ApiTechnicsQueryByReservoirStatusPostData =
-  FurionResultReservoirStatus;
-
-export type ApiTechnicsRemoveMulPostData = FurionResultListInt64;
-
 export type ApiTechnicsRemovePostData = FurionResultInt64;
 
 export type ApiTechnicsShowPostData = FurionResultTechnicsVO;
 
 export type ApiUserAddPostData = FurionResultUserVO;
+
+export type ApiUserAssignOutfallPostData = any;
 
 export type ApiUserAssignRolesPostData = any;
 
@@ -1146,6 +956,8 @@ export type ApiUserEditPostData = FurionResultUserVO;
 export type ApiUserEditPwdPostData = any;
 
 export type ApiUserEditSelfPostData = FurionResultUserVO;
+
+export type ApiUserGetOutfallPostData = FurionResultListRiverSewageOutfallVO;
 
 export type ApiUserGetRolesPostData = FurionResultListRoleVO;
 
@@ -1256,546 +1068,36 @@ export interface AppVersionVO {
   version?: string | null;
 }
 
-export interface BsAlarmPipeLineFO {
+export interface BsCompanyFO {
   /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /**
-   * 管线终点埋深
-   * @format double
-   */
-  buriedDepthE?: number | null;
-  /**
-   * 管线起点埋深
-   * @format double
-   */
-  buriedDepthS?: number | null;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 管线终点高程
-   * @format double
-   */
-  elevationE?: number | null;
-  /**
-   * 管线起点高程
-   * @format double
-   */
-  elevationS?: number | null;
-  /**
-   * 管线等级
-   * @format int32
-   */
-  grade?: number | null;
-  /** @format int64 */
-  id?: number;
-  /** 敷设方式 */
-  layingMethod?: string | null;
-  /**
-   * 管线长度
-   * @format double
-   */
-  length?: number | null;
-  /** 管材 */
-  material?: string | null;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  remark?: string | null;
-  /** 断面尺寸 */
-  sectionSize?: string | null;
-  /** 管线终点编号 */
-  serialNumberE?: string | null;
-  /** 管线起点编号 */
-  serialNumberS?: string | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-}
-
-export interface BsAlarmPipeLinePQO {
-  /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /**
-   * 管线终点埋深
-   * @format double
-   */
-  buriedDepthE?: number | null;
-  /**
-   * 管线起点埋深
-   * @format double
-   */
-  buriedDepthS?: number | null;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 管线终点高程
-   * @format double
-   */
-  elevationE?: number | null;
-  /**
-   * 管线起点高程
-   * @format double
-   */
-  elevationS?: number | null;
-  /** 排序字段 */
-  field?: string | null;
-  /**
-   * 管线等级
-   * @format int32
-   */
-  grade?: number | null;
-  /** @format int64 */
-  id?: number;
-  /** 敷设方式 */
-  layingMethod?: string | null;
-  /**
-   * 管线长度
-   * @format double
-   */
-  length?: number | null;
-  /** 管材 */
-  material?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  remark?: string | null;
-  /** 断面尺寸 */
-  sectionSize?: string | null;
-  /** 管线终点编号 */
-  serialNumberE?: string | null;
-  /** 管线起点编号 */
-  serialNumberS?: string | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-}
-
-export interface BsAlarmPipeLineQO {
-  /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /**
-   * 管线终点埋深
-   * @format double
-   */
-  buriedDepthE?: number | null;
-  /**
-   * 管线起点埋深
-   * @format double
-   */
-  buriedDepthS?: number | null;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 管线终点高程
-   * @format double
-   */
-  elevationE?: number | null;
-  /**
-   * 管线起点高程
-   * @format double
-   */
-  elevationS?: number | null;
-  /**
-   * 管线等级
-   * @format int32
-   */
-  grade?: number | null;
-  /** @format int64 */
-  id?: number;
-  /** 敷设方式 */
-  layingMethod?: string | null;
-  /**
-   * 管线长度
-   * @format double
-   */
-  length?: number | null;
-  /** 管材 */
-  material?: string | null;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  remark?: string | null;
-  /** 断面尺寸 */
-  sectionSize?: string | null;
-  /** 管线终点编号 */
-  serialNumberE?: string | null;
-  /** 管线起点编号 */
-  serialNumberS?: string | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-}
-
-export interface BsAlarmPipeLineVO {
-  /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /**
-   * 管线终点埋深
-   * @format double
-   */
-  buriedDepthE?: number | null;
-  /**
-   * 管线起点埋深
-   * @format double
-   */
-  buriedDepthS?: number | null;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 管线终点高程
-   * @format double
-   */
-  elevationE?: number | null;
-  /**
-   * 管线起点高程
-   * @format double
-   */
-  elevationS?: number | null;
-  /**
-   * 管线等级
-   * @format int32
-   */
-  grade?: number | null;
-  /** @format int64 */
-  id?: number;
-  /** 敷设方式 */
-  layingMethod?: string | null;
-  /**
-   * 管线长度
-   * @format double
-   */
-  length?: number | null;
-  /** 管材 */
-  material?: string | null;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  remark?: string | null;
-  /** 断面尺寸 */
-  sectionSize?: string | null;
-  /** 管线终点编号 */
-  serialNumberE?: string | null;
-  /** 管线起点编号 */
-  serialNumberS?: string | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-}
-
-export interface BsCommunityFO {
-  /** 项目经理 */
-  contactPerson?: string | null;
-  /** 联系电话 */
-  contactPhone?: string | null;
-  /**
-   * 小区户数
-   * @format int32
-   */
-  householdsNumber?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
-  /**
-   * 管理面积(㎡)
-   * @format double
-   */
-  managementArea?: number | null;
-  /**
-   * 名称
+   * 编码(统一社会信用代码)
    * @minLength 1
    */
-  name: string;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number | null;
-  /**
-   * 管理企业(物业)
-   * @format int64
-   */
-  pmcId?: number | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 是否在地图显示 */
-  showInMap?: boolean;
-}
-
-export interface BsCommunityPQO {
-  /** 项目经理 */
-  contactPerson?: string | null;
-  /** 联系电话 */
-  contactPhone?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /**
-   * 小区户数
-   * @format int32
-   */
-  householdsNumber?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
-  /**
-   * 管理面积(㎡)
-   * @format double
-   */
-  managementArea?: number | null;
-  /** 名称 */
-  name?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 管理企业(物业)
-   * @format int64
-   */
-  pmcId?: number | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 是否在地图显示 */
-  showInMap?: boolean;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsCommunityQO {
-  /** 项目经理 */
-  contactPerson?: string | null;
-  /** 联系电话 */
-  contactPhone?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 小区户数
-   * @format int32
-   */
-  householdsNumber?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
-  /**
-   * 管理面积(㎡)
-   * @format double
-   */
-  managementArea?: number | null;
-  /** 名称 */
-  name?: string | null;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number | null;
-  /**
-   * 管理企业(物业)
-   * @format int64
-   */
-  pmcId?: number | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 是否在地图显示 */
-  showInMap?: boolean;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsCommunityVO {
-  /** 项目经理 */
-  contactPerson?: string | null;
-  /** 联系电话 */
-  contactPhone?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 小区户数
-   * @format int32
-   */
-  householdsNumber?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
-  /**
-   * 管理面积(㎡)
-   * @format double
-   */
-  managementArea?: number | null;
-  /** 名称 */
-  name?: string | null;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number | null;
-  /**
-   * 管理企业(物业)
-   * @format int64
-   */
-  pmcId?: number | null;
-  /** 管理企业(物业) */
-  pmcName?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 是否在地图显示 */
-  showInMap?: boolean;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsCompanyFO {
-  /** 编码(统一社会信用代码) */
-  code?: string | null;
+  code: string;
   /** 生产状态（生产，限产，停产） */
   companyStateCode?: string | null;
   contactPerson?: string | null;
   contactPhone?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
   /**
    * 到期时间
    * @format date-time
    */
   expireTime?: string | null;
   /** @format int64 */
-  id?: number;
+  id?: number | null;
+  /** 是否为污水处理厂 */
+  isWsclc?: boolean | null;
   /** @format double */
   latitude?: number | null;
   /** 法定代表人 */
   legalRepresentative?: string | null;
   /** @format double */
   longitude?: number | null;
-  /** 名称 */
-  name?: string | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
   /**
    * 投产时间
    * @format date-time
@@ -1804,7 +1106,7 @@ export interface BsCompanyFO {
   /** 生产经营地址 */
   operatorAddress?: string | null;
   /** @format int32 */
-  orderNumber?: number;
+  orderNumber?: number | null;
   /** 注册地址 */
   registerAddress?: string | null;
   /**
@@ -1813,12 +1115,9 @@ export interface BsCompanyFO {
    */
   registerTime?: string | null;
   remark?: string | null;
-  showInMap?: boolean;
+  showInMap?: boolean | null;
   /** 企业类型（营业执照） */
   type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
 }
 
 export interface BsCompanyPQO {
@@ -1840,6 +1139,8 @@ export interface BsCompanyPQO {
   field?: string | null;
   /** @format int64 */
   id?: number;
+  /** 是否为污水处理厂 */
+  isWsclc?: boolean | null;
   /** @format double */
   latitude?: number | null;
   /** 法定代表人 */
@@ -1858,7 +1159,7 @@ export interface BsCompanyPQO {
   /** 排序方向 */
   order?: string | null;
   /** @format int32 */
-  orderNumber?: number;
+  orderNumber?: number | null;
   /**
    * 当前页码
    * @format int32
@@ -1879,7 +1180,7 @@ export interface BsCompanyPQO {
    */
   registerTime?: string | null;
   remark?: string | null;
-  showInMap?: boolean;
+  showInMap?: boolean | null;
   /** 企业类型（营业执照） */
   type?: string | null;
   /** @format date-time */
@@ -1904,6 +1205,8 @@ export interface BsCompanyQO {
   expireTime?: string | null;
   /** @format int64 */
   id?: number;
+  /** 是否为污水处理厂 */
+  isWsclc?: boolean | null;
   /** @format double */
   latitude?: number | null;
   /** 法定代表人 */
@@ -1920,7 +1223,7 @@ export interface BsCompanyQO {
   /** 生产经营地址 */
   operatorAddress?: string | null;
   /** @format int32 */
-  orderNumber?: number;
+  orderNumber?: number | null;
   /** 注册地址 */
   registerAddress?: string | null;
   /**
@@ -1929,7 +1232,7 @@ export interface BsCompanyQO {
    */
   registerTime?: string | null;
   remark?: string | null;
-  showInMap?: boolean;
+  showInMap?: boolean | null;
   /** 企业类型（营业执照） */
   type?: string | null;
   /** @format date-time */
@@ -1956,6 +1259,8 @@ export interface BsCompanyVO {
   expireTime?: string | null;
   /** @format int64 */
   id?: number;
+  /** 是否为污水处理厂 */
+  isWsclc?: boolean | null;
   /** @format double */
   latitude?: number | null;
   /** 法定代表人 */
@@ -1972,7 +1277,7 @@ export interface BsCompanyVO {
   /** 生产经营地址 */
   operatorAddress?: string | null;
   /** @format int32 */
-  orderNumber?: number;
+  orderNumber?: number | null;
   /** 注册地址 */
   registerAddress?: string | null;
   /**
@@ -1981,7 +1286,7 @@ export interface BsCompanyVO {
    */
   registerTime?: string | null;
   remark?: string | null;
-  showInMap?: boolean;
+  showInMap?: boolean | null;
   /** 企业类型（营业执照） */
   type?: string | null;
   /** @format date-time */
@@ -1989,1478 +1294,373 @@ export interface BsCompanyVO {
   updatedPerson?: string | null;
 }
 
-export interface BsOutletFO {
+/** 事件级别新增/编辑传入参数 */
+export interface BsEventLevelFO {
   /**
-   * 编号
+   * 编码
    * @minLength 1
    */
   code: string;
+  /** 标识颜色 */
+  color?: string | null;
   /**
-   * 所属企业
+   * 主键ID
    * @format int64
    */
-  companyId: number;
-  /** @format int64 */
   id?: number | null;
-  /** 图片 */
-  imgs?: RecordFile[] | null;
+  /** 是否启用 */
+  isEnable?: boolean | null;
   /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
-  remark?: string | null;
-  showInMap?: boolean;
-}
-
-export interface BsOutletPQO {
-  /** 编号 */
-  code?: string | null;
-  /**
-   * 所属企业
-   * @format int64
-   */
-  companyId?: number;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** @format double */
-  latitude?: number | null;
-  /** @format double */
-  longitude?: number | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
+   * 处理时限(小时)
    * @format int32
    */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  remark?: string | null;
-  showInMap?: boolean;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsOutletQO {
-  /** 编号 */
-  code?: string | null;
-  /**
-   * 所属企业
-   * @format int64
-   */
-  companyId?: number;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** @format double */
-  latitude?: number | null;
-  /** @format double */
-  longitude?: number | null;
-  remark?: string | null;
-  showInMap?: boolean;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsOutletVO {
-  /** 编号 */
-  code?: string | null;
-  /**
-   * 所属企业
-   * @format int64
-   */
-  companyId?: number;
-  /** 企业名称 */
-  companyName?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** @format double */
-  latitude?: number | null;
-  /** @format double */
-  longitude?: number | null;
-  remark?: string | null;
-  showInMap?: boolean;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-/** 管线 */
-export interface BsPipeLine {
-  /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /**
-   * 管线终点埋深
-   * @format double
-   */
-  buriedDepthE?: number;
-  /**
-   * 管线起点埋深
-   * @format double
-   */
-  buriedDepthS?: number;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 管线终点高程
-   * @format double
-   */
-  elevationE?: number;
-  /**
-   * 管线起点高程
-   * @format double
-   */
-  elevationS?: number;
-  /**
-   * 流向
-   * @format int32
-   */
-  flowDirection?: number | null;
-  /**
-   * 管线等级
-   * @format int32
-   */
-  grade?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 终点纬度
-   * @format double
-   */
-  latitudeE?: number | null;
-  /**
-   * 起点纬度
-   * @format double
-   */
-  latitudeS?: number | null;
-  /** 敷设方式 */
-  layingMethod?: string | null;
-  /**
-   * 管线长度
-   * @format double
-   */
-  length?: number | null;
-  /**
-   * 终点经度
-   * @format double
-   */
-  longitudeE?: number | null;
-  /**
-   * 起点经度
-   * @format double
-   */
-  longitudeS?: number | null;
-  /** 管材 */
-  material?: string | null;
-  /** @format int64 */
-  objId?: number;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 断面尺寸 */
-  sectionSize?: string | null;
-  /** 管线终点编号 */
-  serialNumberE?: string | null;
-  serialNumberELogic?: string | null;
-  /** 管线起点编号 */
-  serialNumberS?: string | null;
-  serialNumberSLogic?: string | null;
-  /** @format double */
-  shapeLength?: number | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-}
-
-export interface BsPipeLineFO {
-  /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /**
-   * 管线终点埋深
-   * @format double
-   */
-  buriedDepthE?: number;
-  /**
-   * 管线起点埋深
-   * @format double
-   */
-  buriedDepthS?: number;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 管线终点高程
-   * @format double
-   */
-  elevationE?: number;
-  /**
-   * 管线起点高程
-   * @format double
-   */
-  elevationS?: number;
-  /**
-   * 流向
-   * @format int32
-   */
-  flowDirection?: number | null;
-  /**
-   * 管线等级
-   * @format int32
-   */
-  grade?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 终点纬度
-   * @format double
-   */
-  latitudeE?: number | null;
-  /**
-   * 起点纬度
-   * @format double
-   */
-  latitudeS?: number | null;
-  /** 敷设方式 */
-  layingMethod?: string | null;
-  /**
-   * 管线长度
-   * @format double
-   */
-  length?: number | null;
-  /**
-   * 终点经度
-   * @format double
-   */
-  longitudeE?: number | null;
-  /**
-   * 起点经度
-   * @format double
-   */
-  longitudeS?: number | null;
-  /** 管材 */
-  material?: string | null;
-  /** @format int64 */
-  objId?: number;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 断面尺寸 */
-  sectionSize?: string | null;
-  /** 管线终点编号 */
-  serialNumberE?: string | null;
-  serialNumberELogic?: string | null;
-  /** 管线起点编号 */
-  serialNumberS?: string | null;
-  serialNumberSLogic?: string | null;
-  /** @format double */
-  shapeLength?: number | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-}
-
-export interface BsPipeLinePQO {
-  /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /**
-   * 管线终点埋深
-   * @format double
-   */
-  buriedDepthE?: number;
-  /**
-   * 管线起点埋深
-   * @format double
-   */
-  buriedDepthS?: number;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 管线终点高程
-   * @format double
-   */
-  elevationE?: number;
-  /**
-   * 管线起点高程
-   * @format double
-   */
-  elevationS?: number;
-  /** 排序字段 */
-  field?: string | null;
-  /**
-   * 流向
-   * @format int32
-   */
-  flowDirection?: number | null;
-  /**
-   * 管线等级
-   * @format int32
-   */
-  grade?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 终点纬度
-   * @format double
-   */
-  latitudeE?: number | null;
-  /**
-   * 起点纬度
-   * @format double
-   */
-  latitudeS?: number | null;
-  /** 敷设方式 */
-  layingMethod?: string | null;
-  /**
-   * 管线长度
-   * @format double
-   */
-  length?: number | null;
-  /**
-   * 终点经度
-   * @format double
-   */
-  longitudeE?: number | null;
-  /**
-   * 起点经度
-   * @format double
-   */
-  longitudeS?: number | null;
-  /** 管材 */
-  material?: string | null;
-  /** @format int64 */
-  objId?: number;
-  /** 排序方向 */
-  order?: string | null;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** 备注 */
-  remark?: string | null;
-  /** 断面尺寸 */
-  sectionSize?: string | null;
-  /** 管线终点编号 */
-  serialNumberE?: string | null;
-  serialNumberELogic?: string | null;
-  /** 管线起点编号 */
-  serialNumberS?: string | null;
-  serialNumberSLogic?: string | null;
-  /** @format double */
-  shapeLength?: number | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-}
-
-export interface BsPipeLineQO {
-  /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /**
-   * 管线终点埋深
-   * @format double
-   */
-  buriedDepthE?: number;
-  /**
-   * 管线起点埋深
-   * @format double
-   */
-  buriedDepthS?: number;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 管线终点高程
-   * @format double
-   */
-  elevationE?: number;
-  /**
-   * 管线起点高程
-   * @format double
-   */
-  elevationS?: number;
-  /**
-   * 流向
-   * @format int32
-   */
-  flowDirection?: number | null;
-  /**
-   * 管线等级
-   * @format int32
-   */
-  grade?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 终点纬度
-   * @format double
-   */
-  latitudeE?: number | null;
-  /**
-   * 起点纬度
-   * @format double
-   */
-  latitudeS?: number | null;
-  /** 敷设方式 */
-  layingMethod?: string | null;
-  /**
-   * 管线长度
-   * @format double
-   */
-  length?: number | null;
-  /**
-   * 终点经度
-   * @format double
-   */
-  longitudeE?: number | null;
-  /**
-   * 起点经度
-   * @format double
-   */
-  longitudeS?: number | null;
-  /** 管材 */
-  material?: string | null;
-  /** @format int64 */
-  objId?: number;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 断面尺寸 */
-  sectionSize?: string | null;
-  /** 管线终点编号 */
-  serialNumberE?: string | null;
-  serialNumberELogic?: string | null;
-  /** 管线起点编号 */
-  serialNumberS?: string | null;
-  serialNumberSLogic?: string | null;
-  /** @format double */
-  shapeLength?: number | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-}
-
-export interface BsPipeLineVO {
-  /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /**
-   * 管线终点埋深
-   * @format double
-   */
-  buriedDepthE?: number;
-  /**
-   * 管线起点埋深
-   * @format double
-   */
-  buriedDepthS?: number;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 管线终点高程
-   * @format double
-   */
-  elevationE?: number;
-  /**
-   * 管线起点高程
-   * @format double
-   */
-  elevationS?: number;
-  /**
-   * 流向
-   * @format int32
-   */
-  flowDirection?: number | null;
-  /**
-   * 管线等级
-   * @format int32
-   */
-  grade?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 终点纬度
-   * @format double
-   */
-  latitudeE?: number | null;
-  /**
-   * 起点纬度
-   * @format double
-   */
-  latitudeS?: number | null;
-  /** 敷设方式 */
-  layingMethod?: string | null;
-  /**
-   * 管线长度
-   * @format double
-   */
-  length?: number | null;
-  /**
-   * 终点经度
-   * @format double
-   */
-  longitudeE?: number | null;
-  /**
-   * 起点经度
-   * @format double
-   */
-  longitudeS?: number | null;
-  /** 管材 */
-  material?: string | null;
-  /** @format int64 */
-  objId?: number;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 断面尺寸 */
-  sectionSize?: string | null;
-  /** 管线终点编号 */
-  serialNumberE?: string | null;
-  serialNumberELogic?: string | null;
-  /** 管线起点编号 */
-  serialNumberS?: string | null;
-  serialNumberSLogic?: string | null;
-  /** @format double */
-  shapeLength?: number | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-}
-
-export interface BsPipePointAlarmParameterFO {
-  /**
-   * 堵塞天水位
-   * @format double
-   */
-  blockageDayWaterLevel?: number | null;
-  /**
-   * 堵塞流量
-   * @format double
-   */
-  blockageFlowRate?: number | null;
-  /**
-   * 堵塞流速
-   * @format double
-   */
-  blockageFlowVelocity?: number | null;
-  /**
-   * 堵塞小时水位
-   * @format double
-   */
-  blockageWaterLevel?: number | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 外水入侵天水位
-   * @format double
-   */
-  externalWaterDayWaterLevel?: number | null;
-  /**
-   * 外水入侵流量
-   * @format double
-   */
-  externalWaterFlowRate?: number | null;
-  /**
-   * 外水入侵流速
-   * @format double
-   */
-  externalWaterFlowVelocity?: number | null;
-  /**
-   * 外水入侵小时水位
-   * @format double
-   */
-  externalWaterWaterLevel?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 漏损天水位
-   * @format double
-   */
-  leakageDayWaterLevel?: number | null;
-  /**
-   * 漏损流量
-   * @format double
-   */
-  leakageFlowRate?: number | null;
-  /**
-   * 漏损流速
-   * @format double
-   */
-  leakageFlowVelocity?: number | null;
-  /**
-   * 漏损小时水位
-   * @format double
-   */
-  leakageWaterLevel?: number | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 管店编号 */
-  serialNumber?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsPipePointAlarmParameterPQO {
-  /**
-   * 堵塞天水位
-   * @format double
-   */
-  blockageDayWaterLevel?: number | null;
-  /**
-   * 堵塞流量
-   * @format double
-   */
-  blockageFlowRate?: number | null;
-  /**
-   * 堵塞流速
-   * @format double
-   */
-  blockageFlowVelocity?: number | null;
-  /**
-   * 堵塞小时水位
-   * @format double
-   */
-  blockageWaterLevel?: number | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 外水入侵天水位
-   * @format double
-   */
-  externalWaterDayWaterLevel?: number | null;
-  /**
-   * 外水入侵流量
-   * @format double
-   */
-  externalWaterFlowRate?: number | null;
-  /**
-   * 外水入侵流速
-   * @format double
-   */
-  externalWaterFlowVelocity?: number | null;
-  /**
-   * 外水入侵小时水位
-   * @format double
-   */
-  externalWaterWaterLevel?: number | null;
-  /** 排序字段 */
-  field?: string | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 漏损天水位
-   * @format double
-   */
-  leakageDayWaterLevel?: number | null;
-  /**
-   * 漏损流量
-   * @format double
-   */
-  leakageFlowRate?: number | null;
-  /**
-   * 漏损流速
-   * @format double
-   */
-  leakageFlowVelocity?: number | null;
-  /**
-   * 漏损小时水位
-   * @format double
-   */
-  leakageWaterLevel?: number | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** 备注 */
-  remark?: string | null;
-  /** 管店编号 */
-  serialNumber?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsPipePointAlarmParameterQO {
-  /**
-   * 堵塞天水位
-   * @format double
-   */
-  blockageDayWaterLevel?: number | null;
-  /**
-   * 堵塞流量
-   * @format double
-   */
-  blockageFlowRate?: number | null;
-  /**
-   * 堵塞流速
-   * @format double
-   */
-  blockageFlowVelocity?: number | null;
-  /**
-   * 堵塞小时水位
-   * @format double
-   */
-  blockageWaterLevel?: number | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 外水入侵天水位
-   * @format double
-   */
-  externalWaterDayWaterLevel?: number | null;
-  /**
-   * 外水入侵流量
-   * @format double
-   */
-  externalWaterFlowRate?: number | null;
-  /**
-   * 外水入侵流速
-   * @format double
-   */
-  externalWaterFlowVelocity?: number | null;
-  /**
-   * 外水入侵小时水位
-   * @format double
-   */
-  externalWaterWaterLevel?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 漏损天水位
-   * @format double
-   */
-  leakageDayWaterLevel?: number | null;
-  /**
-   * 漏损流量
-   * @format double
-   */
-  leakageFlowRate?: number | null;
-  /**
-   * 漏损流速
-   * @format double
-   */
-  leakageFlowVelocity?: number | null;
-  /**
-   * 漏损小时水位
-   * @format double
-   */
-  leakageWaterLevel?: number | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 管店编号 */
-  serialNumber?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsPipePointAlarmParameterVO {
-  /**
-   * 堵塞天水位
-   * @format double
-   */
-  blockageDayWaterLevel?: number | null;
-  /**
-   * 堵塞流量
-   * @format double
-   */
-  blockageFlowRate?: number | null;
-  /**
-   * 堵塞流速
-   * @format double
-   */
-  blockageFlowVelocity?: number | null;
-  /**
-   * 堵塞小时水位
-   * @format double
-   */
-  blockageWaterLevel?: number | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 外水入侵天水位
-   * @format double
-   */
-  externalWaterDayWaterLevel?: number | null;
-  /**
-   * 外水入侵流量
-   * @format double
-   */
-  externalWaterFlowRate?: number | null;
-  /**
-   * 外水入侵流速
-   * @format double
-   */
-  externalWaterFlowVelocity?: number | null;
-  /**
-   * 外水入侵小时水位
-   * @format double
-   */
-  externalWaterWaterLevel?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 漏损天水位
-   * @format double
-   */
-  leakageDayWaterLevel?: number | null;
-  /**
-   * 漏损流量
-   * @format double
-   */
-  leakageFlowRate?: number | null;
-  /**
-   * 漏损流速
-   * @format double
-   */
-  leakageFlowVelocity?: number | null;
-  /**
-   * 漏损小时水位
-   * @format double
-   */
-  leakageWaterLevel?: number | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 管店编号 */
-  serialNumber?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsPipePointAlarmRecordFO {
-  alarmInfo?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format date-time */
-  dataTime?: string;
-  /** @format int64 */
-  id?: number;
-  /** 是否正确 */
-  isCorrect?: boolean | null;
-  /** 是否已解决 */
-  isResolve?: boolean;
-  /** @format int32 */
-  level?: number;
-  /**
-   * 概率
-   * @format double
-   */
-  probability?: number;
-  serialNumberE?: string | null;
-  serialNumberS?: string | null;
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsPipePointAlarmRecordPQO {
-  alarmInfo?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format date-time */
-  dataTime?: string;
-  /** 排序字段 */
-  field?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 是否正确 */
-  isCorrect?: boolean | null;
-  /** 是否已解决 */
-  isResolve?: boolean;
-  /** @format int32 */
-  level?: number;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 概率
-   * @format double
-   */
-  probability?: number;
-  serialNumberE?: string | null;
-  serialNumberS?: string | null;
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsPipePointAlarmRecordQO {
-  alarmInfo?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format date-time */
-  dataTime?: string;
-  /** @format int64 */
-  id?: number;
-  /** 是否正确 */
-  isCorrect?: boolean | null;
-  /** 是否已解决 */
-  isResolve?: boolean;
-  /** @format int32 */
-  level?: number;
-  /**
-   * 概率
-   * @format double
-   */
-  probability?: number;
-  serialNumberE?: string | null;
-  serialNumberS?: string | null;
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsPipePointAlarmRecordVO {
-  alarmInfo?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format date-time */
-  dataTime?: string;
-  /** @format int64 */
-  id?: number;
-  /** 是否正确 */
-  isCorrect?: boolean | null;
-  /** 是否已解决 */
-  isResolve?: boolean;
-  /** @format int32 */
-  level?: number;
-  /**
-   * 概率
-   * @format double
-   */
-  probability?: number;
-  serialNumberE?: string | null;
-  serialNumberS?: string | null;
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface BsPipePointFO {
-  /** 附属物 */
-  appendage?: string | null;
-  /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 小区id
-   * @format int64
-   */
-  communityId?: number | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 地面高程
-   * @format double
-   */
-  elevation?: number;
-  /** 特征 */
-  feature?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 是否有设备 */
-  isDevice?: boolean | null;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number;
-  /** 井盖规格 */
-  mcSpecification?: string | null;
-  /** @format int64 */
-  objId?: number;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 编号 */
-  serialNumber?: string | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-  /**
-   * 井深
-   * @format double
-   */
-  wellDepth?: number;
-}
-
-export interface BsPipePointPQO {
-  /** 附属物 */
-  appendage?: string | null;
-  /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 小区id
-   * @format int64
-   */
-  communityId?: number | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 地面高程
-   * @format double
-   */
-  elevation?: number;
-  /** 特征 */
-  feature?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 是否有设备 */
-  isDevice?: boolean | null;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number;
-  /** 井盖规格 */
-  mcSpecification?: string | null;
-  /** @format int64 */
-  objId?: number;
-  /** 排序方向 */
-  order?: string | null;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** 备注 */
-  remark?: string | null;
-  /** 编号 */
-  serialNumber?: string | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-  /**
-   * 井深
-   * @format double
-   */
-  wellDepth?: number;
-}
-
-export interface BsPipePointQO {
-  /** 附属物 */
-  appendage?: string | null;
-  /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 小区id
-   * @format int64
-   */
-  communityId?: number | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 地面高程
-   * @format double
-   */
-  elevation?: number;
-  /** 特征 */
-  feature?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 是否有设备 */
-  isDevice?: boolean | null;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number;
-  /** 井盖规格 */
-  mcSpecification?: string | null;
-  /** @format int64 */
-  objId?: number;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 编号 */
-  serialNumber?: string | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-  /**
-   * 井深
-   * @format double
-   */
-  wellDepth?: number;
-}
-
-export interface BsPipePointStQO {
-  /** 附属物 */
-  appendage?: string | null;
-  /**
-   * 建成日期结束时间
-   * @format date-time
-   */
-  buildTimeEt?: string | null;
-  /**
-   * 建成日期开始时间
-   * @format date-time
-   */
-  buildTimeSt?: string | null;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /**
-   * 地面高程结束高度
-   * @format double
-   */
-  elevationEt?: number | null;
-  /**
-   * 地面高程开始高度
-   * @format double
-   */
-  elevationSt?: number | null;
-  /** 特征 */
-  feature?: string | null;
-  /** 井盖规格 */
-  mcSpecification?: string | null;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  /** 编号(模糊匹配) */
-  serialNumber?: string | null;
-  /** 管线类型 */
-  type?: string | null;
-  /**
-   * 投用日期结束时间
-   * @format date-time
-   */
-  useTimeEt?: string | null;
-  /**
-   * 投用日期开始时间
-   * @format date-time
-   */
-  useTimeSt?: string | null;
-  /**
-   * 井深结束高度
-   * @format double
-   */
-  wellDepthEt?: number | null;
-  /**
-   * 井深开始高度
-   * @format double
-   */
-  wellDepthSt?: number | null;
-}
-
-export interface BsPipePointVO {
-  /** 附属物 */
-  appendage?: string | null;
-  /**
-   * 建成日期
-   * @format date-time
-   */
-  buildTime?: string | null;
-  /** 载体 */
-  carrier?: string | null;
-  /** 管线类别 */
-  category?: string | null;
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 小区id
-   * @format int64
-   */
-  communityId?: number | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 地面高程
-   * @format double
-   */
-  elevation?: number;
-  /** 特征 */
-  feature?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 是否有设备 */
-  isDevice?: boolean | null;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number;
-  /** 井盖规格 */
-  mcSpecification?: string | null;
-  /** @format int64 */
-  objId?: number;
-  /** 权属管理单位 */
-  ownershipUnit?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 编号 */
-  serialNumber?: string | null;
-  /** 管线类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 投用日期
-   * @format date-time
-   */
-  useTime?: string | null;
-  /**
-   * 井深
-   * @format double
-   */
-  wellDepth?: number;
-}
-
-export interface BsPmcFO {
-  /** 联系人 */
-  contactPerson?: string | null;
-  /** 联系电话 */
-  contactPhone?: string | null;
-  /** @format int64 */
-  id?: number;
+  limitHour?: number | null;
   /**
    * 名称
    * @minLength 1
    */
   name: string;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
   /** 备注 */
   remark?: string | null;
 }
 
-export interface BsPmcPQO {
-  contactPerson?: string | null;
-  contactPhone?: string | null;
+export interface BsEventLevelPQO {
+  /** 编码 */
+  code?: string | null;
+  /** 标识颜色 */
+  color?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /**
+   * 处理时限(小时)
+   * @format int32
+   */
+  limitHour?: number | null;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 事件级别查询对象 */
+export interface BsEventLevelQO {
+  /** 编码 */
+  code?: string | null;
+  /** 标识颜色 */
+  color?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /**
+   * 处理时限(小时)
+   * @format int32
+   */
+  limitHour?: number | null;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 事件级别输出对象 */
+export interface BsEventLevelVO {
+  /** 编码 */
+  code?: string | null;
+  /** 标识颜色 */
+  color?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /**
+   * 处理时限(小时)
+   * @format int32
+   */
+  limitHour?: number | null;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 事件类型新增/编辑传入参数 */
+export interface BsEventTypeFO {
+  /**
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** 标识颜色 */
+  color?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number | null;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+}
+
+export interface BsEventTypePQO {
+  /** 编码 */
+  code?: string | null;
+  /** 标识颜色 */
+  color?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 事件类型查询对象 */
+export interface BsEventTypeQO {
+  /** 编码 */
+  code?: string | null;
+  /** 标识颜色 */
+  color?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 事件类型输出对象 */
+export interface BsEventTypeVO {
+  /** 编码 */
+  code?: string | null;
+  /** 标识颜色 */
+  color?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+export interface BsInformationFO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 是否有附件 */
+  haveAttachment?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface BsInformationPQO {
+  /** 内容 */
+  content?: string | null;
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
   /** 排序字段 */
   field?: string | null;
+  /** 是否有附件 */
+  haveAttachment?: boolean;
   /** @format int64 */
   id?: number;
-  name?: string | null;
   /** 排序方向 */
   order?: string | null;
   /**
@@ -3475,36 +1675,346 @@ export interface BsPmcPQO {
    * @max 100
    */
   pageSize?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface BsInformationQO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 是否有附件 */
+  haveAttachment?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface BsInformationVO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 是否有附件 */
+  haveAttachment?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface BsNewsFO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 是否有附件 */
+  haveAttachment?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface BsNewsPQO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** 是否有附件 */
+  haveAttachment?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface BsNewsQO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 是否有附件 */
+  haveAttachment?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface BsNewsVO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 是否有附件 */
+  haveAttachment?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface BsOutletCategoryFO {
+  /**
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+}
+
+export interface BsOutletCategoryPQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
   remark?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
   updatedPerson?: string | null;
 }
 
-export interface BsPmcQO {
-  contactPerson?: string | null;
-  contactPhone?: string | null;
+export interface BsOutletCategoryQO {
+  /** 编码 */
+  code?: string | null;
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
   /** @format int64 */
   id?: number;
+  /** 名称 */
   name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
   remark?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
   updatedPerson?: string | null;
 }
 
-export interface BsPmcVO {
-  contactPerson?: string | null;
-  contactPhone?: string | null;
+export interface BsOutletCategoryVO {
+  /** 编码 */
+  code?: string | null;
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
   /** @format int64 */
   id?: number;
+  /** 名称 */
   name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface BsOutletTypeFO {
+  /**
+   * 排口类别
+   * @minLength 1
+   */
+  categoryCode: string;
+  /**
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+}
+
+export interface BsOutletTypePQO {
+  /** 排口类别 */
+  categoryCode?: string | null;
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface BsOutletTypeQO {
+  /** 排口类别 */
+  categoryCode?: string | null;
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface BsOutletTypeVO {
+  /** 排口类别 */
+  categoryCode?: string | null;
+  /** 所属类别名称 */
+  categoryName?: string | null;
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
   remark?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
@@ -3753,42 +2263,31 @@ export interface BsPollutionPermitInfoVO {
   validTo?: string | null;
 }
 
-export interface BsZoneFO {
-  /** 编码 */
-  code?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** 地图fill颜色 */
-  fillColor?: string | null;
-  /** 边界 */
-  geojson?: string | null;
-  /** @format int64 */
-  id?: number;
-  isEnable?: boolean | null;
-  /** @format int32 */
-  level?: number | null;
-  /** 名称 */
-  name?: string | null;
-  nestedcode?: string | null;
-  nestedpath?: string | null;
-  parentCode?: string | null;
-  /** @format int64 */
-  parentId?: number | null;
-  parentName?: string | null;
+export interface BsRiverFO {
   /**
-   * 级别
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /**
+   * 序号
    * @format int32
    */
-  pathkey?: number;
+  orderNumber?: number | null;
   /** 备注 */
   remark?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
+  /** 所属流域 */
+  watershed?: string | null;
 }
 
-export interface BsZonePQO {
+export interface BsRiverPQO {
   /** 编码 */
   code?: string | null;
   /** @format date-time */
@@ -3796,19 +2295,115 @@ export interface BsZonePQO {
   createdPerson?: string | null;
   /** 排序字段 */
   field?: string | null;
-  /** 地图fill颜色 */
-  fillColor?: string | null;
-  /** 边界 */
-  geojson?: string | null;
   /** @format int64 */
   id?: number;
-  isEnable?: boolean | null;
-  /** @format int32 */
-  level?: number | null;
   /** 名称 */
   name?: string | null;
-  nestedcode?: string | null;
-  nestedpath?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 所属流域 */
+  watershed?: string | null;
+}
+
+export interface BsRiverQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 所属流域 */
+  watershed?: string | null;
+}
+
+export interface BsRiverVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 所属流域 */
+  watershed?: string | null;
+}
+
+export interface BsVillageFO {
+  /**
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /** 备注 */
+  remark?: string | null;
+}
+
+export interface BsVillagePQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 名称 */
+  name?: string | null;
   /** 排序方向 */
   order?: string | null;
   /**
@@ -3823,15 +2418,6 @@ export interface BsZonePQO {
    * @max 100
    */
   pageSize?: number;
-  parentCode?: string | null;
-  /** @format int64 */
-  parentId?: number | null;
-  parentName?: string | null;
-  /**
-   * 级别
-   * @format int32
-   */
-  pathkey?: number;
   /** 备注 */
   remark?: string | null;
   /** @format date-time */
@@ -3839,34 +2425,16 @@ export interface BsZonePQO {
   updatedPerson?: string | null;
 }
 
-export interface BsZoneQO {
+export interface BsVillageQO {
   /** 编码 */
   code?: string | null;
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
-  /** 地图fill颜色 */
-  fillColor?: string | null;
-  /** 边界 */
-  geojson?: string | null;
   /** @format int64 */
   id?: number;
-  isEnable?: boolean | null;
-  /** @format int32 */
-  level?: number | null;
   /** 名称 */
   name?: string | null;
-  nestedcode?: string | null;
-  nestedpath?: string | null;
-  parentCode?: string | null;
-  /** @format int64 */
-  parentId?: number | null;
-  parentName?: string | null;
-  /**
-   * 级别
-   * @format int32
-   */
-  pathkey?: number;
   /** 备注 */
   remark?: string | null;
   /** @format date-time */
@@ -3874,184 +2442,46 @@ export interface BsZoneQO {
   updatedPerson?: string | null;
 }
 
-export interface BsZoneVO {
-  /** 编号 */
+export interface BsVillageVO {
+  /** 编码 */
   code?: string | null;
-  /** 地图fill颜色 */
-  fillColor?: string | null;
-  /** 边界 */
-  geojson?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
-  /** 是否启用 */
-  isEnable?: boolean | null;
-  /**
-   * 级别
-   * @format int32
-   */
-  level?: number | null;
   /** 名称 */
   name?: string | null;
-  nestedcode?: string | null;
-  parentCode?: string | null;
-  /**
-   * 父级
-   * @format int64
-   */
-  parentId?: number | null;
-  parentName?: string | null;
   /** 备注 */
   remark?: string | null;
-}
-
-export interface CaseQO {
-  caseCode?: string | null;
-  repairTaskCode?: string | null;
-}
-
-export interface ConventionalWaterLevelReport {
-  /**
-   * 死水位（m）
-   * @format double
-   */
-  invalidWaterLevel?: number | null;
-  /** 是否饮用水源 */
-  isDrinkingWater?: boolean | null;
-  /**
-   * 正常库容（万m3)
-   * @format double
-   */
-  normalCapacity?: number | null;
-  /**
-   * 正常库容（万m³）
-   * @format double
-   */
-  normalWaterCapacity?: number | null;
-  /**
-   * 正常蓄水位（m）
-   * @format double
-   */
-  normalWaterLevel?: number | null;
-  /** 工程规模 */
-  projectScale?: string | null;
-  /**
-   * 水库ID
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** 水库名称 */
-  technicsName?: string | null;
-  /**
-   * 总库容  (万m3)
-   * @format double
-   */
-  totalCapacity?: number | null;
-  /**
-   * 水位（m）
-   * @format double
-   */
-  waterAvgLevel?: number | null;
-  /**
-   * 当前库容（万m³）
-   * @format double
-   */
-  waterCapacity?: number | null;
-  /** 工作站名称 */
-  workStationName?: string | null;
-}
-
-export interface DailyWaterLevelReport {
-  /** 水坝报警内容 */
-  alarmInfo?: string | null;
-  /**
-   * 预警水位（m）
-   * @format double
-   */
-  alarmWaterLevel?: number | null;
-  /**
-   * 校核洪水位（m）
-   * @format double
-   */
-  floodWaterLevel?: number | null;
-  /**
-   * 死水位（m）
-   * @format double
-   */
-  invalidWaterLevel?: number | null;
-  /**
-   * 最大库容（m³）
-   * @format double
-   */
-  maxCapacity?: number | null;
-  /**
-   * 溢流水深（m）
-   * @format double
-   */
-  maxDepth?: number | null;
-  /**
-   * 正常库容（万m³）
-   * @format double
-   */
-  normalWaterCapacity?: number | null;
-  /** 工程规模 */
-  projectScale?: string | null;
-  /**
-   * 溢洪道堰顶高程（m）
-   * @format double
-   */
-  spillwayTopAltitude?: number | null;
-  /**
-   * 水库ID
-   * @format int64
-   */
-  technicsId?: number;
-  /** 水库名称 */
-  technicsName?: string | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
+  /** @format date-time */
   updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface CommonStVO {
+  code?: string | null;
+  /** @format int64 */
+  count?: number;
+  /** @format int64 */
+  id?: number | null;
+  name?: string | null;
+}
+
+export interface Cp3012FO {
   /**
-   * 平均泄流量（m3/s）
-   * @format double
+   * 监测因子ID，一次请求针对一个因子
+   * @format int64
    */
-  waterAvgDischarges?: number | null;
+  equipmentParamId: number;
+}
+
+export interface CpUnlockFO {
   /**
-   * 水位（m）
-   * @format double
+   * 设备MN
+   * @minLength 1
    */
-  waterAvgLevel?: number | null;
-  /**
-   * 当前库容（万m³）
-   * @format double
-   */
-  waterCapacity?: number | null;
-  /**
-   * 最大泄流量（m³/s）
-   * @format double
-   */
-  waterCouDischarges?: number | null;
-  /**
-   * 最高水位（m）
-   * @format double
-   */
-  waterMaxLevel?: number | null;
-  /**
-   * 最高水位时间
-   * @format date-time
-   */
-  waterMaxTime?: string | null;
-  /**
-   * 最低水位（m）
-   * @format double
-   */
-  waterMinLevel?: number | null;
-  /**
-   * 最低水位时间
-   * @format date-time
-   */
-  waterMinTime?: string | null;
+  mn: string;
 }
 
 export interface DataDictionaryFO {
@@ -4229,6 +2659,13 @@ export interface DataDictionaryQO {
 export interface DataDictionaryVO {
   /** 编号 */
   code?: string | null;
+  /**
+   * created_at
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** created_person */
+  createdPerson?: string | null;
   /** @format int64 */
   id?: number;
   /** 是否启用 */
@@ -4252,6 +2689,128 @@ export interface DataDictionaryVO {
   props?: string | null;
   /** 备注 */
   remark?: string | null;
+  /**
+   * updated_at
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** updated_person */
+  updatedPerson?: string | null;
+}
+
+export interface DataTransferRateByTechnicesVO {
+  /**
+   * 数据有效率
+   * @format double
+   */
+  dataEfficient?: number;
+  /**
+   * 数据传输率
+   * @format double
+   */
+  dataTransferRate?: number;
+  /**
+   * 有效数
+   * @format int32
+   */
+  effectiveCount?: number | null;
+  /**
+   * 数据传输有效率
+   * @format double
+   */
+  efficientDataTransfer?: number;
+  /**
+   * 点位id
+   * @format int64
+   */
+  id?: number;
+  /**
+   * 无效数
+   * @format int32
+   */
+  invalidCount?: number | null;
+  /**
+   * 缺失数
+   * @format int32
+   */
+  missingCount?: number | null;
+  /** 点位名称 */
+  name?: string | null;
+  /**
+   * 实收数
+   * @format int32
+   */
+  receiveCount?: number | null;
+  /**
+   * 应收数
+   * @format int32
+   */
+  sReceiveCount?: number;
+}
+
+export interface DataTransferRateQO {
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string;
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  startTime?: string;
+  /**
+   * 水库id
+   * @format int64
+   */
+  technicsId?: number;
+}
+
+export interface DataTransferRateVO {
+  /** 因子id */
+  code?: string | null;
+  /**
+   * 数据有效率
+   * @format double
+   */
+  dataEfficient?: number;
+  /**
+   * 数据传输率
+   * @format double
+   */
+  dataTransferRate?: number;
+  /**
+   * 有效数
+   * @format int32
+   */
+  effectiveCount?: number | null;
+  /**
+   * 数据传输有效率
+   * @format double
+   */
+  efficientDataTransfer?: number;
+  /**
+   * 无效数
+   * @format int32
+   */
+  invalidCount?: number | null;
+  /**
+   * 缺失数
+   * @format int32
+   */
+  missingCount?: number | null;
+  /** 因子名称 */
+  name?: string | null;
+  /**
+   * 实收数
+   * @format int32
+   */
+  receiveCount?: number | null;
+  /**
+   * 应收数
+   * @format int32
+   */
+  sReceiveCount?: number;
 }
 
 export interface DdTypedataQO {
@@ -4262,244 +2821,129 @@ export interface DdTypedataQO {
   nestedcode: string;
 }
 
-export interface DevicePositionInfo {
-  /** 设备编码 */
-  deviceID?: string | null;
+export interface EditFlagFO {
   /**
-   * 是否故障0无故障(有流)，1有故障(无流)
-   * @format int32
-   */
-  faultedFlag?: number;
-  /** 监控接入服务器主消息号(调流时使用) */
-  groupId?: string | null;
-  /**
-   * 最近一次巡检时间
+   * 数据时间
    * @format date-time
    */
-  inspectionTime?: string;
+  dataTime: string;
   /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number;
-  /**
-   * 监控编码格式 0.未知 1.H264 2.H265 3.SVAC
-   * @format int32
-   */
-  mediaCode?: number;
-  /**
-   * 监控分辨率 0.未知 1.720 2.1080 3.2k 4.4k
-   * @format int32
-   */
-  mediaDPI?: number;
-  /**
-   * 监控通道号(调流时使用)
-   * @format int32
-   */
-  monitorId?: number;
-  /** 监控名称 */
-  monitorName?: string | null;
-  /**
-   * 监控在线状态 0离线 1在线
-   * @format int32
-   */
-  online?: number;
-  /** 监控唯一标识 */
-  pn?: string | null;
-  /**
-   * 标识摄像机类型：1-球机；2-半球；3-固定枪机；4-遥控枪机(1、4类型支持云台控制)
-   * @format int32
-   */
-  ptzType?: number;
-  /**
-   * 是否有录像0无录像1有录像
-   * @format int32
-   */
-  saveStatus?: number;
-  /** 监控可用状态 ON可用 OFF不可用 */
-  status?: string | null;
-}
-
-export interface DevicePositionScopeInfo {
-  /** 设备编码 */
-  deviceID?: string | null;
-  /**
-   * 是否故障0无故障(有流)，1有故障(无流)
-   * @format int32
-   */
-  faultedFlag?: number;
-  /** 监控接入服务器主消息号(调流时使用) */
-  groupId?: string | null;
-  /**
-   * 最近一次巡检时间
-   * @format date-time
-   */
-  inspectionTime?: string;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number;
-  /**
-   * 监控编码格式 0.未知 1.H264 2.H265 3.SVAC
-   * @format int32
-   */
-  mediaCode?: number;
-  /**
-   * 监控分辨率 0.未知 1.720 2.1080 3.2k 4.4k
-   * @format int32
-   */
-  mediaDPI?: number;
-  /**
-   * 监控通道号(调流时使用)
-   * @format int32
-   */
-  monitorId?: number;
-  /** 监控名称 */
-  monitorName?: string | null;
-  /**
-   * 监控在线状态 0离线 1在线
-   * @format int32
-   */
-  online?: number;
-  /** 监控唯一标识 */
-  pn?: string | null;
-  /**
-   * 标识摄像机类型：1-球机；2-半球；3-固定枪机；4-遥控枪机(1、4类型支持云台控制)
-   * @format int32
-   */
-  ptzType?: number;
-  /**
-   * 是否有录像0无录像1有录像
-   * @format int32
-   */
-  saveStatus?: number;
-  /** 监控可用状态 ON可用 OFF不可用 */
-  status?: string | null;
-}
-
-export interface EmergencyPlanPQO {
-  /** 审批部门 */
-  approvalDepartment?: string | null;
-  /** 审批文号 */
-  approvalNumber?: string | null;
-  contactPhone?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** 编制单位 */
-  prepareOrg?: string | null;
-  /**
-   * 发布时间
-   * @format date-time
-   */
-  publishTime?: string;
-  /**
-   * 水库id
+   * Id
    * @format int64
    */
-  technicsId?: number;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
+  id: number;
+  /** 是否有效 */
+  isEffective: boolean;
 }
 
-export interface EmergencyPlanQO {
-  /** 审批部门 */
-  approvalDepartment?: string | null;
-  /** 审批文号 */
-  approvalNumber?: string | null;
-  contactPhone?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
-  name?: string | null;
-  /** 编制单位 */
-  prepareOrg?: string | null;
-  /**
-   * 发布时间
-   * @format date-time
-   */
-  publishTime?: string;
-  /**
-   * 水库id
-   * @format int64
-   */
-  technicsId?: number;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
+export interface EnumGroupDto {
+  enumName?: string | null;
+  items?: EnumItemDto[] | null;
 }
 
-export interface EmergencyPlanVO {
-  /** 审批部门 */
-  approvalDepartment?: string | null;
-  /** 审批文号 */
-  approvalNumber?: string | null;
-  contactPhone?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** 文件名 */
-  fileName?: string | null;
-  /** 原始文件名 */
-  fileNameOrigin?: string | null;
-  /** 文件路径 */
-  filePath?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 名称 */
+export interface EnumItemDto {
+  description?: string | null;
   name?: string | null;
-  /** 编制单位 */
-  prepareOrg?: string | null;
+  value?: any;
+}
+
+/** 历史数据统计表 */
+export interface EpStDataStVO {
   /**
-   * 发布时间
-   * @format date-time
+   * 总量
+   * @format int32
    */
-  publishTime?: string;
+  count?: number;
+  /** 数据时间 */
+  dataTime?: string | null;
   /**
-   * 水库id
+   * 设备id
    * @format int64
    */
-  technicsId?: number;
-  /** 水库名称 */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
+  /**
+   * 排口ID
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
+  /**
+   * 监测点id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 监测点名称 */
   technicsName?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
+}
+
+export interface EpdStQO {
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  dataTimeEt: string;
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  dataTimeSt: string;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /**
+   * 入河排污口id
+   * @format int64
+   */
+  riveRiverSewageOutfallId?: number | null;
+  /**
+   * 监测点id
+   * @format int64
+   */
+  technicsId?: number | null;
 }
 
 export interface EquipmentFO {
@@ -4507,38 +2951,20 @@ export interface EquipmentFO {
   address?: string | null;
   /** 品牌 */
   brand?: string | null;
-  /** 编码 */
-  code?: string | null;
   /**
-   * 创建时间
-   * @format date-time
+   * 编码
+   * @minLength 1
    */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /**
-   * 数据时间
-   * @format date-time
-   */
-  dataTime?: string | null;
+  code: string;
   /** 设备功率 */
   equipmentPower?: string | null;
   /**
    * id
    * @format int64
    */
-  id?: number;
+  id?: number | null;
   /** imei */
   imei?: string | null;
-  /**
-   * 安装高度
-   * @format double
-   */
-  installationHeight?: number | null;
-  /** 是否启用 */
-  isEnable?: boolean | null;
-  /** 是否在线 */
-  isOnline?: boolean | null;
   /**
    * 纬度
    * @format double
@@ -4549,10 +2975,15 @@ export interface EquipmentFO {
    * @format double
    */
   longitude?: number | null;
+  /** mn号 */
+  mn?: string | null;
   /** 规格型号 */
   modelSpec?: string | null;
-  /** 名称 */
-  name?: string | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
   /**
    * 排序序号
    * @format int32
@@ -4562,22 +2993,13 @@ export interface EquipmentFO {
   picUrl?: string | null;
   /** 备注 */
   remark?: string | null;
-  /** 测站编码 */
-  stcode?: string | null;
   /**
-   * 所属点位
+   * 所属测站
    * @format int64
    */
-  technicsId?: number | null;
+  technicsId: number;
   /** 设备类型编码 */
   typeCode?: string | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
 }
 
 export interface EquipmentPQO {
@@ -4594,11 +3016,6 @@ export interface EquipmentPQO {
   createdAt?: string | null;
   /** 创建人 */
   createdPerson?: string | null;
-  /**
-   * 数据时间
-   * @format date-time
-   */
-  dataTime?: string | null;
   /** 设备功率 */
   equipmentPower?: string | null;
   /** 排序字段 */
@@ -4610,15 +3027,10 @@ export interface EquipmentPQO {
   id?: number;
   /** imei */
   imei?: string | null;
-  /**
-   * 安装高度
-   * @format double
-   */
-  installationHeight?: number | null;
+  /** 是否通讯 */
+  isConn?: boolean | null;
   /** 是否启用 */
   isEnable?: boolean | null;
-  /** 是否在线 */
-  isOnline?: boolean | null;
   /**
    * 纬度
    * @format double
@@ -4629,6 +3041,8 @@ export interface EquipmentPQO {
    * @format double
    */
   longitude?: number | null;
+  /** mn号 */
+  mn?: string | null;
   /** 规格型号 */
   modelSpec?: string | null;
   /** 名称 */
@@ -4656,10 +3070,13 @@ export interface EquipmentPQO {
   picUrl?: string | null;
   /** 备注 */
   remark?: string | null;
-  /** 测站编码 */
-  stcode?: string | null;
   /**
-   * 所属点位
+   * 所属入河排污口
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /**
+   * 所属水库
    * @format int64
    */
   technicsId?: number | null;
@@ -4674,7 +3091,383 @@ export interface EquipmentPQO {
   updatedPerson?: string | null;
 }
 
-export interface EquipmentParamDdFO {
+/** 监测因子日粒度传输率分页查询对象 */
+export interface EquipmentParamDailyRatePQO {
+  /**
+   * 统计开始日期
+   * @format date-time
+   */
+  beginDate?: string | null;
+  /**
+   * 计算来源(1-定时任务,2-设备补传重算,3-停机变更重算,4-手动重算)
+   * @format int32
+   */
+  calcSource?: number | null;
+  /**
+   * 最近一次计算时间
+   * @format date-time
+   */
+  calcTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 有效数(is_effective = 1)
+   * @format int32
+   */
+  effectiveCount?: number | null;
+  /**
+   * 有效率 = 有效数 / 应传数
+   * @format double
+   */
+  effectiveRate?: number | null;
+  /**
+   * 统计结束日期
+   * @format date-time
+   */
+  endDate?: string | null;
+  /**
+   * 设备ID
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称(冗余) */
+  equipmentName?: string | null;
+  /**
+   * 监测因子ID
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测因子名称(冗余) */
+  equipmentParamName?: string | null;
+  /**
+   * 应传数(24 − 停机扣减小时数)
+   * @format int32
+   */
+  expectCount?: number | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /**
+   * 无效数(实传数 − 有效数)
+   * @format int32
+   */
+  invalidCount?: number | null;
+  /**
+   * 缺失数(应传数 − 实传数)
+   * @format int32
+   */
+  missingCount?: number | null;
+  /** 是否只查询有数据或有应传任务的日子(过滤应传数=0且实传数=0的记录) */
+  onlyHasData?: boolean | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 实传数(含手动补录、设备补传)
+   * @format int32
+   */
+  receiveCount?: number | null;
+  /**
+   * 实传有效率 = 有效数 / 实传数(辅助参考)
+   * @format double
+   */
+  receiveEffectiveRate?: number | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 入河排污口名称(冗余) */
+  riverSewageOutfallName?: string | null;
+  /**
+   * 统计日期(固定为当日00:00:00)
+   * @format date-time
+   */
+  statDate?: string | null;
+  /**
+   * 当天停机扣减小时数
+   * @format int32
+   */
+  stopHours?: number | null;
+  /**
+   * 监测点ID
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 监测点名称(冗余) */
+  technicsName?: string | null;
+  /**
+   * 传输率 = 实传数 / 应传数
+   * @format double
+   */
+  transferRate?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 监测因子日粒度传输率查询对象 */
+export interface EquipmentParamDailyRateQO {
+  /**
+   * 统计开始日期
+   * @format date-time
+   */
+  beginDate?: string | null;
+  /**
+   * 计算来源(1-定时任务,2-设备补传重算,3-停机变更重算,4-手动重算)
+   * @format int32
+   */
+  calcSource?: number | null;
+  /**
+   * 最近一次计算时间
+   * @format date-time
+   */
+  calcTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 有效数(is_effective = 1)
+   * @format int32
+   */
+  effectiveCount?: number | null;
+  /**
+   * 有效率 = 有效数 / 应传数
+   * @format double
+   */
+  effectiveRate?: number | null;
+  /**
+   * 统计结束日期
+   * @format date-time
+   */
+  endDate?: string | null;
+  /**
+   * 设备ID
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称(冗余) */
+  equipmentName?: string | null;
+  /**
+   * 监测因子ID
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测因子名称(冗余) */
+  equipmentParamName?: string | null;
+  /**
+   * 应传数(24 − 停机扣减小时数)
+   * @format int32
+   */
+  expectCount?: number | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /**
+   * 无效数(实传数 − 有效数)
+   * @format int32
+   */
+  invalidCount?: number | null;
+  /**
+   * 缺失数(应传数 − 实传数)
+   * @format int32
+   */
+  missingCount?: number | null;
+  /** 是否只查询有数据或有应传任务的日子(过滤应传数=0且实传数=0的记录) */
+  onlyHasData?: boolean | null;
+  /**
+   * 实传数(含手动补录、设备补传)
+   * @format int32
+   */
+  receiveCount?: number | null;
+  /**
+   * 实传有效率 = 有效数 / 实传数(辅助参考)
+   * @format double
+   */
+  receiveEffectiveRate?: number | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 入河排污口名称(冗余) */
+  riverSewageOutfallName?: string | null;
+  /**
+   * 统计日期(固定为当日00:00:00)
+   * @format date-time
+   */
+  statDate?: string | null;
+  /**
+   * 当天停机扣减小时数
+   * @format int32
+   */
+  stopHours?: number | null;
+  /**
+   * 监测点ID
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 监测点名称(冗余) */
+  technicsName?: string | null;
+  /**
+   * 传输率 = 实传数 / 应传数
+   * @format double
+   */
+  transferRate?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 监测因子日粒度传输率视图对象 */
+export interface EquipmentParamDailyRateVO {
+  /**
+   * 计算来源(1-定时任务,2-设备补传重算,3-停机变更重算,4-手动重算)
+   * @format int32
+   */
+  calcSource?: number | null;
+  /** 计算来源名称 */
+  calcSourceName?: string | null;
+  /**
+   * 最近一次计算时间
+   * @format date-time
+   */
+  calcTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 有效数(is_effective = 1)
+   * @format int32
+   */
+  effectiveCount?: number | null;
+  /**
+   * 有效率 = 有效数 / 应传数
+   * @format double
+   */
+  effectiveRate?: number | null;
+  /**
+   * 设备ID
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称(冗余) */
+  equipmentName?: string | null;
+  /**
+   * 监测因子ID
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测因子名称(冗余) */
+  equipmentParamName?: string | null;
+  /**
+   * 应传数(24 − 停机扣减小时数)
+   * @format int32
+   */
+  expectCount?: number | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /**
+   * 无效数(实传数 − 有效数)
+   * @format int32
+   */
+  invalidCount?: number | null;
+  /**
+   * 缺失数(应传数 − 实传数)
+   * @format int32
+   */
+  missingCount?: number | null;
+  /**
+   * 实传数(含手动补录、设备补传)
+   * @format int32
+   */
+  receiveCount?: number | null;
+  /**
+   * 实传有效率 = 有效数 / 实传数(辅助参考)
+   * @format double
+   */
+  receiveEffectiveRate?: number | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 入河排污口名称(冗余) */
+  riverSewageOutfallName?: string | null;
+  /**
+   * 统计日期(固定为当日00:00:00)
+   * @format date-time
+   */
+  statDate?: string | null;
+  /**
+   * 当天停机扣减小时数
+   * @format int32
+   */
+  stopHours?: number | null;
+  /**
+   * 监测点ID
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 监测点名称(冗余) */
+  technicsName?: string | null;
+  /**
+   * 传输率 = 实传数 / 应传数
+   * @format double
+   */
+  transferRate?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 天数据表 */
+export interface EquipmentParamDd {
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
@@ -4682,7 +3475,7 @@ export interface EquipmentParamDdFO {
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
+  dataTime?: string | null;
   /**
    * 设备id
    * @format int64
@@ -4694,32 +3487,43 @@ export interface EquipmentParamDdFO {
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
+  equipmentParamId?: number | null;
   /** 监测因子名称 */
   equipmentParamName?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /** @format int64 */
   id?: number;
   /**
-   * 数据时间-日
+   * Iqi水质等级
    * @format int32
    */
-  sday?: number;
+  iqi?: number | null;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
   /**
-   * 数据时间-月
+   * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  smonth?: number;
+  receiveFlag?: number | null;
   /**
-   * 数据时间-年
-   * @format int32
+   * 排口ID
+   * @format int64
    */
-  syear?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /**
-   * 水库id
+   * 监测点id
    * @format int64
    */
   technicsId?: number | null;
-  /** 水库名称 */
+  /** 监测点名称 */
   technicsName?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
@@ -4729,6 +3533,76 @@ export interface EquipmentParamDdFO {
    * @format double
    */
   valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
+}
+
+export interface EquipmentParamDdFO {
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime: string;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId: number;
+  /**
+   * data-flag
+   * @format int32
+   */
+  flag: number;
+  /** 是否有效 */
+  isEffective: boolean;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg: number;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
+}
+
+export interface EquipmentParamDdFixFO {
+  /**
+   * 数据时间(只用作定位表)
+   * @format date-time
+   */
+  dataTime: string;
+  /** @format int64 */
+  id: number;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg: number;
   /**
    * 总量
    * @format double
@@ -4759,7 +3633,7 @@ export interface EquipmentParamDdPQO {
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
+  dataTime?: string | null;
   /**
    * 结束时间
    * @format date-time
@@ -4776,13 +3650,27 @@ export interface EquipmentParamDdPQO {
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
+  equipmentParamId?: number | null;
   /** 监测因子名称 */
   equipmentParamName?: string | null;
   /** 排序字段 */
   field?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /** @format int64 */
   id?: number;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
   /** 排序方向 */
   order?: string | null;
   /**
@@ -4798,26 +3686,23 @@ export interface EquipmentParamDdPQO {
    */
   pageSize?: number;
   /**
-   * 数据时间-日
+   * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  sday?: number;
+  receiveFlag?: number | null;
   /**
-   * 数据时间-月
-   * @format int32
+   * 排口ID
+   * @format int64
    */
-  smonth?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /**
-   * 数据时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * 水库id
+   * 监测点id
    * @format int64
    */
   technicsId?: number | null;
-  /** 水库名称 */
+  /** 监测点名称 */
   technicsName?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
@@ -4857,7 +3742,7 @@ export interface EquipmentParamDdQO {
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
+  dataTime?: string | null;
   /**
    * 结束时间
    * @format date-time
@@ -4874,32 +3759,43 @@ export interface EquipmentParamDdQO {
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
+  equipmentParamId?: number | null;
   /** 监测因子名称 */
   equipmentParamName?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /** @format int64 */
   id?: number;
   /**
-   * 数据时间-日
+   * Iqi水质等级
    * @format int32
    */
-  sday?: number;
+  iqi?: number | null;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
   /**
-   * 数据时间-月
+   * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  smonth?: number;
+  receiveFlag?: number | null;
   /**
-   * 数据时间-年
-   * @format int32
+   * 排口ID
+   * @format int64
    */
-  syear?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /**
-   * 水库id
+   * 监测点id
    * @format int64
    */
   technicsId?: number | null;
-  /** 水库名称 */
+  /** 监测点名称 */
   technicsName?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
@@ -4934,7 +3830,7 @@ export interface EquipmentParamDdVO {
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
+  dataTime?: string | null;
   /**
    * 设备id
    * @format int64
@@ -4946,32 +3842,43 @@ export interface EquipmentParamDdVO {
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
+  equipmentParamId?: number | null;
   /** 监测因子名称 */
   equipmentParamName?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /** @format int64 */
   id?: number;
   /**
-   * 数据时间-日
+   * Iqi水质等级
    * @format int32
    */
-  sday?: number;
+  iqi?: number | null;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
   /**
-   * 数据时间-月
+   * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  smonth?: number;
+  receiveFlag?: number | null;
   /**
-   * 数据时间-年
-   * @format int32
+   * 排口ID
+   * @format int64
    */
-  syear?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /**
-   * 水库id
+   * 监测点id
    * @format int64
    */
   technicsId?: number | null;
-  /** 水库名称 */
+  /** 监测点名称 */
   technicsName?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
@@ -4999,15 +3906,11 @@ export interface EquipmentParamDdVO {
 }
 
 export interface EquipmentParamFO {
-  /** 编码 */
-  code?: string | null;
   /**
-   * 创建时间
-   * @format date-time
+   * 编码
+   * @minLength 1
    */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
+  code: string;
   /** 数据代码 */
   dataCode?: string | null;
   /**
@@ -5016,55 +3919,36 @@ export interface EquipmentParamFO {
    */
   dataSignal?: number | null;
   /**
-   * 数据时间
-   * @format date-time
-   */
-  dataTime?: string | null;
-  /**
    * 数据类型（0-实时，1-统计）
    * @format int32
    */
   dataType?: number | null;
   /**
-   * 数据值
-   * @format double
-   */
-  dataValue?: number | null;
-  /**
    * 小数位数
    * @format int32
    */
-  decimalPlaces?: number;
+  decimalPlaces?: number | null;
   /** 展示名称 */
   displayName?: string | null;
   /**
    * 所属设备
    * @format int64
    */
-  equipmentId?: number | null;
-  /** 分组 */
-  groupCode?: string | null;
+  equipmentId: number;
   /**
    * id
    * @format int64
    */
-  id?: number;
-  /** 无效原因 */
-  invalidReason?: string | null;
+  id?: number | null;
   /** 是否显示 */
   isDisplay?: boolean | null;
-  /** 值是否有效 */
-  isEffective?: boolean | null;
-  /** 是否启用 */
-  isEnable?: boolean | null;
-  /** 是否在线 */
-  isOnline?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
   /** 单位 */
   measureUnit?: string | null;
-  /** 名称 */
-  name?: string | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
   /** 关状态颜色 */
   offColor?: string | null;
   /** 关状态标签 */
@@ -5073,7 +3957,7 @@ export interface EquipmentParamFO {
    * 离线判断时长，距离当前时间多久算离线(秒)
    * @format int32
    */
-  offlineTimespan?: number;
+  offlineTimespan?: number | null;
   /** 开状态颜色 */
   onColor?: string | null;
   /** 开状态标签 */
@@ -5095,16 +3979,10 @@ export interface EquipmentParamFO {
   receiveFlag?: number | null;
   /** 备注 */
   remark?: string | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
 }
 
-export interface EquipmentParamHdFO {
+/** 小时数据表 */
+export interface EquipmentParamHd {
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
@@ -5112,7 +3990,7 @@ export interface EquipmentParamHdFO {
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
+  dataTime?: string | null;
   /**
    * 设备id
    * @format int64
@@ -5124,37 +4002,43 @@ export interface EquipmentParamHdFO {
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
+  equipmentParamId?: number | null;
   /** 监测因子名称 */
   equipmentParamName?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /** @format int64 */
   id?: number;
   /**
-   * 数据时间-日
+   * Iqi水质等级
    * @format int32
    */
-  sday?: number;
+  iqi?: number | null;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
   /**
-   * 数据时间-小时
+   * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  shour?: number;
+  receiveFlag?: number | null;
   /**
-   * 数据时间-月
-   * @format int32
+   * 排口ID
+   * @format int64
    */
-  smonth?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /**
-   * 数据时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * 水库id
+   * 监测点id
    * @format int64
    */
   technicsId?: number | null;
-  /** 水库名称 */
+  /** 监测点名称 */
   technicsName?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
@@ -5164,6 +4048,76 @@ export interface EquipmentParamHdFO {
    * @format double
    */
   valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
+}
+
+export interface EquipmentParamHdFO {
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime: string;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId: number;
+  /**
+   * data-flag
+   * @format int32
+   */
+  flag: number;
+  /** 是否有效 */
+  isEffective: boolean;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg: number;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
+}
+
+export interface EquipmentParamHdFixFO {
+  /**
+   * 数据时间(只用作定位表)
+   * @format date-time
+   */
+  dataTime: string;
+  /** @format int64 */
+  id: number;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg: number;
   /**
    * 总量
    * @format double
@@ -5194,7 +4148,7 @@ export interface EquipmentParamHdPQO {
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
+  dataTime?: string | null;
   /**
    * 结束时间
    * @format date-time
@@ -5211,13 +4165,27 @@ export interface EquipmentParamHdPQO {
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
+  equipmentParamId?: number | null;
   /** 监测因子名称 */
   equipmentParamName?: string | null;
   /** 排序字段 */
   field?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /** @format int64 */
   id?: number;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
   /** 排序方向 */
   order?: string | null;
   /**
@@ -5233,31 +4201,23 @@ export interface EquipmentParamHdPQO {
    */
   pageSize?: number;
   /**
-   * 数据时间-日
+   * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  sday?: number;
+  receiveFlag?: number | null;
   /**
-   * 数据时间-小时
-   * @format int32
+   * 排口ID
+   * @format int64
    */
-  shour?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /**
-   * 数据时间-月
-   * @format int32
-   */
-  smonth?: number;
-  /**
-   * 数据时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * 水库id
+   * 监测点id
    * @format int64
    */
   technicsId?: number | null;
-  /** 水库名称 */
+  /** 监测点名称 */
   technicsName?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
@@ -5297,7 +4257,7 @@ export interface EquipmentParamHdQO {
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
+  dataTime?: string | null;
   /**
    * 结束时间
    * @format date-time
@@ -5314,37 +4274,43 @@ export interface EquipmentParamHdQO {
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
+  equipmentParamId?: number | null;
   /** 监测因子名称 */
   equipmentParamName?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /** @format int64 */
   id?: number;
   /**
-   * 数据时间-日
+   * Iqi水质等级
    * @format int32
    */
-  sday?: number;
+  iqi?: number | null;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
   /**
-   * 数据时间-小时
+   * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  shour?: number;
+  receiveFlag?: number | null;
   /**
-   * 数据时间-月
-   * @format int32
+   * 排口ID
+   * @format int64
    */
-  smonth?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /**
-   * 数据时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * 水库id
+   * 监测点id
    * @format int64
    */
   technicsId?: number | null;
-  /** 水库名称 */
+  /** 监测点名称 */
   technicsName?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
@@ -5379,7 +4345,7 @@ export interface EquipmentParamHdVO {
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
+  dataTime?: string | null;
   /**
    * 设备id
    * @format int64
@@ -5391,37 +4357,43 @@ export interface EquipmentParamHdVO {
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
+  equipmentParamId?: number | null;
   /** 监测因子名称 */
   equipmentParamName?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /** @format int64 */
   id?: number;
   /**
-   * 数据时间-日
+   * Iqi水质等级
    * @format int32
    */
-  sday?: number;
+  iqi?: number | null;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
   /**
-   * 数据时间-小时
+   * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  shour?: number;
+  receiveFlag?: number | null;
   /**
-   * 数据时间-月
-   * @format int32
+   * 排口ID
+   * @format int64
    */
-  smonth?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /**
-   * 数据时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * 水库id
+   * 监测点id
    * @format int64
    */
   technicsId?: number | null;
-  /** 水库名称 */
+  /** 监测点名称 */
   technicsName?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
@@ -5448,6 +4420,194 @@ export interface EquipmentParamHdVO {
   valueMin?: number | null;
 }
 
+export interface EquipmentParamInfoFO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 数据代码 */
+  dataCode?: string | null;
+  /**
+   * 小数位数
+   * @format int32
+   */
+  decimalPlaces?: number | null;
+  /** 显示名称 */
+  displayName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /** 单位 */
+  measureUnit?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /** 关状态颜色 */
+  offColor?: string | null;
+  /** 关状态标签 */
+  offLabel?: string | null;
+  /** 开状态颜色 */
+  onColor?: string | null;
+  /** 开状态标签 */
+  onLabel?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EquipmentParamInfoPQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 数据代码 */
+  dataCode?: string | null;
+  /**
+   * 小数位数
+   * @format int32
+   */
+  decimalPlaces?: number | null;
+  /** 显示名称 */
+  displayName?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /** 单位 */
+  measureUnit?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /** 关状态颜色 */
+  offColor?: string | null;
+  /** 关状态标签 */
+  offLabel?: string | null;
+  /** 开状态颜色 */
+  onColor?: string | null;
+  /** 开状态标签 */
+  onLabel?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EquipmentParamInfoQO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 数据代码 */
+  dataCode?: string | null;
+  /**
+   * 小数位数
+   * @format int32
+   */
+  decimalPlaces?: number | null;
+  /** 显示名称 */
+  displayName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /** 单位 */
+  measureUnit?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /** 关状态颜色 */
+  offColor?: string | null;
+  /** 关状态标签 */
+  offLabel?: string | null;
+  /** 开状态颜色 */
+  onColor?: string | null;
+  /** 开状态标签 */
+  onLabel?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EquipmentParamInfoVO {
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 数据代码 */
+  dataCode?: string | null;
+  /**
+   * 小数位数
+   * @format int32
+   */
+  decimalPlaces?: number | null;
+  /** 显示名称 */
+  displayName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否启用 */
+  isEnable?: boolean | null;
+  /** 单位 */
+  measureUnit?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /** 关状态颜色 */
+  offColor?: string | null;
+  /** 关状态标签 */
+  offLabel?: string | null;
+  /** 开状态颜色 */
+  onColor?: string | null;
+  /** 开状态标签 */
+  onLabel?: string | null;
+  /**
+   * 序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
 /** 分钟数据表 */
 export interface EquipmentParamMd {
   /** @format date-time */
@@ -5457,12 +4617,7 @@ export interface EquipmentParamMd {
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
-  /**
-   * 数据值
-   * @format double
-   */
-  dataValue?: number | null;
+  dataTime?: string | null;
   /**
    * 设备id
    * @format int64
@@ -5474,129 +4629,137 @@ export interface EquipmentParamMd {
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
+  equipmentParamId?: number | null;
   /** 监测因子名称 */
   equipmentParamName?: string | null;
-  /** 是否已参与计算统计数据 */
-  hasCalcst?: boolean;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /** @format int64 */
   id?: number;
-  /** 无效原因 */
-  invalidReason?: string | null;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
   /** 是否有效 */
   isEffective?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
   /**
    * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  receiveFlag?: number;
+  receiveFlag?: number | null;
   /**
-   * 数据时间-日
-   * @format int32
+   * 排口ID
+   * @format int64
    */
-  sday?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /**
-   * 数据时间-小时
-   * @format int32
-   */
-  shour?: number;
-  /**
-   * 数据时间-月
-   * @format int32
-   */
-  smonth?: number;
-  /**
-   * 数据时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * 水库id
+   * 监测点id
    * @format int64
    */
   technicsId?: number | null;
-  /** 水库名称 */
+  /** 监测点名称 */
   technicsName?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
   updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
 }
 
 export interface EquipmentParamMdFO {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
-  /**
-   * 数据值
-   * @format double
-   */
-  dataValue?: number | null;
-  /**
-   * 设备id
-   * @format int64
-   */
-  equipmentId?: number | null;
-  /** 设备名称 */
-  equipmentName?: string | null;
+  dataTime: string;
   /**
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
-  /** 监测因子名称 */
-  equipmentParamName?: string | null;
-  /** 是否已参与计算统计数据 */
-  hasCalcst?: boolean;
-  /** @format int64 */
-  id?: number;
-  /** 无效原因 */
-  invalidReason?: string | null;
+  equipmentParamId: number;
+  /**
+   * data-flag
+   * @format int32
+   */
+  flag: number;
   /** 是否有效 */
-  isEffective?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
+  isEffective: boolean;
   /**
-   * 获取方式（0-自动，1-手动）
-   * @format int32
+   * 平均值
+   * @format double
    */
-  receiveFlag?: number;
+  valueAvg: number;
   /**
-   * 数据时间-日
-   * @format int32
+   * 总量
+   * @format double
    */
-  sday?: number;
+  valueCount?: number | null;
   /**
-   * 数据时间-小时
-   * @format int32
+   * 最大值
+   * @format double
    */
-  shour?: number;
+  valueMax?: number | null;
   /**
-   * 数据时间-月
-   * @format int32
+   * 最小值
+   * @format double
    */
-  smonth?: number;
+  valueMin?: number | null;
+}
+
+export interface EquipmentParamMdFixFO {
   /**
-   * 数据时间-年
-   * @format int32
+   * 数据时间(只用作定位表)
+   * @format date-time
    */
-  syear?: number;
+  dataTime: string;
+  /** @format int64 */
+  id: number;
   /**
-   * 水库id
-   * @format int64
+   * 平均值
+   * @format double
    */
-  technicsId?: number | null;
-  /** 水库名称 */
-  technicsName?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
+  valueAvg: number;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
 }
 
 export interface EquipmentParamMdPQO {
@@ -5604,7 +4767,7 @@ export interface EquipmentParamMdPQO {
    * 开始时间
    * @format date-time
    */
-  beginTime?: string | null;
+  beginTime?: string;
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
@@ -5612,17 +4775,12 @@ export interface EquipmentParamMdPQO {
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
-  /**
-   * 数据值
-   * @format double
-   */
-  dataValue?: number | null;
+  dataTime?: string | null;
   /**
    * 结束时间
    * @format date-time
    */
-  endTime?: string | null;
+  endTime?: string;
   /**
    * 设备id
    * @format int64
@@ -5634,21 +4792,27 @@ export interface EquipmentParamMdPQO {
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
+  equipmentParamId?: number | null;
   /** 监测因子名称 */
   equipmentParamName?: string | null;
   /** 排序字段 */
   field?: string | null;
-  /** 是否已参与计算统计数据 */
-  hasCalcst?: boolean;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /** @format int64 */
   id?: number;
-  /** 无效原因 */
-  invalidReason?: string | null;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
   /** 是否有效 */
   isEffective?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
   /** 排序方向 */
   order?: string | null;
   /**
@@ -5667,42 +4831,49 @@ export interface EquipmentParamMdPQO {
    * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  receiveFlag?: number;
+  receiveFlag?: number | null;
   /**
-   * 数据时间-日
-   * @format int32
+   * 排口ID
+   * @format int64
    */
-  sday?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /**
    * 日期（1:小时， 2：日，3：周， 4：旬，5：月，6：季， 7：年）
    * @format int32
    */
   searchMode?: number | null;
   /**
-   * 数据时间-小时
-   * @format int32
-   */
-  shour?: number;
-  /**
-   * 数据时间-月
-   * @format int32
-   */
-  smonth?: number;
-  /**
-   * 数据时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * 水库id
+   * 监测点id
    * @format int64
    */
   technicsId?: number | null;
-  /** 水库名称 */
+  /** 监测点名称 */
   technicsName?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
   updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
   /** 乡镇 */
   village?: string | null;
 }
@@ -5712,7 +4883,7 @@ export interface EquipmentParamMdQO {
    * 开始时间
    * @format date-time
    */
-  beginTime?: string | null;
+  beginTime?: string;
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
@@ -5720,17 +4891,12 @@ export interface EquipmentParamMdQO {
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
-  /**
-   * 数据值
-   * @format double
-   */
-  dataValue?: number | null;
+  dataTime?: string | null;
   /**
    * 结束时间
    * @format date-time
    */
-  endTime?: string | null;
+  endTime?: string;
   /**
    * 设备id
    * @format int64
@@ -5742,59 +4908,72 @@ export interface EquipmentParamMdQO {
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
+  equipmentParamId?: number | null;
   /** 监测因子名称 */
   equipmentParamName?: string | null;
-  /** 是否已参与计算统计数据 */
-  hasCalcst?: boolean;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /** @format int64 */
   id?: number;
-  /** 无效原因 */
-  invalidReason?: string | null;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
   /** 是否有效 */
   isEffective?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
   /**
    * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  receiveFlag?: number;
+  receiveFlag?: number | null;
   /**
-   * 数据时间-日
-   * @format int32
+   * 排口ID
+   * @format int64
    */
-  sday?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /**
    * 日期（1:小时， 2：日，3：周， 4：旬，5：月，6：季， 7：年）
    * @format int32
    */
   searchMode?: number | null;
   /**
-   * 数据时间-小时
-   * @format int32
-   */
-  shour?: number;
-  /**
-   * 数据时间-月
-   * @format int32
-   */
-  smonth?: number;
-  /**
-   * 数据时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * 水库id
+   * 监测点id
    * @format int64
    */
   technicsId?: number | null;
-  /** 水库名称 */
+  /** 监测点名称 */
   technicsName?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
   updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
   /** 乡镇 */
   village?: string | null;
 }
@@ -5807,12 +4986,7 @@ export interface EquipmentParamMdVO {
    * 数据时间
    * @format date-time
    */
-  dataTime?: string;
-  /**
-   * 数据值
-   * @format double
-   */
-  dataValue?: number | null;
+  dataTime?: string | null;
   /**
    * 设备id
    * @format int64
@@ -5824,54 +4998,67 @@ export interface EquipmentParamMdVO {
    * 监测因子id
    * @format int64
    */
-  equipmentParamId?: number;
+  equipmentParamId?: number | null;
   /** 监测因子名称 */
   equipmentParamName?: string | null;
-  /** 是否已参与计算统计数据 */
-  hasCalcst?: boolean;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /** @format int64 */
   id?: number;
-  /** 无效原因 */
-  invalidReason?: string | null;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
   /** 是否有效 */
   isEffective?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
   /**
    * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  receiveFlag?: number;
+  receiveFlag?: number | null;
   /**
-   * 数据时间-日
-   * @format int32
+   * 排口ID
+   * @format int64
    */
-  sday?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /**
-   * 数据时间-小时
-   * @format int32
-   */
-  shour?: number;
-  /**
-   * 数据时间-月
-   * @format int32
-   */
-  smonth?: number;
-  /**
-   * 数据时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * 水库id
+   * 监测点id
    * @format int64
    */
   technicsId?: number | null;
-  /** 水库名称 */
+  /** 监测点名称 */
   technicsName?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
   updatedPerson?: string | null;
+  /**
+   * 平均值
+   * @format double
+   */
+  valueAvg?: number | null;
+  /**
+   * 总量
+   * @format double
+   */
+  valueCount?: number | null;
+  /**
+   * 最大值
+   * @format double
+   */
+  valueMax?: number | null;
+  /**
+   * 最小值
+   * @format double
+   */
+  valueMin?: number | null;
 }
 
 export interface EquipmentParamPQO {
@@ -5920,25 +5107,27 @@ export interface EquipmentParamPQO {
   equipmentId?: number | null;
   /** 排序字段 */
   field?: string | null;
-  /** 分组 */
-  groupCode?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /**
    * id
    * @format int64
    */
   id?: number;
-  /** 无效原因 */
-  invalidReason?: string | null;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
   /** 是否显示 */
   isDisplay?: boolean | null;
-  /** 值是否有效 */
-  isEffective?: boolean | null;
   /** 是否启用 */
   isEnable?: boolean | null;
   /** 是否在线 */
   isOnline?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
   /** 单位 */
   measureUnit?: string | null;
   /** 名称 */
@@ -5975,6 +5164,11 @@ export interface EquipmentParamPQO {
    * @max 100
    */
   pageSize?: number;
+  /**
+   * 预警级别,0不预警,1预警,2报警
+   * @format int32
+   */
+  prealarmLevel?: number | null;
   /**
    * 读写类型（0-只读，1-读写，2-只写）
    * @format int32
@@ -6045,25 +5239,27 @@ export interface EquipmentParamQO {
    * @format int64
    */
   equipmentId?: number | null;
-  /** 分组 */
-  groupCode?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /**
    * id
    * @format int64
    */
   id?: number;
-  /** 无效原因 */
-  invalidReason?: string | null;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
   /** 是否显示 */
   isDisplay?: boolean | null;
-  /** 值是否有效 */
-  isEffective?: boolean | null;
   /** 是否启用 */
   isEnable?: boolean | null;
   /** 是否在线 */
   isOnline?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
   /** 单位 */
   measureUnit?: string | null;
   /** 名称 */
@@ -6086,6 +5282,11 @@ export interface EquipmentParamQO {
    * @format int32
    */
   orderNumber?: number | null;
+  /**
+   * 预警级别,0不预警,1预警,2报警
+   * @format int32
+   */
+  prealarmLevel?: number | null;
   /**
    * 读写类型（0-只读，1-读写，2-只写）
    * @format int32
@@ -6112,110 +5313,173 @@ export interface EquipmentParamQO {
   updatedPerson?: string | null;
 }
 
-/** 实时雨水情参数接收 */
-export interface EquipmentParamRainConditionQO {
-  /** 排序字段 */
-  field?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 水库id
-   * @format int64
-   */
-  technicsId?: number | null;
-}
-
-/** 实时雨水情返回值 */
-export interface EquipmentParamRainConditionVO {
-  /**
-   * 渗压水位1
-   * @format double
-   */
-  osmoticWaterLevel1?: number | null;
-  /**
-   * 渗压水位2
-   * @format double
-   */
-  osmoticWaterLevel2?: number | null;
-  /**
-   * 渗压水位3
-   * @format double
-   */
-  osmoticWaterLevel3?: number | null;
-  /**
-   * X偏移1
-   * @format double
-   */
-  xOffset1?: number | null;
-  /**
-   * X偏移2
-   * @format double
-   */
-  xOffset2?: number | null;
-  /**
-   * X偏移3
-   * @format double
-   */
-  xOffset3?: number | null;
-  /**
-   * Y偏移1
-   * @format double
-   */
-  yOffset1?: number | null;
-  /**
-   * Y偏移2
-   * @format double
-   */
-  yOffset2?: number | null;
-  /**
-   * Y偏移3
-   * @format double
-   */
-  yOffset3?: number | null;
-  /**
-   * Z偏移1
-   * @format double
-   */
-  zOffset1?: number | null;
-  /**
-   * Z偏移2
-   * @format double
-   */
-  zOffset2?: number | null;
-  /**
-   * Z偏移3
-   * @format double
-   */
-  zOffset3?: number | null;
-  /**
-   * 当前库容
-   * @format double
-   */
-  capacity?: number | null;
+/** 历史数据表 */
+export interface EquipmentParamRd {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
   /**
    * 数据时间
    * @format date-time
    */
-  dataTime?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /** 排序方向 */
-  order?: string | null;
+  dataTime?: string;
   /**
-   * 工情预警级别
+   * 数据值
+   * @format double
+   */
+  dataValue?: number | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /**
+   * flag
    * @format int32
    */
-  osmoticPreAlarmLevel?: number | null;
+  flag?: number | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
+  /**
+   * 获取方式（0-自动，1-手动）
+   * @format int32
+   */
+  receiveFlag?: number | null;
+  /**
+   * 排口ID
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
+  /**
+   * 监测点id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 监测点名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EquipmentParamRdFO {
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime: string;
+  /**
+   * 数据值
+   * @format double
+   */
+  dataValue: number;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId: number;
+  /**
+   * data-flag
+   * @format int32
+   */
+  flag: number;
+  /** 是否有效 */
+  isEffective: boolean;
+}
+
+export interface EquipmentParamRdFixFO {
+  /**
+   * 数据时间(只用作定位表)
+   * @format date-time
+   */
+  dataTime: string;
+  /**
+   * 数据值
+   * @format double
+   */
+  dataValue: number;
+  /** @format int64 */
+  id: number;
+}
+
+export interface EquipmentParamRdPQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 数据值
+   * @format double
+   */
+  dataValue?: number | null;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
+  /** 排序方向 */
+  order?: string | null;
   /**
    * 当前页码
    * @format int32
@@ -6224,30 +5488,431 @@ export interface EquipmentParamRainConditionVO {
   /**
    * 页码容量
    * @format int32
+   * @min 0
+   * @max 100
    */
   pageSize?: number;
   /**
-   * 当前降雨量
-   * @format double
-   */
-  rainfall?: number | null;
-  /**
-   * 降雨量预警级别
+   * 获取方式（0-自动，1-手动）
    * @format int32
    */
-  rainfallPreAlarmLevel?: number | null;
-  /** 水库名称 */
+  receiveFlag?: number | null;
+  /**
+   * 排口ID
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
+  /**
+   * 监测点id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 监测点名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EquipmentParamRdQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 数据值
+   * @format double
+   */
+  dataValue?: number | null;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
+  /**
+   * 获取方式（0-自动，1-手动）
+   * @format int32
+   */
+  receiveFlag?: number | null;
+  /**
+   * 排口ID
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
+  /**
+   * 监测点id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 监测点名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface EquipmentParamRdVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string;
+  /**
+   * 数据值
+   * @format double
+   */
+  dataValue?: number | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测因子id
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测因子名称 */
+  equipmentParamName?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
+  /** @format int64 */
+  id?: number;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
+  /** 是否有效 */
+  isEffective?: boolean | null;
+  /** 是否已修正 */
+  isFixed?: boolean | null;
+  /**
+   * 获取方式（0-自动，1-手动）
+   * @format int32
+   */
+  receiveFlag?: number | null;
+  /**
+   * 排口ID
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
+  /**
+   * 监测点id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 监测点名称 */
+  technicsName?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+/** 监测因子停机时段新增/编辑对象 */
+export interface EquipmentParamStopPeriodFO {
+  /**
+   * 停机开始时间(半开区间左端,包含该时刻)
+   * @format date-time
+   */
+  beginTime: string;
+  /**
+   * 停机结束时间(半开区间右端,不含该时刻);NULL表示至今未恢复
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 监测因子ID
+   * @format int64
+   */
+  equipmentParamId: number;
+  /**
+   * 主键ID(编辑时必填)
+   * @format int64
+   */
+  id?: number | null;
+  /** 停机说明 */
+  remark?: string | null;
+  /**
+   * 停机类型(1-更换设备,2-设备检修,3-设备报废,4-监测因子停用,5-更换前未投运,9-其他)
+   * @format int32
+   */
+  stopType: number;
+}
+
+/** 监测因子停机时段分页查询对象 */
+export interface EquipmentParamStopPeriodPQO {
+  /**
+   * 停机开始时间(半开区间左端,包含该时刻)
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 停机结束时间(半开区间右端,不含该时刻);NULL表示至今未恢复
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备ID
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称(冗余) */
+  equipmentName?: string | null;
+  /**
+   * 监测因子ID
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测因子名称(冗余) */
+  equipmentParamName?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 停机说明 */
+  remark?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 入河排污口名称(冗余) */
+  riverSewageOutfallName?: string | null;
+  /**
+   * 停机类型(1-更换设备,2-设备检修,3-设备报废,4-监测因子停用,5-更换前未投运,9-其他)
+   * @format int32
+   */
+  stopType?: number | null;
+  /**
+   * 监测点ID
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 监测点名称(冗余) */
   technicsName?: string | null;
   /**
-   * 当前水位
-   * @format double
+   * 更新时间
+   * @format date-time
    */
-  waterLevel?: number | null;
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 监测因子停机时段查询对象 */
+export interface EquipmentParamStopPeriodQO {
   /**
-   * 水位预警级别
+   * 停机开始时间(半开区间左端,包含该时刻)
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 停机结束时间(半开区间右端,不含该时刻);NULL表示至今未恢复
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备ID
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称(冗余) */
+  equipmentName?: string | null;
+  /**
+   * 监测因子ID
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测因子名称(冗余) */
+  equipmentParamName?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 停机说明 */
+  remark?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 入河排污口名称(冗余) */
+  riverSewageOutfallName?: string | null;
+  /**
+   * 停机类型(1-更换设备,2-设备检修,3-设备报废,4-监测因子停用,5-更换前未投运,9-其他)
    * @format int32
    */
-  waterLevelPreAlarmLevel?: number | null;
+  stopType?: number | null;
+  /**
+   * 监测点ID
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 监测点名称(冗余) */
+  technicsName?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 监测因子停机时段视图对象 */
+export interface EquipmentParamStopPeriodVO {
+  /**
+   * 停机开始时间(半开区间左端,包含该时刻)
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 停机结束时间(半开区间右端,不含该时刻);NULL表示至今未恢复
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备ID
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称(冗余) */
+  equipmentName?: string | null;
+  /**
+   * 监测因子ID
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测因子名称(冗余) */
+  equipmentParamName?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 停机说明 */
+  remark?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 入河排污口名称(冗余) */
+  riverSewageOutfallName?: string | null;
+  /**
+   * 停机类型(1-更换设备,2-设备检修,3-设备报废,4-监测因子停用,5-更换前未投运,9-其他)
+   * @format int32
+   */
+  stopType?: number | null;
+  /** 停机类型名称 */
+  stopTypeName?: string | null;
+  /**
+   * 监测点ID
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 监测点名称(冗余) */
+  technicsName?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
 }
 
 export interface EquipmentParamVO {
@@ -6296,27 +5961,31 @@ export interface EquipmentParamVO {
   equipmentId?: number | null;
   /** 设备名称 */
   equipmentName?: string | null;
-  /** 分组 */
-  groupCode?: string | null;
+  /**
+   * flag
+   * @format int32
+   */
+  flag?: number | null;
   /**
    * id
    * @format int64
    */
   id?: number;
-  /** 无效原因 */
-  invalidReason?: string | null;
+  /**
+   * Iqi水质等级
+   * @format int32
+   */
+  iqi?: number | null;
   /** 是否显示 */
   isDisplay?: boolean | null;
-  /** 值是否有效 */
-  isEffective?: boolean | null;
   /** 是否启用 */
   isEnable?: boolean | null;
   /** 是否在线 */
   isOnline?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
   /** 单位 */
   measureUnit?: string | null;
+  /** 对应设备mn号 */
+  readonly mn?: string | null;
   /** 名称 */
   name?: string | null;
   /** 关状态颜色 */
@@ -6338,6 +6007,11 @@ export interface EquipmentParamVO {
    */
   orderNumber?: number | null;
   /**
+   * 预警级别,0不预警,1预警,2报警
+   * @format int32
+   */
+  prealarmLevel?: number | null;
+  /**
    * 读写类型（0-只读，1-读写，2-只写）
    * @format int32
    */
@@ -6349,6 +6023,13 @@ export interface EquipmentParamVO {
   receiveFlag?: number | null;
   /** 备注 */
   remark?: string | null;
+  /**
+   * 所属入河排污口
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 所属入河排污口 */
+  riverSewageOutfallName?: string | null;
   /**
    * 所属水库
    * @format int64
@@ -6379,11 +6060,6 @@ export interface EquipmentQO {
   createdAt?: string | null;
   /** 创建人 */
   createdPerson?: string | null;
-  /**
-   * 数据时间
-   * @format date-time
-   */
-  dataTime?: string | null;
   /** 设备功率 */
   equipmentPower?: string | null;
   /**
@@ -6393,15 +6069,10 @@ export interface EquipmentQO {
   id?: number;
   /** imei */
   imei?: string | null;
-  /**
-   * 安装高度
-   * @format double
-   */
-  installationHeight?: number | null;
+  /** 是否通讯 */
+  isConn?: boolean | null;
   /** 是否启用 */
   isEnable?: boolean | null;
-  /** 是否在线 */
-  isOnline?: boolean | null;
   /**
    * 纬度
    * @format double
@@ -6412,6 +6083,8 @@ export interface EquipmentQO {
    * @format double
    */
   longitude?: number | null;
+  /** mn号 */
+  mn?: string | null;
   /** 规格型号 */
   modelSpec?: string | null;
   /** 名称 */
@@ -6425,10 +6098,13 @@ export interface EquipmentQO {
   picUrl?: string | null;
   /** 备注 */
   remark?: string | null;
-  /** 测站编码 */
-  stcode?: string | null;
   /**
-   * 所属点位
+   * 所属入河排污口
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /**
+   * 所属水库
    * @format int64
    */
   technicsId?: number | null;
@@ -6457,11 +6133,6 @@ export interface EquipmentVO {
   createdAt?: string | null;
   /** 创建人 */
   createdPerson?: string | null;
-  /**
-   * 数据时间
-   * @format date-time
-   */
-  dataTime?: string | null;
   /** 设备功率 */
   equipmentPower?: string | null;
   /**
@@ -6471,15 +6142,10 @@ export interface EquipmentVO {
   id?: number;
   /** imei */
   imei?: string | null;
-  /**
-   * 安装高度
-   * @format double
-   */
-  installationHeight?: number | null;
+  /** 是否通讯 */
+  isConn?: boolean | null;
   /** 是否启用 */
   isEnable?: boolean | null;
-  /** 是否在线 */
-  isOnline?: boolean | null;
   /**
    * 纬度
    * @format double
@@ -6490,6 +6156,8 @@ export interface EquipmentVO {
    * @format double
    */
   longitude?: number | null;
+  /** mn号 */
+  mn?: string | null;
   /** 规格型号 */
   modelSpec?: string | null;
   /** 名称 */
@@ -6501,16 +6169,18 @@ export interface EquipmentVO {
   orderNumber?: number | null;
   /** 图片路径 */
   picUrl?: string | null;
+  /** 监管级别 */
+  regulatoryLevel?: string | null;
   /** 备注 */
   remark?: string | null;
-  /** 测站编码 */
-  stcode?: string | null;
+  /** 所属河流 */
+  river?: string | null;
   /**
-   * 所属点位
+   * 所属水库
    * @format int64
    */
   technicsId?: number | null;
-  /** 所属点位 */
+  /** 所属水库 */
   technicsName?: string | null;
   /** 设备类型编码 */
   typeCode?: string | null;
@@ -6523,26 +6193,107 @@ export interface EquipmentVO {
   updatedAt?: string | null;
   /** 更新人 */
   updatedPerson?: string | null;
-}
-
-export interface EventStatisticsQO {
-  /** @format int32 */
-  bizLine?: number | null;
-  endDate?: string | null;
-  startDate?: string | null;
-}
-
-/** 文件信息实体 */
-export interface FileInfoVO {
   /**
-   * 文件ID（对应JSON字段：id）
+   * 视频排序序号
    * @format int32
    */
-  id?: number;
-  /** 缩略图路径（对应JSON字段：thumbnailUri） */
-  thumbnailUri?: string | null;
-  /** 文件存储路径（对应JSON字段：uri） */
-  uri?: string | null;
+  videoSn?: number | null;
+}
+
+/** 事件审核传入参数 */
+export interface EventAuditFO {
+  /**
+   * 事件ID
+   * @format int64
+   */
+  id: number;
+  /** 是否需要处理(true-需要处理,false-不需要处理,流程结束) */
+  isNeedHandle: boolean;
+  /** 审核意见(不需要处理时必填,作为不需处理的原因) */
+  opinion?: string | null;
+}
+
+/** 事件派遣传入参数 */
+export interface EventDispatchFO {
+  /** 处理人姓名 */
+  handler?: string | null;
+  /**
+   * 处理人用户ID
+   * @format int64
+   */
+  handlerId: number;
+  /**
+   * 事件ID
+   * @format int64
+   */
+  id: number;
+  /** 派遣说明 */
+  opinion?: string | null;
+}
+
+/** 事件处理(填写处理结果)传入参数 */
+export interface EventHandleActFO {
+  /**
+   * 操作记录id
+   * @format int64
+   */
+  eventHandleId: number;
+  /** 处理现场照片等附件 */
+  files?: RecordFile[] | null;
+  /**
+   * 处理结果描述
+   * @minLength 1
+   */
+  handleDesc: string;
+  /**
+   * 处理时间(不传时取当前时间)
+   * @format date-time
+   */
+  handleTime?: string | null;
+  /** 处理人姓名 */
+  handler?: string | null;
+  /**
+   * 处理人用户ID(不传时取当前登录人)
+   * @format int64
+   */
+  handlerId?: number | null;
+  /**
+   * 事件ID
+   * @format int64
+   */
+  id: number;
+  /** 备注 */
+  remark?: string | null;
+}
+
+/** 事件处理结果审核传入参数 */
+export interface EventHandleAuditFO {
+  /**
+   * 事件ID
+   * @format int64
+   */
+  id: number;
+  /** 处理结果是否通过(true-通过,流程结束;false-驳回,重新处理) */
+  isPass: boolean;
+  /** 审核意见 */
+  opinion?: string | null;
+}
+
+export interface ExportEquimpentDataQO {
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** 监测因子名称 */
+  equipmentParamName?: string[] | null;
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  startTime?: string | null;
+  /** 电站id列表 */
+  technicsIds?: number[] | null;
 }
 
 /** 全局返回结果 */
@@ -6599,58 +6350,6 @@ export interface FurionResultBoolean {
 }
 
 /** 全局返回结果 */
-export interface FurionResultBsAlarmPipeLineVO {
-  data?: BsAlarmPipeLineVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultBsCommunityVO {
-  data?: BsCommunityVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
 export interface FurionResultBsCompanyVO {
   data?: BsCompanyVO;
   /**
@@ -6677,8 +6376,9 @@ export interface FurionResultBsCompanyVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultBsOutletVO {
-  data?: BsOutletVO;
+export interface FurionResultBsEventLevelVO {
+  /** 事件级别输出对象 */
+  data?: BsEventLevelVO;
   /**
    * 错误状态码
    * @format int32
@@ -6703,8 +6403,9 @@ export interface FurionResultBsOutletVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultBsPipeLineVO {
-  data?: BsPipeLineVO;
+export interface FurionResultBsEventTypeVO {
+  /** 事件类型输出对象 */
+  data?: BsEventTypeVO;
   /**
    * 错误状态码
    * @format int32
@@ -6729,8 +6430,8 @@ export interface FurionResultBsPipeLineVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultBsPipePointAlarmParameterVO {
-  data?: BsPipePointAlarmParameterVO;
+export interface FurionResultBsInformationVO {
+  data?: BsInformationVO;
   /**
    * 错误状态码
    * @format int32
@@ -6755,8 +6456,8 @@ export interface FurionResultBsPipePointAlarmParameterVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultBsPipePointAlarmRecordVO {
-  data?: BsPipePointAlarmRecordVO;
+export interface FurionResultBsNewsVO {
+  data?: BsNewsVO;
   /**
    * 错误状态码
    * @format int32
@@ -6781,8 +6482,8 @@ export interface FurionResultBsPipePointAlarmRecordVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultBsPipePointVO {
-  data?: BsPipePointVO;
+export interface FurionResultBsOutletCategoryVO {
+  data?: BsOutletCategoryVO;
   /**
    * 错误状态码
    * @format int32
@@ -6807,8 +6508,8 @@ export interface FurionResultBsPipePointVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultBsPmcVO {
-  data?: BsPmcVO;
+export interface FurionResultBsOutletTypeVO {
+  data?: BsOutletTypeVO;
   /**
    * 错误状态码
    * @format int32
@@ -6859,8 +6560,34 @@ export interface FurionResultBsPollutionPermitInfoVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultBsZoneVO {
-  data?: BsZoneVO;
+export interface FurionResultBsRiverVO {
+  data?: BsRiverVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultBsVillageVO {
+  data?: BsVillageVO;
   /**
    * 错误状态码
    * @format int32
@@ -6911,8 +6638,36 @@ export interface FurionResultDataDictionaryVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultEmergencyPlanVO {
-  data?: EmergencyPlanVO;
+export interface FurionResultEquipmentParamDailyRateVO {
+  /** 监测因子日粒度传输率视图对象 */
+  data?: EquipmentParamDailyRateVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEquipmentParamDd {
+  /** 天数据表 */
+  data?: EquipmentParamDd;
   /**
    * 错误状态码
    * @format int32
@@ -6963,6 +6718,33 @@ export interface FurionResultEquipmentParamDdVO {
 }
 
 /** 全局返回结果 */
+export interface FurionResultEquipmentParamHd {
+  /** 小时数据表 */
+  data?: EquipmentParamHd;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
 export interface FurionResultEquipmentParamHdVO {
   data?: EquipmentParamHdVO;
   /**
@@ -6989,8 +6771,141 @@ export interface FurionResultEquipmentParamHdVO {
 }
 
 /** 全局返回结果 */
+export interface FurionResultEquipmentParamInfoVO {
+  data?: EquipmentParamInfoVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEquipmentParamMd {
+  /** 分钟数据表 */
+  data?: EquipmentParamMd;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
 export interface FurionResultEquipmentParamMdVO {
   data?: EquipmentParamMdVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEquipmentParamRd {
+  /** 历史数据表 */
+  data?: EquipmentParamRd;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEquipmentParamRdVO {
+  data?: EquipmentParamRdVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultEquipmentParamStopPeriodVO {
+  /** 监测因子停机时段视图对象 */
+  data?: EquipmentParamStopPeriodVO;
   /**
    * 错误状态码
    * @format int32
@@ -7067,8 +6982,34 @@ export interface FurionResultEquipmentVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultGetCoverNum {
-  data?: GetCoverNum;
+export interface FurionResultHjCommandRecordVO {
+  data?: HjCommandRecordVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultHjmessageLogVO {
+  data?: HjmessageLogVO;
   /**
    * 错误状态码
    * @format int32
@@ -7095,136 +7036,6 @@ export interface FurionResultGetCoverNum {
 /** 全局返回结果 */
 export interface FurionResultIActionResult {
   data?: IActionResult;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultInspectionIssueSeverityVO {
-  data?: InspectionIssueSeverityVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultInspectionIssueTypeVO {
-  data?: InspectionIssueTypeVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultInspectionIssueVO {
-  data?: InspectionIssueVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultInspectionRecordVO {
-  data?: InspectionRecordVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultInspectionTaskVO {
-  data?: InspectionTaskVO;
   /**
    * 错误状态码
    * @format int32
@@ -7309,143 +7120,9 @@ export interface FurionResultInt64 {
 }
 
 /** 全局返回结果 */
-export interface FurionResultJObject {
-  /** 数据 */
-  data?: Record<string, JToken>;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultKnowledgeFile {
-  /** 知识库文件 */
-  data?: KnowledgeFile;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultKnowledgeFileVO {
-  data?: KnowledgeFileVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
 export interface FurionResultListAppVersionVO {
   /** 数据 */
   data?: AppVersionVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBsAlarmPipeLineVO {
-  /** 数据 */
-  data?: BsAlarmPipeLineVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBsCommunityVO {
-  /** 数据 */
-  data?: BsCommunityVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7497,9 +7174,9 @@ export interface FurionResultListBsCompanyVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListBsOutletVO {
+export interface FurionResultListBsEventLevelVO {
   /** 数据 */
-  data?: BsOutletVO[] | null;
+  data?: BsEventLevelVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7524,9 +7201,9 @@ export interface FurionResultListBsOutletVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListBsPipeLine {
+export interface FurionResultListBsEventTypeVO {
   /** 数据 */
-  data?: BsPipeLine[] | null;
+  data?: BsEventTypeVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7551,9 +7228,9 @@ export interface FurionResultListBsPipeLine {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListBsPipeLineVO {
+export interface FurionResultListBsInformationVO {
   /** 数据 */
-  data?: BsPipeLineVO[] | null;
+  data?: BsInformationVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7578,9 +7255,9 @@ export interface FurionResultListBsPipeLineVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListBsPipePointAlarmParameterVO {
+export interface FurionResultListBsNewsVO {
   /** 数据 */
-  data?: BsPipePointAlarmParameterVO[] | null;
+  data?: BsNewsVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7605,9 +7282,9 @@ export interface FurionResultListBsPipePointAlarmParameterVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListBsPipePointAlarmRecordVO {
+export interface FurionResultListBsOutletCategoryVO {
   /** 数据 */
-  data?: BsPipePointAlarmRecordVO[] | null;
+  data?: BsOutletCategoryVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7632,36 +7309,9 @@ export interface FurionResultListBsPipePointAlarmRecordVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListBsPipePointVO {
+export interface FurionResultListBsOutletTypeVO {
   /** 数据 */
-  data?: BsPipePointVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListBsPmcVO {
-  /** 数据 */
-  data?: BsPmcVO[] | null;
+  data?: BsOutletTypeVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7713,9 +7363,9 @@ export interface FurionResultListBsPollutionPermitInfoVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListBsZoneVO {
+export interface FurionResultListBsRiverVO {
   /** 数据 */
-  data?: BsZoneVO[] | null;
+  data?: BsRiverVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7740,9 +7390,9 @@ export interface FurionResultListBsZoneVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListConventionalWaterLevelReport {
+export interface FurionResultListBsVillageVO {
   /** 数据 */
-  data?: ConventionalWaterLevelReport[] | null;
+  data?: BsVillageVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7767,9 +7417,9 @@ export interface FurionResultListConventionalWaterLevelReport {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListDailyWaterLevelReport {
+export interface FurionResultListCommonStVO {
   /** 数据 */
-  data?: DailyWaterLevelReport[] | null;
+  data?: CommonStVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7821,9 +7471,9 @@ export interface FurionResultListDataDictionaryVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListDevicePositionInfo {
+export interface FurionResultListDataTransferRateByTechnicesVO {
   /** 数据 */
-  data?: DevicePositionInfo[] | null;
+  data?: DataTransferRateByTechnicesVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7848,9 +7498,9 @@ export interface FurionResultListDevicePositionInfo {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListDevicePositionScopeInfo {
+export interface FurionResultListDataTransferRateVO {
   /** 数据 */
-  data?: DevicePositionScopeInfo[] | null;
+  data?: DataTransferRateVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7875,9 +7525,63 @@ export interface FurionResultListDevicePositionScopeInfo {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListEmergencyPlanVO {
+export interface FurionResultListEnumGroupDto {
   /** 数据 */
-  data?: EmergencyPlanVO[] | null;
+  data?: EnumGroupDto[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEpStDataStVO {
+  /** 数据 */
+  data?: EpStDataStVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEquipmentParamDailyRateVO {
+  /** 数据 */
+  data?: EquipmentParamDailyRateVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7956,9 +7660,9 @@ export interface FurionResultListEquipmentParamHdVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListEquipmentParamMd {
+export interface FurionResultListEquipmentParamInfoVO {
   /** 数据 */
-  data?: EquipmentParamMd[] | null;
+  data?: EquipmentParamInfoVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -7986,6 +7690,60 @@ export interface FurionResultListEquipmentParamMd {
 export interface FurionResultListEquipmentParamMdVO {
   /** 数据 */
   data?: EquipmentParamMdVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEquipmentParamRdVO {
+  /** 数据 */
+  data?: EquipmentParamRdVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListEquipmentParamStopPeriodVO {
+  /** 数据 */
+  data?: EquipmentParamStopPeriodVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -8064,9 +7822,9 @@ export interface FurionResultListEquipmentVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListGetCoverNum {
+export interface FurionResultListHjCommandRecordVO {
   /** 数据 */
-  data?: GetCoverNum[] | null;
+  data?: HjCommandRecordVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -8091,117 +7849,9 @@ export interface FurionResultListGetCoverNum {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListInspectionIssueSeverityVO {
+export interface FurionResultListHjmessageLogVO {
   /** 数据 */
-  data?: InspectionIssueSeverityVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListInspectionIssueTypeVO {
-  /** 数据 */
-  data?: InspectionIssueTypeVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListInspectionIssueVO {
-  /** 数据 */
-  data?: InspectionIssueVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListInspectionRecordVO {
-  /** 数据 */
-  data?: InspectionRecordVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListInspectionTaskVO {
-  /** 数据 */
-  data?: InspectionTaskVO[] | null;
+  data?: HjmessageLogVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -8253,36 +7903,9 @@ export interface FurionResultListInt64 {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListKnowledgeFileVO {
+export interface FurionResultListLabelValue {
   /** 数据 */
-  data?: KnowledgeFileVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListLightPipeLine {
-  /** 数据 */
-  data?: LightPipeLine[] | null;
+  data?: LabelValue[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -8415,9 +8038,9 @@ export interface FurionResultListMessageVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListMonitorDetailInfo {
+export interface FurionResultListMsgnoticeVO {
   /** 数据 */
-  data?: MonitorDetailInfo[] | null;
+  data?: MsgnoticeVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -8442,9 +8065,36 @@ export interface FurionResultListMonitorDetailInfo {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListNameCount {
+export interface FurionResultListMtDataFixLogVO {
   /** 数据 */
-  data?: NameCount[] | null;
+  data?: MtDataFixLogVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListMtEditFlagLogVO {
+  /** 数据 */
+  data?: MtEditFlagLogVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -8496,9 +8146,171 @@ export interface FurionResultListOrganizationVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListPrealarmCommunityInfoVO {
+export interface FurionResultListOutfallEventHandleVO {
   /** 数据 */
-  data?: PrealarmCommunityInfoVO[] | null;
+  data?: OutfallEventHandleVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListOutfallEventInfoVO {
+  /** 数据 */
+  data?: OutfallEventInfoVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListOutfallInspectionPlanVO {
+  /** 数据 */
+  data?: OutfallInspectionPlanVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListOutfallInspectionRecordVO {
+  /** 数据 */
+  data?: OutfallInspectionRecordVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListOutfallInspectionTaskVO {
+  /** 数据 */
+  data?: OutfallInspectionTaskVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListOutfallInspectionTrackVO {
+  /** 数据 */
+  data?: OutfallInspectionTrackVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListOutfallMapVO {
+  /** 数据 */
+  data?: OutfallMapVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -8553,6 +8365,33 @@ export interface FurionResultListPrealarmRecordVO {
 export interface FurionResultListPrealarmRuleVO {
   /** 数据 */
   data?: PrealarmRuleVO[] | null;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultListPrealarmStVO {
+  /** 数据 */
+  data?: PrealarmStVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -8658,114 +8497,6 @@ export interface FurionResultListRecordFileVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListReservoirCapacityVO {
-  /** 数据 */
-  data?: ReservoirCapacityVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListReservoirFlowVO {
-  /** 数据 */
-  data?: ReservoirFlowVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListReservoirInfo {
-  /** 数据 */
-  data?: ReservoirInfo[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListReservoirProjectVO {
-  /** 数据 */
-  data?: ReservoirProjectVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
 export interface FurionResultListReservoirRpVO {
   /** 数据 */
   data?: ReservoirRpVO[] | null;
@@ -8793,9 +8524,9 @@ export interface FurionResultListReservoirRpVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListReservoirVrVO {
+export interface FurionResultListResourceVO {
   /** 数据 */
-  data?: ReservoirVrVO[] | null;
+  data?: ResourceVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -8820,9 +8551,9 @@ export interface FurionResultListReservoirVrVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListResourceVO {
+export interface FurionResultListRiverSewageOutfallVO {
   /** 数据 */
-  data?: ResourceVO[] | null;
+  data?: RiverSewageOutfallVO[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -8901,33 +8632,6 @@ export interface FurionResultListString {
 }
 
 /** 全局返回结果 */
-export interface FurionResultListTaskSourceVO {
-  /** 数据 */
-  data?: TaskSourceVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
 export interface FurionResultListTechnicsVO {
   /** 数据 */
   data?: TechnicsVO[] | null;
@@ -8958,33 +8662,6 @@ export interface FurionResultListTechnicsVO {
 export interface FurionResultListTreeNode {
   /** 数据 */
   data?: TreeNode[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListTreeNodeKf {
-  /** 数据 */
-  data?: TreeNodeKf[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -9066,33 +8743,6 @@ export interface FurionResultListUserVO {
 export interface FurionResultListUsergroupVO {
   /** 数据 */
   data?: UsergroupVO[] | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultListWaterRainfallEigenvalue {
-  /** 数据 */
-  data?: WaterRainfallEigenvalue[] | null;
   /**
    * 错误状态码
    * @format int32
@@ -9299,8 +8949,113 @@ export interface FurionResultMessageVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultMonitorByOrganizationResult {
-  data?: MonitorByOrganizationResult;
+export interface FurionResultMpstVO {
+  data?: MpstVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultMsgnoticeVO {
+  data?: MsgnoticeVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultMtDataFixLog {
+  /** 数据修正操作日志 */
+  data?: MtDataFixLog;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultMtDataFixLogVO {
+  data?: MtDataFixLogVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultMtEditFlagLogVO {
+  data?: MtEditFlagLogVO;
   /**
    * 错误状态码
    * @format int32
@@ -9378,34 +9133,8 @@ export interface FurionResultObject {
 }
 
 /** 全局返回结果 */
-export interface FurionResultOpenApiPageResultProcessInspectionCaseVO {
-  data?: OpenApiPageResultProcessInspectionCaseVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultOrganizationListResult {
-  data?: OrganizationListResult;
+export interface FurionResultOnlineInfoVO {
+  data?: OnlineInfoVO;
   /**
    * 错误状态码
    * @format int32
@@ -9456,138 +9185,170 @@ export interface FurionResultOrganizationVO {
 }
 
 /** 全局返回结果 */
+export interface FurionResultOutfallEventHandleVO {
+  /** 事件处理记录输出对象 */
+  data?: OutfallEventHandleVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultOutfallEventInfoVO {
+  /** 事件信息输出对象 */
+  data?: OutfallEventInfoVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultOutfallInspectionPlanVO {
+  /** 巡检计划输出对象 */
+  data?: OutfallInspectionPlanVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultOutfallInspectionRecordVO {
+  /** 巡检记录输出对象 */
+  data?: OutfallInspectionRecordVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultOutfallInspectionTaskVO {
+  /** 巡检任务输出对象 */
+  data?: OutfallInspectionTaskVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultOutfallInspectionTrackVO {
+  /** 巡检轨迹输出对象 */
+  data?: OutfallInspectionTrackVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
 export interface FurionResultPrealarmRecordVO {
   data?: PrealarmRecordVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultPrealarmRuleVO {
-  data?: PrealarmRuleVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultProcessInspectionCaseAlarmVO {
-  data?: ProcessInspectionCaseAlarmVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultProcessInspectionCaseVO {
-  data?: ProcessInspectionCaseVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultProjectTsFileSaveFO {
-  data?: ProjectTsFileSaveFO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultProjectTsFileVO {
-  data?: ProjectTsFileVO;
   /**
    * 错误状态码
    * @format int32
@@ -9664,136 +9425,6 @@ export interface FurionResultRecordFileVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultRepairDetailVO {
-  data?: RepairDetailVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultReservoirCapacityVO {
-  data?: ReservoirCapacityVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultReservoirFlowVO {
-  data?: ReservoirFlowVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultReservoirProjectVO {
-  data?: ReservoirProjectVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultReservoirRPNum {
-  data?: ReservoirRPNum;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
 export interface FurionResultReservoirRpVO {
   data?: ReservoirRpVO;
   /**
@@ -9820,60 +9451,34 @@ export interface FurionResultReservoirRpVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultReservoirStatus {
-  data?: ReservoirStatus;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultReservoirVrVO {
-  data?: ReservoirVrVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
 export interface FurionResultResourceVO {
   data?: ResourceVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultRiverSewageOutfallVO {
+  data?: RiverSewageOutfallVO;
   /**
    * 错误状态码
    * @format int32
@@ -9951,60 +9556,6 @@ export interface FurionResultSqlSugarPagedListAppVersionVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBsAlarmPipeLineVO {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListBsAlarmPipeLineVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBsCommunityVO {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListBsCommunityVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListBsCompanyVO {
   /** 分页泛型集合 */
   data?: SqlSugarPagedListBsCompanyVO;
@@ -10032,9 +9583,9 @@ export interface FurionResultSqlSugarPagedListBsCompanyVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBsOutletVO {
+export interface FurionResultSqlSugarPagedListBsEventLevelVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListBsOutletVO;
+  data?: SqlSugarPagedListBsEventLevelVO;
   /**
    * 错误状态码
    * @format int32
@@ -10059,9 +9610,9 @@ export interface FurionResultSqlSugarPagedListBsOutletVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBsPipeLineVO {
+export interface FurionResultSqlSugarPagedListBsEventTypeVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListBsPipeLineVO;
+  data?: SqlSugarPagedListBsEventTypeVO;
   /**
    * 错误状态码
    * @format int32
@@ -10086,9 +9637,9 @@ export interface FurionResultSqlSugarPagedListBsPipeLineVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBsPipePointAlarmParameterVO {
+export interface FurionResultSqlSugarPagedListBsInformationVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListBsPipePointAlarmParameterVO;
+  data?: SqlSugarPagedListBsInformationVO;
   /**
    * 错误状态码
    * @format int32
@@ -10113,9 +9664,9 @@ export interface FurionResultSqlSugarPagedListBsPipePointAlarmParameterVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBsPipePointAlarmRecordVO {
+export interface FurionResultSqlSugarPagedListBsNewsVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListBsPipePointAlarmRecordVO;
+  data?: SqlSugarPagedListBsNewsVO;
   /**
    * 错误状态码
    * @format int32
@@ -10140,9 +9691,9 @@ export interface FurionResultSqlSugarPagedListBsPipePointAlarmRecordVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBsPipePointVO {
+export interface FurionResultSqlSugarPagedListBsOutletCategoryVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListBsPipePointVO;
+  data?: SqlSugarPagedListBsOutletCategoryVO;
   /**
    * 错误状态码
    * @format int32
@@ -10167,9 +9718,9 @@ export interface FurionResultSqlSugarPagedListBsPipePointVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBsPmcVO {
+export interface FurionResultSqlSugarPagedListBsOutletTypeVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListBsPmcVO;
+  data?: SqlSugarPagedListBsOutletTypeVO;
   /**
    * 错误状态码
    * @format int32
@@ -10221,9 +9772,36 @@ export interface FurionResultSqlSugarPagedListBsPollutionPermitInfoVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListBsZoneVO {
+export interface FurionResultSqlSugarPagedListBsRiverVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListBsZoneVO;
+  data?: SqlSugarPagedListBsRiverVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListBsVillageVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListBsVillageVO;
   /**
    * 错误状态码
    * @format int32
@@ -10275,9 +9853,9 @@ export interface FurionResultSqlSugarPagedListDataDictionaryVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListEmergencyPlanVO {
+export interface FurionResultSqlSugarPagedListEquipmentParamDailyRateVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListEmergencyPlanVO;
+  data?: SqlSugarPagedListEquipmentParamDailyRateVO;
   /**
    * 错误状态码
    * @format int32
@@ -10356,6 +9934,33 @@ export interface FurionResultSqlSugarPagedListEquipmentParamHdVO {
 }
 
 /** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEquipmentParamInfoVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEquipmentParamInfoVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListEquipmentParamMdVO {
   /** 分页泛型集合 */
   data?: SqlSugarPagedListEquipmentParamMdVO;
@@ -10383,9 +9988,36 @@ export interface FurionResultSqlSugarPagedListEquipmentParamMdVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListEquipmentParamRainConditionVO {
+export interface FurionResultSqlSugarPagedListEquipmentParamRdVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListEquipmentParamRainConditionVO;
+  data?: SqlSugarPagedListEquipmentParamRdVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListEquipmentParamStopPeriodVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListEquipmentParamStopPeriodVO;
   /**
    * 错误状态码
    * @format int32
@@ -10464,9 +10096,9 @@ export interface FurionResultSqlSugarPagedListEquipmentVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListInspectionIssueSeverityVO {
+export interface FurionResultSqlSugarPagedListHjCommandRecordVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListInspectionIssueSeverityVO;
+  data?: SqlSugarPagedListHjCommandRecordVO;
   /**
    * 错误状态码
    * @format int32
@@ -10491,117 +10123,9 @@ export interface FurionResultSqlSugarPagedListInspectionIssueSeverityVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListInspectionIssueTypeVO {
+export interface FurionResultSqlSugarPagedListHjmessageLogVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListInspectionIssueTypeVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListInspectionIssueVO {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListInspectionIssueVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListInspectionRecordVO {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListInspectionRecordVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListInspectionTaskVO {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListInspectionTaskVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListKnowledgeFileVO {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListKnowledgeFileVO;
+  data?: SqlSugarPagedListHjmessageLogVO;
   /**
    * 错误状态码
    * @format int32
@@ -10734,9 +10258,252 @@ export interface FurionResultSqlSugarPagedListMessageVO {
 }
 
 /** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListMsgnoticeVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListMsgnoticeVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListMtDataFixLogVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListMtDataFixLogVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListMtEditFlagLogVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListMtEditFlagLogVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListOrganizationVO {
   /** 分页泛型集合 */
   data?: SqlSugarPagedListOrganizationVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListOutfallEventHandleVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListOutfallEventHandleVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListOutfallEventInfoVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListOutfallEventInfoVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListOutfallInspectionPlanVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListOutfallInspectionPlanVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListOutfallInspectionRecordVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListOutfallInspectionRecordVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListOutfallInspectionTaskVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListOutfallInspectionTaskVO;
+  /**
+   * 错误状态码
+   * @format int32
+   */
+  errorCode?: number | null;
+  /** 附加数据 */
+  extras?: any;
+  /** 错误信息 */
+  message?: string | null;
+  /**
+   * 状态码
+   * @format int32
+   */
+  statusCode?: number;
+  /** 类型success、warning、error */
+  succeeded?: string | null;
+  /**
+   * 时间
+   * @format int64
+   */
+  timestamp?: number;
+}
+
+/** 全局返回结果 */
+export interface FurionResultSqlSugarPagedListOutfallInspectionTrackVO {
+  /** 分页泛型集合 */
+  data?: SqlSugarPagedListOutfallInspectionTrackVO;
   /**
    * 错误状态码
    * @format int32
@@ -10788,144 +10555,9 @@ export interface FurionResultSqlSugarPagedListPrealarmRecordVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListPrealarmRuleVO {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListPrealarmRuleVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListProjectTsFileVO {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListProjectTsFileVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListRecordFileVO {
   /** 分页泛型集合 */
   data?: SqlSugarPagedListRecordFileVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListReservoirCapacityVO {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListReservoirCapacityVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListReservoirFlowVO {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListReservoirFlowVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListReservoirProjectVO {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListReservoirProjectVO;
   /**
    * 错误状态码
    * @format int32
@@ -10977,33 +10609,6 @@ export interface FurionResultSqlSugarPagedListReservoirRpVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListReservoirVrVO {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListReservoirVrVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
 export interface FurionResultSqlSugarPagedListResourceVO {
   /** 分页泛型集合 */
   data?: SqlSugarPagedListResourceVO;
@@ -11031,9 +10636,9 @@ export interface FurionResultSqlSugarPagedListResourceVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListRoleVO {
+export interface FurionResultSqlSugarPagedListRiverSewageOutfallVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListRoleVO;
+  data?: SqlSugarPagedListRiverSewageOutfallVO;
   /**
    * 错误状态码
    * @format int32
@@ -11058,9 +10663,9 @@ export interface FurionResultSqlSugarPagedListRoleVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListTaskSourceVO {
+export interface FurionResultSqlSugarPagedListRoleVO {
   /** 分页泛型集合 */
-  data?: SqlSugarPagedListTaskSourceVO;
+  data?: SqlSugarPagedListRoleVO;
   /**
    * 错误状态码
    * @format int32
@@ -11193,9 +10798,8 @@ export interface FurionResultSqlSugarPagedListUsergroupVO {
 }
 
 /** 全局返回结果 */
-export interface FurionResultSqlSugarPagedListWaterRainfallInformation {
-  /** 分页泛型集合 */
-  data?: SqlSugarPagedListWaterRainfallInformation;
+export interface FurionResultStateStVO {
+  data?: StateStVO;
   /**
    * 错误状态码
    * @format int32
@@ -11223,58 +10827,6 @@ export interface FurionResultSqlSugarPagedListWaterRainfallInformation {
 export interface FurionResultString {
   /** 数据 */
   data?: string | null;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultTaskDetailVO {
-  data?: TaskDetailVO;
-  /**
-   * 错误状态码
-   * @format int32
-   */
-  errorCode?: number | null;
-  /** 附加数据 */
-  extras?: any;
-  /** 错误信息 */
-  message?: string | null;
-  /**
-   * 状态码
-   * @format int32
-   */
-  statusCode?: number;
-  /** 类型success、warning、error */
-  succeeded?: string | null;
-  /**
-   * 时间
-   * @format int64
-   */
-  timestamp?: number;
-}
-
-/** 全局返回结果 */
-export interface FurionResultTaskSourceVO {
-  data?: TaskSourceVO;
   /**
    * 错误状态码
    * @format int32
@@ -11402,56 +10954,537 @@ export interface FurionResultUsergroupVO {
   timestamp?: number;
 }
 
-export interface GetCoverNum {
+export interface HIkControllingQO {
   /**
-   * 有设备数
+   * 0-开始 ，1-停止 注：GOTO_PRESET命令下填任意值均可转到预置点,建议填0即可
    * @format int32
    */
-  coverNum?: number;
+  action: number;
   /**
-   * 总水库数
+   * 监控点编号
+   * @minLength 1
+   */
+  cameraIndexCode: string;
+  /**
+   * 不区分大小写 说明：LEFT 左转，RIGHT右转，UP 上转，DOWN 下转，ZOOM_IN 焦距变大，ZOOM_OUT 焦距变小，LEFT_UP 左上，LEFT_DOWN 左下，RIGHT_UP 右上，RIGHT_DOWN 右下
+   * FOCUS_NEAR 焦点前移，FOCUS_FAR 焦点后移，IRIS_ENLARGE 光圈扩大，IRIS_REDUCE 光圈缩小，WIPER_SWITCH 接通雨刷开关，START_RECORD_TRACK 开始记录运行轨迹
+   * STOP_RECORD_TRACK 停止记录运行轨迹，START_TRACK 开始运行轨迹，STOP_TRACK 停止运行轨迹；以下命令presetIndex不可为空：GOTO_PRESET到预置点
+   * @minLength 1
+   */
+  command: string;
+  /**
+   * 预置点编号
    * @format int32
    */
-  totalNum?: number;
-  /** 乡镇 */
-  village?: string | null;
+  presetIndex?: number;
+  /**
+   * 云台速度，取值范围为1-100，默认50
+   * @format int32
+   * @min 1
+   * @max 100
+   */
+  speed: number;
 }
 
-export interface GetDeviceListByPositionQO {
-  elatitude?: string | null;
-  elongitude?: string | null;
-  slatitude?: string | null;
-  slongitude?: string | null;
-}
-
-export interface GetDeviceListByPositionScopeQO {
-  latitude?: string | null;
-  longitude?: string | null;
-  scope?: string | null;
-}
-
-export interface GetMonitorByOrganizationQO {
-  organizationcode?: string | null;
-  /** @format int32 */
-  page?: number;
-  /** @format int32 */
+export interface HjCommandRecordPQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 命令编码 3012-即时采样 1002-设置数采仪MN编码
+   * @format int32
+   */
+  cn?: number | null;
+  cpContent?: string | null;
+  /** @format date-time */
+  createdAt?: string;
+  /** 操作人 */
+  createdPerson?: string | null;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** @format int64 */
+  equipmentId?: number | null;
+  equipmentName?: string | null;
+  /**
+   * 监测因子ID，一次请求针对一个因子
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  errMsg?: string | null;
+  /**
+   * 9012执行结果 ExeRtn
+   * @format int32
+   */
+  exeRtn?: number | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 到达终态的时间
+   * @format date-time
+   */
+  finishedAt?: string | null;
+  /** @format int64 */
+  id?: number;
+  isDelete?: boolean | null;
+  /**
+   * 最大下发次数，实际使用时填1
+   * @format int32
+   */
+  maxTry?: number | null;
+  /** 设备MN */
+  mn?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
   pageSize?: number;
+  /** 污染物编码，取 equipment_param.data_code */
+  polId?: string | null;
+  polName?: string | null;
+  /** 请求编码QN */
+  qn?: string | null;
+  /**
+   * 9011请求应答 QnRtn
+   * @format int32
+   */
+  qnRtn?: number | null;
+  /** 下发的原始报文 */
+  requestPayload?: string | null;
+  /** 收到的应答原始报文(多段换行分隔) */
+  responsePayload?: string | null;
+  st?: string | null;
+  /**
+   * 0-待下发 1-已下发(等待应答) 2-已收到请求应答 3-执行成功 4-执行失败 5-无应答超时 6-设备离线 7-参数无效 8-下发异常
+   * @format int32
+   */
+  status?: number | null;
+  /**
+   * 单阶段等待应答超时(毫秒)
+   * @format int32
+   */
+  timeoutMs?: number | null;
   /** @format int32 */
-  platformid?: number;
-  /** @format int32 */
-  streamType?: number | null;
+  tryCount?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
-export interface GetMonitorListByDeviceIdQO {
-  deviceids?: string | null;
+export interface HjCommandRecordQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 命令编码 3012-即时采样 1002-设置数采仪MN编码
+   * @format int32
+   */
+  cn?: number | null;
+  cpContent?: string | null;
+  /** @format date-time */
+  createdAt?: string;
+  /** 操作人 */
+  createdPerson?: string | null;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** @format int64 */
+  equipmentId?: number | null;
+  equipmentName?: string | null;
+  /**
+   * 监测因子ID，一次请求针对一个因子
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  errMsg?: string | null;
+  /**
+   * 9012执行结果 ExeRtn
+   * @format int32
+   */
+  exeRtn?: number | null;
+  /**
+   * 到达终态的时间
+   * @format date-time
+   */
+  finishedAt?: string | null;
+  /** @format int64 */
+  id?: number;
+  isDelete?: boolean | null;
+  /**
+   * 最大下发次数，实际使用时填1
+   * @format int32
+   */
+  maxTry?: number | null;
+  /** 设备MN */
+  mn?: string | null;
+  /** 污染物编码，取 equipment_param.data_code */
+  polId?: string | null;
+  polName?: string | null;
+  /** 请求编码QN */
+  qn?: string | null;
+  /**
+   * 9011请求应答 QnRtn
+   * @format int32
+   */
+  qnRtn?: number | null;
+  /** 下发的原始报文 */
+  requestPayload?: string | null;
+  /** 收到的应答原始报文(多段换行分隔) */
+  responsePayload?: string | null;
+  st?: string | null;
+  /**
+   * 0-待下发 1-已下发(等待应答) 2-已收到请求应答 3-执行成功 4-执行失败 5-无应答超时 6-设备离线 7-参数无效 8-下发异常
+   * @format int32
+   */
+  status?: number | null;
+  /**
+   * 单阶段等待应答超时(毫秒)
+   * @format int32
+   */
+  timeoutMs?: number | null;
   /** @format int32 */
-  streamType?: number | null;
+  tryCount?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
-export interface GetOrganizationListQO {
-  parentCode?: string | null;
+export interface HjCommandRecordVO {
+  /**
+   * 命令编码 3012-即时采样 1002-设置数采仪MN编码
+   * @format int32
+   */
+  cn?: number | null;
+  cpContent?: string | null;
+  /** @format date-time */
+  createdAt?: string;
+  /** 操作人 */
+  createdPerson?: string | null;
+  /** @format int64 */
+  equipmentId?: number | null;
+  equipmentName?: string | null;
+  /**
+   * 监测因子ID，一次请求针对一个因子
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  errMsg?: string | null;
+  /**
+   * 9012执行结果 ExeRtn
+   * @format int32
+   */
+  exeRtn?: number | null;
+  /**
+   * 到达终态的时间
+   * @format date-time
+   */
+  finishedAt?: string | null;
+  /** @format int64 */
+  id?: number;
+  isDelete?: boolean | null;
+  /**
+   * 最大下发次数，实际使用时填1
+   * @format int32
+   */
+  maxTry?: number | null;
+  /** 设备MN */
+  mn?: string | null;
+  /** 污染物编码，取 equipment_param.data_code */
+  polId?: string | null;
+  polName?: string | null;
+  /** 请求编码QN */
+  qn?: string | null;
+  /**
+   * 9011请求应答 QnRtn
+   * @format int32
+   */
+  qnRtn?: number | null;
+  /** 下发的原始报文 */
+  requestPayload?: string | null;
+  /** 收到的应答原始报文(多段换行分隔) */
+  responsePayload?: string | null;
+  st?: string | null;
+  /**
+   * 0-待下发 1-已下发(等待应答) 2-已收到请求应答 3-执行成功 4-执行失败 5-无应答超时 6-设备离线 7-参数无效 8-下发异常
+   * @format int32
+   */
+  status?: number | null;
+  /**
+   * 单阶段等待应答超时(毫秒)
+   * @format int32
+   */
+  timeoutMs?: number | null;
   /** @format int32 */
-  platformid?: number;
+  tryCount?: number | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface HjmessageLogPQO {
+  /** ascii字符串 */
+  asciiStr?: string | null;
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 命令编码CN
+   * @format int32
+   */
+  cn?: number | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string;
+  createdPerson?: string | null;
+  /** hex字符串 */
+  dataHex?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * Flag
+   * @format int32
+   */
+  flag?: number | null;
+  /** 命令是否需要应答 */
+  flagA?: boolean | null;
+  /** 命令是否分了包 */
+  flagD?: boolean | null;
+  /**
+   * 版本号,0--HJ/T212-2005 1--HJ212-2017
+   * @format int32
+   */
+  flagV?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否是有效包 */
+  isValid?: boolean | null;
+  /** 报文中的mn号 */
+  mn?: string | null;
+  /** tcpclient连接的mn号 */
+  mnConn?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 包号
+   * @format int32
+   */
+  pno?: number | null;
+  /**
+   * 总包数
+   * @format int32
+   */
+  pnum?: number | null;
+  /** 访问密码 */
+  pw?: string | null;
+  /** 请求编码QN */
+  qn?: string | null;
+  /** ip */
+  remoteIp?: string | null;
+  /**
+   * port
+   * @format int32
+   */
+  remotePort?: number | null;
+  /** 系统编码ST */
+  st?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface HjmessageLogQO {
+  /** ascii字符串 */
+  asciiStr?: string | null;
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 命令编码CN
+   * @format int32
+   */
+  cn?: number | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string;
+  createdPerson?: string | null;
+  /** hex字符串 */
+  dataHex?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * Flag
+   * @format int32
+   */
+  flag?: number | null;
+  /** 命令是否需要应答 */
+  flagA?: boolean | null;
+  /** 命令是否分了包 */
+  flagD?: boolean | null;
+  /**
+   * 版本号,0--HJ/T212-2005 1--HJ212-2017
+   * @format int32
+   */
+  flagV?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否是有效包 */
+  isValid?: boolean | null;
+  /** 报文中的mn号 */
+  mn?: string | null;
+  /** tcpclient连接的mn号 */
+  mnConn?: string | null;
+  /**
+   * 包号
+   * @format int32
+   */
+  pno?: number | null;
+  /**
+   * 总包数
+   * @format int32
+   */
+  pnum?: number | null;
+  /** 访问密码 */
+  pw?: string | null;
+  /** 请求编码QN */
+  qn?: string | null;
+  /** ip */
+  remoteIp?: string | null;
+  /**
+   * port
+   * @format int32
+   */
+  remotePort?: number | null;
+  /** 系统编码ST */
+  st?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface HjmessageLogVO {
+  /** ascii字符串 */
+  asciiStr?: string | null;
+  /**
+   * 命令编码CN
+   * @format int32
+   */
+  cn?: number | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string;
+  createdPerson?: string | null;
+  /** hex字符串 */
+  dataHex?: string | null;
+  /**
+   * 数据时间
+   * @format date-time
+   */
+  dataTime?: string | null;
+  /**
+   * Flag
+   * @format int32
+   */
+  flag?: number | null;
+  /** 命令是否需要应答 */
+  flagA?: boolean | null;
+  /** 命令是否分了包 */
+  flagD?: boolean | null;
+  /**
+   * 版本号,0--HJ/T212-2005 1--HJ212-2017
+   * @format int32
+   */
+  flagV?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否是有效包 */
+  isValid?: boolean | null;
+  /** 报文中的mn号 */
+  mn?: string | null;
+  /** tcpclient连接的mn号 */
+  mnConn?: string | null;
+  /**
+   * 包号
+   * @format int32
+   */
+  pno?: number | null;
+  /**
+   * 总包数
+   * @format int32
+   */
+  pnum?: number | null;
+  /** 访问密码 */
+  pw?: string | null;
+  /** 请求编码QN */
+  qn?: string | null;
+  /** ip */
+  remoteIp?: string | null;
+  /**
+   * port
+   * @format int32
+   */
+  remotePort?: number | null;
+  /** 系统编码ST */
+  st?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export type IActionResult = object;
@@ -11466,1636 +11499,151 @@ export interface IdName {
   name?: string | null;
 }
 
-/** 问题上报表单 */
-export interface InspectionIssueFO {
-  /** 地址 */
+/** 巡检签到(开始巡检)传入参数 */
+export interface InspectionCheckInFO {
+  /** 签到地址 */
   address?: string | null;
-  /** 问题描述 */
-  description?: string | null;
-  /** @format int64 */
-  id?: number;
   /**
-   * 问题类型
-   * @minLength 1
+   * 签到时间(不传时取当前时间)
+   * @format date-time
    */
-  issueType: string;
+  checkInTime?: string | null;
+  /** 巡检人姓名 */
+  inspectionPerson?: string | null;
   /**
-   * 纬度
+   * 巡检人用户ID(不传时取当前登录人)
+   * @format int64
+   */
+  inspectionPersonId?: number | null;
+  /**
+   * 签到纬度
    * @format double
    */
   latitude?: number | null;
   /**
-   * 经度
+   * 签到经度
    * @format double
    */
   longitude?: number | null;
-  /** 照片(JSON数组) */
-  photos?: string | null;
-  /**
-   * 巡查记录编号
-   * @minLength 1
-   */
-  recordNo: string;
-  /**
-   * 问题严重情况
-   * @minLength 1
-   */
-  severity: string;
-  /**
-   * 问题严重打分
-   * @format int32
-   */
-  severityScore: number;
-}
-
-export interface InspectionIssuePQO {
-  /** 地址 */
-  address?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /** 问题描述 */
-  description?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /** 处理备注 */
-  handleNote?: string | null;
-  /**
-   * 处理状态(0:待处理,1:处理中,2:已处理,3:已关闭)
-   * @format int32
-   */
-  handleStatus?: number | null;
-  /**
-   * 处理时间
-   * @format date-time
-   */
-  handleTime?: string | null;
-  /**
-   * 处理人ID
-   * @format int64
-   */
-  handlerId?: number | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 是否删除 */
-  isDeleted?: boolean | null;
-  /** 问题编号 */
-  issueNo?: string | null;
-  /** 问题类型编码(逻辑外键) */
-  issueType?: string | null;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** 照片(JSON数组) */
-  photos?: string | null;
-  /** 巡查记录编号(逻辑外键) */
-  recordNo?: string | null;
-  /**
-   * 上报时间
-   * @format date-time
-   */
-  reportTime?: string | null;
-  /**
-   * 上报时间-起
-   * @format date-time
-   */
-  reportTimeBegin?: string | null;
-  /**
-   * 上报时间-止
-   * @format date-time
-   */
-  reportTimeEnd?: string | null;
-  /**
-   * 上报人ID
-   * @format int64
-   */
-  reporterId?: number | null;
-  /** 问题严重情况编码(逻辑外键) */
-  severity?: string | null;
-  /**
-   * 问题严重打分(0-60)
-   * @format int32
-   */
-  severityScore?: number | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface InspectionIssueQO {
-  /** 地址 */
-  address?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /** 问题描述 */
-  description?: string | null;
-  /** 处理备注 */
-  handleNote?: string | null;
-  /**
-   * 处理状态(0:待处理,1:处理中,2:已处理,3:已关闭)
-   * @format int32
-   */
-  handleStatus?: number | null;
-  /**
-   * 处理时间
-   * @format date-time
-   */
-  handleTime?: string | null;
-  /**
-   * 处理人ID
-   * @format int64
-   */
-  handlerId?: number | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 是否删除 */
-  isDeleted?: boolean | null;
-  /** 问题编号 */
-  issueNo?: string | null;
-  /** 问题类型编码(逻辑外键) */
-  issueType?: string | null;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
-  /** 照片(JSON数组) */
-  photos?: string | null;
-  /** 巡查记录编号(逻辑外键) */
-  recordNo?: string | null;
-  /**
-   * 上报时间
-   * @format date-time
-   */
-  reportTime?: string | null;
-  /**
-   * 上报时间-起
-   * @format date-time
-   */
-  reportTimeBegin?: string | null;
-  /**
-   * 上报时间-止
-   * @format date-time
-   */
-  reportTimeEnd?: string | null;
-  /**
-   * 上报人ID
-   * @format int64
-   */
-  reporterId?: number | null;
-  /** 问题严重情况编码(逻辑外键) */
-  severity?: string | null;
-  /**
-   * 问题严重打分(0-60)
-   * @format int32
-   */
-  severityScore?: number | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface InspectionIssueSeverityFO {
-  /**
-   * 编码
-   * @minLength 1
-   */
-  code: string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 名称
-   * @minLength 1
-   */
-  name: string;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber: number;
-  /**
-   * 分值下限
-   * @format int32
-   */
-  scoreLower: number;
-  /**
-   * 分值上限
-   * @format int32
-   */
-  scoreUpper: number;
-}
-
-export interface InspectionIssueSeverityPQO {
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 名称 */
-  name?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 分值下限
-   * @format int32
-   */
-  scoreLower?: number | null;
-  /**
-   * 分值上限
-   * @format int32
-   */
-  scoreUpper?: number | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface InspectionIssueSeverityQO {
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 名称 */
-  name?: string | null;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number | null;
-  /**
-   * 分值下限
-   * @format int32
-   */
-  scoreLower?: number | null;
-  /**
-   * 分值上限
-   * @format int32
-   */
-  scoreUpper?: number | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface InspectionIssueSeverityVO {
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 名称 */
-  name?: string | null;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number | null;
-  /**
-   * 分值下限
-   * @format int32
-   */
-  scoreLower?: number | null;
-  /**
-   * 分值上限
-   * @format int32
-   */
-  scoreUpper?: number | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface InspectionIssueTypeFO {
-  /**
-   * 编码
-   * @minLength 1
-   */
-  code: string;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 名称
-   * @minLength 1
-   */
-  name: string;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber: number;
-}
-
-export interface InspectionIssueTypePQO {
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 名称 */
-  name?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface InspectionIssueTypeQO {
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 名称 */
-  name?: string | null;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface InspectionIssueTypeVO {
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 名称 */
-  name?: string | null;
-  /**
-   * 序号
-   * @format int32
-   */
-  orderNumber?: number | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface InspectionIssueVO {
-  /** 地址 */
-  address?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /** 问题描述 */
-  description?: string | null;
-  /** 处理备注 */
-  handleNote?: string | null;
-  /**
-   * 处理状态(0:待处理,1:处理中,2:已处理,3:已关闭)
-   * @format int32
-   */
-  handleStatus?: number | null;
-  /**
-   * 处理时间
-   * @format date-time
-   */
-  handleTime?: string | null;
-  /**
-   * 处理人ID
-   * @format int64
-   */
-  handlerId?: number | null;
-  /** 处理人 */
-  handlerName?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 是否删除 */
-  isDeleted?: boolean | null;
-  /** 问题编号 */
-  issueNo?: string | null;
-  /** 问题类型编码(逻辑外键) */
-  issueType?: string | null;
-  /** 问题类型名称 */
-  issueTypeName?: string | null;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
-  /** 照片(JSON数组) */
-  photos?: string | null;
-  /** 巡查记录编号(逻辑外键) */
-  recordNo?: string | null;
-  /**
-   * 上报时间
-   * @format date-time
-   */
-  reportTime?: string | null;
-  /**
-   * 上报人ID
-   * @format int64
-   */
-  reporterId?: number | null;
-  /** 上报人 */
-  reporterName?: string | null;
-  /** 问题严重情况编码(逻辑外键) */
-  severity?: string | null;
-  /** 问题严重情况名称 */
-  severityName?: string | null;
-  /**
-   * 问题严重打分(0-60)
-   * @format int32
-   */
-  severityScore?: number | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface InspectionRecordPQO {
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  endTime?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 巡查对象(冗余) */
-  objectCode?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 巡查人员ID
-   * @format int64
-   */
-  personId?: number | null;
-  /** 记录编号 */
-  recordNo?: string | null;
   /** 备注 */
   remark?: string | null;
   /**
-   * 巡查结果(1:正常,2:发现问题)
-   * @format int32
+   * 巡检任务ID
+   * @format int64
    */
-  result?: number | null;
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  startTime?: string | null;
-  /**
-   * 开始时间-起
-   * @format date-time
-   */
-  startTimeBegin?: string | null;
-  /**
-   * 开始时间-止
-   * @format date-time
-   */
-  startTimeEnd?: string | null;
-  /**
-   * 状态(1:进行中,2:已完成)
-   * @format int32
-   */
-  status?: number | null;
-  /** 任务编号(逻辑外键) */
-  taskNo?: string | null;
-  /**
-   * 总里程(米)
-   * @format double
-   */
-  totalMileage?: number | null;
-  /** 轨迹(坐标点JSON数组) */
-  track?: string | null;
-  /** 巡查类型(冗余) */
-  typeCode?: string | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
+  taskId: number;
 }
 
-export interface InspectionRecordQO {
+/** 巡检签退(结束巡检)传入参数 */
+export interface InspectionCheckOutFO {
+  /** 异常情况描述 */
+  abnormalDesc?: string | null;
+  /** 签退地址 */
+  address?: string | null;
   /**
-   * 创建时间
+   * 签退时间(不传时取当前时间)
    * @format date-time
    */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
+  checkOutTime?: string | null;
+  /** 现场照片等附件 */
+  files?: RecordFile[] | null;
+  /** 是否发现异常 */
+  isAbnormal?: boolean | null;
   /**
-   * 结束时间
+   * 签退纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 签退经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 巡检结论 */
+  result?: string | null;
+  /**
+   * 巡检任务ID
+   * @format int64
+   */
+  taskId: number;
+}
+
+/** 按巡检计划生成任务传入参数 */
+export interface InspectionTaskGenerateFO {
+  /** 指定巡检负责人姓名 */
+  chargePerson?: string | null;
+  /**
+   * 指定巡检负责人用户ID(不传时取巡检计划负责人)
+   * @format int64
+   */
+  chargePersonId?: number | null;
+  /**
+   * 生成数量(默认1条)
+   * @format int32
+   */
+  count?: number | null;
+  /**
+   * 巡检计划ID(必填)
+   * @format int64
+   */
+  planId: number;
+  /**
+   * 计划巡检时间(不传时取计划的下次生成任务时间)
    * @format date-time
    */
-  endTime?: string | null;
+  planTime?: string | null;
+}
+
+/** 巡检轨迹点传入参数 */
+export interface InspectionTrackItemFO {
+  /** 定位地址 */
+  address?: string | null;
   /**
-   * 主键ID
-   * @format int64
+   * 纬度
+   * @format double
    */
-  id?: number;
-  /** 巡查对象(冗余) */
-  objectCode?: string | null;
+  latitude?: number | null;
   /**
-   * 巡查人员ID
-   * @format int64
+   * 经度
+   * @format double
    */
-  personId?: number | null;
-  /** 记录编号 */
-  recordNo?: string | null;
+  longitude?: number | null;
   /** 备注 */
   remark?: string | null;
   /**
-   * 巡查结果(1:正常,2:发现问题)
-   * @format int32
-   */
-  result?: number | null;
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  startTime?: string | null;
-  /**
-   * 开始时间-起
-   * @format date-time
-   */
-  startTimeBegin?: string | null;
-  /**
-   * 开始时间-止
-   * @format date-time
-   */
-  startTimeEnd?: string | null;
-  /**
-   * 状态(1:进行中,2:已完成)
-   * @format int32
-   */
-  status?: number | null;
-  /** 任务编号(逻辑外键) */
-  taskNo?: string | null;
-  /**
-   * 总里程(米)
+   * 速度(米/秒)
    * @format double
    */
-  totalMileage?: number | null;
-  /** 轨迹(坐标点JSON数组) */
-  track?: string | null;
-  /** 巡查类型(冗余) */
-  typeCode?: string | null;
+  speed?: number | null;
   /**
-   * 更新时间
+   * 定位时间(不传时取当前时间)
    * @format date-time
    */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
+  trackTime?: string | null;
 }
 
-export interface InspectionRecordVO {
+/** 巡检轨迹批量上传传入参数 */
+export interface InspectionTrackUploadFO {
   /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  endTime?: string | null;
-  /**
-   * 主键ID
+   * 巡检记录ID
    * @format int64
    */
-  id?: number;
-  /** 巡查对象(冗余) */
-  objectCode?: string | null;
-  /** 巡查对象 */
-  readonly objectName?: string | null;
+  recordId: number;
   /**
-   * 巡查人员ID
+   * 巡检任务ID
    * @format int64
    */
-  personId?: number | null;
-  /** 巡查人员 */
-  readonly personName?: string | null;
-  /** 记录编号 */
-  recordNo?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /**
-   * 巡查结果(1:正常,2:发现问题)
-   * @format int32
-   */
-  result?: number | null;
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  startTime?: string | null;
-  /**
-   * 状态(1:进行中,2:已完成)
-   * @format int32
-   */
-  status?: number | null;
-  /** 任务编号(逻辑外键) */
-  taskNo?: string | null;
-  /**
-   * 总里程(米)
-   * @format double
-   */
-  totalMileage?: number | null;
-  /** 轨迹(坐标点JSON数组) */
-  track?: string | null;
-  /** 巡查类型(冗余) */
-  typeCode?: string | null;
-  /** 巡查类型 */
-  readonly typeName?: string | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
+  taskId?: number | null;
+  /** 轨迹点集合 */
+  tracks: InspectionTrackItemFO[];
 }
 
-export interface InspectionTaskFO {
-  /** @format int64 */
-  id?: number;
-  /**
-   * 任务名称
-   * @minLength 1
-   */
-  name: string;
-  /**
-   * 巡查对象
-   * @minLength 1
-   */
-  objectCode: string;
-  /**
-   * 巡查人员ID
-   * @format int64
-   */
-  personId: number;
-  /**
-   * 任务来源编码
-   * @minLength 1
-   */
-  sourceCode: string;
-  /**
-   * 任务日期
-   * @format date-time
-   */
-  taskDate: string;
-  /**
-   * 巡查类型
-   * @minLength 1
-   */
-  typeCode: string;
-}
-
-export interface InspectionTaskPQO {
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 任务名称 */
-  name?: string | null;
-  /** 巡查对象(inspo_psgw:管网,inspo_wsc:污水厂) */
-  objectCode?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 巡查人员ID
-   * @format int64
-   */
-  personId?: number | null;
-  /** 任务来源编码(逻辑外键) */
-  sourceCode?: string | null;
-  /**
-   * 状态(0:待执行,1:执行中,2:已完成,3:已取消)
-   * @format int32
-   */
-  status?: number | null;
-  /**
-   * 任务日期
-   * @format date-time
-   */
-  taskDate?: string | null;
-  /**
-   * 任务日期-结束
-   * @format date-time
-   */
-  taskDateEnd?: string | null;
-  /**
-   * 任务日期-开始
-   * @format date-time
-   */
-  taskDateStart?: string | null;
-  /** 任务编号 */
-  taskNo?: string | null;
-  /** 巡查类型(inspt_rc:日常,inspt_ls:临时) */
-  typeCode?: string | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface InspectionTaskQO {
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 任务名称 */
-  name?: string | null;
-  /** 巡查对象(inspo_psgw:管网,inspo_wsc:污水厂) */
-  objectCode?: string | null;
-  /**
-   * 巡查人员ID
-   * @format int64
-   */
-  personId?: number | null;
-  /** 任务来源编码(逻辑外键) */
-  sourceCode?: string | null;
-  /**
-   * 状态(0:待执行,1:执行中,2:已完成,3:已取消)
-   * @format int32
-   */
-  status?: number | null;
-  /**
-   * 任务日期
-   * @format date-time
-   */
-  taskDate?: string | null;
-  /**
-   * 任务日期-结束
-   * @format date-time
-   */
-  taskDateEnd?: string | null;
-  /**
-   * 任务日期-开始
-   * @format date-time
-   */
-  taskDateStart?: string | null;
-  /** 任务编号 */
-  taskNo?: string | null;
-  /** 巡查类型(inspt_rc:日常,inspt_ls:临时) */
-  typeCode?: string | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface InspectionTaskVO {
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 任务名称 */
-  name?: string | null;
-  /** 巡查对象(inspo_psgw:管网,inspo_wsc:污水厂) */
-  objectCode?: string | null;
-  /** 巡查对象 */
-  readonly objectName?: string | null;
-  /**
-   * 巡查人员ID
-   * @format int64
-   */
-  personId?: number | null;
-  /** 巡查人员 */
-  readonly personName?: string | null;
-  /** 任务来源编码(逻辑外键) */
-  sourceCode?: string | null;
-  /** 任务来源名称 */
-  sourceName?: string | null;
-  /**
-   * 状态(0:待执行,1:执行中,2:已完成,3:已取消)
-   * @format int32
-   */
-  status?: number | null;
-  /**
-   * 任务日期
-   * @format date-time
-   */
-  taskDate?: string | null;
-  /** 任务编号 */
-  taskNo?: string | null;
-  /** 巡查类型(inspt_rc:日常,inspt_ls:临时) */
-  typeCode?: string | null;
-  /** 巡查类型 */
-  readonly typeName?: string | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-/** 问题处理表单 */
-export interface IssueHandleFO {
-  /**
-   * 处理备注
-   * @minLength 1
-   */
-  handleNote: string;
-  /**
-   * 处理时间
-   * @format date-time
-   */
-  handleTime?: string | null;
-  /**
-   * 问题ID
-   * @format int64
-   */
-  id: number;
-  /**
-   * 目标处理状态(2:已处理,3:已关闭)
-   * @format int32
-   */
-  targetStatus: number;
-}
-
-export type JToken = JToken[];
-
-/** 知识库文件 */
-export interface KnowledgeFile {
-  /**
-   * Desc:是否可以删除
-   * Default:1
-   * Nullable:True
-   */
-  canDelete?: boolean | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  createdPerson?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  deleteAt?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  id?: number;
-  /**
-   * Desc:是否删除
-   * Default:0
-   * Nullable:True
-   */
-  isDelete?: boolean | null;
-  /**
-   * Desc:级别
-   * Default:
-   * Nullable:True
-   * @format int32
-   */
-  level?: number | null;
-  /**
-   * Desc:名称
-   * Default:
-   * Nullable:False
-   */
-  name?: string | null;
-  /**
-   * Desc:路径
-   * Default:
-   * Nullable:True
-   */
-  nestedpath?: string | null;
-  /**
-   * Desc:父级id
-   * Default:
-   * Nullable:True
-   * @format int64
-   */
-  parentId?: number | null;
-  /**
-   * Desc:路径key
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  pathkey?: number;
-  /**
-   * Desc:关联文件id
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  recordFileId?: number;
-  /**
-   * Desc:备注
-   * Default:
-   * Nullable:True
-   */
-  remark?: string | null;
-  /**
-   * Desc:类型(文件、文件夹)
-   * Default:
-   * Nullable:False
-   */
-  type?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  updatedPerson?: string | null;
-}
-
-export interface KnowledgeFilePQO {
-  /**
-   * Desc:是否可以删除
-   * Default:1
-   * Nullable:True
-   */
-  canDelete?: boolean | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  createdPerson?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  deleteAt?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  id?: number;
-  /**
-   * Desc:是否删除
-   * Default:0
-   * Nullable:True
-   */
-  isDelete?: boolean | null;
-  /**
-   * Desc:级别
-   * Default:
-   * Nullable:True
-   * @format int32
-   */
-  level?: number | null;
-  /**
-   * Desc:名称
-   * Default:
-   * Nullable:False
-   */
-  name?: string | null;
-  /**
-   * Desc:路径
-   * Default:
-   * Nullable:True
-   */
-  nestedpath?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * Desc:父级id
-   * Default:
-   * Nullable:True
-   * @format int64
-   */
-  parentId?: number | null;
-  /**
-   * Desc:路径key
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  pathkey?: number;
-  /**
-   * Desc:关联文件id
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  recordFileId?: number;
-  /**
-   * Desc:备注
-   * Default:
-   * Nullable:True
-   */
-  remark?: string | null;
-  /**
-   * Desc:类型(文件、文件夹)
-   * Default:
-   * Nullable:False
-   */
-  type?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  updatedPerson?: string | null;
-}
-
-export interface KnowledgeFileQO {
-  /**
-   * Desc:是否可以删除
-   * Default:1
-   * Nullable:True
-   */
-  canDelete?: boolean | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  createdPerson?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  deleteAt?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  id?: number;
-  /**
-   * Desc:是否删除
-   * Default:0
-   * Nullable:True
-   */
-  isDelete?: boolean | null;
-  /**
-   * Desc:级别
-   * Default:
-   * Nullable:True
-   * @format int32
-   */
-  level?: number | null;
-  /**
-   * Desc:名称
-   * Default:
-   * Nullable:False
-   */
-  name?: string | null;
-  /**
-   * Desc:路径
-   * Default:
-   * Nullable:True
-   */
-  nestedpath?: string | null;
-  /**
-   * Desc:父级id
-   * Default:
-   * Nullable:True
-   * @format int64
-   */
-  parentId?: number | null;
-  /**
-   * Desc:路径key
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  pathkey?: number;
-  /**
-   * Desc:关联文件id
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  recordFileId?: number;
-  /**
-   * Desc:备注
-   * Default:
-   * Nullable:True
-   */
-  remark?: string | null;
-  /**
-   * Desc:类型(文件、文件夹)
-   * Default:
-   * Nullable:False
-   */
-  type?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  updatedPerson?: string | null;
-}
-
-export interface KnowledgeFileVO {
-  /**
-   * Desc:是否可以删除
-   * Default:1
-   * Nullable:True
-   */
-  canDelete?: boolean | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  createdPerson?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  deleteAt?: string | null;
-  /** 后缀名 */
-  extname?: string | null;
-  /** 文件标识 */
-  fileId?: string | null;
-  /** 文件名 */
-  fileName?: string | null;
-  /** 文件路径 */
-  filePath?: string | null;
-  /**
-   * 文件大小(Byte)
-   * @format int64
-   */
-  fileSize?: number;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  id?: number;
-  /**
-   * Desc:是否删除
-   * Default:0
-   * Nullable:True
-   */
-  isDelete?: boolean | null;
-  /**
-   * Desc:级别
-   * Default:
-   * Nullable:True
-   * @format int32
-   */
-  level?: number | null;
-  /**
-   * Desc:名称
-   * Default:
-   * Nullable:False
-   */
-  name?: string | null;
-  /**
-   * Desc:路径
-   * Default:
-   * Nullable:True
-   */
-  nestedpath?: string | null;
-  /**
-   * Desc:父级id
-   * Default:
-   * Nullable:True
-   * @format int64
-   */
-  parentId?: number | null;
-  /**
-   * Desc:路径key
-   * Default:
-   * Nullable:False
-   * @format int32
-   */
-  pathkey?: number;
-  /**
-   * Desc:关联文件id
-   * Default:
-   * Nullable:False
-   * @format int64
-   */
-  recordFileId?: number;
-  /**
-   * Desc:备注
-   * Default:
-   * Nullable:True
-   */
-  remark?: string | null;
-  /**
-   * Desc:类型(文件、文件夹)
-   * Default:
-   * Nullable:False
-   */
-  type?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /**
-   * Desc:
-   * Default:
-   * Nullable:True
-   */
-  updatedPerson?: string | null;
-}
-
-/** 管线 */
-export interface LightPipeLine {
-  /** 载体 */
-  carrier?: string | null;
-  /**
-   * 流向
-   * @format int32
-   */
-  flowDirection?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 终点纬度
-   * @format double
-   */
-  latitudeE?: number;
-  /**
-   * 起点纬度
-   * @format double
-   */
-  latitudeS?: number;
-  /**
-   * 管线长度
-   * @format double
-   */
-  length?: number | null;
-  /**
-   * 终点经度
-   * @format double
-   */
-  longitudeE?: number;
-  /**
-   * 起点经度
-   * @format double
-   */
-  longitudeS?: number;
-  /** 管线类型 */
-  type?: string | null;
-}
-
-export interface LineByStartAndEndQO {
-  /** 终点位号 */
-  serialNumberE?: string | null;
-  /** 起始点位 */
-  serialNumberS?: string | null;
-}
-
-export interface LinesByEndPointQO {
-  /** @minLength 1 */
-  endPointSn: string;
-}
-
-export interface LogEntryVO {
-  /** 日志时间 */
-  createTime?: string | null;
-  /** 部门名称 */
-  department?: string | null;
-  /** 操作描述 */
-  description?: string | null;
-  /**
-   * 操作阶段代码
-   * @format int32
-   */
-  phase?: number;
-  /** 阶段描述 */
-  phaseDesc?: string | null;
-  /** 操作人 */
-  updatedBy?: string | null;
+export interface LabelValue {
+  label?: string | null;
+  /** @format double */
+  value?: number | null;
 }
 
 export interface LogaccessFO {
@@ -13325,7 +11873,6 @@ export interface LoginResultUserAO {
   id?: number;
   /** 登录名 */
   loginname?: string | null;
-  mapToken?: string | null;
   /** 手机号 */
   mobile?: string | null;
   /** 姓名 */
@@ -13345,7 +11892,6 @@ export interface LoginResultUserAO {
 
 export interface LoginResultVO {
   accessToken?: string | null;
-  mapToken?: string | null;
   refreshToken?: string | null;
   user?: LoginResultUserAO;
 }
@@ -13508,8 +12054,6 @@ export interface MessagePQO {
   createdPerson?: string | null;
   /** 排序字段 */
   field?: string | null;
-  /** 流程引擎里的id */
-  ftwobpmId?: string | null;
   /** @format int64 */
   id?: number;
   /** 排序方向 */
@@ -13546,8 +12090,6 @@ export interface MessageQO {
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
-  /** 流程引擎里的id */
-  ftwobpmId?: string | null;
   /** @format int64 */
   id?: number;
   /**
@@ -13579,8 +12121,6 @@ export interface MessageVO {
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
-  /** 流程引擎里的id */
-  ftwobpmId?: string | null;
   /** @format int64 */
   id?: number;
   /**
@@ -13597,211 +12137,347 @@ export interface MessageVO {
   updatedPerson?: string | null;
 }
 
-export interface MonitorByOrganizationResult {
+export interface MpstVO {
   /**
-   * 监控可用数
+   * 排污企业数量
    * @format int32
    */
-  count?: number;
-  /** 监控列表集合 */
-  list?: MonitorInfo[] | null;
+  companyCount?: number;
+  /**
+   * 排污口数量
+   * @format int32
+   */
+  outfallCount?: number;
+  /**
+   * 视频监测设备数量
+   * @format int32
+   */
+  videoEquipmentCount?: number;
+  /**
+   * 水质监测设备数量
+   * @format int32
+   */
+  wqEquipmentCount?: number;
+  /**
+   * 污水厂数量
+   * @format int32
+   */
+  wsclcCount?: number;
 }
 
-export interface MonitorDetailInfo {
-  /**
-   * 权限过期时间
-   * @format date-time
-   */
-  authExpirationTime?: string;
-  /** 设备编码 */
-  deviceID?: string | null;
-  /**
-   * 是否故障0无故障（有流），1有故障（无流）
-   * @format int32
-   */
-  faultedFlag?: number;
-  /** 监控接入服务器主消息号(调流时使用) */
-  groupId?: string | null;
-  /** 视频监控HLS实时播放链接 */
-  hlsUrl?: string | null;
-  /**
-   * 巡检次数
-   * @format int32
-   */
-  inspectionCount?: number;
-  /**
-   * 巡检有视频流的次数
-   * @format int32
-   */
-  inspectionSuccessCount?: number;
-  /**
-   * 最近一次巡检时间
-   * @format date-time
-   */
-  inspectionTime?: string;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number;
-  /**
-   * 监控编码格式 0.未知 1.H264 2.H265 3.SVAC
-   * @format int32
-   */
-  mediaCode?: number;
-  /**
-   * 监控分辨率 0.未知 1.720 2.1080 3.2k 4.4k
-   * @format int32
-   */
-  mediaDPI?: number;
-  /**
-   * 监控通道号(调流时使用)
-   * @format int32
-   */
-  monitorId?: number;
-  /** 监控名称 */
-  monitorName?: string | null;
-  /**
-   * 监控状态0离线1在线
-   * @format int32
-   */
-  monitorStatus?: number;
-  /** 监控唯一标识 */
-  pn?: string | null;
-  /**
-   * 是否支持云台0不支持1支持
-   * @format int32
-   */
-  ptZ_Available?: number;
-  /**
-   * 0-未知；1-球机；2-半球；3-固定枪机；4-遥控枪机(1、4类型支持云台控制)
-   * @format int32
-   */
-  ptzType?: number;
-  /** 视频监控RTMP实时播放链接 */
-  rtmpUrl?: string | null;
-  /** 视频监控RTSP实时播放链接 */
-  rtspUrl?: string | null;
-  /**
-   * 是否有录像0无录像1有录像
-   * @format int32
-   */
-  saveStatus?: number;
-  /** 缩略图Base64字符串，图片格式为jpg */
-  thumbnail?: string | null;
+export interface MsgnoticeFO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 是否有附件 */
+  haveAttachment?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
-export interface MonitorInfo {
-  /** 区域编码 */
-  areaCode?: string | null;
-  /** 区域名称 */
-  areaName?: string | null;
+export interface MsgnoticePQO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** 是否有附件 */
+  haveAttachment?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 排序方向 */
+  order?: string | null;
   /**
-   * 权限过期时间
-   * @format date-time
-   */
-  authExpirationTime?: string;
-  /** 监控国标编码 */
-  deviceId?: string | null;
-  /**
-   * 是否有故障，0无故障（有流） 1有故障(无流)
+   * 当前页码
    * @format int32
    */
-  faultedFlag?: number;
-  /** 监控接入服务器主消息号(调流时使用) */
-  groupId?: string | null;
-  /** 视频监控HLS实时播放链接 */
-  hlsUrl?: string | null;
+  pageIndex?: number;
   /**
-   * 巡检次数
+   * 页码容量
    * @format int32
+   * @min 0
+   * @max 100
    */
-  inspectionCount?: number;
-  /**
-   * 巡检有视频流的次数
-   * @format int32
-   */
-  inspectionSuccessCount?: number;
-  /**
-   * 最近一次巡检时间
-   * @format date-time
-   */
-  inspectionTime?: string;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number;
-  /**
-   * 监控编码格式 0.未知 1.H264 2.H265 3.SVAC
-   * @format int32
-   */
-  mediaCode?: number;
-  /**
-   * 监控分辨率 0.未知 1.720 2.1080 3.2k 4.4k
-   * @format int32
-   */
-  mediaDPI?: number;
-  /** 监控描述 */
-  monitorDigest?: string | null;
-  /**
-   * 监控通道号(调流时使用)
-   * @format int32
-   */
-  monitorId?: number;
-  /** 监控名称 */
-  monitorName?: string | null;
-  /**
-   * 监控在线状态0离线 1在线
-   * @format int32
-   */
-  monitorStauts?: number;
-  /** MSE调流demo的服务器地址 */
-  mseUrl?: string | null;
-  /**
-   * 平台ID
-   * @format int32
-   */
-  platformId?: number;
-  /**
-   * 是否支持云台控制0不支持1支持
-   * @format int32
-   */
-  ptZ_Available?: number;
-  /**
-   * 0-未知；1-球机；2-半球；3-固定枪机；4-遥控枪机(1、4类型支持云台控制)
-   * @format int32
-   */
-  ptzType?: number;
-  /** 视频监控RTMP实时播放链接 */
-  rtmpUrl?: string | null;
-  /** 视频监控RTSP实时播放链接 */
-  rtspUrl?: string | null;
-  /**
-   * 是否支持录像0没有1有
-   * @format int32
-   */
-  saveStatus?: number;
+  pageSize?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
-export interface NameCount {
+export interface MsgnoticeQO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 是否有附件 */
+  haveAttachment?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface MsgnoticeVO {
+  /** 内容 */
+  content?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 是否有附件 */
+  haveAttachment?: boolean;
+  /** @format int64 */
+  id?: number;
+  /** 标题 */
+  title?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+/** 数据修正操作日志 */
+export interface MtDataFixLog {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 新值 */
+  newJson?: string | null;
+  /** 旧值 */
+  oldJson?: string | null;
   /**
-   * 数量
+   * 记录id
    * @format int64
    */
-  count?: number | null;
-  /** 名称 */
-  name?: string | null;
+  recordId?: number;
+  /** 类型(rd,md,hd,dd)历史,分钟,小时,天 */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface MtDataFixLogFO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 新值 */
+  newJson?: string | null;
+  /** 旧值 */
+  oldJson?: string | null;
+  /**
+   * 记录id
+   * @format int64
+   */
+  recordId?: number;
+  /** 类型(rd,md,hd,dd)历史,分钟,小时,天 */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface MtDataFixLogPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 新值 */
+  newJson?: string | null;
+  /** 旧值 */
+  oldJson?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 记录id
+   * @format int64
+   */
+  recordId?: number;
+  /** 类型(rd,md,hd,dd)历史,分钟,小时,天 */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface MtDataFixLogQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 新值 */
+  newJson?: string | null;
+  /** 旧值 */
+  oldJson?: string | null;
+  /**
+   * 记录id
+   * @format int64
+   */
+  recordId?: number;
+  /** 类型(rd,md,hd,dd)历史,分钟,小时,天 */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface MtDataFixLogVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 新值 */
+  newJson?: string | null;
+  /** 旧值 */
+  oldJson?: string | null;
+  /**
+   * 记录id
+   * @format int64
+   */
+  recordId?: number;
+  /** 类型(rd,md,hd,dd)历史,分钟,小时,天 */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface MtEditFlagLogFO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 新值 */
+  newValue?: boolean | null;
+  /** 旧值 */
+  oldValue?: boolean | null;
+  /**
+   * 记录id
+   * @format int64
+   */
+  recordId?: number | null;
+  /** 类型(rd,md,hd,dd;历史,分钟,小时,天) */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface MtEditFlagLogPQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 新值 */
+  newValue?: boolean | null;
+  /** 旧值 */
+  oldValue?: boolean | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 记录id
+   * @format int64
+   */
+  recordId?: number | null;
+  /** 类型(rd,md,hd,dd;历史,分钟,小时,天) */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface MtEditFlagLogQO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 新值 */
+  newValue?: boolean | null;
+  /** 旧值 */
+  oldValue?: boolean | null;
+  /**
+   * 记录id
+   * @format int64
+   */
+  recordId?: number | null;
+  /** 类型(rd,md,hd,dd;历史,分钟,小时,天) */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface MtEditFlagLogVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 新值 */
+  newValue?: boolean | null;
+  /** 旧值 */
+  oldValue?: boolean | null;
+  /**
+   * 记录id
+   * @format int64
+   */
+  recordId?: number | null;
+  /** 类型(rd,md,hd,dd;历史,分钟,小时,天) */
+  type?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
 }
 
 export interface NmsCameraOnlineQO {
@@ -13848,12 +12524,33 @@ export interface NmsCameraOnlineResDataItem {
   treatyType?: string | null;
 }
 
+export type OnlineInfoVO = object;
+
+export interface OnlyIdAndTImePageQO {
+  /** @format date-time */
+  endTime?: string;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   */
+  pageSize?: number;
+  /** @format date-time */
+  startTime?: string;
+}
+
 export interface OnlyIdQO {
   /**
    * Id
    * @format int64
    */
-  id: number;
+  id?: number | null;
 }
 
 export interface OnlyMsgIdList {
@@ -13861,17 +12558,12 @@ export interface OnlyMsgIdList {
   ids: number[];
 }
 
-export interface OpenApiPageResultProcessInspectionCaseVO {
-  /** @format int64 */
-  current?: number;
-  /** @format int64 */
-  pages?: number;
-  /** 响应数据 */
-  records?: ProcessInspectionCaseVO[] | null;
-  /** @format int64 */
-  size?: number;
-  /** @format int64 */
-  total?: number;
+export interface OnlyTechnicsIdQO {
+  /**
+   * TechnicsId
+   * @format int64
+   */
+  technicsId?: number | null;
 }
 
 export interface OrganizationForm {
@@ -13910,50 +12602,6 @@ export interface OrganizationForm {
   parentId?: number | null;
   /** 备注 */
   remark?: string | null;
-}
-
-export interface OrganizationInfo {
-  /** 行政区划编码，请求下级目录时作为parentCode参数 */
-  area_code?: string | null;
-  /**
-   * 监控总数
-   * @format int32
-   */
-  count?: number;
-  /**
-   * 监控故障数
-   * @format int32
-   */
-  faultCount?: number;
-  /**
-   * 监控可用数(在线无故障)
-   * @format int32
-   */
-  healthCount?: number;
-  /** 行政区划名称 */
-  name?: string | null;
-  /**
-   * 监控在线数
-   * @format int32
-   */
-  onlineCount?: number;
-  /** 父目录区域编码 */
-  parent_code?: string | null;
-  /**
-   * 平台ID,请求下级目录时作为参数platformid，顶级传0
-   * @format int32
-   */
-  platformID?: number;
-}
-
-export interface OrganizationListResult {
-  /** 目录集合 */
-  list?: OrganizationInfo[] | null;
-  /**
-   * 目录数量
-   * @format int32
-   */
-  organizationCount?: number;
 }
 
 export interface OrganizationPQO {
@@ -14142,6 +12790,2502 @@ export interface OrganizationVO {
   updatedPerson?: string | null;
 }
 
+/** 事件处理记录分页查询对象 */
+export interface OutfallEventHandlePQO {
+  /** 操作说明 */
+  actDesc?: string | null;
+  /** 操作人姓名 */
+  actPerson?: string | null;
+  /**
+   * 操作人用户ID
+   * @format int64
+   */
+  actPersonId?: number | null;
+  /**
+   * 操作时间
+   * @format date-time
+   */
+  actTime?: string | null;
+  /**
+   * 操作类型(1-上报,2-审核,3-派遣,4-处理,5-审核处理结果,6-驳回重新处理)
+   * @format int32
+   */
+  actType?: number | null;
+  /**
+   * 操作开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 操作结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 事件ID
+   * @format int64
+   */
+  eventId?: number | null;
+  /** 事件编号 */
+  eventNo?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 变更前状态
+   * @format int32
+   */
+  fromStatus?: number | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 变更后状态
+   * @format int32
+   */
+  toStatus?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 事件处理记录查询对象 */
+export interface OutfallEventHandleQO {
+  /** 操作说明 */
+  actDesc?: string | null;
+  /** 操作人姓名 */
+  actPerson?: string | null;
+  /**
+   * 操作人用户ID
+   * @format int64
+   */
+  actPersonId?: number | null;
+  /**
+   * 操作时间
+   * @format date-time
+   */
+  actTime?: string | null;
+  /**
+   * 操作类型(1-上报,2-审核,3-派遣,4-处理,5-审核处理结果,6-驳回重新处理)
+   * @format int32
+   */
+  actType?: number | null;
+  /**
+   * 操作开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 操作结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 事件ID
+   * @format int64
+   */
+  eventId?: number | null;
+  /** 事件编号 */
+  eventNo?: string | null;
+  /**
+   * 变更前状态
+   * @format int32
+   */
+  fromStatus?: number | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 变更后状态
+   * @format int32
+   */
+  toStatus?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 事件处理记录输出对象 */
+export interface OutfallEventHandleVO {
+  /** 操作说明 */
+  actDesc?: string | null;
+  /** 操作人姓名 */
+  actPerson?: string | null;
+  /**
+   * 操作人用户ID
+   * @format int64
+   */
+  actPersonId?: number | null;
+  /**
+   * 操作时间
+   * @format date-time
+   */
+  actTime?: string | null;
+  /**
+   * 操作类型(1-上报,2-审核,3-派遣,4-处理,5-审核处理结果,6-驳回重新处理)
+   * @format int32
+   */
+  actType?: number | null;
+  /** 操作类型名称 */
+  actTypeName?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 事件ID
+   * @format int64
+   */
+  eventId?: number | null;
+  /** 事件编号 */
+  eventNo?: string | null;
+  /** 附件 */
+  files?: RecordFile[] | null;
+  /**
+   * 变更前状态
+   * @format int32
+   */
+  fromStatus?: number | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 变更后状态
+   * @format int32
+   */
+  toStatus?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 事件信息新增/编辑传入参数 */
+export interface OutfallEventInfoFO {
+  /** 事件位置 */
+  address?: string | null;
+  /** 事件描述 */
+  eventDesc?: string | null;
+  /** 事件级别 */
+  eventLevelCode?: string | null;
+  /** 事件编号(为空时后端自动生成) */
+  eventNo?: string | null;
+  /**
+   * 事件标题
+   * @minLength 1
+   */
+  eventTitle: string;
+  /**
+   * 事件类型
+   * @minLength 1
+   */
+  eventTypeCode: string;
+  /** 现场照片等附件 */
+  files?: RecordFile[] | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId: number;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 上报人姓名 */
+  reportPerson?: string | null;
+  /**
+   * 上报人用户ID
+   * @format int64
+   */
+  reportPersonId?: number | null;
+  /**
+   * 上报时间
+   * @format date-time
+   */
+  reportTime?: string | null;
+  /**
+   * 来源ID(巡检记录ID或预警记录ID)
+   * @format int64
+   */
+  sourceId?: number | null;
+  /** 来源编号 */
+  sourceNo?: string | null;
+  /**
+   * 事件来源(1-巡检上报,2-预警转事件,3-人工发起)
+   * @format int32
+   */
+  sourceType?: number | null;
+}
+
+/** 事件信息分页查询对象 */
+export interface OutfallEventInfoPQO {
+  /** 事件位置 */
+  address?: string | null;
+  /** 审核意见 */
+  auditOpinion?: string | null;
+  /** 审核人姓名 */
+  auditPerson?: string | null;
+  /**
+   * 审核人用户ID
+   * @format int64
+   */
+  auditPersonId?: number | null;
+  /**
+   * 审核时间
+   * @format date-time
+   */
+  auditTime?: string | null;
+  /**
+   * 上报开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /** 派遣说明 */
+  dispatchOpinion?: string | null;
+  /** 派遣人姓名 */
+  dispatchPerson?: string | null;
+  /**
+   * 派遣人用户ID
+   * @format int64
+   */
+  dispatchPersonId?: number | null;
+  /**
+   * 派遣时间
+   * @format date-time
+   */
+  dispatchTime?: string | null;
+  /**
+   * 上报结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** 事件描述 */
+  eventDesc?: string | null;
+  /** 事件级别(关联bs_event_level.code) */
+  eventLevelCode?: string | null;
+  /** 事件编号 */
+  eventNo?: string | null;
+  /** 事件标题 */
+  eventTitle?: string | null;
+  /** 事件标题(模糊查询) */
+  eventTitleKeyword?: string | null;
+  /** 事件类型(关联bs_event_type.code) */
+  eventTypeCode?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 流程完成时间
+   * @format date-time
+   */
+  finishTime?: string | null;
+  /**
+   * 处理次数
+   * @format int32
+   */
+  handleCount?: number | null;
+  /** 处理结果描述 */
+  handleDesc?: string | null;
+  /** 处理结果审核意见 */
+  handleResultOpinion?: string | null;
+  /** 处理结果审核人姓名 */
+  handleResultPerson?: string | null;
+  /**
+   * 处理结果审核人用户ID
+   * @format int64
+   */
+  handleResultPersonId?: number | null;
+  /**
+   * 处理结果审核时间
+   * @format date-time
+   */
+  handleResultTime?: string | null;
+  /**
+   * 处理时间
+   * @format date-time
+   */
+  handleTime?: string | null;
+  /** 处理人姓名 */
+  handler?: string | null;
+  /**
+   * 处理人用户ID
+   * @format int64
+   */
+  handlerId?: number | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否需要处理 */
+  isNeedHandle?: boolean | null;
+  /** 处理结果是否通过 */
+  isPass?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 是否只查询当前登录人处理的事件 */
+  onlyMyHandle?: boolean | null;
+  /** 是否只查询当前登录人上报的事件 */
+  onlyMyReport?: boolean | null;
+  /** 是否只查询当前登录人的待办(待审核 / 待派遣 / 派遣给我的待处理 / 待审核处理结果) */
+  onlyMyTodo?: boolean | null;
+  /** 排序方向 */
+  order?: string | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 是否只查询与当前登录人相关的事件(我上报 / 我审核 / 我派遣 / 我处理 / 我审核处理结果) */
+  relatedToMe?: boolean | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 上报人姓名 */
+  reportPerson?: string | null;
+  /**
+   * 上报人用户ID
+   * @format int64
+   */
+  reportPersonId?: number | null;
+  /**
+   * 上报时间
+   * @format date-time
+   */
+  reportTime?: string | null;
+  /**
+   * 来源ID(巡检记录ID或预警记录ID)
+   * @format int64
+   */
+  sourceId?: number | null;
+  /** 来源编号 */
+  sourceNo?: string | null;
+  /**
+   * 事件来源(1-巡检上报,2-预警转事件,3-人工发起)
+   * @format int32
+   */
+  sourceType?: number | null;
+  /**
+   * 事件状态(1-待审核,2-待派遣,3-待处理,4-待审核处理结果,5-已完成,9-不需处理)
+   * @format int32
+   */
+  status?: number | null;
+  /** 事件状态集合(多状态 OR 查询;与 Status 互斥,同时传入时以 StatusList 为准) */
+  statusList?: number[] | null;
+  /** 是否只查询未结束的事件 */
+  unFinish?: boolean | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 事件信息查询对象 */
+export interface OutfallEventInfoQO {
+  /** 事件位置 */
+  address?: string | null;
+  /** 审核意见 */
+  auditOpinion?: string | null;
+  /** 审核人姓名 */
+  auditPerson?: string | null;
+  /**
+   * 审核人用户ID
+   * @format int64
+   */
+  auditPersonId?: number | null;
+  /**
+   * 审核时间
+   * @format date-time
+   */
+  auditTime?: string | null;
+  /**
+   * 上报开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /** 派遣说明 */
+  dispatchOpinion?: string | null;
+  /** 派遣人姓名 */
+  dispatchPerson?: string | null;
+  /**
+   * 派遣人用户ID
+   * @format int64
+   */
+  dispatchPersonId?: number | null;
+  /**
+   * 派遣时间
+   * @format date-time
+   */
+  dispatchTime?: string | null;
+  /**
+   * 上报结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** 事件描述 */
+  eventDesc?: string | null;
+  /** 事件级别(关联bs_event_level.code) */
+  eventLevelCode?: string | null;
+  /** 事件编号 */
+  eventNo?: string | null;
+  /** 事件标题 */
+  eventTitle?: string | null;
+  /** 事件标题(模糊查询) */
+  eventTitleKeyword?: string | null;
+  /** 事件类型(关联bs_event_type.code) */
+  eventTypeCode?: string | null;
+  /**
+   * 流程完成时间
+   * @format date-time
+   */
+  finishTime?: string | null;
+  /**
+   * 处理次数
+   * @format int32
+   */
+  handleCount?: number | null;
+  /** 处理结果描述 */
+  handleDesc?: string | null;
+  /** 处理结果审核意见 */
+  handleResultOpinion?: string | null;
+  /** 处理结果审核人姓名 */
+  handleResultPerson?: string | null;
+  /**
+   * 处理结果审核人用户ID
+   * @format int64
+   */
+  handleResultPersonId?: number | null;
+  /**
+   * 处理结果审核时间
+   * @format date-time
+   */
+  handleResultTime?: string | null;
+  /**
+   * 处理时间
+   * @format date-time
+   */
+  handleTime?: string | null;
+  /** 处理人姓名 */
+  handler?: string | null;
+  /**
+   * 处理人用户ID
+   * @format int64
+   */
+  handlerId?: number | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否需要处理 */
+  isNeedHandle?: boolean | null;
+  /** 处理结果是否通过 */
+  isPass?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 是否只查询当前登录人处理的事件 */
+  onlyMyHandle?: boolean | null;
+  /** 是否只查询当前登录人上报的事件 */
+  onlyMyReport?: boolean | null;
+  /** 是否只查询当前登录人的待办(待审核 / 待派遣 / 派遣给我的待处理 / 待审核处理结果) */
+  onlyMyTodo?: boolean | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /** 是否只查询与当前登录人相关的事件(我上报 / 我审核 / 我派遣 / 我处理 / 我审核处理结果) */
+  relatedToMe?: boolean | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 上报人姓名 */
+  reportPerson?: string | null;
+  /**
+   * 上报人用户ID
+   * @format int64
+   */
+  reportPersonId?: number | null;
+  /**
+   * 上报时间
+   * @format date-time
+   */
+  reportTime?: string | null;
+  /**
+   * 来源ID(巡检记录ID或预警记录ID)
+   * @format int64
+   */
+  sourceId?: number | null;
+  /** 来源编号 */
+  sourceNo?: string | null;
+  /**
+   * 事件来源(1-巡检上报,2-预警转事件,3-人工发起)
+   * @format int32
+   */
+  sourceType?: number | null;
+  /**
+   * 事件状态(1-待审核,2-待派遣,3-待处理,4-待审核处理结果,5-已完成,9-不需处理)
+   * @format int32
+   */
+  status?: number | null;
+  /** 事件状态集合(多状态 OR 查询;与 Status 互斥,同时传入时以 StatusList 为准) */
+  statusList?: number[] | null;
+  /** 是否只查询未结束的事件 */
+  unFinish?: boolean | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 事件信息输出对象 */
+export interface OutfallEventInfoVO {
+  /** 事件位置 */
+  address?: string | null;
+  /** 审核意见 */
+  auditOpinion?: string | null;
+  /** 审核人姓名 */
+  auditPerson?: string | null;
+  /**
+   * 审核人用户ID
+   * @format int64
+   */
+  auditPersonId?: number | null;
+  /**
+   * 审核时间
+   * @format date-time
+   */
+  auditTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /** 派遣说明 */
+  dispatchOpinion?: string | null;
+  /** 派遣人姓名 */
+  dispatchPerson?: string | null;
+  /**
+   * 派遣人用户ID
+   * @format int64
+   */
+  dispatchPersonId?: number | null;
+  /**
+   * 派遣时间
+   * @format date-time
+   */
+  dispatchTime?: string | null;
+  /** 事件描述 */
+  eventDesc?: string | null;
+  /** 事件级别(关联bs_event_level.code) */
+  eventLevelCode?: string | null;
+  /** 事件级别名称 */
+  eventLevelName?: string | null;
+  /** 事件编号 */
+  eventNo?: string | null;
+  /** 事件标题 */
+  eventTitle?: string | null;
+  /** 事件类型(关联bs_event_type.code) */
+  eventTypeCode?: string | null;
+  /** 事件类型名称 */
+  eventTypeName?: string | null;
+  /** 现场照片等附件 */
+  files?: RecordFile[] | null;
+  /**
+   * 流程完成时间
+   * @format date-time
+   */
+  finishTime?: string | null;
+  /**
+   * 处理次数
+   * @format int32
+   */
+  handleCount?: number | null;
+  /** 处理结果描述 */
+  handleDesc?: string | null;
+  /** 处理结果审核意见 */
+  handleResultOpinion?: string | null;
+  /** 处理结果审核人姓名 */
+  handleResultPerson?: string | null;
+  /**
+   * 处理结果审核人用户ID
+   * @format int64
+   */
+  handleResultPersonId?: number | null;
+  /**
+   * 处理结果审核时间
+   * @format date-time
+   */
+  handleResultTime?: string | null;
+  /**
+   * 处理时间
+   * @format date-time
+   */
+  handleTime?: string | null;
+  /** 处理人姓名 */
+  handler?: string | null;
+  /**
+   * 处理人用户ID
+   * @format int64
+   */
+  handlerId?: number | null;
+  /** 处理记录 */
+  handles?: OutfallEventHandleVO[] | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 是否需要处理 */
+  isNeedHandle?: boolean | null;
+  /** 处理结果是否通过 */
+  isPass?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 上报人姓名 */
+  reportPerson?: string | null;
+  /**
+   * 上报人用户ID
+   * @format int64
+   */
+  reportPersonId?: number | null;
+  /**
+   * 上报时间
+   * @format date-time
+   */
+  reportTime?: string | null;
+  /**
+   * 来源ID(巡检记录ID或预警记录ID)
+   * @format int64
+   */
+  sourceId?: number | null;
+  /** 来源编号 */
+  sourceNo?: string | null;
+  /**
+   * 事件来源(1-巡检上报,2-预警转事件,3-人工发起)
+   * @format int32
+   */
+  sourceType?: number | null;
+  /** 事件来源名称 */
+  sourceTypeName?: string | null;
+  /**
+   * 事件状态(1-待审核,2-待派遣,3-待处理,4-待审核处理结果,5-已完成,9-不需处理)
+   * @format int32
+   */
+  status?: number | null;
+  /** 事件状态名称 */
+  statusName?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 巡检计划新增/编辑传入参数 */
+export interface OutfallInspectionPlanFO {
+  /** 负责人姓名 */
+  chargePerson?: string | null;
+  /**
+   * 负责人用户ID
+   * @format int64
+   */
+  chargePersonId?: number | null;
+  /**
+   * 计划结束日期
+   * @format date-time
+   */
+  endDate?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number | null;
+  /**
+   * 巡检类型
+   * @minLength 1
+   */
+  inspectionTypeCode: string;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId: number;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /**
+   * 巡检周期类型(day-每天,week-每周,month-每月)
+   * @minLength 1
+   */
+  periodType: string;
+  /**
+   * 巡检周期间隔
+   * @format int32
+   */
+  periodValue?: number | null;
+  /**
+   * 计划名称
+   * @minLength 1
+   */
+  planName: string;
+  /** 计划编号(为空时后端自动生成) */
+  planNo?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 计划开始日期
+   * @format date-time
+   */
+  startDate: string;
+  /**
+   * 计划状态(1-启用,2-停用,不传时新增默认启用、编辑保持原状态)
+   * @format int32
+   */
+  status?: number | null;
+}
+
+/** 巡检计划分页查询对象 */
+export interface OutfallInspectionPlanPQO {
+  /**
+   * 查询开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** 负责人姓名 */
+  chargePerson?: string | null;
+  /**
+   * 负责人用户ID
+   * @format int64
+   */
+  chargePersonId?: number | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 计划结束日期
+   * @format date-time
+   */
+  endDate?: string | null;
+  /**
+   * 查询结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 巡检类型(关联data_dictionary.code) */
+  inspectionTypeCode?: string | null;
+  /**
+   * 下次生成任务时间
+   * @format date-time
+   */
+  nextTime?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 巡检周期类型(day-每天,week-每周,month-每月) */
+  periodType?: string | null;
+  /**
+   * 巡检周期间隔
+   * @format int32
+   */
+  periodValue?: number | null;
+  /** 计划名称 */
+  planName?: string | null;
+  /** 计划名称(模糊查询) */
+  planNameKeyword?: string | null;
+  /** 计划编号 */
+  planNo?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 计划开始日期
+   * @format date-time
+   */
+  startDate?: string | null;
+  /**
+   * 计划状态(1-启用,2-停用)
+   * @format int32
+   */
+  status?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 巡检计划查询对象 */
+export interface OutfallInspectionPlanQO {
+  /**
+   * 查询开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** 负责人姓名 */
+  chargePerson?: string | null;
+  /**
+   * 负责人用户ID
+   * @format int64
+   */
+  chargePersonId?: number | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 计划结束日期
+   * @format date-time
+   */
+  endDate?: string | null;
+  /**
+   * 查询结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 巡检类型(关联data_dictionary.code) */
+  inspectionTypeCode?: string | null;
+  /**
+   * 下次生成任务时间
+   * @format date-time
+   */
+  nextTime?: string | null;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /** 巡检周期类型(day-每天,week-每周,month-每月) */
+  periodType?: string | null;
+  /**
+   * 巡检周期间隔
+   * @format int32
+   */
+  periodValue?: number | null;
+  /** 计划名称 */
+  planName?: string | null;
+  /** 计划名称(模糊查询) */
+  planNameKeyword?: string | null;
+  /** 计划编号 */
+  planNo?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 计划开始日期
+   * @format date-time
+   */
+  startDate?: string | null;
+  /**
+   * 计划状态(1-启用,2-停用)
+   * @format int32
+   */
+  status?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 巡检计划输出对象 */
+export interface OutfallInspectionPlanVO {
+  /** 负责人姓名 */
+  chargePerson?: string | null;
+  /**
+   * 负责人用户ID
+   * @format int64
+   */
+  chargePersonId?: number | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 计划结束日期
+   * @format date-time
+   */
+  endDate?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 巡检类型(关联data_dictionary.code) */
+  inspectionTypeCode?: string | null;
+  /** 巡检类型名称 */
+  inspectionTypeName?: string | null;
+  /**
+   * 下次生成任务时间
+   * @format date-time
+   */
+  nextTime?: string | null;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /** 巡检周期类型(day-每天,week-每周,month-每月) */
+  periodType?: string | null;
+  /**
+   * 巡检周期间隔
+   * @format int32
+   */
+  periodValue?: number | null;
+  /** 计划名称 */
+  planName?: string | null;
+  /** 计划编号 */
+  planNo?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 计划开始日期
+   * @format date-time
+   */
+  startDate?: string | null;
+  /**
+   * 计划状态(1-启用,2-停用)
+   * @format int32
+   */
+  status?: number | null;
+  /** 计划状态名称 */
+  statusName?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 巡检记录新增/编辑传入参数 */
+export interface OutfallInspectionRecordFO {
+  /** 异常情况描述 */
+  abnormalDesc?: string | null;
+  /** 签到地址 */
+  checkInAddress?: string | null;
+  /**
+   * 签到纬度
+   * @format double
+   */
+  checkInLatitude?: number | null;
+  /**
+   * 签到经度
+   * @format double
+   */
+  checkInLongitude?: number | null;
+  /**
+   * 签到时间
+   * @format date-time
+   */
+  checkInTime?: string | null;
+  /** 签退地址 */
+  checkOutAddress?: string | null;
+  /**
+   * 签退纬度
+   * @format double
+   */
+  checkOutLatitude?: number | null;
+  /**
+   * 签退经度
+   * @format double
+   */
+  checkOutLongitude?: number | null;
+  /**
+   * 签退时间
+   * @format date-time
+   */
+  checkOutTime?: string | null;
+  /**
+   * 巡检时长(秒)
+   * @format int64
+   */
+  duration?: number | null;
+  /** 现场照片等附件 */
+  files?: RecordFile[] | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number | null;
+  /** 巡检人姓名 */
+  inspectionPerson?: string | null;
+  /**
+   * 巡检人用户ID
+   * @format int64
+   */
+  inspectionPersonId?: number | null;
+  /**
+   * 巡检时间
+   * @format date-time
+   */
+  inspectionTime?: string | null;
+  /** 巡检类型 */
+  inspectionTypeCode?: string | null;
+  /** 是否发现异常 */
+  isAbnormal?: boolean | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /**
+   * 进度(1-巡检中,2-已完成)
+   * @format int32
+   */
+  process?: number | null;
+  /** 记录编号(为空时后端自动生成) */
+  recordNo?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 巡检结论 */
+  result?: string | null;
+  /**
+   * 巡检任务ID
+   * @format int64
+   */
+  taskId: number;
+  /** 巡检任务编号 */
+  taskNo?: string | null;
+}
+
+/** 巡检记录分页查询对象 */
+export interface OutfallInspectionRecordPQO {
+  /** 异常情况描述 */
+  abnormalDesc?: string | null;
+  /**
+   * 巡检开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** 签到地址 */
+  checkInAddress?: string | null;
+  /**
+   * 签到纬度
+   * @format double
+   */
+  checkInLatitude?: number | null;
+  /**
+   * 签到经度
+   * @format double
+   */
+  checkInLongitude?: number | null;
+  /**
+   * 签到时间
+   * @format date-time
+   */
+  checkInTime?: string | null;
+  /** 签退地址 */
+  checkOutAddress?: string | null;
+  /**
+   * 签退纬度
+   * @format double
+   */
+  checkOutLatitude?: number | null;
+  /**
+   * 签退经度
+   * @format double
+   */
+  checkOutLongitude?: number | null;
+  /**
+   * 签退时间
+   * @format date-time
+   */
+  checkOutTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 巡检时长(秒)
+   * @format int64
+   */
+  duration?: number | null;
+  /**
+   * 巡检结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 巡检人姓名 */
+  inspectionPerson?: string | null;
+  /**
+   * 巡检人用户ID
+   * @format int64
+   */
+  inspectionPersonId?: number | null;
+  /**
+   * 巡检时间
+   * @format date-time
+   */
+  inspectionTime?: string | null;
+  /** 巡检类型(关联data_dictionary.code) */
+  inspectionTypeCode?: string | null;
+  /** 是否发现异常 */
+  isAbnormal?: boolean | null;
+  /** 是否已上报事件 */
+  isUploadEvent?: boolean | null;
+  /** 是否只查询当前登录人的记录 */
+  onlyMyRecord?: boolean | null;
+  /** 排序方向 */
+  order?: string | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 进度(1-巡检中,2-已完成)
+   * @format int32
+   */
+  process?: number | null;
+  /** 记录编号 */
+  recordNo?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 巡检结论 */
+  result?: string | null;
+  /**
+   * 巡检任务ID
+   * @format int64
+   */
+  taskId?: number | null;
+  /** 巡检任务编号 */
+  taskNo?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 巡检记录查询对象 */
+export interface OutfallInspectionRecordQO {
+  /** 异常情况描述 */
+  abnormalDesc?: string | null;
+  /**
+   * 巡检开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** 签到地址 */
+  checkInAddress?: string | null;
+  /**
+   * 签到纬度
+   * @format double
+   */
+  checkInLatitude?: number | null;
+  /**
+   * 签到经度
+   * @format double
+   */
+  checkInLongitude?: number | null;
+  /**
+   * 签到时间
+   * @format date-time
+   */
+  checkInTime?: string | null;
+  /** 签退地址 */
+  checkOutAddress?: string | null;
+  /**
+   * 签退纬度
+   * @format double
+   */
+  checkOutLatitude?: number | null;
+  /**
+   * 签退经度
+   * @format double
+   */
+  checkOutLongitude?: number | null;
+  /**
+   * 签退时间
+   * @format date-time
+   */
+  checkOutTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 巡检时长(秒)
+   * @format int64
+   */
+  duration?: number | null;
+  /**
+   * 巡检结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 巡检人姓名 */
+  inspectionPerson?: string | null;
+  /**
+   * 巡检人用户ID
+   * @format int64
+   */
+  inspectionPersonId?: number | null;
+  /**
+   * 巡检时间
+   * @format date-time
+   */
+  inspectionTime?: string | null;
+  /** 巡检类型(关联data_dictionary.code) */
+  inspectionTypeCode?: string | null;
+  /** 是否发现异常 */
+  isAbnormal?: boolean | null;
+  /** 是否已上报事件 */
+  isUploadEvent?: boolean | null;
+  /** 是否只查询当前登录人的记录 */
+  onlyMyRecord?: boolean | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /**
+   * 进度(1-巡检中,2-已完成)
+   * @format int32
+   */
+  process?: number | null;
+  /** 记录编号 */
+  recordNo?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 巡检结论 */
+  result?: string | null;
+  /**
+   * 巡检任务ID
+   * @format int64
+   */
+  taskId?: number | null;
+  /** 巡检任务编号 */
+  taskNo?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 巡检记录输出对象 */
+export interface OutfallInspectionRecordVO {
+  /** 异常情况描述 */
+  abnormalDesc?: string | null;
+  /** 签到地址 */
+  checkInAddress?: string | null;
+  /**
+   * 签到纬度
+   * @format double
+   */
+  checkInLatitude?: number | null;
+  /**
+   * 签到经度
+   * @format double
+   */
+  checkInLongitude?: number | null;
+  /**
+   * 签到时间
+   * @format date-time
+   */
+  checkInTime?: string | null;
+  /** 签退地址 */
+  checkOutAddress?: string | null;
+  /**
+   * 签退纬度
+   * @format double
+   */
+  checkOutLatitude?: number | null;
+  /**
+   * 签退经度
+   * @format double
+   */
+  checkOutLongitude?: number | null;
+  /**
+   * 签退时间
+   * @format date-time
+   */
+  checkOutTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 巡检时长(秒)
+   * @format int64
+   */
+  duration?: number | null;
+  /** 现场照片等附件 */
+  files?: RecordFile[] | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 巡检人姓名 */
+  inspectionPerson?: string | null;
+  /**
+   * 巡检人用户ID
+   * @format int64
+   */
+  inspectionPersonId?: number | null;
+  /**
+   * 巡检时间
+   * @format date-time
+   */
+  inspectionTime?: string | null;
+  /** 巡检类型(关联data_dictionary.code) */
+  inspectionTypeCode?: string | null;
+  /** 巡检类型名称 */
+  inspectionTypeName?: string | null;
+  /** 是否发现异常 */
+  isAbnormal?: boolean | null;
+  /** 是否已上报事件 */
+  isUploadEvent?: boolean | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /**
+   * 进度(1-巡检中,2-已完成)
+   * @format int32
+   */
+  process?: number | null;
+  /** 进度名称 */
+  processName?: string | null;
+  /** 记录编号 */
+  recordNo?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 巡检结论 */
+  result?: string | null;
+  /**
+   * 巡检任务ID
+   * @format int64
+   */
+  taskId?: number | null;
+  /** 巡检任务编号 */
+  taskNo?: string | null;
+  /** 巡检轨迹 */
+  tracks?: OutfallInspectionTrack[] | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 巡检任务新增/编辑传入参数 */
+export interface OutfallInspectionTaskFO {
+  /** 巡检负责人姓名 */
+  chargePerson?: string | null;
+  /**
+   * 巡检负责人用户ID
+   * @format int64
+   */
+  chargePersonId?: number | null;
+  /**
+   * 计划结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number | null;
+  /**
+   * 巡检类型
+   * @minLength 1
+   */
+  inspectionTypeCode: string;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 入河排污口地址 */
+  outfallAddress?: string | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId: number;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /**
+   * 巡检计划ID,手动新增时不传
+   * @format int64
+   */
+  planId?: number | null;
+  /** 巡检计划编号 */
+  planNo?: string | null;
+  /**
+   * 计划巡检时间
+   * @format date-time
+   */
+  planTime?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 计划开始时间
+   * @format date-time
+   */
+  startTime?: string | null;
+  /**
+   * 任务名称
+   * @minLength 1
+   */
+  taskName: string;
+  /** 任务编号(为空时后端自动生成) */
+  taskNo?: string | null;
+  /**
+   * 任务来源(1-计划生成,2-手动创建)
+   * @format int32
+   */
+  taskSource?: number | null;
+}
+
+/** 巡检任务分页查询对象 */
+export interface OutfallInspectionTaskPQO {
+  /**
+   * 实际结束时间
+   * @format date-time
+   */
+  actualEndTime?: string | null;
+  /**
+   * 实际开始时间
+   * @format date-time
+   */
+  actualStartTime?: string | null;
+  /**
+   * 计划巡检开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** 巡检负责人姓名 */
+  chargePerson?: string | null;
+  /**
+   * 巡检负责人用户ID
+   * @format int64
+   */
+  chargePersonId?: number | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 计划巡检结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 巡检类型(关联data_dictionary.code) */
+  inspectionTypeCode?: string | null;
+  /** 是否已上报事件 */
+  isUploadEvent?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 是否只查询当前登录人的任务 */
+  onlyMyTask?: boolean | null;
+  /** 排序方向 */
+  order?: string | null;
+  /** 入河排污口地址 */
+  outfallAddress?: string | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /** 是否查询逾期任务(计划结束时间已过且未完成) */
+  overdue?: boolean | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 巡检计划ID(临时任务为空)
+   * @format int64
+   */
+  planId?: number | null;
+  /** 巡检计划编号 */
+  planNo?: string | null;
+  /**
+   * 计划巡检时间
+   * @format date-time
+   */
+  planTime?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 计划开始时间
+   * @format date-time
+   */
+  startTime?: string | null;
+  /**
+   * 任务状态(1-待巡检,2-巡检中,3-已完成,4-已逾期,5-已取消)
+   * @format int32
+   */
+  status?: number | null;
+  /** 任务名称 */
+  taskName?: string | null;
+  /** 任务名称(模糊查询) */
+  taskNameKeyword?: string | null;
+  /** 任务编号 */
+  taskNo?: string | null;
+  /**
+   * 任务来源(1-计划生成,2-手动创建)
+   * @format int32
+   */
+  taskSource?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 巡检任务查询对象 */
+export interface OutfallInspectionTaskQO {
+  /**
+   * 实际结束时间
+   * @format date-time
+   */
+  actualEndTime?: string | null;
+  /**
+   * 实际开始时间
+   * @format date-time
+   */
+  actualStartTime?: string | null;
+  /**
+   * 计划巡检开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /** 巡检负责人姓名 */
+  chargePerson?: string | null;
+  /**
+   * 巡检负责人用户ID
+   * @format int64
+   */
+  chargePersonId?: number | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 计划巡检结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 巡检类型(关联data_dictionary.code) */
+  inspectionTypeCode?: string | null;
+  /** 是否已上报事件 */
+  isUploadEvent?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 是否只查询当前登录人的任务 */
+  onlyMyTask?: boolean | null;
+  /** 入河排污口地址 */
+  outfallAddress?: string | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /** 是否查询逾期任务(计划结束时间已过且未完成) */
+  overdue?: boolean | null;
+  /**
+   * 巡检计划ID(临时任务为空)
+   * @format int64
+   */
+  planId?: number | null;
+  /** 巡检计划编号 */
+  planNo?: string | null;
+  /**
+   * 计划巡检时间
+   * @format date-time
+   */
+  planTime?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 计划开始时间
+   * @format date-time
+   */
+  startTime?: string | null;
+  /**
+   * 任务状态(1-待巡检,2-巡检中,3-已完成,4-已逾期,5-已取消)
+   * @format int32
+   */
+  status?: number | null;
+  /** 任务名称 */
+  taskName?: string | null;
+  /** 任务名称(模糊查询) */
+  taskNameKeyword?: string | null;
+  /** 任务编号 */
+  taskNo?: string | null;
+  /**
+   * 任务来源(1-计划生成,2-手动创建)
+   * @format int32
+   */
+  taskSource?: number | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 巡检任务输出对象 */
+export interface OutfallInspectionTaskVO {
+  /**
+   * 实际结束时间
+   * @format date-time
+   */
+  actualEndTime?: string | null;
+  /**
+   * 实际开始时间
+   * @format date-time
+   */
+  actualStartTime?: string | null;
+  /** 巡检负责人姓名 */
+  chargePerson?: string | null;
+  /**
+   * 巡检负责人用户ID
+   * @format int64
+   */
+  chargePersonId?: number | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 计划结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /** 巡检类型(关联data_dictionary.code) */
+  inspectionTypeCode?: string | null;
+  /** 巡检类型名称 */
+  inspectionTypeName?: string | null;
+  /** 是否已上报事件 */
+  isUploadEvent?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 入河排污口地址 */
+  outfallAddress?: string | null;
+  /** 入河排污口编码 */
+  outfallCode?: string | null;
+  /**
+   * 入河排污口ID
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 入河排污口名称 */
+  outfallName?: string | null;
+  /**
+   * 巡检计划ID(临时任务为空)
+   * @format int64
+   */
+  planId?: number | null;
+  /** 巡检计划编号 */
+  planNo?: string | null;
+  /**
+   * 计划巡检时间
+   * @format date-time
+   */
+  planTime?: string | null;
+  /**
+   * 巡检记录ID
+   * @format int64
+   */
+  recordId?: number | null;
+  /** 巡检记录编号 */
+  recordNo?: string | null;
+  /**
+   * 巡检记录进度(1-巡检中,2-已完成)
+   * @format int32
+   */
+  recordProcess?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 任务状态名称 */
+  resultStatusName?: string | null;
+  /**
+   * 计划开始时间
+   * @format date-time
+   */
+  startTime?: string | null;
+  /**
+   * 任务状态(1-待巡检,2-巡检中,3-已完成,4-已逾期,5-已取消)
+   * @format int32
+   */
+  status?: number | null;
+  /** 任务名称 */
+  taskName?: string | null;
+  /** 任务编号 */
+  taskNo?: string | null;
+  /**
+   * 任务来源(1-计划生成,2-手动创建)
+   * @format int32
+   */
+  taskSource?: number | null;
+  /** 任务来源名称 */
+  taskSourceName?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 入河排污口巡检轨迹 */
+export interface OutfallInspectionTrack {
+  /** 定位地址 */
+  address?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 巡检记录ID
+   * @format int64
+   */
+  recordId?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 速度(米/秒)
+   * @format double
+   */
+  speed?: number | null;
+  /**
+   * 巡检任务ID
+   * @format int64
+   */
+  taskId?: number | null;
+  /**
+   * 定位时间
+   * @format date-time
+   */
+  trackTime?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 巡检轨迹新增传入参数 */
+export interface OutfallInspectionTrackFO {
+  /** 定位地址 */
+  address?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 巡检记录ID
+   * @format int64
+   */
+  recordId: number;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 速度(米/秒)
+   * @format double
+   */
+  speed?: number | null;
+  /**
+   * 巡检任务ID
+   * @format int64
+   */
+  taskId?: number | null;
+  /**
+   * 定位时间
+   * @format date-time
+   */
+  trackTime?: string | null;
+}
+
+/** 巡检轨迹分页查询对象 */
+export interface OutfallInspectionTrackPQO {
+  /** 定位地址 */
+  address?: string | null;
+  /**
+   * 定位开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 定位结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /**
+   * 巡检记录ID
+   * @format int64
+   */
+  recordId?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 速度(米/秒)
+   * @format double
+   */
+  speed?: number | null;
+  /**
+   * 巡检任务ID
+   * @format int64
+   */
+  taskId?: number | null;
+  /**
+   * 定位时间
+   * @format date-time
+   */
+  trackTime?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 巡检轨迹查询对象 */
+export interface OutfallInspectionTrackQO {
+  /** 定位地址 */
+  address?: string | null;
+  /**
+   * 定位开始时间
+   * @format date-time
+   */
+  beginTime?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 定位结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 巡检记录ID
+   * @format int64
+   */
+  recordId?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 速度(米/秒)
+   * @format double
+   */
+  speed?: number | null;
+  /**
+   * 巡检任务ID
+   * @format int64
+   */
+  taskId?: number | null;
+  /**
+   * 定位时间
+   * @format date-time
+   */
+  trackTime?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+/** 巡检轨迹输出对象 */
+export interface OutfallInspectionTrackVO {
+  /** 定位地址 */
+  address?: string | null;
+  /**
+   * 创建时间
+   * @format date-time
+   */
+  createdAt?: string | null;
+  /** 创建人 */
+  createdPerson?: string | null;
+  /**
+   * 主键ID
+   * @format int64
+   */
+  id?: number;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /**
+   * 巡检记录ID
+   * @format int64
+   */
+  recordId?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /**
+   * 速度(米/秒)
+   * @format double
+   */
+  speed?: number | null;
+  /**
+   * 巡检任务ID
+   * @format int64
+   */
+  taskId?: number | null;
+  /**
+   * 定位时间
+   * @format date-time
+   */
+  trackTime?: string | null;
+  /**
+   * 更新时间
+   * @format date-time
+   */
+  updatedAt?: string | null;
+  /** 更新人 */
+  updatedPerson?: string | null;
+}
+
+export interface OutfallMapVO {
+  /** 地址 */
+  address?: string | null;
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 入河方式 */
+  dischargeMethodCode?: string | null;
+  /** 入河方式 */
+  dischargeMethodName?: string | null;
+  /** 排放方式 */
+  emissionMethodCode?: string | null;
+  /** 排放方式 */
+  emissionMethodName?: string | null;
+  /**
+   * 设备参数总数
+   * @format int32
+   */
+  equipmentParamCount?: number;
+  /**
+   * 在线设备参数数量
+   * @format int32
+   */
+  equipmentParamOnlineCount?: number;
+  /** @format int64 */
+  id?: number;
+  /** 是否删除 */
+  isDelete?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 主管部门 */
+  manageOrg?: string | null;
+  /** 联系方式 */
+  manageOrgLxfs?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number;
+  /** 排口类别 */
+  outletCategoryName?: string | null;
+  /** 排口类型 */
+  outletTypeName?: string | null;
+  /**
+   * 预警级别
+   * @format int32
+   */
+  prealarmLevel?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** 所在河流 */
+  riverCode?: string | null;
+  /** 所属河流 */
+  riverName?: string | null;
+  /** 测站编码 */
+  technicsCode?: string | null;
+  /**
+   * 测站id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 测站名称 */
+  technicsName?: string | null;
+  /** 排口类型 */
+  typeCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 乡镇 */
+  villageCode?: string | null;
+  /** 所属街镇 */
+  villageName?: string | null;
+  /** 整治情况 */
+  zzqk?: string | null;
+}
+
 export interface PlaybackHlsUrlQO {
   /**
    * 开始时间
@@ -14184,66 +15328,44 @@ export interface PlaybackUrlQO {
   protocol?: string | null;
 }
 
-export interface PointStatisticVO {
-  /** 统计项名称 */
-  name?: string | null;
-  /** 统计值 */
-  value?: string | null;
-}
-
-export interface PrealarmCommunityInfoQO {
+export interface PrEditMulByEpnFO {
   /**
-   * 管点编号
+   * 预警上限
+   * @format double
+   */
+  highValue1?: number | null;
+  /**
+   * 报警上限
+   * @format double
+   */
+  highValue2?: number | null;
+  /** 预警是否启用 */
+  isEnable1?: boolean | null;
+  /** 报警是否启用 */
+  isEnable2?: boolean | null;
+  /**
+   * 预警下限
+   * @format double
+   */
+  lowerValue1?: number | null;
+  /**
+   * 报警下限
+   * @format double
+   */
+  lowerValue2?: number | null;
+  /** 预警是否发送短信 */
+  sendPhoneMsg1?: boolean | null;
+  /** 报警是否发送短信 */
+  sendPhoneMsg2?: boolean | null;
+  /**
+   * 监测因子名称
    * @minLength 1
    */
-  code: string;
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  startTime: string;
+  equipmentParamName: string;
 }
 
-export interface PrealarmCommunityInfoVO {
-  /**
-   * 小区面积
-   * @format double
-   */
-  communityArea?: number | null;
-  /**
-   * 小区纬度
-   * @format double
-   */
-  communityLatitude?: number | null;
-  /**
-   * 小区经度
-   * @format double
-   */
-  communityLongitude?: number | null;
-  /** 名字 */
-  communityName?: string | null;
-  /**
-   * 距离
-   * @format double
-   */
-  distance?: number;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number;
-  /** 管点编号 */
-  serialNumber?: string | null;
-  /**
-   * 权重
-   * @format double
-   */
-  weights?: number;
+export interface PrEditMulFO {
+  list?: PrealarmRuleFO[] | null;
 }
 
 export interface PrealarmRecordFO {
@@ -14251,7 +15373,7 @@ export interface PrealarmRecordFO {
   createdAt?: string | null;
   createdPerson?: string | null;
   /**
-   * 报警值
+   * 数据值
    * @format double
    */
   dataValue?: number | null;
@@ -14260,6 +15382,8 @@ export interface PrealarmRecordFO {
    * @format int64
    */
   duration?: number | null;
+  /** 结束原因 */
+  endReason?: string | null;
   /**
    * 预警结束时间
    * @format date-time
@@ -14279,88 +15403,80 @@ export interface PrealarmRecordFO {
   equipmentParamId?: number | null;
   /** 监测指标名称 */
   equipmentParamName?: string | null;
+  /**
+   * 上限
+   * @format double
+   */
+  highValue?: number | null;
   /** @format int64 */
   id?: number;
+  /** 是否推送短信 */
+  isPush?: boolean | null;
+  /** 是否应用内推送 */
+  isPushApp?: boolean | null;
   /**
-   * 纬度
+   * 预警1,报警2
+   * @format int32
+   */
+  level?: number | null;
+  /**
+   * 下限
    * @format double
    */
-  latitude?: number | null;
-  /** 预警级别 */
-  level?: string | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
+  lowerValue?: number | null;
   /** 单位 */
   measureUnit?: string | null;
   /** 预警信息 */
-  prealarmInfo?: string | null;
+  readonly prealarmInfo?: string | null;
   /**
    * 关联预警规则
    * @format int64
    */
   prealarmRuleId?: number;
-  prealarmRuleLevel?: string | null;
-  /** @format int32 */
-  prealarmRuleLevelIdx?: number | null;
-  prealarmRuleName?: string | null;
-  prealarmRuleType?: string | null;
+  /** 预警信息 */
+  readonly prealarmTitle?: string | null;
   /**
-   * 开始时间-日
-   * @format int32
+   * 排口id
+   * @format int64
    */
-  sday?: number;
-  /**
-   * 开始时间-小时
-   * @format int32
-   */
-  shour?: number;
-  /**
-   * 开始时间-月
-   * @format int32
-   */
-  smonth?: number;
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
+  /** 是否发送短信 */
+  sendPhoneMsg?: boolean | null;
   /**
    * 预警开始时间
    * @format date-time
    */
   startTime?: string;
   /**
-   * 开始时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * 所属水库
+   * 测站id
    * @format int64
    */
-  technicsId?: number;
-  /** 点位名称 */
+  technicsId?: number | null;
+  /** 测站名称 */
   technicsName?: string | null;
-  /** 预警条件 */
-  triggerCondition?: string | null;
-  /** 预警类型 */
-  type?: string | null;
+  /**
+   * 预警次数
+   * @format int32
+   */
+  times?: number | null;
+  /**
+   * 预警刷新时间
+   * @format date-time
+   */
+  updateTime?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
   updatedPerson?: string | null;
-  /** 工单号 */
-  workOrderNumber?: string | null;
 }
 
 export interface PrealarmRecordPQO {
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  beginTime?: string | null;
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
   /**
-   * 报警值
+   * 数据值
    * @format double
    */
   dataValue?: number | null;
@@ -14369,237 +15485,8 @@ export interface PrealarmRecordPQO {
    * @format int64
    */
   duration?: number | null;
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  endTime?: string | null;
-  /**
-   * 设备id
-   * @format int64
-   */
-  equipmentId?: number | null;
-  /** 设备名称 */
-  equipmentName?: string | null;
-  /**
-   * 监测指标id
-   * @format int64
-   */
-  equipmentParamId?: number | null;
-  /** 监测指标名称 */
-  equipmentParamName?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number | null;
-  /** 预警级别 */
-  level?: string | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
-  /** 单位 */
-  measureUnit?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** 预警信息 */
-  prealarmInfo?: string | null;
-  /**
-   * 关联预警规则
-   * @format int64
-   */
-  prealarmRuleId?: number;
-  prealarmRuleLevel?: string | null;
-  /** @format int32 */
-  prealarmRuleLevelIdx?: number | null;
-  prealarmRuleName?: string | null;
-  prealarmRuleType?: string | null;
-  /**
-   * 开始时间-日
-   * @format int32
-   */
-  sday?: number;
-  /**
-   * 开始时间-小时
-   * @format int32
-   */
-  shour?: number;
-  /**
-   * 开始时间-月
-   * @format int32
-   */
-  smonth?: number;
-  /**
-   * 预警开始时间
-   * @format date-time
-   */
-  startTime?: string;
-  /**
-   * 开始时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number;
-  /** 点位名称 */
-  technicsName?: string | null;
-  /** 预警条件 */
-  triggerCondition?: string | null;
-  /** 预警类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /** 工单号 */
-  workOrderNumber?: string | null;
-}
-
-export interface PrealarmRecordQO {
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  beginTime?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 报警值
-   * @format double
-   */
-  dataValue?: number | null;
-  /**
-   * 预警时长
-   * @format int64
-   */
-  duration?: number | null;
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  endTime?: string | null;
-  /**
-   * 设备id
-   * @format int64
-   */
-  equipmentId?: number | null;
-  /** 设备名称 */
-  equipmentName?: string | null;
-  /**
-   * 监测指标id
-   * @format int64
-   */
-  equipmentParamId?: number | null;
-  /** 监测指标名称 */
-  equipmentParamName?: string | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number | null;
-  /** 预警级别 */
-  level?: string | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
-  /** 单位 */
-  measureUnit?: string | null;
-  /** 预警信息 */
-  prealarmInfo?: string | null;
-  /**
-   * 关联预警规则
-   * @format int64
-   */
-  prealarmRuleId?: number;
-  prealarmRuleLevel?: string | null;
-  /** @format int32 */
-  prealarmRuleLevelIdx?: number | null;
-  prealarmRuleName?: string | null;
-  prealarmRuleType?: string | null;
-  /**
-   * 开始时间-日
-   * @format int32
-   */
-  sday?: number;
-  /**
-   * 开始时间-小时
-   * @format int32
-   */
-  shour?: number;
-  /**
-   * 开始时间-月
-   * @format int32
-   */
-  smonth?: number;
-  /**
-   * 预警开始时间
-   * @format date-time
-   */
-  startTime?: string;
-  /**
-   * 开始时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number;
-  /** 点位名称 */
-  technicsName?: string | null;
-  /** 预警条件 */
-  triggerCondition?: string | null;
-  /** 预警类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /** 工单号 */
-  workOrderNumber?: string | null;
-}
-
-export interface PrealarmRecordVO {
-  /** 管网类型 */
-  carrier?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 报警值
-   * @format double
-   */
-  dataValue?: number | null;
-  /**
-   * 预警时长
-   * @format int64
-   */
-  duration?: number | null;
+  /** 结束原因 */
+  endReason?: string | null;
   /**
    * 预警结束时间
    * @format date-time
@@ -14619,157 +15506,31 @@ export interface PrealarmRecordVO {
   equipmentParamId?: number | null;
   /** 监测指标名称 */
   equipmentParamName?: string | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number | null;
-  /** 预警级别 */
-  level?: string | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
-  /** 单位 */
-  measureUnit?: string | null;
-  /** 监测类型 */
-  monitorTypeName?: string | null;
-  /** 预警信息 */
-  prealarmInfo?: string | null;
-  /**
-   * 关联预警规则
-   * @format int64
-   */
-  prealarmRuleId?: number;
-  prealarmRuleLevel?: string | null;
-  /** @format int32 */
-  prealarmRuleLevelIdx?: number | null;
-  prealarmRuleName?: string | null;
-  prealarmRuleType?: string | null;
-  /**
-   * 开始时间-日
-   * @format int32
-   */
-  sday?: number;
-  /**
-   * 开始时间-小时
-   * @format int32
-   */
-  shour?: number;
-  /**
-   * 开始时间-月
-   * @format int32
-   */
-  smonth?: number;
-  /**
-   * 预警开始时间
-   * @format date-time
-   */
-  startTime?: string;
-  /**
-   * 开始时间-年
-   * @format int32
-   */
-  syear?: number;
-  /**
-   * Desc:点位编号
-   * Default:
-   * Nullable:True
-   */
-  technicsCode?: string | null;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number;
-  /**
-   * Desc:点位名称
-   * Default:
-   * Nullable:True
-   */
-  technicsName?: string | null;
-  /** 预警条件 */
-  triggerCondition?: string | null;
-  /** 预警类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /** 井号 */
-  wellCode?: string | null;
-  /** 工单号 */
-  workOrderNumber?: string | null;
-}
-
-export interface PrealarmRuleFO {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 监测指标id
-   * @format int64
-   */
-  equipmentParamId?: number | null;
-  /** @format int64 */
-  id?: number;
-  /** 是否启用 */
-  isEnable?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
-  /** 预警级别 */
-  level?: string | null;
-  /**
-   * 报警级别_index，0未报警，1蓝色预警、2黄色预警、3橙色预警、4红色预警
-   * @format int32
-   */
-  levelIdx?: number | null;
-  /** 规则名称 */
-  name?: string | null;
-  /** 是否发送短信 */
-  sendPhoneMsg?: boolean | null;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number;
-  /** 预警条件 */
-  triggerCondition?: string | null;
-  /** 预警类型 */
-  type?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface PrealarmRulePQO {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 监测指标id
-   * @format int64
-   */
-  equipmentParamId?: number | null;
   /** 排序字段 */
   field?: string | null;
+  /**
+   * 上限
+   * @format double
+   */
+  highValue?: number | null;
   /** @format int64 */
   id?: number;
-  /** 是否启用 */
-  isEnable?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
-  /** 预警级别 */
-  level?: string | null;
+  /** 是否推送短信 */
+  isPush?: boolean | null;
+  /** 是否应用内推送 */
+  isPushApp?: boolean | null;
   /**
-   * 报警级别_index，0未报警，1蓝色预警、2黄色预警、3橙色预警、4红色预警
+   * 预警1,报警2
    * @format int32
    */
-  levelIdx?: number | null;
-  /** 规则名称 */
-  name?: string | null;
+  level?: number | null;
+  /**
+   * 下限
+   * @format double
+   */
+  lowerValue?: number | null;
+  /** 单位 */
+  measureUnit?: string | null;
   /** 排序方向 */
   order?: string | null;
   /**
@@ -14784,112 +15545,397 @@ export interface PrealarmRulePQO {
    * @max 100
    */
   pageSize?: number;
+  /** 预警信息 */
+  readonly prealarmInfo?: string | null;
+  /**
+   * 关联预警规则
+   * @format int64
+   */
+  prealarmRuleId?: number;
+  /** 预警信息 */
+  readonly prealarmTitle?: string | null;
+  /**
+   * 排口id
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /** 是否发送短信 */
   sendPhoneMsg?: boolean | null;
   /**
-   * 所属水库
+   * 预警开始时间
+   * @format date-time
+   */
+  startTime?: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  startTimeEt?: string | null;
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  startTimeSt?: string | null;
+  /**
+   * 测站id
    * @format int64
    */
-  technicsId?: number;
-  /** 预警条件 */
-  triggerCondition?: string | null;
-  /** 预警类型 */
-  type?: string | null;
+  technicsId?: number | null;
+  /** 测站名称 */
+  technicsName?: string | null;
+  /**
+   * 预警次数
+   * @format int32
+   */
+  times?: number | null;
+  /**
+   * 预警刷新时间
+   * @format date-time
+   */
+  updateTime?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
   updatedPerson?: string | null;
 }
 
-export interface PrealarmRuleQO {
+export interface PrealarmRecordQO {
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
+  /**
+   * 数据值
+   * @format double
+   */
+  dataValue?: number | null;
+  /**
+   * 预警时长
+   * @format int64
+   */
+  duration?: number | null;
+  /** 结束原因 */
+  endReason?: string | null;
+  /**
+   * 预警结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
   /**
    * 监测指标id
    * @format int64
    */
   equipmentParamId?: number | null;
+  /** 监测指标名称 */
+  equipmentParamName?: string | null;
+  /**
+   * 上限
+   * @format double
+   */
+  highValue?: number | null;
   /** @format int64 */
   id?: number;
-  /** 是否启用 */
-  isEnable?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
-  /** 预警级别 */
-  level?: string | null;
+  /** 是否推送短信 */
+  isPush?: boolean | null;
+  /** 是否应用内推送 */
+  isPushApp?: boolean | null;
   /**
-   * 报警级别_index，0未报警，1蓝色预警、2黄色预警、3橙色预警、4红色预警
+   * 预警1,报警2
    * @format int32
    */
-  levelIdx?: number | null;
-  /** 规则名称 */
-  name?: string | null;
+  level?: number | null;
+  /**
+   * 下限
+   * @format double
+   */
+  lowerValue?: number | null;
+  /** 单位 */
+  measureUnit?: string | null;
+  /** 预警信息 */
+  readonly prealarmInfo?: string | null;
+  /**
+   * 关联预警规则
+   * @format int64
+   */
+  prealarmRuleId?: number;
+  /** 预警信息 */
+  readonly prealarmTitle?: string | null;
+  /**
+   * 排口id
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
   /** 是否发送短信 */
   sendPhoneMsg?: boolean | null;
   /**
-   * 所属水库
+   * 预警开始时间
+   * @format date-time
+   */
+  startTime?: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  startTimeEt?: string | null;
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  startTimeSt?: string | null;
+  /**
+   * 测站id
    * @format int64
    */
-  technicsId?: number;
-  /** 预警条件 */
-  triggerCondition?: string | null;
-  /** 预警类型 */
-  type?: string | null;
+  technicsId?: number | null;
+  /** 测站名称 */
+  technicsName?: string | null;
+  /**
+   * 预警次数
+   * @format int32
+   */
+  times?: number | null;
+  /**
+   * 预警刷新时间
+   * @format date-time
+   */
+  updateTime?: string | null;
   /** @format date-time */
   updatedAt?: string | null;
   updatedPerson?: string | null;
+}
+
+export interface PrealarmRecordVO {
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /**
+   * 数据值
+   * @format double
+   */
+  dataValue?: number | null;
+  /**
+   * 预警时长
+   * @format int64
+   */
+  duration?: number | null;
+  /** 结束原因 */
+  endReason?: string | null;
+  /**
+   * 预警结束时间
+   * @format date-time
+   */
+  endTime?: string | null;
+  /**
+   * 设备id
+   * @format int64
+   */
+  equipmentId?: number | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
+  /**
+   * 监测指标id
+   * @format int64
+   */
+  equipmentParamId?: number | null;
+  /** 监测指标名称 */
+  equipmentParamName?: string | null;
+  /**
+   * 上限
+   * @format double
+   */
+  highValue?: number | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否推送短信 */
+  isPush?: boolean | null;
+  /** 是否应用内推送 */
+  isPushApp?: boolean | null;
+  /**
+   * 预警1,报警2
+   * @format int32
+   */
+  level?: number | null;
+  /**
+   * 下限
+   * @format double
+   */
+  lowerValue?: number | null;
+  /** 单位 */
+  measureUnit?: string | null;
+  /** 预警信息 */
+  readonly prealarmInfo?: string | null;
+  /**
+   * 关联预警规则
+   * @format int64
+   */
+  prealarmRuleId?: number;
+  /** 预警信息 */
+  readonly prealarmTitle?: string | null;
+  /**
+   * 排口id
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 排口名称 */
+  riverSewageOutfallName?: string | null;
+  /** 是否发送短信 */
+  sendPhoneMsg?: boolean | null;
+  /**
+   * 预警开始时间
+   * @format date-time
+   */
+  startTime?: string;
+  /**
+   * 测站id
+   * @format int64
+   */
+  technicsId?: number | null;
+  /** 测站名称 */
+  technicsName?: string | null;
+  /**
+   * 预警次数
+   * @format int32
+   */
+  times?: number | null;
+  /**
+   * 预警刷新时间
+   * @format date-time
+   */
+  updateTime?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+}
+
+export interface PrealarmRuleFO {
+  /**
+   * 监测指标id
+   * @format int64
+   */
+  equipmentParamId: number;
+  /**
+   * 上限
+   * @format double
+   */
+  highValue?: number | null;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * Desc:是否启用
+   * Default:1
+   * Nullable:True
+   */
+  isEnable?: boolean | null;
+  /**
+   * 级别
+   * @format int32
+   */
+  level: number;
+  /**
+   * 下限
+   * @format double
+   */
+  lowerValue?: number | null;
+  /**
+   * Desc:是否发送短信
+   * Default:1
+   * Nullable:True
+   */
+  sendPhoneMsg?: boolean | null;
 }
 
 export interface PrealarmRuleVO {
   /** @format date-time */
   createdAt?: string | null;
   createdPerson?: string | null;
+  /** 设备名称 */
+  equipmentName?: string | null;
   /**
    * 监测指标id
    * @format int64
    */
   equipmentParamId?: number | null;
-  /**
-   * Desc:监测指标名称
-   * Default:
-   * Nullable:True
-   */
+  /** 监测指标名称 */
   equipmentParamName?: string | null;
+  /**
+   * 上限
+   * @format double
+   */
+  highValue?: number | null;
   /** @format int64 */
   id?: number;
-  /** 是否启用 */
-  isEnable?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
-  /** 预警级别 */
-  level?: string | null;
   /**
-   * 报警级别_index，0未报警，1蓝色预警、2黄色预警、3橙色预警、4红色预警
-   * @format int32
-   */
-  levelIdx?: number | null;
-  /** 规则名称 */
-  name?: string | null;
-  /** 是否发送短信 */
-  sendPhoneMsg?: boolean | null;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number;
-  /**
-   * Desc:水库名称
-   * Default:
+   * Desc:是否启用
+   * Default:1
    * Nullable:True
    */
-  technicsName?: string | null;
-  /** 预警条件 */
-  triggerCondition?: string | null;
-  /** 预警类型 */
-  type?: string | null;
+  isEnable?: boolean | null;
+  /**
+   * 级别
+   * @format int32
+   */
+  level?: number | null;
+  /**
+   * 下限
+   * @format double
+   */
+  lowerValue?: number | null;
+  /**
+   * Desc:是否发送短信
+   * Default:1
+   * Nullable:True
+   */
+  sendPhoneMsg?: boolean | null;
   /** @format date-time */
   updatedAt?: string | null;
   updatedPerson?: string | null;
+}
+
+export interface PrealarmStQO {
+  /**
+   * 开始时间
+   * @format date-time
+   */
+  beginTime: string;
+  /**
+   * 结束时间
+   * @format date-time
+   */
+  endTime: string;
+  /**
+   * 等级
+   * @format int32
+   */
+  level?: number | null;
+  /**
+   * 河道排污口ID
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+}
+
+export interface PrealarmStVO {
+  /**
+   * 数量
+   * @format double
+   */
+  count?: number | null;
+  /**
+   * 持续时间(秒)
+   * @format double
+   */
+  duration?: number | null;
+  /** 时间 */
+  label?: string | null;
 }
 
 export interface PreviewUrlQO {
@@ -14898,276 +15944,30 @@ export interface PreviewUrlQO {
    * @minLength 1
    */
   cameraIndexCode: string;
-}
-
-export interface ProcessEventPageQO {
-  code?: string | null;
-  createTimeQueryGe?: string | null;
-  createTimeQueryLe?: string | null;
-  /** @format int32 */
-  page?: number | null;
-  /** @format int32 */
-  size?: number | null;
-  status?: number[] | null;
-}
-
-export interface ProcessInspectionCaseAlarmVO {
-  dangerLevel1?: string | null;
-  dangerLevel1Name?: string | null;
-  dangerLevel2?: string | null;
-  dangerLevel2Name?: string | null;
-  address?: string | null;
-  /** @format date-time */
-  alarmEndTime?: string | null;
-  /** @format date-time */
-  alarmStartTime?: string;
-  alarmType?: string | null;
-  billing?: string | null;
-  /** @format int32 */
-  bizline?: number | null;
-  bizlineDesc?: string | null;
-  carrier?: string | null;
-  code?: string | null;
-  comment?: string | null;
-  createTime?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format double */
-  dataValue?: number | null;
-  description?: string | null;
-  /** @format int64 */
-  duration?: number | null;
-  endTime?: string | null;
-  /** @format int64 */
-  equipmentId?: number | null;
-  equipmentName?: string | null;
-  /** @format int64 */
-  equipmentParamId?: number | null;
-  equipmentParamName?: string | null;
-  files?: SystemFileVO[] | null;
-  /** @format int32 */
-  id?: number | null;
-  lat?: string | null;
-  /** @format double */
-  latitude?: number | null;
-  level?: string | null;
-  lng?: string | null;
-  /** @format double */
-  longitude?: number | null;
-  measureUnit?: string | null;
-  name?: string | null;
-  prealarmInfo?: string | null;
-  /** @format int64 */
-  prealarmRuleId?: number;
-  prealarmRuleLevel?: string | null;
-  /** @format int32 */
-  prealarmRuleLevelIdx?: number | null;
-  prealarmRuleName?: string | null;
-  prealarmRuleType?: string | null;
-  principal?: string | null;
-  principalName?: string | null;
-  /** @format double */
-  radius?: number | null;
-  /** @format int64 */
-  recordId?: number;
-  recordTechnicsName?: string | null;
-  repairTaskCode?: string | null;
-  reportLat?: string | null;
-  reporter?: string | null;
-  reporterName?: string | null;
-  reporting?: string | null;
-  /** @format int32 */
-  sday?: number;
-  /** @format int32 */
-  shour?: number;
-  simple?: boolean | null;
-  /** @format int32 */
-  smonth?: number;
-  startTime?: string | null;
-  /** @format int32 */
-  status?: number | null;
-  statusDesc?: string | null;
-  /** @format int32 */
-  syear?: number;
-  taskCode?: string | null;
-  taskStatusDesc?: string | null;
-  technicsCode?: string | null;
-  /** @format int64 */
-  technicsId?: number;
-  technicsName?: string | null;
-  triggerCondition?: string | null;
-  /** @format int32 */
-  type?: number | null;
-  typeDesc?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  workOrderNumber?: string | null;
-  /** @format int32 */
-  workStatus?: number | null;
-  workStatusDesc?: string | null;
-}
-
-export interface ProcessInspectionCaseVO {
-  /** 隐患大类 */
-  dangerLevel1?: string | null;
-  /** 隐患大类名称 */
-  dangerLevel1Name?: string | null;
-  /** 隐患小类 */
-  dangerLevel2?: string | null;
-  /** 隐患小类名称 */
-  dangerLevel2Name?: string | null;
-  /** 案件位置 */
-  address?: string | null;
-  /** 工单编号 */
-  billing?: string | null;
+  /** 网络1：内网，2：外网 */
+  inout?: string | null;
   /**
-   * 行业标识（BizLine枚举）
+   * 码流类型（0:主码流，1:子码流，2:第三码流，参数不填，默认为主码流）
    * @format int32
    */
-  bizline?: number | null;
-  /** 行业标识描述 */
-  bizlineDesc?: string | null;
-  /** 管网类型 */
-  carrier?: string | null;
-  /** 案件编号 */
-  code?: string | null;
-  /** 处置建议 */
-  comment?: string | null;
-  /** 上报时间 */
-  createTime?: string | null;
-  /** 案件描述 */
-  description?: string | null;
-  /** 处置结束时间 */
-  endTime?: string | null;
-  /** 图片信息列表 */
-  files?: SystemFileVO[] | null;
-  /**
-   * 主键
-   * @format int32
-   */
-  id?: number | null;
-  /** 点位纬度 */
-  lat?: string | null;
-  /** 点位经度 */
-  lng?: string | null;
-  /** 案件名称 */
-  name?: string | null;
-  /** 处置人 */
-  principal?: string | null;
-  /** 处置人姓名 */
-  principalName?: string | null;
-  /**
-   * 上报区域半径，单位m
-   * @format double
-   */
-  radius?: number | null;
-  /** 维修工单编号 */
-  repairTaskCode?: string | null;
-  /** 上报纬度 */
-  reportLat?: string | null;
-  /** 上报人 */
-  reporter?: string | null;
-  /** 上报人姓名 */
-  reporterName?: string | null;
-  /** 上报经度 */
-  reporting?: string | null;
-  /** 是否简易处置（简易处置不生成工单） */
-  simple?: boolean | null;
-  /** 处置开始时间 */
-  startTime?: string | null;
-  /**
-   * 案件状态（1待处置 2处置中 3已结案）
-   * @format int32
-   */
-  status?: number | null;
-  /** 案件状态描述 */
-  statusDesc?: string | null;
-  /** 所属任务编号 */
-  taskCode?: string | null;
-  /** 任务状态描述 */
-  taskStatusDesc?: string | null;
-  /** 设备编号 */
-  technicsCode?: string | null;
-  /** 设备名称 */
-  technicsName?: string | null;
-  /**
-   * 案件类别（1一般 2紧急）
-   * @format int32
-   */
-  type?: number | null;
-  /** 案件类别描述 */
-  typeDesc?: string | null;
-  /**
-   * 工单状态（1待执行 2执行中 3待审核 4已结束）
-   * @format int32
-   */
-  workStatus?: number | null;
-  /** 工单状态描述 */
-  workStatusDesc?: string | null;
-}
-
-export interface ProjectTsFileSaveFO {
-  jjclfa?: RecordFile;
-  /**
-   * TechnicsId
-   * @format int64
-   */
-  technicsId: number;
-  tslx?: RecordFile;
-}
-
-export interface ProjectTsFileVO {
-  jjclfa?: RecordFile;
-  /**
-   * 水库工程信息id
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** 水库工程信息id */
-  technicsName?: string | null;
-  tslx?: RecordFile;
-}
-
-export interface PtfPQO {
-  /** 排序字段 */
-  field?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * TechnicsId
-   * @format int64
-   */
-  technicsId?: number | null;
-}
-
-export interface PtfQO {
-  /**
-   * TechnicsId
-   * @format int64
-   */
-  technicsId: number;
+  streamType?: number | null;
 }
 
 export interface RealTimeReportQO {
+  /**
+   * 排口id
+   * @format int64
+   */
+  outfallId?: number | null;
+  /** 所在河流 */
+  riverCode?: string | null;
   /**
    * 监测点id
    * @format int64
    */
   technicsId?: number | null;
+  /** 乡镇 */
+  villageCode?: string | null;
 }
 
 export interface RealTimeReportVO {
@@ -15178,7 +15978,7 @@ export interface RealTimeReportVO {
   nh3n?: number | null;
   nh3nParam?: EquipmentParamVO;
   /**
-   * Cod
+   * cod
    * @format double
    */
   cod?: number | null;
@@ -15189,23 +15989,18 @@ export interface RealTimeReportVO {
    */
   dataTime?: string | null;
   /**
-   * 瞬时流量
+   * PH
    * @format double
    */
-  flowRate?: number | null;
-  flowRateParam?: EquipmentParamVO;
+  ph?: number | null;
+  phParam?: EquipmentParamVO;
   /**
-   * 瞬时流速
-   * @format double
+   * 入河排污口ID
+   * @format int64
    */
-  instantaneousVelocity?: number | null;
-  instantaneousVelocityParam?: EquipmentParamVO;
-  /**
-   * SS
-   * @format double
-   */
-  ss?: number | null;
-  ssParam?: EquipmentParamVO;
+  riverSewageOutfallId?: number | null;
+  /** 入河排污口名称 */
+  riverSewageOutfallName?: string | null;
   /**
    * 监测点id
    * @format int64
@@ -15214,17 +16009,41 @@ export interface RealTimeReportVO {
   /** 监测点名称 */
   technicsName?: string | null;
   /**
-   * 累计流量
+   * 总氮
    * @format double
    */
-  totalFlow?: number | null;
-  totalFlowParam?: EquipmentParamVO;
+  tn?: number | null;
+  tnParam?: EquipmentParamVO;
   /**
-   * 液位
+   * 总磷
    * @format double
    */
-  waterLevel?: number | null;
-  waterLevelParam?: EquipmentParamVO;
+  tp?: number | null;
+  tpParam?: EquipmentParamVO;
+}
+
+/** 重算传输率请求对象 */
+export interface RecalcRateFO {
+  /**
+   * 开始日期(含)
+   * @format date-time
+   */
+  beginDate: string;
+  /**
+   * 计算来源(1-定时任务,2-设备补传重算,3-停机变更重算,4-手动重算)
+   * @format int32
+   */
+  calcSource?: number | null;
+  /**
+   * 结束日期(含)
+   * @format date-time
+   */
+  endDate: string;
+  /**
+   * 监测因子ID
+   * @format int64
+   */
+  equipmentParamId: number;
 }
 
 export interface RecordFile {
@@ -15372,35 +16191,14 @@ export interface RemoveMulQO {
   ids: number[];
 }
 
-export interface RepairDetailVO {
-  /** 创建时间（对应JSON字段：createTime） */
-  createTime?: string | null;
-  /** 处置描述（对应JSON字段：description） */
-  description?: string | null;
-  /** 设备名称（对应JSON字段：deviceName） */
-  deviceName?: string | null;
-  /** 附件文件列表（对应JSON字段：files） */
-  files?: FileInfoVO[] | null;
+export interface ReportPrealarmQO {
   /**
-   * 记录ID（对应JSON字段：id）
-   * @format int32
+   * Id
+   * @format int64
    */
-  id?: number;
-  /**
-   * 有效半径（单位：米，对应JSON字段：radius）
-   * @format double
-   */
-  radius?: number;
-  /** 上报纬度（对应JSON字段：reportLat） */
-  reportLat?: string | null;
-  /** 上报经度（对应JSON字段：reportLng） */
-  reportLng?: string | null;
-  /** 上报人账号（对应JSON字段：reporter） */
-  reporter?: string | null;
-  /** 上报人姓名（对应JSON字段：reporterName） */
-  reporterName?: string | null;
-  /** 关联任务编号（对应JSON字段：taskCode） */
-  taskCode?: string | null;
+  id?: number | null;
+  /** 用户id */
+  userIds?: number[] | null;
 }
 
 export interface ReqIdsQO {
@@ -15411,1637 +16209,6 @@ export interface ReqIdsQO {
    * @max 100
    */
   idCount?: number;
-}
-
-/** 库容曲线表 */
-export interface ReservoirCapacity {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /** @format double */
-  waterArea?: number | null;
-  /**
-   * 库容
-   * @format double
-   */
-  waterCapacity?: number | null;
-  /**
-   * 水位
-   * @format double
-   */
-  waterLevel?: number | null;
-}
-
-export interface ReservoirCapacityFO {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /** @format double */
-  waterArea?: number | null;
-  /**
-   * 库容
-   * @format double
-   */
-  waterCapacity?: number | null;
-  /**
-   * 水位
-   * @format double
-   */
-  waterLevel?: number | null;
-}
-
-export interface ReservoirCapacityPQO {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 是否删除 */
-  isDelete?: boolean | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /** @format double */
-  waterArea?: number | null;
-  /**
-   * 库容
-   * @format double
-   */
-  waterCapacity?: number | null;
-  /**
-   * 水位
-   * @format double
-   */
-  waterLevel?: number | null;
-}
-
-export interface ReservoirCapacityQO {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 是否删除 */
-  isDelete?: boolean | null;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /** @format double */
-  waterArea?: number | null;
-  /**
-   * 库容
-   * @format double
-   */
-  waterCapacity?: number | null;
-  /**
-   * 水位
-   * @format double
-   */
-  waterLevel?: number | null;
-}
-
-export interface ReservoirCapacityVO {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number | null;
-  /**
-   * Desc:水库名称
-   * Default:
-   * Nullable:True
-   */
-  technicsName?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /** @format double */
-  waterArea?: number | null;
-  /**
-   * 库容
-   * @format double
-   */
-  waterCapacity?: number | null;
-  /**
-   * 水位
-   * @format double
-   */
-  waterLevel?: number | null;
-}
-
-/** 泄流曲线表 */
-export interface ReservoirFlow {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 泄流量
-   * @format double
-   */
-  waterFlow?: number | null;
-  /**
-   * 水位
-   * @format double
-   */
-  waterLevel?: number | null;
-}
-
-export interface ReservoirFlowFO {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 泄流量
-   * @format double
-   */
-  waterFlow?: number | null;
-  /**
-   * 水位
-   * @format double
-   */
-  waterLevel?: number | null;
-}
-
-export interface ReservoirFlowPQO {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 是否删除 */
-  isDelete?: boolean | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 泄流量
-   * @format double
-   */
-  waterFlow?: number | null;
-  /**
-   * 水位
-   * @format double
-   */
-  waterLevel?: number | null;
-}
-
-export interface ReservoirFlowQO {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 是否删除 */
-  isDelete?: boolean | null;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 泄流量
-   * @format double
-   */
-  waterFlow?: number | null;
-  /**
-   * 水位
-   * @format double
-   */
-  waterLevel?: number | null;
-}
-
-export interface ReservoirFlowVO {
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 所属水库
-   * @format int64
-   */
-  technicsId?: number | null;
-  /**
-   * Desc:水库名称
-   * Default:
-   * Nullable:True
-   */
-  technicsName?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 泄流量
-   * @format double
-   */
-  waterFlow?: number | null;
-  /**
-   * 水位
-   * @format double
-   */
-  waterLevel?: number | null;
-}
-
-export interface ReservoirInfo {
-  /**
-   * 校核洪水位（m）
-   * @format double
-   */
-  floodWaterLevel?: number | null;
-  /**
-   * 死水位（m）
-   * @format double
-   */
-  invalidWaterLevel?: number | null;
-  /**
-   * 最大库容（m³）
-   * @format double
-   */
-  maxCapacity?: number | null;
-  /**
-   * 溢流水深（m）
-   * @format double
-   */
-  maxDepth?: number | null;
-  /**
-   * 溢洪道堰顶高程（m）
-   * @format double
-   */
-  spillwayTopAltitude?: number | null;
-  /**
-   * 水库ID
-   * @format int64
-   */
-  technicsId?: number;
-  /** 水库名称 */
-  technicsName?: string | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /**
-   * 平均泄流量（m³/s）
-   * @format double
-   */
-  waterAvgDischarges?: number | null;
-  /**
-   * 水位（m）
-   * @format double
-   */
-  waterAvgLevel?: number | null;
-  /**
-   * 库容（万m³）
-   * @format double
-   */
-  waterCapacity?: number | null;
-  /**
-   * 最大泄流量（m³/s）
-   * @format double
-   */
-  waterCouDischarges?: number | null;
-}
-
-export interface ReservoirProjectFO {
-  /**
-   * 实际正常蓄水位（m）
-   * @format double
-   */
-  normalWaterLevel1?: number | null;
-  /** 自动观测设施 */
-  autoObserveDevice?: string | null;
-  /**
-   * 副坝座数
-   * @format int32
-   */
-  auxiliaryDamNum?: number | null;
-  /**
-   * 回水末端坐标X
-   * @format double
-   */
-  backwaterCoordinateX?: number | null;
-  /**
-   * 回水末端坐标Y
-   * @format double
-   */
-  backwaterCoordinateY?: number | null;
-  /**
-   * 完工年限
-   * @format double
-   */
-  completionYearLimit?: number | null;
-  /**
-   * 建成时间
-   * @format date-time
-   */
-  constructionTime?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 大坝坐标X
-   * @format double
-   */
-  damCoordinateX?: number | null;
-  /**
-   * 大坝坐标Y
-   * @format double
-   */
-  damCoordinateY?: number | null;
-  /** 功能 */
-  damFunction?: string | null;
-  /** 坝型 */
-  damType?: string | null;
-  /** 区县 */
-  division?: string | null;
-  /**
-   * 放水设施放水孔孔径（m）
-   * @format double
-   */
-  drainageFacilityBoreDiameter?: number | null;
-  /**
-   * 放水设施进口底高程（m）
-   * @format double
-   */
-  drainageFacilityBottomAltitude?: number | null;
-  /**
-   * 放水设施断面尺寸（m）
-   * @format double
-   */
-  drainageFacilityCrosssection?: number | null;
-  /** 放水设施位置 */
-  drainageFacilityLocation?: string | null;
-  /**
-   * 放水设施最大放水流量（m³/s）
-   * @format double
-   */
-  drainageFacilityMaximumLetdownFlow?: number | null;
-  /** 放水设施结构型式 */
-  drainageFacilityStructure?: string | null;
-  /**
-   * 首次竣工验收时间
-   * @format date-time
-   */
-  firstCompletionTime?: string | null;
-  /**
-   * 首次投入使用时间
-   * @format date-time
-   */
-  firstOperationalTime?: string | null;
-  /**
-   * 首次开工时间
-   * @format date-time
-   */
-  firstStartTime?: string | null;
-  /**
-   * 校核洪水流量
-   * @format double
-   */
-  floodWaterFlow?: number | null;
-  /**
-   * 校核洪水位（m）
-   * @format double
-   */
-  floodWaterLevel?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 死库容（万m3）
-   * @format double
-   */
-  invalidCapacity?: number | null;
-  /**
-   * 死水位（m）
-   * @format double
-   */
-  invalidWaterLevel?: number | null;
-  /** 是否竣工验收 */
-  isCompletionAcceptance?: boolean | null;
-  /** 是否饮用水源 */
-  isDrinkingWater?: boolean | null;
-  /** 是否水利系统 */
-  isHydraulic?: boolean | null;
-  /** 注册登记证书是否领取 */
-  isReceiveCertificate?: boolean | null;
-  jjclfaRecordFile?: RecordFile;
-  /**
-   * 紧急处理方案id
-   * @format int64
-   */
-  jjclfaRecordFileId?: number | null;
-  /**
-   * 最近一次除险加固完成时间（年）
-   * @format date-time
-   */
-  latestReinforcementTime?: string | null;
-  /**
-   * 最近一次安全鉴定时间（年）
-   * @format int32
-   */
-  latestSafetyAuthTime?: number | null;
-  /** 所在流域 */
-  localBasin?: string | null;
-  /** 管理单位 */
-  manageOrg?: string | null;
-  /**
-   * 最大坝高（m)
-   * @format double
-   */
-  maxHeight?: number | null;
-  /**
-   * 多年平均径流量
-   * @format double
-   */
-  meanAnnualRunoff?: number | null;
-  /**
-   * 新增和改善灌溉面积（万亩）
-   * @format double
-   */
-  newlrrigationArea?: number | null;
-  /**
-   * 正常库容（万m3)
-   * @format double
-   */
-  normalCapacity?: number | null;
-  /**
-   * 正常蓄水位（m）
-   * @format double
-   */
-  normalWaterLevel?: number | null;
-  /** 工程规模 */
-  projectScale?: string | null;
-  /**
-   * 保护下游人口（万人）
-   * @format double
-   */
-  protectedPopulation?: number | null;
-  /**
-   * 集雨面积 （km2）
-   * @format double
-   */
-  rainArea?: number | null;
-  /** 注册登记号码 */
-  registrationNumber?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 水库类别 */
-  reservoirClass?: string | null;
-  /** 工程概况 */
-  reservoirInfo?: string | null;
-  /** 水库类型 */
-  reservoirType?: string | null;
-  /** 所在河流（湖泊）名称 */
-  river?: string | null;
-  /**
-   * 设计洪水流量
-   * @format double
-   */
-  seasonWaterFlow?: number | null;
-  /**
-   * 汛限水位（m）
-   * @format double
-   */
-  seasonWaterLevel?: number | null;
-  /** 溢洪道消能形式 */
-  spillwayEnergyDissipater?: string | null;
-  /** 溢洪道位置 */
-  spillwayLocation?: string | null;
-  /**
-   * 溢洪道最大下泄流量（m³/s）
-   * @format double
-   */
-  spillwayMaximumLetdownFlow?: number | null;
-  /**
-   * 正常溢洪道数量
-   * @format int32
-   */
-  spillwayNum?: number | null;
-  /**
-   * 溢洪道堰顶高程（m）
-   * @format double
-   */
-  spillwayTopAltitude?: number | null;
-  /**
-   * 溢洪道堰顶宽（m）
-   * @format double
-   */
-  spillwayTopWeight?: number | null;
-  /** 溢洪道型式 */
-  spillwayType?: string | null;
-  /** 测站编码 */
-  stCode?: string | null;
-  /**
-   * 正常水位淹没面积（亩）
-   * @format double
-   */
-  submergedArea?: number | null;
-  /**
-   * 水库id
-   * @format int64
-   */
-  technicsId?: number | null;
-  /**
-   * 坝顶高程（m)
-   * @format double
-   */
-  topAltitude?: number | null;
-  /**
-   * 坝顶长度（m）
-   * @format double
-   */
-  topLength?: number | null;
-  /**
-   * 坝顶宽度（m）
-   * @format double
-   */
-  topWeight?: number | null;
-  /**
-   * 总库容  (万m3)
-   * @format double
-   */
-  totalCapacity?: number | null;
-  tslxRecordFile?: RecordFile;
-  /**
-   * 逃生路线图片id
-   * @format int64
-   */
-  tslxRecordFileId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 有效库容（万m3）
-   * @format double
-   */
-  validCapacity?: number | null;
-  /** 乡镇 */
-  village?: string | null;
-  /**
-   * 坝址以上控制流域面积(㎡)
-   * @format double
-   */
-  waterArea?: number | null;
-  /** 工作站名称 */
-  workStationName?: string | null;
-  /**
-   * 年防洪效益
-   * @format double
-   */
-  yearFloodPreventBenefit?: number | null;
-  /**
-   * 年供水效益
-   * @format double
-   */
-  yearWaterSupplyBenefit?: number | null;
-  /**
-   * 年灌溉效益
-   * @format double
-   */
-  yearirrigationBenefit?: number | null;
-}
-
-export interface ReservoirProjectPQO {
-  /**
-   * 实际正常蓄水位（m）
-   * @format double
-   */
-  normalWaterLevel1?: number | null;
-  /** 自动观测设施 */
-  autoObserveDevice?: string | null;
-  /**
-   * 副坝座数
-   * @format int32
-   */
-  auxiliaryDamNum?: number | null;
-  /**
-   * 回水末端坐标X
-   * @format double
-   */
-  backwaterCoordinateX?: number | null;
-  /**
-   * 回水末端坐标Y
-   * @format double
-   */
-  backwaterCoordinateY?: number | null;
-  /**
-   * 完工年限
-   * @format double
-   */
-  completionYearLimit?: number | null;
-  /**
-   * 建成时间
-   * @format date-time
-   */
-  constructionTime?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 大坝坐标X
-   * @format double
-   */
-  damCoordinateX?: number | null;
-  /**
-   * 大坝坐标Y
-   * @format double
-   */
-  damCoordinateY?: number | null;
-  /** 功能 */
-  damFunction?: string | null;
-  /** 坝型 */
-  damType?: string | null;
-  /** 区县 */
-  division?: string | null;
-  /**
-   * 放水设施放水孔孔径（m）
-   * @format double
-   */
-  drainageFacilityBoreDiameter?: number | null;
-  /**
-   * 放水设施进口底高程（m）
-   * @format double
-   */
-  drainageFacilityBottomAltitude?: number | null;
-  /**
-   * 放水设施断面尺寸（m）
-   * @format double
-   */
-  drainageFacilityCrosssection?: number | null;
-  /** 放水设施位置 */
-  drainageFacilityLocation?: string | null;
-  /**
-   * 放水设施最大放水流量（m³/s）
-   * @format double
-   */
-  drainageFacilityMaximumLetdownFlow?: number | null;
-  /** 放水设施结构型式 */
-  drainageFacilityStructure?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /**
-   * 首次竣工验收时间
-   * @format date-time
-   */
-  firstCompletionTime?: string | null;
-  /**
-   * 首次投入使用时间
-   * @format date-time
-   */
-  firstOperationalTime?: string | null;
-  /**
-   * 首次开工时间
-   * @format date-time
-   */
-  firstStartTime?: string | null;
-  /**
-   * 校核洪水流量
-   * @format double
-   */
-  floodWaterFlow?: number | null;
-  /**
-   * 校核洪水位（m）
-   * @format double
-   */
-  floodWaterLevel?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 死库容（万m3）
-   * @format double
-   */
-  invalidCapacity?: number | null;
-  /**
-   * 死水位（m）
-   * @format double
-   */
-  invalidWaterLevel?: number | null;
-  /** 是否竣工验收 */
-  isCompletionAcceptance?: boolean | null;
-  /** 是否饮用水源 */
-  isDrinkingWater?: boolean | null;
-  /** 是否水利系统 */
-  isHydraulic?: boolean | null;
-  /** 注册登记证书是否领取 */
-  isReceiveCertificate?: boolean | null;
-  jjclfaRecordFile?: RecordFile;
-  /**
-   * 紧急处理方案id
-   * @format int64
-   */
-  jjclfaRecordFileId?: number | null;
-  /**
-   * 最近一次除险加固完成时间（年）
-   * @format date-time
-   */
-  latestReinforcementTime?: string | null;
-  /**
-   * 最近一次安全鉴定时间（年）
-   * @format int32
-   */
-  latestSafetyAuthTime?: number | null;
-  /** 所在流域 */
-  localBasin?: string | null;
-  /** 管理单位 */
-  manageOrg?: string | null;
-  /**
-   * 最大坝高（m)
-   * @format double
-   */
-  maxHeight?: number | null;
-  /**
-   * 多年平均径流量
-   * @format double
-   */
-  meanAnnualRunoff?: number | null;
-  /**
-   * 新增和改善灌溉面积（万亩）
-   * @format double
-   */
-  newlrrigationArea?: number | null;
-  /**
-   * 正常库容（万m3)
-   * @format double
-   */
-  normalCapacity?: number | null;
-  /**
-   * 正常蓄水位（m）
-   * @format double
-   */
-  normalWaterLevel?: number | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /** 工程规模 */
-  projectScale?: string | null;
-  /**
-   * 保护下游人口（万人）
-   * @format double
-   */
-  protectedPopulation?: number | null;
-  /**
-   * 集雨面积 （km2）
-   * @format double
-   */
-  rainArea?: number | null;
-  /** 注册登记号码 */
-  registrationNumber?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 水库类别 */
-  reservoirClass?: string | null;
-  /** 工程概况 */
-  reservoirInfo?: string | null;
-  /** 水库类型 */
-  reservoirType?: string | null;
-  /** 所在河流（湖泊）名称 */
-  river?: string | null;
-  /**
-   * 设计洪水流量
-   * @format double
-   */
-  seasonWaterFlow?: number | null;
-  /**
-   * 汛限水位（m）
-   * @format double
-   */
-  seasonWaterLevel?: number | null;
-  /** 溢洪道消能形式 */
-  spillwayEnergyDissipater?: string | null;
-  /** 溢洪道位置 */
-  spillwayLocation?: string | null;
-  /**
-   * 溢洪道最大下泄流量（m³/s）
-   * @format double
-   */
-  spillwayMaximumLetdownFlow?: number | null;
-  /**
-   * 正常溢洪道数量
-   * @format int32
-   */
-  spillwayNum?: number | null;
-  /**
-   * 溢洪道堰顶高程（m）
-   * @format double
-   */
-  spillwayTopAltitude?: number | null;
-  /**
-   * 溢洪道堰顶宽（m）
-   * @format double
-   */
-  spillwayTopWeight?: number | null;
-  /** 溢洪道型式 */
-  spillwayType?: string | null;
-  /** 测站编码 */
-  stCode?: string | null;
-  /**
-   * 正常水位淹没面积（亩）
-   * @format double
-   */
-  submergedArea?: number | null;
-  /**
-   * 水库id
-   * @format int64
-   */
-  technicsId?: number | null;
-  /**
-   * 坝顶高程（m)
-   * @format double
-   */
-  topAltitude?: number | null;
-  /**
-   * 坝顶长度（m）
-   * @format double
-   */
-  topLength?: number | null;
-  /**
-   * 坝顶宽度（m）
-   * @format double
-   */
-  topWeight?: number | null;
-  /**
-   * 总库容  (万m3)
-   * @format double
-   */
-  totalCapacity?: number | null;
-  tslxRecordFile?: RecordFile;
-  /**
-   * 逃生路线图片id
-   * @format int64
-   */
-  tslxRecordFileId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 有效库容（万m3）
-   * @format double
-   */
-  validCapacity?: number | null;
-  /** 乡镇 */
-  village?: string | null;
-  /**
-   * 坝址以上控制流域面积(㎡)
-   * @format double
-   */
-  waterArea?: number | null;
-  /** 工作站名称 */
-  workStationName?: string | null;
-  /**
-   * 年防洪效益
-   * @format double
-   */
-  yearFloodPreventBenefit?: number | null;
-  /**
-   * 年供水效益
-   * @format double
-   */
-  yearWaterSupplyBenefit?: number | null;
-  /**
-   * 年灌溉效益
-   * @format double
-   */
-  yearirrigationBenefit?: number | null;
-}
-
-export interface ReservoirProjectQO {
-  /**
-   * 实际正常蓄水位（m）
-   * @format double
-   */
-  normalWaterLevel1?: number | null;
-  /** 自动观测设施 */
-  autoObserveDevice?: string | null;
-  /**
-   * 副坝座数
-   * @format int32
-   */
-  auxiliaryDamNum?: number | null;
-  /**
-   * 回水末端坐标X
-   * @format double
-   */
-  backwaterCoordinateX?: number | null;
-  /**
-   * 回水末端坐标Y
-   * @format double
-   */
-  backwaterCoordinateY?: number | null;
-  /**
-   * 完工年限
-   * @format double
-   */
-  completionYearLimit?: number | null;
-  /**
-   * 建成时间
-   * @format date-time
-   */
-  constructionTime?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 大坝坐标X
-   * @format double
-   */
-  damCoordinateX?: number | null;
-  /**
-   * 大坝坐标Y
-   * @format double
-   */
-  damCoordinateY?: number | null;
-  /** 功能 */
-  damFunction?: string | null;
-  /** 坝型 */
-  damType?: string | null;
-  /** 区县 */
-  division?: string | null;
-  /**
-   * 放水设施放水孔孔径（m）
-   * @format double
-   */
-  drainageFacilityBoreDiameter?: number | null;
-  /**
-   * 放水设施进口底高程（m）
-   * @format double
-   */
-  drainageFacilityBottomAltitude?: number | null;
-  /**
-   * 放水设施断面尺寸（m）
-   * @format double
-   */
-  drainageFacilityCrosssection?: number | null;
-  /** 放水设施位置 */
-  drainageFacilityLocation?: string | null;
-  /**
-   * 放水设施最大放水流量（m³/s）
-   * @format double
-   */
-  drainageFacilityMaximumLetdownFlow?: number | null;
-  /** 放水设施结构型式 */
-  drainageFacilityStructure?: string | null;
-  /**
-   * 首次竣工验收时间
-   * @format date-time
-   */
-  firstCompletionTime?: string | null;
-  /**
-   * 首次投入使用时间
-   * @format date-time
-   */
-  firstOperationalTime?: string | null;
-  /**
-   * 首次开工时间
-   * @format date-time
-   */
-  firstStartTime?: string | null;
-  /**
-   * 校核洪水流量
-   * @format double
-   */
-  floodWaterFlow?: number | null;
-  /**
-   * 校核洪水位（m）
-   * @format double
-   */
-  floodWaterLevel?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 死库容（万m3）
-   * @format double
-   */
-  invalidCapacity?: number | null;
-  /**
-   * 死水位（m）
-   * @format double
-   */
-  invalidWaterLevel?: number | null;
-  /** 是否竣工验收 */
-  isCompletionAcceptance?: boolean | null;
-  /** 是否饮用水源 */
-  isDrinkingWater?: boolean | null;
-  /** 是否水利系统 */
-  isHydraulic?: boolean | null;
-  /** 注册登记证书是否领取 */
-  isReceiveCertificate?: boolean | null;
-  jjclfaRecordFile?: RecordFile;
-  /**
-   * 紧急处理方案id
-   * @format int64
-   */
-  jjclfaRecordFileId?: number | null;
-  /**
-   * 最近一次除险加固完成时间（年）
-   * @format date-time
-   */
-  latestReinforcementTime?: string | null;
-  /**
-   * 最近一次安全鉴定时间（年）
-   * @format int32
-   */
-  latestSafetyAuthTime?: number | null;
-  /** 所在流域 */
-  localBasin?: string | null;
-  /** 管理单位 */
-  manageOrg?: string | null;
-  /**
-   * 最大坝高（m)
-   * @format double
-   */
-  maxHeight?: number | null;
-  /**
-   * 多年平均径流量
-   * @format double
-   */
-  meanAnnualRunoff?: number | null;
-  /**
-   * 新增和改善灌溉面积（万亩）
-   * @format double
-   */
-  newlrrigationArea?: number | null;
-  /**
-   * 正常库容（万m3)
-   * @format double
-   */
-  normalCapacity?: number | null;
-  /**
-   * 正常蓄水位（m）
-   * @format double
-   */
-  normalWaterLevel?: number | null;
-  /** 工程规模 */
-  projectScale?: string | null;
-  /**
-   * 保护下游人口（万人）
-   * @format double
-   */
-  protectedPopulation?: number | null;
-  /**
-   * 集雨面积 （km2）
-   * @format double
-   */
-  rainArea?: number | null;
-  /** 注册登记号码 */
-  registrationNumber?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 水库类别 */
-  reservoirClass?: string | null;
-  /** 工程概况 */
-  reservoirInfo?: string | null;
-  /** 水库类型 */
-  reservoirType?: string | null;
-  /** 所在河流（湖泊）名称 */
-  river?: string | null;
-  /**
-   * 设计洪水流量
-   * @format double
-   */
-  seasonWaterFlow?: number | null;
-  /**
-   * 汛限水位（m）
-   * @format double
-   */
-  seasonWaterLevel?: number | null;
-  /** 溢洪道消能形式 */
-  spillwayEnergyDissipater?: string | null;
-  /** 溢洪道位置 */
-  spillwayLocation?: string | null;
-  /**
-   * 溢洪道最大下泄流量（m³/s）
-   * @format double
-   */
-  spillwayMaximumLetdownFlow?: number | null;
-  /**
-   * 正常溢洪道数量
-   * @format int32
-   */
-  spillwayNum?: number | null;
-  /**
-   * 溢洪道堰顶高程（m）
-   * @format double
-   */
-  spillwayTopAltitude?: number | null;
-  /**
-   * 溢洪道堰顶宽（m）
-   * @format double
-   */
-  spillwayTopWeight?: number | null;
-  /** 溢洪道型式 */
-  spillwayType?: string | null;
-  /** 测站编码 */
-  stCode?: string | null;
-  /**
-   * 正常水位淹没面积（亩）
-   * @format double
-   */
-  submergedArea?: number | null;
-  /**
-   * 水库id
-   * @format int64
-   */
-  technicsId?: number | null;
-  /**
-   * 坝顶高程（m)
-   * @format double
-   */
-  topAltitude?: number | null;
-  /**
-   * 坝顶长度（m）
-   * @format double
-   */
-  topLength?: number | null;
-  /**
-   * 坝顶宽度（m）
-   * @format double
-   */
-  topWeight?: number | null;
-  /**
-   * 总库容  (万m3)
-   * @format double
-   */
-  totalCapacity?: number | null;
-  tslxRecordFile?: RecordFile;
-  /**
-   * 逃生路线图片id
-   * @format int64
-   */
-  tslxRecordFileId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 有效库容（万m3）
-   * @format double
-   */
-  validCapacity?: number | null;
-  /** 乡镇 */
-  village?: string | null;
-  /**
-   * 坝址以上控制流域面积(㎡)
-   * @format double
-   */
-  waterArea?: number | null;
-  /** 工作站名称 */
-  workStationName?: string | null;
-  /**
-   * 年防洪效益
-   * @format double
-   */
-  yearFloodPreventBenefit?: number | null;
-  /**
-   * 年供水效益
-   * @format double
-   */
-  yearWaterSupplyBenefit?: number | null;
-  /**
-   * 年灌溉效益
-   * @format double
-   */
-  yearirrigationBenefit?: number | null;
-}
-
-export interface ReservoirProjectVO {
-  /**
-   * 实际正常蓄水位（m）
-   * @format double
-   */
-  normalWaterLevel1?: number | null;
-  /** 自动观测设施 */
-  autoObserveDevice?: string | null;
-  /**
-   * 副坝座数
-   * @format int32
-   */
-  auxiliaryDamNum?: number | null;
-  /**
-   * 回水末端坐标X
-   * @format double
-   */
-  backwaterCoordinateX?: number | null;
-  /**
-   * 回水末端坐标Y
-   * @format double
-   */
-  backwaterCoordinateY?: number | null;
-  /**
-   * 完工年限
-   * @format double
-   */
-  completionYearLimit?: number | null;
-  /**
-   * 建成时间
-   * @format date-time
-   */
-  constructionTime?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /**
-   * 大坝坐标X
-   * @format double
-   */
-  damCoordinateX?: number | null;
-  /**
-   * 大坝坐标Y
-   * @format double
-   */
-  damCoordinateY?: number | null;
-  /** 功能 */
-  damFunction?: string | null;
-  /** 坝型 */
-  damType?: string | null;
-  /** 区县 */
-  division?: string | null;
-  /**
-   * 放水设施放水孔孔径（m）
-   * @format double
-   */
-  drainageFacilityBoreDiameter?: number | null;
-  /**
-   * 放水设施进口底高程（m）
-   * @format double
-   */
-  drainageFacilityBottomAltitude?: number | null;
-  /**
-   * 放水设施断面尺寸（m）
-   * @format double
-   */
-  drainageFacilityCrosssection?: number | null;
-  /** 放水设施位置 */
-  drainageFacilityLocation?: string | null;
-  /**
-   * 放水设施最大放水流量（m³/s）
-   * @format double
-   */
-  drainageFacilityMaximumLetdownFlow?: number | null;
-  /** 放水设施结构型式 */
-  drainageFacilityStructure?: string | null;
-  /**
-   * 首次竣工验收时间
-   * @format date-time
-   */
-  firstCompletionTime?: string | null;
-  /**
-   * 首次投入使用时间
-   * @format date-time
-   */
-  firstOperationalTime?: string | null;
-  /**
-   * 首次开工时间
-   * @format date-time
-   */
-  firstStartTime?: string | null;
-  /**
-   * 校核洪水流量
-   * @format double
-   */
-  floodWaterFlow?: number | null;
-  /**
-   * 校核洪水位（m）
-   * @format double
-   */
-  floodWaterLevel?: number | null;
-  /** @format int64 */
-  id?: number;
-  /**
-   * 死库容（万m3）
-   * @format double
-   */
-  invalidCapacity?: number | null;
-  /**
-   * 死水位（m）
-   * @format double
-   */
-  invalidWaterLevel?: number | null;
-  /** 是否竣工验收 */
-  isCompletionAcceptance?: boolean | null;
-  /** 是否饮用水源 */
-  isDrinkingWater?: boolean | null;
-  /** 是否水利系统 */
-  isHydraulic?: boolean | null;
-  /** 注册登记证书是否领取 */
-  isReceiveCertificate?: boolean | null;
-  jjclfaRecordFile?: RecordFile;
-  /**
-   * 紧急处理方案id
-   * @format int64
-   */
-  jjclfaRecordFileId?: number | null;
-  /**
-   * 最近一次除险加固完成时间（年）
-   * @format date-time
-   */
-  latestReinforcementTime?: string | null;
-  /**
-   * 最近一次安全鉴定时间（年）
-   * @format int32
-   */
-  latestSafetyAuthTime?: number | null;
-  /** 所在流域 */
-  localBasin?: string | null;
-  /** 管理单位 */
-  manageOrg?: string | null;
-  /**
-   * 最大坝高（m)
-   * @format double
-   */
-  maxHeight?: number | null;
-  /**
-   * 多年平均径流量
-   * @format double
-   */
-  meanAnnualRunoff?: number | null;
-  /**
-   * 新增和改善灌溉面积（万亩）
-   * @format double
-   */
-  newlrrigationArea?: number | null;
-  /**
-   * 正常库容（万m3)
-   * @format double
-   */
-  normalCapacity?: number | null;
-  /**
-   * 正常蓄水位（m）
-   * @format double
-   */
-  normalWaterLevel?: number | null;
-  /** 工程规模 */
-  projectScale?: string | null;
-  /**
-   * 保护下游人口（万人）
-   * @format double
-   */
-  protectedPopulation?: number | null;
-  /**
-   * 集雨面积 （km2）
-   * @format double
-   */
-  rainArea?: number | null;
-  /** 注册登记号码 */
-  registrationNumber?: string | null;
-  /** 备注 */
-  remark?: string | null;
-  /** 水库类别 */
-  reservoirClass?: string | null;
-  /** 工程概况 */
-  reservoirInfo?: string | null;
-  /** 水库类型 */
-  reservoirType?: string | null;
-  /** 所在河流（湖泊）名称 */
-  river?: string | null;
-  /**
-   * 设计洪水流量
-   * @format double
-   */
-  seasonWaterFlow?: number | null;
-  /**
-   * 汛限水位（m）
-   * @format double
-   */
-  seasonWaterLevel?: number | null;
-  /** 溢洪道消能形式 */
-  spillwayEnergyDissipater?: string | null;
-  /** 溢洪道位置 */
-  spillwayLocation?: string | null;
-  /**
-   * 溢洪道最大下泄流量（m³/s）
-   * @format double
-   */
-  spillwayMaximumLetdownFlow?: number | null;
-  /**
-   * 正常溢洪道数量
-   * @format int32
-   */
-  spillwayNum?: number | null;
-  /**
-   * 溢洪道堰顶高程（m）
-   * @format double
-   */
-  spillwayTopAltitude?: number | null;
-  /**
-   * 溢洪道堰顶宽（m）
-   * @format double
-   */
-  spillwayTopWeight?: number | null;
-  /** 溢洪道型式 */
-  spillwayType?: string | null;
-  /** 测站编码 */
-  stCode?: string | null;
-  /**
-   * 正常水位淹没面积（亩）
-   * @format double
-   */
-  submergedArea?: number | null;
-  /**
-   * 水库id
-   * @format int64
-   */
-  technicsId?: number | null;
-  /**
-   * Desc:水库名称
-   * Default:
-   * Nullable:True
-   */
-  technicsName?: string | null;
-  /**
-   * 坝顶高程（m)
-   * @format double
-   */
-  topAltitude?: number | null;
-  /**
-   * 坝顶长度（m）
-   * @format double
-   */
-  topLength?: number | null;
-  /**
-   * 坝顶宽度（m）
-   * @format double
-   */
-  topWeight?: number | null;
-  /**
-   * 总库容  (万m3)
-   * @format double
-   */
-  totalCapacity?: number | null;
-  tslxRecordFile?: RecordFile;
-  /**
-   * 逃生路线图片id
-   * @format int64
-   */
-  tslxRecordFileId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-  /**
-   * 有效库容（万m3）
-   * @format double
-   */
-  validCapacity?: number | null;
-  /** 乡镇 */
-  village?: string | null;
-  /**
-   * 坝址以上控制流域面积(㎡)
-   * @format double
-   */
-  waterArea?: number | null;
-  /** 工作站名称 */
-  workStationName?: string | null;
-  /**
-   * 年防洪效益
-   * @format double
-   */
-  yearFloodPreventBenefit?: number | null;
-  /**
-   * 年供水效益
-   * @format double
-   */
-  yearWaterSupplyBenefit?: number | null;
-  /**
-   * 年灌溉效益
-   * @format double
-   */
-  yearirrigationBenefit?: number | null;
-}
-
-export interface ReservoirRPNum {
-  /**
-   * 全部落实数量
-   * @format int32
-   */
-  implemented?: number | null;
-  list?: ReservoirRPType[] | null;
-  /** @format int32 */
-  partialImplemented?: number | null;
-  /** @format int32 */
-  unImplemented?: number | null;
-}
-
-export interface ReservoirRPType {
-  /**
-   * 现有责任人
-   * @format int32
-   */
-  num?: number | null;
-  /**
-   * 比率
-   * @format int32
-   */
-  rate?: number | null;
-  /**
-   * 应有责任人
-   * @format int32
-   */
-  total?: number | null;
-  /** 责任人类型 */
-  type?: string | null;
 }
 
 export interface ReservoirRpFO {
@@ -17212,113 +16379,6 @@ export interface ReservoirRpVO {
    * @format int64
    */
   userId?: number;
-}
-
-export interface ReservoirStatus {
-  /**
-   * 死水位水库数
-   * @format int32
-   */
-  invalidReservoir?: number | null;
-  /**
-   * 溢洪水库数
-   * @format int32
-   */
-  overflowReservoir?: number | null;
-}
-
-export interface ReservoirVrPQO {
-  /** 编码 */
-  code?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 初始位置pitch */
-  initPitch?: string | null;
-  /** 初始位置yaw */
-  initYaw?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 水库id
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface ReservoirVrQO {
-  /** 编码 */
-  code?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 初始位置pitch */
-  initPitch?: string | null;
-  /** 初始位置yaw */
-  initYaw?: string | null;
-  /**
-   * 水库id
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
-}
-
-export interface ReservoirVrRemoveMulQO {
-  ids: number[];
-}
-
-export interface ReservoirVrVO {
-  /** 编码 */
-  code?: string | null;
-  /** @format date-time */
-  createdAt?: string | null;
-  createdPerson?: string | null;
-  /** 文件名 */
-  fileName?: string | null;
-  /** 原始文件名 */
-  fileNameOrigin?: string | null;
-  /** 文件路径 */
-  filePath?: string | null;
-  /** @format int64 */
-  id?: number;
-  /** 初始位置pitch */
-  initPitch?: string | null;
-  /** 初始位置yaw */
-  initYaw?: string | null;
-  /**
-   * 水库id
-   * @format int64
-   */
-  technicsId?: number | null;
-  /** 水库名称 */
-  technicsName?: string | null;
-  /** @format date-time */
-  updatedAt?: string | null;
-  updatedPerson?: string | null;
 }
 
 export interface ResourceForm {
@@ -17509,6 +16569,240 @@ export interface ResourceVO {
   updatedPerson?: string | null;
 }
 
+export interface RiverSewageOutfallFO {
+  /** 地址 */
+  address?: string | null;
+  /**
+   * 编码
+   * @minLength 1
+   */
+  code: string;
+  /** 入河方式 */
+  dischargeMethodCode?: string | null;
+  /** 排放方式 */
+  emissionMethodCode?: string | null;
+  /** @format int64 */
+  id?: number | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 主管部门 */
+  manageOrg?: string | null;
+  /** 联系方式 */
+  manageOrgLxfs?: string | null;
+  /**
+   * 名称
+   * @minLength 1
+   */
+  name: string;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 所在河流 */
+  riverCode?: string | null;
+  /** 排口类型 */
+  typeCode?: string | null;
+  /** 乡镇 */
+  villageCode?: string | null;
+  /** 整治情况 */
+  zzqk?: string | null;
+}
+
+export interface RiverSewageOutfallPQO {
+  /** 地址 */
+  address?: string | null;
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 入河方式 */
+  dischargeMethodCode?: string | null;
+  /** 排放方式 */
+  emissionMethodCode?: string | null;
+  /** 排序字段 */
+  field?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否删除 */
+  isDelete?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 主管部门 */
+  manageOrg?: string | null;
+  /** 联系方式 */
+  manageOrgLxfs?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /** 排序方向 */
+  order?: string | null;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number;
+  /**
+   * 当前页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页码容量
+   * @format int32
+   * @min 0
+   * @max 100
+   */
+  pageSize?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** 所在河流 */
+  riverCode?: string | null;
+  /** 排口类型 */
+  typeCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 乡镇 */
+  villageCode?: string | null;
+  /** 整治情况 */
+  zzqk?: string | null;
+}
+
+export interface RiverSewageOutfallQO {
+  /** 地址 */
+  address?: string | null;
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 入河方式 */
+  dischargeMethodCode?: string | null;
+  /** 排放方式 */
+  emissionMethodCode?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否删除 */
+  isDelete?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 主管部门 */
+  manageOrg?: string | null;
+  /** 联系方式 */
+  manageOrgLxfs?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number;
+  /** 备注 */
+  remark?: string | null;
+  /** 所在河流 */
+  riverCode?: string | null;
+  /** 排口类型 */
+  typeCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 乡镇 */
+  villageCode?: string | null;
+  /** 整治情况 */
+  zzqk?: string | null;
+}
+
+export interface RiverSewageOutfallVO {
+  /** 地址 */
+  address?: string | null;
+  /** 编码 */
+  code?: string | null;
+  /** @format date-time */
+  createdAt?: string | null;
+  createdPerson?: string | null;
+  /** 入河方式 */
+  dischargeMethodCode?: string | null;
+  /** 入河方式 */
+  dischargeMethodName?: string | null;
+  /** 排放方式 */
+  emissionMethodCode?: string | null;
+  /** 排放方式 */
+  emissionMethodName?: string | null;
+  /** @format int64 */
+  id?: number;
+  /** 是否删除 */
+  isDelete?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
+  /** 主管部门 */
+  manageOrg?: string | null;
+  /** 联系方式 */
+  manageOrgLxfs?: string | null;
+  /** 名称 */
+  name?: string | null;
+  /**
+   * 排序号
+   * @format int32
+   */
+  orderNumber?: number;
+  /** 排口类别 */
+  outletCategoryName?: string | null;
+  /** 排口类型 */
+  outletTypeName?: string | null;
+  /** 备注 */
+  remark?: string | null;
+  /** 所在河流 */
+  riverCode?: string | null;
+  /** 所属河流 */
+  riverName?: string | null;
+  /** 排口类型 */
+  typeCode?: string | null;
+  /** @format date-time */
+  updatedAt?: string | null;
+  updatedPerson?: string | null;
+  /** 乡镇 */
+  villageCode?: string | null;
+  /** 所属街镇 */
+  villageName?: string | null;
+  /** 整治情况 */
+  zzqk?: string | null;
+}
+
 export interface RoleAssignResourcesQO {
   resourceIds: number[];
   /** @format int64 */
@@ -17582,14 +16876,6 @@ export interface RoleVO {
   updatedPerson?: string | null;
 }
 
-export interface RtPrealarmRecordQO {
-  /**
-   * TechnicsId
-   * @format int64
-   */
-  technicsId: number;
-}
-
 /** 分页泛型集合 */
 export interface SqlSugarPagedListAppVersionVO {
   /** 是否有下一页 */
@@ -17598,66 +16884,6 @@ export interface SqlSugarPagedListAppVersionVO {
   hasPrevPage?: boolean;
   /** 当前页集合 */
   items?: AppVersionVO[] | null;
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBsAlarmPipeLineVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: BsAlarmPipeLineVO[] | null;
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListBsCommunityVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: BsCommunityVO[] | null;
   /**
    * 页码
    * @format int32
@@ -17711,13 +16937,13 @@ export interface SqlSugarPagedListBsCompanyVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListBsOutletVO {
+export interface SqlSugarPagedListBsEventLevelVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: BsOutletVO[] | null;
+  items?: BsEventLevelVO[] | null;
   /**
    * 页码
    * @format int32
@@ -17741,13 +16967,13 @@ export interface SqlSugarPagedListBsOutletVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListBsPipeLineVO {
+export interface SqlSugarPagedListBsEventTypeVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: BsPipeLineVO[] | null;
+  items?: BsEventTypeVO[] | null;
   /**
    * 页码
    * @format int32
@@ -17771,13 +16997,13 @@ export interface SqlSugarPagedListBsPipeLineVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListBsPipePointAlarmParameterVO {
+export interface SqlSugarPagedListBsInformationVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: BsPipePointAlarmParameterVO[] | null;
+  items?: BsInformationVO[] | null;
   /**
    * 页码
    * @format int32
@@ -17801,13 +17027,13 @@ export interface SqlSugarPagedListBsPipePointAlarmParameterVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListBsPipePointAlarmRecordVO {
+export interface SqlSugarPagedListBsNewsVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: BsPipePointAlarmRecordVO[] | null;
+  items?: BsNewsVO[] | null;
   /**
    * 页码
    * @format int32
@@ -17831,13 +17057,13 @@ export interface SqlSugarPagedListBsPipePointAlarmRecordVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListBsPipePointVO {
+export interface SqlSugarPagedListBsOutletCategoryVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: BsPipePointVO[] | null;
+  items?: BsOutletCategoryVO[] | null;
   /**
    * 页码
    * @format int32
@@ -17861,13 +17087,13 @@ export interface SqlSugarPagedListBsPipePointVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListBsPmcVO {
+export interface SqlSugarPagedListBsOutletTypeVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: BsPmcVO[] | null;
+  items?: BsOutletTypeVO[] | null;
   /**
    * 页码
    * @format int32
@@ -17921,13 +17147,43 @@ export interface SqlSugarPagedListBsPollutionPermitInfoVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListBsZoneVO {
+export interface SqlSugarPagedListBsRiverVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: BsZoneVO[] | null;
+  items?: BsRiverVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListBsVillageVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: BsVillageVO[] | null;
   /**
    * 页码
    * @format int32
@@ -17981,13 +17237,13 @@ export interface SqlSugarPagedListDataDictionaryVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListEmergencyPlanVO {
+export interface SqlSugarPagedListEquipmentParamDailyRateVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: EmergencyPlanVO[] | null;
+  items?: EquipmentParamDailyRateVO[] | null;
   /**
    * 页码
    * @format int32
@@ -18071,6 +17327,36 @@ export interface SqlSugarPagedListEquipmentParamHdVO {
 }
 
 /** 分页泛型集合 */
+export interface SqlSugarPagedListEquipmentParamInfoVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EquipmentParamInfoVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
 export interface SqlSugarPagedListEquipmentParamMdVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
@@ -18101,13 +17387,43 @@ export interface SqlSugarPagedListEquipmentParamMdVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListEquipmentParamRainConditionVO {
+export interface SqlSugarPagedListEquipmentParamRdVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: EquipmentParamRainConditionVO[] | null;
+  items?: EquipmentParamRdVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListEquipmentParamStopPeriodVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: EquipmentParamStopPeriodVO[] | null;
   /**
    * 页码
    * @format int32
@@ -18191,13 +17507,13 @@ export interface SqlSugarPagedListEquipmentVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListInspectionIssueSeverityVO {
+export interface SqlSugarPagedListHjCommandRecordVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: InspectionIssueSeverityVO[] | null;
+  items?: HjCommandRecordVO[] | null;
   /**
    * 页码
    * @format int32
@@ -18221,133 +17537,13 @@ export interface SqlSugarPagedListInspectionIssueSeverityVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListInspectionIssueTypeVO {
+export interface SqlSugarPagedListHjmessageLogVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: InspectionIssueTypeVO[] | null;
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListInspectionIssueVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: InspectionIssueVO[] | null;
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListInspectionRecordVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: InspectionRecordVO[] | null;
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListInspectionTaskVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: InspectionTaskVO[] | null;
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListKnowledgeFileVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: KnowledgeFileVO[] | null;
+  items?: HjmessageLogVO[] | null;
   /**
    * 页码
    * @format int32
@@ -18491,6 +17687,96 @@ export interface SqlSugarPagedListMessageVO {
 }
 
 /** 分页泛型集合 */
+export interface SqlSugarPagedListMsgnoticeVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: MsgnoticeVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListMtDataFixLogVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: MtDataFixLogVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListMtEditFlagLogVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: MtEditFlagLogVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
 export interface SqlSugarPagedListOrganizationVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
@@ -18498,6 +17784,186 @@ export interface SqlSugarPagedListOrganizationVO {
   hasPrevPage?: boolean;
   /** 当前页集合 */
   items?: OrganizationVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListOutfallEventHandleVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: OutfallEventHandleVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListOutfallEventInfoVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: OutfallEventInfoVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListOutfallInspectionPlanVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: OutfallInspectionPlanVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListOutfallInspectionRecordVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: OutfallInspectionRecordVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListOutfallInspectionTaskVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: OutfallInspectionTaskVO[] | null;
+  /**
+   * 页码
+   * @format int32
+   */
+  pageIndex?: number;
+  /**
+   * 页容量
+   * @format int32
+   */
+  pageSize?: number;
+  /**
+   * 总条数
+   * @format int32
+   */
+  total?: number;
+  /**
+   * 总页数
+   * @format int32
+   */
+  totalPages?: number;
+}
+
+/** 分页泛型集合 */
+export interface SqlSugarPagedListOutfallInspectionTrackVO {
+  /** 是否有下一页 */
+  hasNextPage?: boolean;
+  /** 是否有上一页 */
+  hasPrevPage?: boolean;
+  /** 当前页集合 */
+  items?: OutfallInspectionTrackVO[] | null;
   /**
    * 页码
    * @format int32
@@ -18551,66 +18017,6 @@ export interface SqlSugarPagedListPrealarmRecordVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListPrealarmRuleVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: PrealarmRuleVO[] | null;
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListProjectTsFileVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: ProjectTsFileVO[] | null;
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
 export interface SqlSugarPagedListRecordFileVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
@@ -18618,96 +18024,6 @@ export interface SqlSugarPagedListRecordFileVO {
   hasPrevPage?: boolean;
   /** 当前页集合 */
   items?: RecordFileVO[] | null;
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListReservoirCapacityVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: ReservoirCapacityVO[] | null;
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListReservoirFlowVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: ReservoirFlowVO[] | null;
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
-export interface SqlSugarPagedListReservoirProjectVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: ReservoirProjectVO[] | null;
   /**
    * 页码
    * @format int32
@@ -18761,36 +18077,6 @@ export interface SqlSugarPagedListReservoirRpVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListReservoirVrVO {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: ReservoirVrVO[] | null;
-  /**
-   * 页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页容量
-   * @format int32
-   */
-  pageSize?: number;
-  /**
-   * 总条数
-   * @format int32
-   */
-  total?: number;
-  /**
-   * 总页数
-   * @format int32
-   */
-  totalPages?: number;
-}
-
-/** 分页泛型集合 */
 export interface SqlSugarPagedListResourceVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
@@ -18821,13 +18107,13 @@ export interface SqlSugarPagedListResourceVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListRoleVO {
+export interface SqlSugarPagedListRiverSewageOutfallVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: RoleVO[] | null;
+  items?: RiverSewageOutfallVO[] | null;
   /**
    * 页码
    * @format int32
@@ -18851,13 +18137,13 @@ export interface SqlSugarPagedListRoleVO {
 }
 
 /** 分页泛型集合 */
-export interface SqlSugarPagedListTaskSourceVO {
+export interface SqlSugarPagedListRoleVO {
   /** 是否有下一页 */
   hasNextPage?: boolean;
   /** 是否有上一页 */
   hasPrevPage?: boolean;
   /** 当前页集合 */
-  items?: TaskSourceVO[] | null;
+  items?: RoleVO[] | null;
   /**
    * 页码
    * @format int32
@@ -19000,298 +18286,70 @@ export interface SqlSugarPagedListUsergroupVO {
   totalPages?: number;
 }
 
-/** 分页泛型集合 */
-export interface SqlSugarPagedListWaterRainfallInformation {
-  /** 是否有下一页 */
-  hasNextPage?: boolean;
-  /** 是否有上一页 */
-  hasPrevPage?: boolean;
-  /** 当前页集合 */
-  items?: WaterRainfallInformation[] | null;
+export interface StateStVO {
   /**
-   * 页码
+   * 报警数量
    * @format int32
    */
-  pageIndex?: number;
+  alarm?: number;
   /**
-   * 页容量
+   * 离线数量
    * @format int32
    */
-  pageSize?: number;
+  offline?: number;
   /**
-   * 总条数
+   * 在线数量
    * @format int32
    */
-  total?: number;
+  online?: number;
   /**
-   * 总页数
+   * 预警数量
    * @format int32
    */
-  totalPages?: number;
+  prealarm?: number;
 }
 
-export type SystemFileVO = object;
-
-export interface TaskDetailVO {
-  /** 任务编号 */
-  code?: string | null;
-  /** 创建时间 */
-  createTime?: string | null;
-  /** 截止时间 */
-  deadline?: string | null;
-  /** 任务描述 */
-  description?: string | null;
-  /** 关联设备列表 */
-  devices?: any[] | null;
-  /**
-   * 领域标识
-   * @format int32
-   */
-  domain?: number;
-  /** 结束时间 */
-  endTime?: string | null;
-  /**
-   * 任务 ID
-   * @format int32
-   */
-  id?: number;
-  /** 操作日志记录 */
-  logs?: LogEntryVO[] | null;
-  /** 任务名称 */
-  name?: string | null;
-  /** 完成百分比 */
-  percent?: string | null;
-  /** 点位统计信息 */
-  pointStatistics?: PointStatisticVO[] | null;
-  /** 相关点位列表 */
-  points?: any[] | null;
-  /** 负责人账号 */
-  principal?: string | null;
-  /** 负责人姓名 */
-  principalName?: string | null;
-  /** 负责人电话 */
-  principalPhone?: string | null;
-  /**
-   * 任务评分
-   * @format double
-   */
-  score?: number;
-  /** 开始时间 */
-  startTime?: string | null;
-  /**
-   * 任务状态
-   * @format int32
-   */
-  status?: number;
-  /** 状态描述 */
-  statusDesc?: string | null;
-  /** 标签列表 */
-  tags?: string[] | null;
-  /**
-   * 任务类型
-   * @format int32
-   */
-  type?: number;
-  /** 任务类型描述 */
-  typeDesc?: string | null;
-  /** 关联单位列表 */
-  units?: any[] | null;
-}
-
-export interface TaskSourceFO {
+export interface TechnicsFO {
+  /** 地址 */
+  address?: string | null;
   /**
    * 编码
    * @minLength 1
    */
   code: string;
   /** @format int64 */
-  id?: number;
+  id?: number | null;
+  /** 是否启用监测 */
+  isMonitor?: boolean | null;
+  /**
+   * 纬度
+   * @format double
+   */
+  latitude?: number | null;
+  /**
+   * 经度
+   * @format double
+   */
+  longitude?: number | null;
   /**
    * 名称
    * @minLength 1
    */
   name: string;
-}
-
-export interface TaskSourcePQO {
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /** 排序字段 */
-  field?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 名称 */
-  name?: string | null;
-  /** 排序方向 */
-  order?: string | null;
-  /**
-   * 当前页码
-   * @format int32
-   */
-  pageIndex?: number;
-  /**
-   * 页码容量
-   * @format int32
-   * @min 0
-   * @max 100
-   */
-  pageSize?: number;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface TaskSourceQO {
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 名称 */
-  name?: string | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface TaskSourceVO {
-  /** 编码 */
-  code?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /**
-   * 主键ID
-   * @format int64
-   */
-  id?: number;
-  /** 名称 */
-  name?: string | null;
-  /**
-   * 更新时间
-   * @format date-time
-   */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-}
-
-export interface TechnicsFO {
-  /** 地址 */
-  address?: string | null;
-  /** 载体 */
-  carrier?: string | null;
-  /** 编号 */
-  code?: string | null;
-  /**
-   * 创建时间
-   * @format date-time
-   */
-  createdAt?: string | null;
-  /** 创建人 */
-  createdPerson?: string | null;
-  /**
-   * 数据时间
-   * @format date-time
-   */
-  dataTime?: string | null;
-  /** 是否有vr */
-  hasVr?: boolean | null;
-  /** @format int64 */
-  id?: number;
-  /** 是否启用监测 */
-  isMonitor?: boolean | null;
-  /** 是否在线 */
-  isOnline?: boolean | null;
-  /** 渗压是否异常 */
-  isOsmoticPressureEx?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
-  /**
-   * 纬度
-   * @format double
-   */
-  latitude?: number | null;
-  /**
-   * 经度
-   * @format double
-   */
-  longitude?: number | null;
-  /** 监测方法 */
-  monitorMethodCode?: string | null;
-  /** 监测状态 */
-  monitorState?: string | null;
-  /** 监测类型编码 */
-  monitorTypeCode?: string | null;
-  /** 监测类型名称 */
-  monitorTypeName?: string | null;
-  /** 名称 */
-  name?: string | null;
   /** 备注 */
   remark?: string | null;
-  /** 风险等级 */
-  riskLevel?: string | null;
-  /** 选择原因 */
-  selectReason?: string | null;
   /**
-   * 更新时间
-   * @format date-time
+   * 所属入河排污口
+   * @format int64
    */
-  updatedAt?: string | null;
-  /** 更新人 */
-  updatedPerson?: string | null;
-  /**
-   * 水情,1:死水位以下;2:防洪限制水位以下;3:正常蓄水位以下;4:校核洪水位以下;5:校核洪水位以上
-   * @format int32
-   */
-  waterLevel?: number | null;
-  /** 地井编号 */
-  wellCode?: string | null;
-  /** 蚁情平台标识 */
-  yiqingObjId?: string | null;
+  riverSewageOutfallId: number;
+  /** 水站类型 */
+  stationTypeCode?: string | null;
 }
 
 export interface TechnicsPQO {
   /** 地址 */
   address?: string | null;
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  beginTime?: string | null;
-  /** 载体 */
-  carrier?: string | null;
   /** 编号 */
   code?: string | null;
   /**
@@ -19301,32 +18359,14 @@ export interface TechnicsPQO {
   createdAt?: string | null;
   /** 创建人 */
   createdPerson?: string | null;
-  /**
-   * 数据时间
-   * @format date-time
-   */
-  dataTime?: string | null;
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  endTime?: string | null;
   /** 排序字段 */
   field?: string | null;
-  /** 是否有vr */
-  hasVr?: boolean | null;
   /** @format int64 */
   id?: number;
-  /** 是否启用 */
-  isEnable?: boolean | null;
+  /** 是否删除 */
+  isDelete?: boolean | null;
   /** 是否启用监测 */
   isMonitor?: boolean | null;
-  /** 是否在线 */
-  isOnline?: boolean | null;
-  /** 渗压是否异常 */
-  isOsmoticPressureEx?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
   /**
    * 纬度
    * @format double
@@ -19337,14 +18377,6 @@ export interface TechnicsPQO {
    * @format double
    */
   longitude?: number | null;
-  /** 监测方法 */
-  monitorMethodCode?: string | null;
-  /** 监测状态 */
-  monitorState?: string | null;
-  /** 监测类型编码 */
-  monitorTypeCode?: string | null;
-  /** 监测类型名称 */
-  monitorTypeName?: string | null;
   /** 名称 */
   name?: string | null;
   /** 排序方向 */
@@ -19363,10 +18395,18 @@ export interface TechnicsPQO {
   pageSize?: number;
   /** 备注 */
   remark?: string | null;
-  /** 风险等级 */
-  riskLevel?: string | null;
-  /** 选择原因 */
-  selectReason?: string | null;
+  /**
+   * 所属入河排污口
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 水站类型 */
+  stationTypeCode?: string | null;
+  /**
+   * 电站id
+   * @format int64
+   */
+  technicsId?: number | null;
   /**
    * 更新时间
    * @format date-time
@@ -19375,26 +18415,15 @@ export interface TechnicsPQO {
   /** 更新人 */
   updatedPerson?: string | null;
   /**
-   * 水情,1:死水位以下;2:防洪限制水位以下;3:正常蓄水位以下;4:校核洪水位以下;5:校核洪水位以上
+   * 水质等级
    * @format int32
    */
-  waterLevel?: number | null;
-  /** 地井编号 */
-  wellCode?: string | null;
-  /** 蚁情平台标识 */
-  yiqingObjId?: string | null;
+  waterLevelValue?: number | null;
 }
 
 export interface TechnicsQO {
   /** 地址 */
   address?: string | null;
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  beginTime?: string | null;
-  /** 载体 */
-  carrier?: string | null;
   /** 编号 */
   code?: string | null;
   /**
@@ -19404,30 +18433,12 @@ export interface TechnicsQO {
   createdAt?: string | null;
   /** 创建人 */
   createdPerson?: string | null;
-  /**
-   * 数据时间
-   * @format date-time
-   */
-  dataTime?: string | null;
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  endTime?: string | null;
-  /** 是否有vr */
-  hasVr?: boolean | null;
   /** @format int64 */
   id?: number;
-  /** 是否启用 */
-  isEnable?: boolean | null;
+  /** 是否删除 */
+  isDelete?: boolean | null;
   /** 是否启用监测 */
   isMonitor?: boolean | null;
-  /** 是否在线 */
-  isOnline?: boolean | null;
-  /** 渗压是否异常 */
-  isOsmoticPressureEx?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
   /**
    * 纬度
    * @format double
@@ -19438,22 +18449,22 @@ export interface TechnicsQO {
    * @format double
    */
   longitude?: number | null;
-  /** 监测方法 */
-  monitorMethodCode?: string | null;
-  /** 监测状态 */
-  monitorState?: string | null;
-  /** 监测类型编码 */
-  monitorTypeCode?: string | null;
-  /** 监测类型名称 */
-  monitorTypeName?: string | null;
   /** 名称 */
   name?: string | null;
   /** 备注 */
   remark?: string | null;
-  /** 风险等级 */
-  riskLevel?: string | null;
-  /** 选择原因 */
-  selectReason?: string | null;
+  /**
+   * 所属入河排污口
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 水站类型 */
+  stationTypeCode?: string | null;
+  /**
+   * 电站id
+   * @format int64
+   */
+  technicsId?: number | null;
   /**
    * 更新时间
    * @format date-time
@@ -19462,21 +18473,15 @@ export interface TechnicsQO {
   /** 更新人 */
   updatedPerson?: string | null;
   /**
-   * 水情,1:死水位以下;2:防洪限制水位以下;3:正常蓄水位以下;4:校核洪水位以下;5:校核洪水位以上
+   * 水质等级
    * @format int32
    */
-  waterLevel?: number | null;
-  /** 地井编号 */
-  wellCode?: string | null;
-  /** 蚁情平台标识 */
-  yiqingObjId?: string | null;
+  waterLevelValue?: number | null;
 }
 
 export interface TechnicsVO {
   /** 地址 */
   address?: string | null;
-  /** 载体 */
-  carrier?: string | null;
   /** 编号 */
   code?: string | null;
   /**
@@ -19486,23 +18491,12 @@ export interface TechnicsVO {
   createdAt?: string | null;
   /** 创建人 */
   createdPerson?: string | null;
-  /**
-   * 数据时间
-   * @format date-time
-   */
-  dataTime?: string | null;
-  /** 是否有vr */
-  hasVr?: boolean | null;
   /** @format int64 */
   id?: number;
+  /** 是否删除 */
+  isDelete?: boolean | null;
   /** 是否启用监测 */
   isMonitor?: boolean | null;
-  /** 是否在线 */
-  isOnline?: boolean | null;
-  /** 渗压是否异常 */
-  isOsmoticPressureEx?: boolean | null;
-  /** 是否预警 */
-  isPrealarm?: boolean | null;
   /**
    * 纬度
    * @format double
@@ -19513,22 +18507,17 @@ export interface TechnicsVO {
    * @format double
    */
   longitude?: number | null;
-  /** 监测方法 */
-  monitorMethodCode?: string | null;
-  /** 监测状态 */
-  monitorState?: string | null;
-  /** 监测类型编码 */
-  monitorTypeCode?: string | null;
-  /** 监测类型名称 */
-  monitorTypeName?: string | null;
   /** 名称 */
   name?: string | null;
   /** 备注 */
   remark?: string | null;
-  /** 风险等级 */
-  riskLevel?: string | null;
-  /** 选择原因 */
-  selectReason?: string | null;
+  /**
+   * 所属入河排污口
+   * @format int64
+   */
+  riverSewageOutfallId?: number | null;
+  /** 水站类型 */
+  stationTypeCode?: string | null;
   /**
    * 更新时间
    * @format date-time
@@ -19536,44 +18525,13 @@ export interface TechnicsVO {
   updatedAt?: string | null;
   /** 更新人 */
   updatedPerson?: string | null;
+  /** 乡镇 */
+  village?: string | null;
   /**
-   * 水情,1:死水位以下;2:防洪限制水位以下;3:正常蓄水位以下;4:校核洪水位以下;5:校核洪水位以上
+   * 水质等级
    * @format int32
    */
-  waterLevel?: number | null;
-  /** 地井编号 */
-  wellCode?: string | null;
-  /** 蚁情平台标识 */
-  yiqingObjId?: string | null;
-}
-
-export interface TimeAndIdQO {
-  /**
-   * 结束时间
-   * @format date-time
-   */
-  endTime?: string | null;
-  /** @format int64 */
-  id?: number | null;
-  /**
-   * 开始时间
-   * @format date-time
-   */
-  startTime?: string | null;
-}
-
-/** 轨迹上报表单 */
-export interface TrackReportFO {
-  /**
-   * 新增的坐标点数组JSON
-   * @minLength 1
-   */
-  newPoints: string;
-  /**
-   * 巡查记录ID
-   * @format int64
-   */
-  recordId: number;
+  waterLevelValue?: number | null;
 }
 
 export interface TreeNode {
@@ -19583,23 +18541,10 @@ export interface TreeNode {
   name?: string | null;
 }
 
-export interface TreeNodeKf {
-  children?: TreeNodeKf[] | null;
+export interface UserAssignOutfallQO {
+  outfallIds: number[];
   /** @format int64 */
-  id?: number;
-  name?: string | null;
-  type?: string | null;
-}
-
-export interface TsLastPrealarmRecordQO {
-  /** TechnicsIdList */
-  technicsIdList?: number[] | null;
-}
-
-export interface UpdateRpsQO {
-  /** @format int64 */
-  prealarmRuleId: number;
-  rps?: number[] | null;
+  userId: number;
 }
 
 export interface UserAssignRolesQO {
@@ -20215,97 +19160,4 @@ export interface UsergroupVO {
   updatedAt?: string | null;
   /** 更新人 */
   updatedPerson?: string | null;
-}
-
-export interface WaterRainfallEigenvalue {
-  /** 数据时间。 */
-  dataTime?: string | null;
-  /**
-   * 最新降雨量。
-   * @format double
-   */
-  latestRainLevel?: number | null;
-  /**
-   * 最新库容。
-   * @format double
-   */
-  latestWaterCapacity?: number | null;
-  /**
-   * 最新水位。
-   * @format double
-   */
-  latestWaterLevel?: number | null;
-  /**
-   * 降雨量范围。
-   * @format double
-   */
-  rainLevelRange?: number | null;
-  /**
-   * 最高降雨量。
-   * @format double
-   */
-  rainMaxLevel?: number | null;
-  /**
-   * 最低降雨量。
-   * @format double
-   */
-  rainMinLevel?: number | null;
-  /** @format int64 */
-  technicsId?: number;
-  /** 水库名称。 */
-  technicsName?: string | null;
-  /**
-   * 库容范围。
-   * @format double
-   */
-  waterCapacityRange?: number | null;
-  /**
-   * 水位范围。
-   * @format double
-   */
-  waterLevelRange?: number | null;
-  /**
-   * 最高库容。
-   * @format double
-   */
-  waterMaxCapacity?: number | null;
-  /**
-   * 最高水位。
-   * @format double
-   */
-  waterMaxLevel?: number | null;
-  /**
-   * 最低库容。
-   * @format double
-   */
-  waterMinCapacity?: number | null;
-  /**
-   * 最低水位。
-   * @format double
-   */
-  waterMinLevel?: number | null;
-}
-
-export interface WaterRainfallInformation {
-  /** 数据时间 */
-  dataTime?: string | null;
-  /**
-   * 降雨量（mm）
-   * @format double
-   */
-  rainLevel?: number | null;
-  /** 水库名称 */
-  technicsName?: string | null;
-  /** 乡镇 */
-  village?: string | null;
-  /**
-   * 水位（m）
-   * @format double
-   */
-  waterAvgLevel?: number | null;
-  /**
-   * 库容（万m³）
-   * @format double
-   */
-  waterCapacity?: number | null;
 }
