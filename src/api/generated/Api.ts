@@ -132,6 +132,7 @@ import {
   ApiEquipmentParamDdExportExcelPostData,
   ApiEquipmentParamDdFixDataPostData,
   ApiEquipmentParamDdGroupByDayAndFactorPostData,
+  ApiEquipmentParamDdGroupByDayPostData,
   ApiEquipmentParamDdGroupByMonthAndFactorPostData,
   ApiEquipmentParamDdGroupByYearAndFactorPostData,
   ApiEquipmentParamDdListPostData,
@@ -350,6 +351,7 @@ import {
   ApiRiverSewageOutfallMpstPostData,
   ApiRiverSewageOutfallPagedListPostData,
   ApiRiverSewageOutfallRemovePostData,
+  ApiRiverSewageOutfallRiverwqRankPostData,
   ApiRiverSewageOutfallShowPostData,
   ApiRiverSewageOutfallStbyCategoryPostData,
   ApiRiverSewageOutfallStbyRiverPostData,
@@ -2931,6 +2933,28 @@ export class Api<SecurityDataType = unknown> {
   ) =>
     this.http.request<ApiEquipmentParamDdGroupByDayAndFactorPostData, any>({
       path: `/api/equipment-param-dd/group-by-day-and-factor`,
+      method: "POST",
+      body: data,
+      secure: true,
+      type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags equipment-param-dd
+   * @name ApiEquipmentParamDdGroupByDayPost
+   * @summary 按日统计
+   * @request POST:/api/equipment-param-dd/group-by-day
+   * @secure
+   */
+  apiEquipmentParamDdGroupByDayPost = (
+    data: EpdStQO,
+    params: RequestParams = {},
+  ) =>
+    this.http.request<ApiEquipmentParamDdGroupByDayPostData, any>({
+      path: `/api/equipment-param-dd/group-by-day`,
       method: "POST",
       body: data,
       secure: true,
@@ -7553,6 +7577,23 @@ export class Api<SecurityDataType = unknown> {
       body: data,
       secure: true,
       type: ContentType.Json,
+      format: "json",
+      ...params,
+    });
+  /**
+   * No description
+   *
+   * @tags river-sewage-outfall
+   * @name ApiRiverSewageOutfallRiverwqRankPost
+   * @summary 河流水质排名
+   * @request POST:/api/river-sewage-outfall/riverwq-rank
+   * @secure
+   */
+  apiRiverSewageOutfallRiverwqRankPost = (params: RequestParams = {}) =>
+    this.http.request<ApiRiverSewageOutfallRiverwqRankPostData, any>({
+      path: `/api/river-sewage-outfall/riverwq-rank`,
+      method: "POST",
+      secure: true,
       format: "json",
       ...params,
     });

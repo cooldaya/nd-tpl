@@ -18,8 +18,8 @@ const captchaElRef = useTemplateRef<typeof ArithmeticCaptcha>('captchaElRef')
 
 const refData = reactive({
   form: {
-    username: '',
-    password: '',
+    username: 'administrator',
+    password: 'Ceashj888!',
     valicode: '',
     rememberAccount: true,
   },

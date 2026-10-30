@@ -342,6 +342,9 @@ export type ApiEquipmentParamDdFixDataPostData = FurionResultMtDataFixLog;
 export type ApiEquipmentParamDdGroupByDayAndFactorPostData =
   FurionResultListEpStDataStVO;
 
+export type ApiEquipmentParamDdGroupByDayPostData =
+  FurionResultListEpStDataStVO;
+
 export type ApiEquipmentParamDdGroupByMonthAndFactorPostData =
   FurionResultListEpStDataStVO;
 
@@ -863,6 +866,9 @@ export type ApiRiverSewageOutfallPagedListPostData =
   FurionResultSqlSugarPagedListRiverSewageOutfallVO;
 
 export type ApiRiverSewageOutfallRemovePostData = FurionResultInt64;
+
+export type ApiRiverSewageOutfallRiverwqRankPostData =
+  FurionResultListLabelValue;
 
 export type ApiRiverSewageOutfallShowPostData =
   FurionResultRiverSewageOutfallVO;
@@ -16790,6 +16796,13 @@ export interface RiverSewageOutfallVO {
   riverCode?: string | null;
   /** 所属河流 */
   riverName?: string | null;
+  /**
+   * 监测点id
+   * @format int64
+   */
+  readonly technicsId?: number | null;
+  /** 监测点名称 */
+  readonly technicsName?: string | null;
   /** 排口类型 */
   typeCode?: string | null;
   /** @format date-time */
