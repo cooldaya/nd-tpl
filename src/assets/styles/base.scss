@@ -30,3 +30,42 @@ $menu-alignments: (
   // margin-left: 0 !important;
   display: none; /* 彻底移除空标签占位 */
 }
+
+// 后台列表页：crud 表格高度默认撑满卡片剩余空间
+.pro-card:has(> .pro-card__body > .pro-crud) {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  > .pro-card__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+  }
+}
+
+.pro-crud {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+
+  // 搜索表单、操作栏保持自身高度，不参与压缩
+  > .pro-search,
+  > .pro-crud-menu {
+    flex: none;
+  }
+
+  > .pro-table {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+
+    > .el-table {
+      flex: 1;
+      min-height: 0;
+    }
+  }
+}

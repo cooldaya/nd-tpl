@@ -179,7 +179,7 @@ const createCrudData1 = () => {
     currentPage: paginationRefData.current,
     pageSize: paginationRefData.pageSize,
     total: paginationRefData.total,
-    height: 460,
+    height: '100%',
     layout: '->, prev, pager, next, sizes, total',
     showOverflowTooltip: true,
     stripe: true,

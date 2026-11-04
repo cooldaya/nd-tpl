@@ -346,7 +346,7 @@ const createCrudData = (crudOption: CrudOption | undefined = {}) => {
     layout: '->, prev, pager, next, sizes, total',
     background: true,
     gutter: 20,
-    height: 460,
+    height: '100%',
     showOverflowTooltip: true,
     stripe: true,
   }))
